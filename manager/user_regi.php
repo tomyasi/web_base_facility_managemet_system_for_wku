@@ -266,10 +266,20 @@ if (isset($_POST["send"])) {
     $subcity = mysqli_real_escape_string($con, $_POST["address"]);
     $status = mysqli_real_escape_string($con, $_POST["status"]);
 
-    $qur = "INSERT INTO user(id,user_id,fname,mname,lname,gender,age,gmail,phone,nationality,address,status) 
-    values (NULL,NULL,'$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$address',$status)";
-    $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
-    if ($res) {
+    $sql = "SELECT * FROM user WHERE gmail=$email";
+    $emacheck = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($emacheck);
+    if ($count > 0) {
+        $qur = "INSERT INTO user(id,user_id,fname,mname,lname,gender,age,gmail,phone,nationality,subcity,status) 
+    values (NULL,NULL,'$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity',$status)";
+        $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
+        $last_id = mysqli_insert_id($con);
+        // if ($last_id) {
+        //     $code = rand(1, 9999);
+        //     $id_genreted = "USER_" . $code . "_" . $last_id;
+        //     $query = "UPDATE user SET emp_id='" . $id_genreted . "' WHERE id='" . $last_id . "'";
+        // }
+        if ($res) {
 ?>
 <script type="text/javascript">
 document.getElementById("error").style.display = "none";
@@ -280,14 +290,16 @@ setTimeout(function() {
 }, 3000);
 </script>
 <?php
-    } else {
-    ?>
+        } else {
+        ?>
 <script type="text/javascript">
 document.getElementById("success").style.display = "none";
 document.getElementById("error").style.display = "block";
 </script>
 <?php
+        }
     }
+} else {
 }
 mysqli_close($con);
 include("footer.php");
