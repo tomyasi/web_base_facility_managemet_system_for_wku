@@ -16,14 +16,14 @@ include("../connection.php");
 <body onload="print()">
     <div>
         <h1>
-            <center><b>User Information</b></center>
+            <center><b>Employees Information</b></center>
         </h1>
     </div>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>#</th>
-                <th>User_id</th>
+                <th>Emp_id</th>
                 <th>Firet name</th>
                 <th>Middel name</th>
                 <th>Last name</th>
@@ -32,44 +32,40 @@ include("../connection.php");
                 <th>Gmail</th>
                 <th>Phone</th>
                 <th>Nationality</th>
-                <th>Subcity</th>
-                <th>Status</th>
+                <th>Address/Subcity</th>
+                <th>Salary</th>
+                <th>Jop Position</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $result = mysqli_query($con, "select *from user;");
+            $result = mysqli_query($con, "select *from employee;");
             $no = 1;
             while ($row = mysqli_fetch_array($result)) {
             ?>
-                <tr>
-                    <td><?php echo $no; ?></td>
-                    <td><?php echo $row["user_id"]; ?></td>
-                    <td><?php echo $row["fname"]; ?></td>
-                    <td><?php echo $row["mname"]; ?></td>
-                    <td><?php echo $row["lname"]; ?></td>
-                    <td><?php
+            <tr>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $row["emp_id"]; ?></td>
+                <td><?php echo $row["fname"]; ?></td>
+                <td><?php echo $row["mname"]; ?></td>
+                <td><?php echo $row["lname"]; ?></td>
+                <td><?php
                         if ($row["gender"] == "m") {
                             echo "Male";
                         } else {
                             echo "Female";
                         }
                         ?>
-                    </td>
-                    <td><?php echo $row["age"]; ?></td>
-                    <td><?php echo $row["gmail"]; ?></td>
-                    <td><?php echo $row["phone"]; ?></td>
-                    <td><?php echo $row["nationality"]; ?></td>
-                    <td><?php echo $row["subcity"]; ?></td>
-                    <td> <?php
-                            if ($row["status"] == "1") {
-                                echo "Active";
-                            } else {
-                                echo "Deactive";
-                            }
-                            ?>
-                    </td>
-                </tr>
+                </td>
+                <td><?php echo $row["age"]; ?></td>
+                <td><?php echo $row["gmail"]; ?></td>
+                <td><?php echo $row["phone"]; ?></td>
+                <td><?php echo $row["nationality"]; ?></td>
+                <td><?php echo $row["address"]; ?></td>
+                <td><?php echo $row["salary"]; ?></td>
+                <td><?php echo $row["jop_position"]; ?></td>
+
+            </tr>
             <?php
                 $no++;
             }

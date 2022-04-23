@@ -22,6 +22,7 @@ include("../connection.php")
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Emp_id</th>
                                     <th>Firet name</th>
                                     <th>Middel name</th>
@@ -40,9 +41,11 @@ include("../connection.php")
                             <tbody>
                                 <?php
                                 $result = mysqli_query($con, "select *from employee;");
+                                $no = 1;
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
                                 <tr>
+                                    <td><?php echo $no; ?></td>
                                     <td><?php echo $row["emp_id"]; ?></td>
                                     <td><?php echo $row["fname"]; ?></td>
                                     <td><?php echo $row["mname"]; ?></td>
@@ -66,18 +69,19 @@ include("../connection.php")
                                         <?php
                                             if ($row["status"] == "1") {
                                             ?>
-                                        <a href="user_edite.php?id=<?php echo $row['id'] ?>" class="btn btn-success"
-                                            style="border-radius:10px">Active</a>
+                                        <a href="employee_status_edite.php?id=<?php echo $row['id'] ?>"
+                                            class="btn btn-success" style="border-radius:10px">Active</a>
                                         <?php
                                             } else { ?>
-                                        <a href="user_edite.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"
-                                            style="border-radius:10px">Inactive</a>
+                                        <a href="employee_status_edite.php?id=<?php echo $row['id'] ?>"
+                                            class="btn btn-danger" style="border-radius:10px">Deactive</a>
                                         <?php
                                             }
                                             ?>
                                     </td>
                                 </tr>
                                 <?php
+                                    $no++;
                                 }
                                 ?>
                             </tbody>

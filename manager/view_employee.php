@@ -13,6 +13,9 @@ include("../connection.php")
     <div class="container-fluid">
         <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
             <div class="span12">
+
+                <a href="print_emp_info.php" class="btn btn-primary" style="border-radius:10px">PRINT</a>
+
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>Employee View Form</h5>
