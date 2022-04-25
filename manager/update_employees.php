@@ -6,16 +6,19 @@ include("../connection.php")
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="view_employee.php" title="Go to User View Employees" class="tip-bottom">
-                <i class="icon icon-envelope"></i>View Employees
-            </a></div>
+        <div id="breadcrumb">
+            <a href="#"><i class="icon icon-th-list" title="Go to User Manage"></i> <span>Manage User</span></a>
+            <a href="updat_users.php" title="Go to Update Users page" class="tip-bottom"><i class="icon-pencil"></i>User
+                Update
+            </a>
+        </div>
     </div>
     <div class="container-fluid">
         <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                        <h5>Employee Status</h5>
+                        <h5>User Update Form</h5>
                     </div>
                     <!-- employee view inteble form  -->
                     <div class="widget-content nopadding">
@@ -24,7 +27,7 @@ include("../connection.php")
                                 <tr>
                                     <th>#</th>
                                     <th>Emp_id</th>
-                                    <th>First name</th>
+                                    <th>Firet name</th>
                                     <th>Middel name</th>
                                     <th>Last name</th>
                                     <th>sex</th>
@@ -36,6 +39,7 @@ include("../connection.php")
                                     <th>Salary</th>
                                     <th>Jop Position</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,20 +69,18 @@ include("../connection.php")
                                     <td><?php echo $row["address"]; ?></td>
                                     <td><?php echo $row["salary"]; ?></td>
                                     <td><?php echo $row["jop_position"]; ?></td>
-                                    <td>
-                                        <?php
-                                            if ($row["status"] == "1") {
-                                            ?>
-                                        <a href="employee_status_edite.php?id=<?php echo $row['id'] ?>"
-                                            class="btn btn-success" style="border-radius:10px">Active</a>
-                                        <?php
-                                            } else { ?>
-                                        <a href="employee_status_edite.php?id=<?php echo $row['id'] ?>"
-                                            class="btn btn-danger" style="border-radius:10px">Deactive</a>
-                                        <?php
-                                            }
-                                            ?>
+                                    <td> <?php
+                                                if ($row["status"] == "1") {
+                                                    echo "Active";
+                                                } else {
+                                                    echo "Deactive";
+                                                }
+                                                ?>
                                     </td>
+                                    <td><a href="employee_edite.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"
+                                            style="border-radius:13px"><i class="icon-pencil"></i>
+                                            Edite</a></td>
+
                                 </tr>
                                 <?php
                                     $no++;

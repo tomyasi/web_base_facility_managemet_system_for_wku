@@ -2,9 +2,9 @@
 include("header.php");
 include("../connection.php");
 $id = $_GET['id'];
-$sql = "select *from user where id=$id";
+$sql = "select *from employee where id=$id";
 $query = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
-$id = $fname = $mname = $lname = $gnder = $age = $gmail = $phone = $nationality = $address = "";
+$id = $fname = $mname = $lname = $gnder = $age = $gmail = $phone = $nationality = $address = $salary = $jop = "";
 while ($row = mysqli_fetch_array($query)) {
     $id = $row["id"];
     $fname = $row["fname"];
@@ -15,8 +15,10 @@ while ($row = mysqli_fetch_array($query)) {
     $gmail = $row["gmail"];
     $phone = $row["phone"];
     $nationality = $row["nationality"];
-    $address = $row["subcity"];
+    $address = $row["address"];
     $status = $row["status"];
+    $salary = $row["salary"];
+    $jop = $row["jop_position"];
 }
 ?>
 <!--main-container-part-->
@@ -25,10 +27,10 @@ while ($row = mysqli_fetch_array($query)) {
     <div id="content-header">
         <div id="breadcrumb">
             <a href="#"><i class="icon icon-th-list"></i> <span>Manage User</span></a>
-            <a href="update_users.php" title="Go to User update" class="tip-bottom"><i class="icon-pencil"></i> Update
-                Users</a>
-            <a href="user_edite.php" title="Go to User update form" class="tip-bottom">
-                User Update form</a>
+            <a href="update_employees.php" title="Go to Employee update page" class="tip-bottom"><i
+                    class="icon-pencil"></i> Update Users</a>
+            <a href="employee_edite.php" title="Go to Employee update form" class="tip-bottom">
+                Employee Update form</a>
         </div>
     </div>
     <!--End-breadcrumbs-->
@@ -39,7 +41,7 @@ while ($row = mysqli_fetch_array($query)) {
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                        <h5>User Edite Form</h5>
+                        <h5>Employee Edite Form</h5>
                     </div>
                     <!-- user edite in table form  -->
                     <div class="widget-content nopadding">
@@ -126,6 +128,39 @@ while ($row = mysqli_fetch_array($query)) {
                                 </div>
                             </div>
                             <div class="control-group">
+                                <label class="control-label"><strong>Salary :</strong></label>
+                                <div class="controls">
+                                    <input type="text" id="salary" class="span11" name="salary"
+                                        value="<?php echo $salary; ?>" required style="border-radius: 13px;" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"><strong>Job position :</strong></label>
+                                <div class="controls">
+                                    <select id="f" class="span11" name="jop" required style="border-radius: 13px;">
+                                        <option value="admin" <?php if ($jop == "admin") {
+                                                                    echo "selected";
+                                                                } ?>>Admin</option>
+                                        <option value="manager" <?php if ($jop == "manager") {
+                                                                    echo "selected";
+                                                                } ?>>Manager</option>
+                                        <option value="technitian" <?php if ($jop == "technitian") {
+                                                                        echo "selected";
+                                                                    } ?>>Technitian</option>
+                                        <option value="storekpeer" <?php if ($jop == "storekpeer") {
+                                                                        echo "selected";
+                                                                    } ?>>Storekpeer</option>
+                                        <option value="security" <?php if ($jop == "security") {
+                                                                        echo "selected";
+                                                                    } ?>>Security</option>
+                                        <option value="clealiness" <?php if ($jop == "clealiss") {
+                                                                        echo "selected";
+                                                                    } ?>>Clealiness</option>
+                                        <option>Special Services</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 <label class="control-label"><strong>Status :</strong></label>
                                 <div class="controls">
                                     <select class="span11" name="status" required style="border-radius: 13px;">
@@ -143,7 +178,6 @@ while ($row = mysqli_fetch_array($query)) {
                                     <strong>Same thing error,please triy agian.</strong>
                                 </center>
                             </div>
-
                             <div class="form-actions">
                                 <center>
                                     <button type="submit" name="send" class="btn btn-success"
@@ -151,7 +185,6 @@ while ($row = mysqli_fetch_array($query)) {
                                             Update</strong></button>
                                 </center>
                             </div>
-
                             <div class="alert alert-success" id="success" style="display:none;">
                                 <center>
                                     <strong>The Updated successfully.</strong>
@@ -167,11 +200,12 @@ while ($row = mysqli_fetch_array($query)) {
 <?php
 if (isset($_POST["send"])) {
 
-    $sql1 = "UPDATE user set 
+    $sql1 = "UPDATE employee set 
      fname='$_POST[fname]',mname='$_POST[mname]',lname='$_POST[lname]',
      gender='$_POST[gender]',age='$_POST[age]',gmail='$_POST[email]',
      phone='$_POST[phone]',nationality='$_POST[nationality]',
-     subcity='$_POST[address]',status='$_POST[status]' WHERE id=$id";
+     address='$_POST[address]',status='$_POST[status]',
+     salary='$_POST[salary]',jop_position='$_POST[jop]' WHERE id=$id";
     $result = mysqli_query($con, $sql1) or die("Error occured" . mysqli_error($con));
     if ($result) {
 ?>
@@ -179,7 +213,7 @@ if (isset($_POST["send"])) {
 document.getElementById("success").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location = "update_users.php";
+    window.location = "update_employees.php";
 }, 3000);
 </script>
 <?php

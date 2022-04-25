@@ -1,7 +1,9 @@
 <?php
 include("header.php");
-include("../connection.php")
+include("../connection.php");
+
 ?>
+<!-- ***************************** -->
 <!--main-container-part-->
 <div id="content">
     <!--breadcrumbs-->
@@ -23,30 +25,34 @@ include("../connection.php")
                         <h5>User Registration Form</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form name="formsend" action="user_regi.php" method="POST" class="form-horizontal">
+                        <form name="formsend" action="user_regi.php" method="POST" class="form-horizontal"
+                            onsubmit='return formValidation()'>
                             <div class="control-group">
                                 <label class="control-label"><strong>First Name :</strong></label>
                                 <div class="controls">
                                     <input type="text" id="fname" class="span11" placeholder="First name" name="fname"
-                                        required />
+                                        required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong> Middel Name :</strong></label>
                                 <div class="controls">
-                                    <input type="text" class="span11" placeholder="Middel name" name="mname" required />
+                                    <input type="text" id="mname" class="span11" placeholder="Middel name" name="mname"
+                                        required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong> Last Name :</strong></label>
                                 <div class="controls">
-                                    <input type="text" class="span11" placeholder="Last Name" name="lname" required />
+                                    <input type="text" id="lname" class="span11" placeholder="Last Name" name="lname"
+                                        required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Gender :</strong></label>
                                 <div class="controls">
-                                    <select class="span11" name="gender" required>
+                                    <select id="gender" class="span11" name="gender" required
+                                        style="border-radius: 13px;">
                                         <option value="">Select gender...</option>
                                         <option value="M">Male</option>
                                         <option value="F">Female</option>
@@ -54,21 +60,17 @@ include("../connection.php")
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"><strong> Age :</strong></label>
+                                <label class="control-label"><strong>Age :</strong></label>
                                 <div class="controls">
-                                    <select class="span11" name="age" required>
-                                        <option value="">Select age...</option>
-                                        <?php for ($i = 20; $i <= 50; $i++) : ?>
-                                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                        <?php endfor; ?>
-                                    </select>
+                                    <input type="number" id="age" class="span11" placeholder="Enter age" name="age"
+                                        required min="20" max="70" style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Email :</strong></label>
                                 <div class="controls">
                                     <input type="email" id="email" class="span11" placeholder="Optional...."
-                                        name="email" />
+                                        name="email" style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
@@ -76,7 +78,7 @@ include("../connection.php")
                                 <div class="controls">
                                     <div class="input-prepend"> <span class="add-on">+251 </span>
                                         <input id="phone" type="text" placeholder="999 999 999" class="span11"
-                                            name="phone" required>
+                                            name="phone" required style="border-radius: 13px;">
                                     </div>
                                 </div>
                             </div>
@@ -84,20 +86,21 @@ include("../connection.php")
                                 <label class="control-label"><strong>Nationality :</strong></label>
                                 <div class="controls">
                                     <input type="text" id="nationality" class="span11" placeholder="Enter nationality"
-                                        name="nationality" required />
+                                        name="nationality" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Address :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="subcity" class="span11" placeholder="Enter address"
-                                        name="address" required />
+                                    <input type="text" id="address" class="span11" placeholder="Enter address"
+                                        name="address" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Status :</strong></label>
                                 <div class="controls">
-                                    <select class="span11" name="status" required>
+                                    <select id="status" class="span11" name="status" required
+                                        style="border-radius: 13px;">
                                         <option value="">Select status...</option>
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>
@@ -112,10 +115,9 @@ include("../connection.php")
 
                             <div class="form-actions">
                                 <center>
-                                    <button type="submit" name="send" class="btn btn-success"
-                                        style="border-radius:10px"><strong>
+                                    <button id="form" type="submit" name="send" class="btn btn-success"
+                                        style="border-radius: 13px;"><strong>
                                             Register</strong></button>
-
                                 </center>
                             </div>
                             <div class="alert alert-success" id="success" style="display:none;">
@@ -123,7 +125,7 @@ include("../connection.php")
                                     <strong>The register successfully.</strong>
                                 </center>
                             </div>
-                            <!-- <script type='text/javascript'>
+                            <script type='text/javascript'>
                             function formValidation() {
                                 //assign the fields
                                 var firstname = document.getElementById('fname');
@@ -244,7 +246,7 @@ include("../connection.php")
                                     return false;
                                 }
                             }
-                            </script> -->
+                            </script>
                         </form>
                     </div>
                 </div>
@@ -254,7 +256,7 @@ include("../connection.php")
 </div>
 <?php
 if (isset($_POST["send"])) {
-
+    // input form form
     $fname = mysqli_real_escape_string($con, $_POST["fname"]);
     $lname = mysqli_real_escape_string($con, $_POST["lname"]);
     $mname = mysqli_real_escape_string($con, $_POST["mname"]);
@@ -265,21 +267,21 @@ if (isset($_POST["send"])) {
     $nationality = mysqli_real_escape_string($con, $_POST["nationality"]);
     $subcity = mysqli_real_escape_string($con, $_POST["address"]);
     $status = mysqli_real_escape_string($con, $_POST["status"]);
-
-    $sql = "SELECT * FROM user WHERE gmail=$email";
-    $emacheck = mysqli_query($con, $sql);
-    $count = mysqli_num_rows($emacheck);
-    if ($count > 0) {
-        $qur = "INSERT INTO user(id,user_id,fname,mname,lname,gender,age,gmail,phone,nationality,subcity,status) 
-    values (NULL,NULL,'$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity',$status)";
-        $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
-        $last_id = mysqli_insert_id($con);
-        // if ($last_id) {
-        //     $code = rand(1, 9999);
-        //     $id_genreted = "USER_" . $code . "_" . $last_id;
-        //     $query = "UPDATE user SET emp_id='" . $id_genreted . "' WHERE id='" . $last_id . "'";
-        // }
-        if ($res) {
+    // validation start
+    // if (!preg_match("/^[a-zA-Z ]+$/", $name)) {
+    //     $name_error = "The forst name must contain only alphabets and space";
+    // }
+    // validation end
+    $qur = "INSERT INTO user(id,user_id,fname,mname,lname,gender,age,gmail,phone,nationality,subcity,status) 
+        values (NULL,NULL,'$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity',$status)";
+    $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
+    $last_id = mysqli_insert_id($con);
+    if ($last_id) {
+        $code = rand(1, 9999);
+        $id_genreted = "USER_" . $code . "_" . $last_id;
+        $query = "UPDATE user SET user_id='" . $id_genreted . "' WHERE id='" . $last_id . "'";
+    }
+    if ($res) {
 ?>
 <script type="text/javascript">
 document.getElementById("error").style.display = "none";
@@ -290,17 +292,16 @@ setTimeout(function() {
 }, 3000);
 </script>
 <?php
-        } else {
-        ?>
+    } else {
+    ?>
 <script type="text/javascript">
 document.getElementById("success").style.display = "none";
 document.getElementById("error").style.display = "block";
 </script>
 <?php
-        }
     }
-} else {
 }
+
 mysqli_close($con);
 include("footer.php");
 ?>

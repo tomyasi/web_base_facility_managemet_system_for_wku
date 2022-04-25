@@ -30,7 +30,7 @@ include("../connection.php")
                                 <tr>
                                     <th>#</th>
                                     <th>User_id</th>
-                                    <th>Firet name</th>
+                                    <th>First name</th>
                                     <th>Middel name</th>
                                     <th>Last name</th>
                                     <th>sex</th>
@@ -40,7 +40,6 @@ include("../connection.php")
                                     <th>Nationality</th>
                                     <th>Subcity</th>
                                     <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -75,10 +74,6 @@ include("../connection.php")
                                                     echo "Deactive";
                                                 }
                                                 ?>
-                                    </td>
-                                    <td><a href="detail_account.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"
-                                            style="border-radius:10px"><i class="icon-eye-open"></i>
-                                            Detail</a>
                                     </td>
                                 </tr>
                                 <?php

@@ -62,7 +62,7 @@ $row = mysqli_fetch_array($u_name);
                 <ul>
                     <li class="active"><a href="employee_regi.php"><i class="icon-user"></i> Employee Registeration</a>
                     </li>
-                    <li><a href="home.php"><i class="icon-user"></i> Employee Update </a></li>
+                    <li><a href="update_employees.php"><i class="icon-user"></i> Employee Update </a></li>
                     <li><a href="employee_status.php"><i class="icon-user"></i>Employee status</a></li>
                     <li><a href="view_employee.php"><i class="icon-eye-open"></i>View Employee</a></li>
                 </ul>

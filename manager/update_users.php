@@ -8,7 +8,7 @@ include("../connection.php")
     <div id="content-header">
         <div id="breadcrumb">
             <a href="#"><i class="icon icon-th-list" title="Go to User Manage"></i> <span>Manage User</span></a>
-            <a href="updat_user.php" title="Go to Update Users page" class="tip-bottom"><i class="icon-pencil"></i>User
+            <a href="updat_users.php" title="Go to Update Users page" class="tip-bottom"><i class="icon-pencil"></i>User
                 Update
             </a>
         </div>
@@ -27,7 +27,7 @@ include("../connection.php")
                                 <tr>
                                     <th>#</th>
                                     <th>User_id</th>
-                                    <th>Firet name</th>
+                                    <th>First name</th>
                                     <th>Middel name</th>
                                     <th>Last name</th>
                                     <th>sex</th>
@@ -74,7 +74,7 @@ include("../connection.php")
                                                 ?>
                                     </td>
                                     <td><a href="user_edite.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"
-                                            style="border-radius:10px"><i class="icon-pencil"></i>
+                                            style="border-radius:13px"><i class="icon-pencil"></i>
                                             Edite</a></td>
                                 </tr>
                                 <?php
