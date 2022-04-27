@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($u_name);
     <link rel="stylesheet" href="../bootstrap/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="../bootstrap/css/jquery.gritter.css" />
 
-    <link href="../images/wkulogo7.png" rel="icon">
+    <link href="../assets/img/wku im3.jpg" rel="icon">
 
     <link rel="stylesheet" href="../boot/all.min.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
@@ -32,14 +32,16 @@ $row = mysqli_fetch_array($u_name);
             <a href="home.php" style="color:white; margin-left: 30px; margin-top: 40px">WKUFMS</a>
         </h2>
         <h2 style="color: white;">
-            <center>Admin Page</center>
+            <center>Employee Page</center>
         </h2>
     </div>
     <!--top-Header-menu-->
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
-                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text"><?php echo "$row[fname] $row[lname]" ?></span><b class="caret"></b></a>
+                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
+                        class="icon icon-user"></i> <span class="text"><?php echo "$row[fname] $row[lname]" ?></span><b
+                        class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -56,33 +58,25 @@ $row = mysqli_fetch_array($u_name);
             <li class="active">
                 <a href="home.php"><i class="icon icon-home"></i><span>Dashboard</span></a>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Create Account</span></a>
-                <ul>
-                    <li><a href="create_account_emp.php"><i class="icon-user"></i>Employee </a></li>
-                    <li><a href="create_account_user.php"><i class="icon-user"></i>User </a></li>
-                </ul>
-            </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Update Account</span></a>
-                <ul>
-                    <li><a href="update_account_emp.php"><i class="icon-user"></i>Employee </a></li>
-                    <li><a href="update_account_user.php"><i class="icon-user"></i>User </a></li>
-                </ul>
-            </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Status Account</span></a>
-                <ul>
-                    <li><a href="status_account_emp.php"><i class="icon-user"></i>Employee </a></li>
-                    <li><a href="status_account_user.php"><i class="icon-user"></i>User </a></li>
-                </ul>
-            </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Vivew Account</span></a>
-                <ul>
-                    <li><a href="view_employee_account.php"><i class="icon-user"></i>Employee </a></li>
-                    <li><a href="view_user_account.php"><i class="icon-user"></i>User </a></li>
-                </ul>
+            <li>
+                <a href="item_request.php"><i class="icon icon-envelope"></i>
+                    <span>Item Request</span></a>
             </li>
             <li>
-                <a href="generate_username_pass_emp.php"><i class="icon icon-cogs"></i>
-                    <span>Generate Account</span></a>
+                <a href="view_respons.php"><i class="icon-reply"></i>
+                    <span>View Respons</span><span class="label label-important">3</span></a>
+            </li>
+            <li>
+                <a href="generate_report.php"><i class="icon-reply"></i>
+                    <span>View Request</span><span class="label label-important">3</span></a>
+            </li>
+            <li>
+                <a href="generate_report.php"><i class="icon-reply"></i>
+                    <span>View Feedback</span><span class="label label-important">3</span></a>
+            </li>
+            <li>
+                <a href="generate_report.php"><i class="icon-reply"></i>
+                    <span>Generate Repor</span>
             </li>
             <li>
                 <a href="change_password.php"><i class="icon icon-cogs"></i>

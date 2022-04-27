@@ -6,16 +6,20 @@ include("../connection.php")
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="view_employee.php" title="Go to View User" class="tip-bottom">
-                <i class="icon icon-envelope"></i>View user
-            </a></div>
+        <div id="breadcrumb">
+            <a href="#"><i class="icon icon-th-list"></i> <span>Manage User</span></a>
+            <a href="view_employee_account.php" title="Go to employee account view page" class="tip-bottom">
+                <i class="icon-user"></i>View employee account
+            </a>
+        </div>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <hr>
+        <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                        <h5>Account View Form</h5>
+                        <h5>View employee account</h5>
                     </div>
                     <!-- employee view inteble form  -->
                     <div class="widget-content nopadding">
@@ -23,7 +27,7 @@ include("../connection.php")
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>ID</th>
+                                    <th>Emp_id</th>
                                     <th>username</th>
                                     <th>password</th>
                                     <th>Role</th>
@@ -33,31 +37,27 @@ include("../connection.php")
                             </thead>
                             <tbody>
                                 <?php
-                                $result = mysqli_query($con, "select *from account;");
-                                $no = 1;
+                                $n = 1;
+                                $result = mysqli_query($con, "select *from eaccount;");
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
                                 <tr>
+                                    <td><?php echo $n; ?></td>
                                     <td><?php echo $row["id"]; ?></td>
                                     <td><?php echo $row["username"]; ?></td>
                                     <td><?php echo $row["password"]; ?></td>
                                     <td><?php echo $row["role"]; ?></td>
                                     <td><?php echo $row["lastlogin"]; ?></td>
-                                    <td>
-                                        <?php
-                                            if ($row["status"] == "active") { ?>
-                                        <a href="user_edite.php?id=<?php echo $row['id'] ?>" class="btn btn-success"
-                                            style="border-radius:10px">Active</a>
-                                        <?php
-                                            } else { ?>
-                                        <a href="user_edite.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"
-                                            style="border-radius:10px">Inactive</a>
-                                        <?php
-                                            }
-                                            ?>
-                                    </td>
+                                    <td> <?php
+                                                if ($row["status"] == "1") {
+                                                    echo "Active";
+                                                } else {
+                                                    echo "Deactive";
+                                                }
+                                                ?>
                                 </tr>
                                 <?php
+                                    $n++;
                                 }
                                 ?>
                             </tbody>

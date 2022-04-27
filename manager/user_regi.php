@@ -267,13 +267,9 @@ if (isset($_POST["send"])) {
     $nationality = mysqli_real_escape_string($con, $_POST["nationality"]);
     $subcity = mysqli_real_escape_string($con, $_POST["address"]);
     $status = mysqli_real_escape_string($con, $_POST["status"]);
-    // validation start
-    // if (!preg_match("/^[a-zA-Z ]+$/", $name)) {
-    //     $name_error = "The forst name must contain only alphabets and space";
-    // }
-    // validation end
+
     $qur = "INSERT INTO user(id,user_id,fname,mname,lname,gender,age,gmail,phone,nationality,subcity,status) 
-        values (NULL,NULL,'$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity',$status)";
+    values (NULL,NULL,'$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity',$status)";
     $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
     $last_id = mysqli_insert_id($con);
     if ($last_id) {

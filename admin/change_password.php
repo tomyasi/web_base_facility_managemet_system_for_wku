@@ -21,8 +21,6 @@ if (isset($_POST['re_password'])) {
         echo "<script>alert('Your old password is wrong'); window.location='change_password.php'</script>";
     }
 }
-
-?>
 ?>
 <!--main-container-part-->
 <div id="content">
@@ -47,21 +45,21 @@ if (isset($_POST['re_password'])) {
                                 <label class="control-label">Old Password :</label>
                                 <div class="controls">
                                     <input type="password" class="span11" placeholder="Enter old password"
-                                        name="old_pass" required />
+                                        name="old_pass" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">New Password :</label>
                                 <div class="controls">
                                     <input type="password" class="span11" placeholder="Enter new password"
-                                        name="new_pass" required />
+                                        name="new_pass" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Confirm Password :</label>
                                 <div class="controls">
                                     <input type="password" class="span11" placeholder="Confirm Password" name="re_pass"
-                                        required />
+                                        required style="border-radius: 13px;" />
                                 </div>
                                 <div class="alert alert-danger" id="error" style="display: none;">
                                     <center>
@@ -70,8 +68,8 @@ if (isset($_POST['re_password'])) {
                                 </div>
                                 <div class="form-actions">
                                     <center>
-                                        <button type="submit" name="re_password" class="btn btn-success">Change
-                                            Password</button>
+                                        <button type="submit" name="re_password" class="btn btn-success"
+                                            style="border-radius: 13px;">Change Password</button>
                                     </center>
                                 </div>
                                 <div class="alert alert-success" id="success" style="display:none;">

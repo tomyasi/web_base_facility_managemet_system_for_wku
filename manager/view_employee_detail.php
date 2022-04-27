@@ -1,6 +1,8 @@
 <?php
 include("header.php");
-include("../connection.php")
+include("../connection.php");
+$id = $_GET["id"];
+
 ?>
 <!--main-container-part-->
 <div id="content">
@@ -13,6 +15,7 @@ include("../connection.php")
     <div class="container-fluid">
         <hr>
         <div class="row-fluid">
+
             <div class="span12">
                 <a href="print_emp_info.php" class="btn btn-primary" style="border-radius:10px; right: 0;">PRINT</a>
                 <div class="widget-box">
@@ -28,18 +31,18 @@ include("../connection.php")
                                     <th>Emp_id</th>
                                     <th>Firet name</th>
                                     <th>Middel name</th>
+                                    <th>Last name</th>
                                     <th>sex</th>
                                     <th>Age</th>
                                     <th>Phone</th>
                                     <th>Nationality</th>
                                     <th>Salary</th>
                                     <th>Jop Position</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $result = mysqli_query($con, "select *from employee;");
+                                $result = mysqli_query($con, "select *from employee where id=$id;");
                                 $no = 1;
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
@@ -48,6 +51,7 @@ include("../connection.php")
                                     <td><?php echo $row["emp_id"]; ?></td>
                                     <td><?php echo $row["fname"]; ?></td>
                                     <td><?php echo $row["mname"]; ?></td>
+                                    <td><?php echo $row["lname"]; ?></td>
                                     <td><?php
                                             if ($row["gender"] == "m") {
                                                 echo "Male";
@@ -61,10 +65,6 @@ include("../connection.php")
                                     <td><?php echo $row["nationality"]; ?></td>
                                     <td><?php echo $row["salary"]; ?></td>
                                     <td><?php echo $row["jop_position"]; ?></td>
-                                    <td><a href="view_employee_detail.php?id=<?php echo $row['id'] ?>"
-                                            class="btn btn-primary" style="border-radius:10px"><i
-                                                class="icon-eye-open"></i>
-                                            Detail</a></td>
                                     <?php
                                     $no++;
                                 }

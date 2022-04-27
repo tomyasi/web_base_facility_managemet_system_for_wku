@@ -45,17 +45,18 @@ session_start();
                     </div>
                 </div>
             </div>
-            <!-- <div class="control-group">
+            <div class="control-group">
                 <div class="controls">
                     <div class="main_input_box">
-                        <span class="add-on bg_lg"><i class="icon-male"></i>Role</span><select name="role" required>
+                        <!-- <span class="add-on bg_lg">Role</span> -->
+                        <select name="role" required style="border-radius: 13px;">
                             <option value="">...Select Role...</option>
-                            <option>Employee</option>
-                            <option>User</option>
+                            <option value="employee">Employee</option>
+                            <option value="user">User</option>
                         </select>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <div class="form-actions">
                 <center>
                     <input type="submit" name="submit" value="login" class="btn btn-success">
@@ -65,25 +66,24 @@ session_start();
         <?php
         if (isset($_POST["submit"])) {
             //set timezone for lastlogin
-            date_default_timezone_set("	Africa/Addis_Ababa");
+            // date_default_timezone_set("	Africa/Addis_Ababa");
             $insertdate = date("Y-m-d H:i:s");
-
-            $username = mysqli_real_escape_string($con, $_POST["username"]);
-            $password = mysqli_real_escape_string($con, $_POST["password"]);
-            $role = mysqli_real_escape_string($con, $_POST["role"]);
-
-            $sql = "SELECT * FROM account WHERE username='$username' AND password='$password' AND status='active'";
-            $query1 = mysqli_query($con, $sql);
-            $row = mysqli_fetch_array($query1);
-            if (mysqli_num_rows($query1) > 0) {
-                if ($row['role'] == "user") {
-                    header("Location:user/home.php?id=" . $id);
-                } else if ($row['role'] == "employee") {
-                    header("Location:manager/home.php");
-                } else if ($row['role'] == "admin") {
-                    header("Location:admin/home.php");
-                }
-            } else {
+            $role = $_POST["role"];
+            if ($role == "employee") {
+                $username = mysqli_real_escape_string($con, $_POST["username"]);
+                $password = mysqli_real_escape_string($con, $_POST["password"]);
+                $sql = "SELECT * FROM eaccount WHERE username='$username' AND password='$password' AND status='active'";
+                $query1 = mysqli_query($con, $sql);
+                $row = mysqli_fetch_array($query1);
+                if (mysqli_num_rows($query1) > 0) {
+                    if ($row['role'] == "employee") {
+                        header("Location:employee/home.php");
+                    } else if ($row['role'] == "manager") {
+                        header("Location:manager/home.php");
+                    } else if ($row['role'] == "admin") {
+                        header("Location:admin/home.php");
+                    }
+                } else {
         ?>
         <script type="text/javascript">
         document.getElementById("error").style.display = "block";
@@ -93,6 +93,26 @@ session_start();
         }, 3000);
         </script>
         <?php
+                }
+            } else {
+                $username = mysqli_real_escape_string($con, $_POST["username"]);
+                $password = mysqli_real_escape_string($con, $_POST["password"]);
+                $sql1 = "SELECT * FROM uaccount WHERE username='$username' AND password='$password' AND status='active'";
+                $query1 = mysqli_query($con, $sql1);
+                $row = mysqli_fetch_array($query1);
+                if (mysqli_num_rows($query1) > 0) {
+                    header("Location:user/home.php");
+                } else {
+                ?>
+        <script type="text/javascript">
+        document.getElementById("error").style.display = "block";
+        // refresh the page after 3 second
+        setTimeout(function() {
+            window.location.href = window.location.href;
+        }, 3000);
+        </script>
+        <?php
+                }
             }
         }
         ?>

@@ -11,7 +11,7 @@ include("../connection.php")
             </a></div>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
@@ -29,10 +29,8 @@ include("../connection.php")
                                     <th>Last name</th>
                                     <th>sex</th>
                                     <th>Age</th>
-                                    <th>Gmail</th>
                                     <th>Phone</th>
                                     <th>Nationality</th>
-                                    <th>Address/Subcity</th>
                                     <th>Salary</th>
                                     <th>Jop Position</th>
                                     <th>Status</th>
@@ -59,10 +57,8 @@ include("../connection.php")
                                             ?>
                                     </td>
                                     <td><?php echo $row["age"]; ?></td>
-                                    <td><?php echo $row["gmail"]; ?></td>
                                     <td><?php echo $row["phone"]; ?></td>
                                     <td><?php echo $row["nationality"]; ?></td>
-                                    <td><?php echo $row["address"]; ?></td>
                                     <td><?php echo $row["salary"]; ?></td>
                                     <td><?php echo $row["jop_position"]; ?></td>
                                     <td>

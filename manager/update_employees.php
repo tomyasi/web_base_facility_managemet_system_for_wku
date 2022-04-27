@@ -14,7 +14,8 @@ include("../connection.php")
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <hr>
+        <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
@@ -27,18 +28,15 @@ include("../connection.php")
                                 <tr>
                                     <th>#</th>
                                     <th>Emp_id</th>
-                                    <th>Firet name</th>
+                                    <th>First name</th>
                                     <th>Middel name</th>
                                     <th>Last name</th>
                                     <th>sex</th>
                                     <th>Age</th>
-                                    <th>Gmail</th>
                                     <th>Phone</th>
                                     <th>Nationality</th>
-                                    <th>Address/Subcity</th>
                                     <th>Salary</th>
                                     <th>Jop Position</th>
-                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -63,24 +61,13 @@ include("../connection.php")
                                             ?>
                                     </td>
                                     <td><?php echo $row["age"]; ?></td>
-                                    <td><?php echo $row["gmail"]; ?></td>
                                     <td><?php echo $row["phone"]; ?></td>
                                     <td><?php echo $row["nationality"]; ?></td>
-                                    <td><?php echo $row["address"]; ?></td>
                                     <td><?php echo $row["salary"]; ?></td>
                                     <td><?php echo $row["jop_position"]; ?></td>
-                                    <td> <?php
-                                                if ($row["status"] == "1") {
-                                                    echo "Active";
-                                                } else {
-                                                    echo "Deactive";
-                                                }
-                                                ?>
-                                    </td>
                                     <td><a href="employee_edite.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"
                                             style="border-radius:13px"><i class="icon-pencil"></i>
-                                            Edite</a></td>
-
+                                            Edit</a></td>
                                 </tr>
                                 <?php
                                     $no++;
