@@ -78,9 +78,5 @@ $row = mysqli_fetch_array($u_name);
                 <a href="generate_report.php"><i class="icon-reply"></i>
                     <span>Generate Repor</span>
             </li>
-            <li>
-                <a href="change_password.php"><i class="icon icon-cogs"></i>
-                    <span>Change Password</span></a>
-            </li>
         </ul>
     </div>

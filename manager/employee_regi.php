@@ -15,7 +15,8 @@ $email_err = "";
     <!--End-breadcrumbs-->
     <!--Action boxes-->
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <hr>
+        <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
