@@ -12,12 +12,14 @@ include("header.php");
     <!--Action boxes-->
     <div class="container-fluid">
         <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
-            sdsd
+            <?php
+            print "<img src='images/tick.png' align='center' width='25px' height='25px'><font face='arial' color='green' size='5'> Successfully registered</font>";
+            echo ' <meta content="6;home.php" http-equiv="refresh" />';
+            ?>
         </div>
 
     </div>
 </div>
-
 <!--end-main-container-part-->
 <?php
 include("footer.php");

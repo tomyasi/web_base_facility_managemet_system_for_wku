@@ -17,7 +17,8 @@ include("../connection.php")
         <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
             <div class="span12">
                 <div>
-                    <a href="printuser.php" class="btn btn-primary" style="border-radius:10px">PRINT</a>
+                    <a href="printuser.php" class="btn btn-primary" style="border-radius:10px"><i
+                            class="icon-print"></i></a>
                 </div>
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>

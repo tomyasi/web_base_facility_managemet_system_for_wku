@@ -14,7 +14,8 @@ include("../connection.php")
         <hr>
         <div class="row-fluid">
             <div class="span12">
-                <a href="print_emp_info.php" class="btn btn-primary" style="border-radius:10px; right: 0;">PRINT</a>
+                <a href="print_emp_info.php" class="btn btn-primary" style="border-radius:10px; right: 0;"><i
+                        class="icon-print">PRINT</a>
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>Employee View Form</h5>

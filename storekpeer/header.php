@@ -32,7 +32,7 @@ $row = mysqli_fetch_array($u_name);
             <a href="home.php" style="color:white; margin-left: 30px; margin-top: 40px">WKUFMS</a>
         </h2>
         <h2 style="color: white;">
-            <center>Employee Page</center>
+            <center>Storekpeer Page</center>
         </h2>
     </div>
     <!--top-Header-menu-->
@@ -54,29 +54,40 @@ $row = mysqli_fetch_array($u_name);
     </div>
     <!--sidebar-menu-->
     <div id="sidebar">
-        <ul>
+        <ul id="bar">
             <li class="active">
                 <a href="home.php"><i class="icon icon-home"></i><span>Dashboard</span></a>
             </li>
-            <li>
-                <a href="item_request.php"><i class="icon icon-envelope"></i>
-                    <span>Item Request</span></a>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Manage
+                        Item</span></a>
+                <ul>
+                    <li><a href="item_register.php"><i class="icon-laptop"></i>&nbsp;&nbsp;Register Item</a></li>
+                    <li><a href="item_add.php"><i class="icon-plus"></i>&nbsp;&nbsp;AddItem</a></li>
+                    <li><a href="item_update.php"><i class="icon-pencil"></i>&nbsp;&nbsp;UpdateItem </a></li>
+                    <li><a href="item_status.php"><i class="icon-ok"></i>&nbsp;&nbsp;statusItem</a></li>
+                    <li><a href="item_view.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;ViewItem</a></li>
+                </ul>
+            </li>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>View</span></a>
+                <ul>
+                    <li><a href="employee_regi.php"><i class="icon-eye-open"></i>View Request</a></li>
+                    <li><a href="update_employees.php"><i class="icon-eye-open"></i>View Feedback </a></li>
+                </ul>
+            </li>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
+                <ul>
+                    <li><a href="employee_regi.php"><i class="icon-user"></i>Item Ordered Report</a></li>
+                    <li><a href="update_employees.php"><i class="icon-user"></i>Store Item Report </a></li>
+                    <li><a href="employee_status.php"><i class="icon-user"></i>Give in Item Report</a></li>
+                </ul>
             </li>
             <li>
-                <a href="view_respons.php"><i class="icon-reply"></i>
-                    <span>View Respons</span><span class="label label-important">3</span></a>
+                <a href="item_register.php"><i class="icon-reply"></i>
+                    <span>Item Order</span>
             </li>
-            <li>
+            <!-- <li>
                 <a href="generate_report.php"><i class="icon-reply"></i>
-                    <span>View Request</span><span class="label label-important">3</span></a>
-            </li>
-            <li>
-                <a href="generate_report.php"><i class="icon-reply"></i>
-                    <span>View Feedback</span><span class="label label-important">3</span></a>
-            </li>
-            <li>
-                <a href="generate_report.php"><i class="icon-reply"></i>
-                    <span>Generate Repor</span>
-            </li>
+                    <span>Item Distribute</span>
+            </li> -->
         </ul>
     </div>

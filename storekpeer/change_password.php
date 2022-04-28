@@ -84,7 +84,6 @@ if (isset($_POST['re_password'])) {
         </div>
     </div>
 </div>
-<!--end-main-container-part-->
 <?php
 mysqli_close($con);
 include("footer.php");

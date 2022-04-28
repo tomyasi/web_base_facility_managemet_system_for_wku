@@ -58,21 +58,29 @@ $row = mysqli_fetch_array($u_name);
             <li class="active">
                 <a href="home.php"><i class="icon icon-home"></i><span>Dashboard</span></a>
             </li>
-            <li>
-                <a href="item_request.php"><i class="icon icon-envelope"></i>
-                    <span>Item Request</span></a>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Manage
+                        Item</span></a>
+                <ul>
+                    <li class="active"><a href="employee_regi.php"><i class="icon-user"></i>AddItem</a></li>
+                    <li><a href="update_employees.php"><i class="icon-user"></i>UpdateItem </a></li>
+                    <li><a href="employee_status.php"><i class="icon-user"></i>statusItem</a></li>
+                    <li><a href="view_employee.php"><i class="icon-eye-open"></i>ViewItem</a></li>
+                </ul>
             </li>
-            <li>
-                <a href="view_respons.php"><i class="icon-reply"></i>
-                    <span>View Respons</span><span class="label label-important">3</span></a>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>View</span></a>
+                <ul>
+                    <li class="active"><a href="employee_regi.php"><i class="icon-user"></i>View Request</a></li>
+                    <li><a href="update_employees.php"><i class="icon-user"></i>View Feedback </a></li>
+
+                </ul>
             </li>
-            <li>
-                <a href="generate_report.php"><i class="icon-reply"></i>
-                    <span>View Request</span><span class="label label-important">3</span></a>
-            </li>
-            <li>
-                <a href="generate_report.php"><i class="icon-reply"></i>
-                    <span>View Feedback</span><span class="label label-important">3</span></a>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
+                <ul>
+                    <li class="active"><a href="employee_regi.php"><i class="icon-user"></i>Item Ordered Report</a></li>
+                    <li><a href="update_employees.php"><i class="icon-user"></i>Store Item Report </a></li>
+                    <li><a href="employee_status.php"><i class="icon-user"></i>Give in Item Report</a></li>
+
+                </ul>
             </li>
             <li>
                 <a href="generate_report.php"><i class="icon-reply"></i>
