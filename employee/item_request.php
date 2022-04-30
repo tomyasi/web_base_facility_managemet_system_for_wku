@@ -12,115 +12,112 @@ include("header.php");
     <!--Action boxes-->
     <div class="container-fluid">
         <hr>
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                        <h5>Resource Request Form</h5>
-                    </div>
-                    <div class="widget-content nopadding">
-                        <form name="formsend" action="#" method="POST" class="form-horizontal"
-                            onsubmit='return formValidation()'>
-                            <div class="span2">
+        <form name="form1" action="" method="post" class="form-horizontal nopadding">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="widget-box">
+                        <div class="widget-title"><span class="icon"> <i class="icon-align-justify"></i> </span>
+                            <h5>Resource Request Form</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <div class=" span4">
+                                <br>
                                 <div>
-                                    <label>Product Name</label>
-                                    <div id="product_name_div">
-                                        <select class="span11">
-                                            <option>Select</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="span1">
-                                <div>
-                                    <label>Unit</label>
-                                    <div id="unit_div">
-                                        <select class="span11">
-                                            <option>Select</option>
-                                        </select>
-                                    </div>
+                                    <label>Full Name</label>
+                                    <input type="text" class="span12" name="full_name" style="border-radius:10px">
                                 </div>
                             </div>
                             <div class="span2">
+                                <br>
                                 <div>
-                                    <label>Packing Size</label>
-                                    <div id="packing_size_div">
-                                        <select class="span11">
-                                            <option>Select</option>
-                                        </select>
-                                    </div>
+                                    <label>Date</label>
+                                    <input type="text" class="span12" name="date" value="<?php echo date("Y-m-d") ?>"
+                                        readonly style="border-radius:10px">
                                 </div>
                             </div>
-                            <div class="span1">
-                                <div>
-                                    <label>Price</label>
-                                    <input type="text" class="span11" name="price" id="price" readonly value="0">
-                                </div>
-                            </div>
-                            <div class="span1">
-                                <div>
-                                    <label>Enter Qty</label>
-                                    <input type="text" class="span11" name="qty" id="qty" autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="span1">
-                                <div>
-                                    <label>Total</label>
-                                    <input type="text" class="span11" name="total" id="total" value="0" readonly>
-                                </div>
-                            </div>
-                            <div class="span1">
-                                <div>
-                                    <label>&nbsp</label>
-                                    <input type="button" class="span11 btn btn-success" value="Add">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><strong>Job position :</strong></label>
-                                <div class="controls">
-                                    <select class="span11" name="position" required style="border-radius: 13px;">
-                                        <option value="">Select jop position...</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="manger">Manager</option>
-                                        <option value="storekpeer">Storekpeer</option>
-                                        <option value="security"> Security</option>
-                                        <option value="clealiness"> Clealiness</option>
-                                        <option>Special Services</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><strong>Status :</strong></label>
-                                <div class="controls">
-                                    <select class="span11" name="status" required style="border-radius: 13px;">
-                                        <option value="">Select status...</option>
-                                        <option value="1">Active</option>
-                                        <option value="0">Inactive</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="alert alert-danger" id="error" style="display: none;">
-                                <center>
-                                    <strong>Same thing error,please triy agian.</strong>
-                                </center>
-                            </div>
-
-                            <div class="form-actions">
-                                <center>
-                                    <button type="submit" id="f" name="register" class="btn btn-success"
-                                        style="border-radius: 13px;"><strong>Send Request</strong></button>
-                                </center>
-                            </div>
-                            <div class="alert alert-success" id="success" style="display:none;">
-                                <center>
-                                    <strong>Request successfully dliverd.</strong>
-                                </center>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <!-- new row-->
+            <div class="row-fluid">
+                <div class="span12">
+                    <center>
+                        <h4>Resource Form</h4>
+                    </center>
+                    <div class="span3">
+                        <div>
+                            <label>Resource Name</label>
+                            <select class="span11" name="company_name" id="company_name"
+                                onchange="select_company(this.value)" style="border-radius:10px">
+                                <option value="">Select name</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div>
+                            <label>Resource Type</label>
+                            <div id="product_name_div">
+                                <select class="span11" style="border-radius:10px">
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span2">
+                        <div>
+                            <label>Resouce Category</label>
+                            <div id="unit_div">
+                                <select class="span11" style="border-radius:10px">
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div>
+                            <label>Resource Quality</label>
+                            <div id="packing_size_div">
+                                <select class="span11" style="border-radius:10px">
+                                    <option value="">Select</option>
+                                    <option value="high">high</option>
+                                    <option value="moderat">Moderate</option>
+                                    <option value="low">Low</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br> <br> <br> <br>
+                    <div class="span2">
+                        <div>
+                            <label>Resource Quantity</label>
+                            <input type="text" class="span11" name="qty" id="qty" autocomplete="off"
+                                style="border-radius:10px">
+                        </div>
+                    </div>
+                    <div class="span2">
+                        <div>
+                            <label>Total</label>
+                            <input type="text" class="span11" name="total" id="total" value="0" readonly
+                                style="border-radius:10px">
+                        </div>
+                    </div>
+                    <br> <br> <br> <br>
+                    <div class="span2" style="float: right">
+                        <div>
+                            <label>&nbsp </label>
+                            <input type="button" class="span11 btn btn-success" value="Send Request"
+                                style="border-radius:10px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <h4>
+            <div style="float: right"><span style="float:left;">Total:&#8377;</span><span style="float: left">525</span>
+            </div>
+        </h4>
     </div>
 </div>
 <?php
