@@ -1,7 +1,11 @@
 <?php
 include("../connection.php");
-$u_name = mysqli_query($con, "select * from user;") or dir(mysqli_error($con));
-$row = mysqli_fetch_array($u_name);
+session_start();
+$full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
+
+
+$result = mysqli_query($con, "SELECT *from serv_request where view='0';");
+$un_read = mysqli_num_rows($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +14,6 @@ $row = mysqli_fetch_array($u_name);
     <title>WKUFMS</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="../bootstrap/css/fullcalendar.css" />
@@ -27,7 +30,6 @@ $row = mysqli_fetch_array($u_name);
 
 <body>
     <div id="header">
-
         <h2 style="color: white;position: absolute">
             <a href="home.php" style="color:white; margin-left: 30px; margin-top: 40px">WKUFMS</a>
         </h2>
@@ -40,8 +42,8 @@ $row = mysqli_fetch_array($u_name);
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
                 <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
-                        class="icon icon-user"></i> <span class="text"><?php echo "$row[fname] $row[lname]" ?></span><b
-                        class="caret"></b></a>
+                        class="icon icon-user"></i>
+                    <span class="text"><?php echo "$full_name"; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -54,24 +56,21 @@ $row = mysqli_fetch_array($u_name);
     </div>
     <!--sidebar-menu-->
     <div id="sidebar">
-        <ul>
+        <ul id="bar">
             <li class="active">
                 <a href="home.php"><i class="icon icon-home"></i><span>Dashboard</span></a>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Manage
-                        Item</span></a>
-                <ul>
-                    <li class="active"><a href="employee_regi.php"><i class="icon-user"></i>AddItem</a></li>
-                    <li><a href="update_employees.php"><i class="icon-user"></i>UpdateItem </a></li>
-                    <li><a href="employee_status.php"><i class="icon-user"></i>statusItem</a></li>
-                    <li><a href="view_employee.php"><i class="icon-eye-open"></i>ViewItem</a></li>
-                </ul>
-            </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>View</span></a>
-                <ul>
-                    <li class="active"><a href="employee_regi.php"><i class="icon-user"></i>View Request</a></li>
-                    <li><a href="update_employees.php"><i class="icon-user"></i>View Feedback </a></li>
 
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>View</span>
+                    <span class="label label-important" style="border-radius:30px"
+                        id="noti_numbers"><?php $un_read; ?></span></a>
+                <ul>
+                    <li class="active"><a href="view_service_request.php"><i class="icon-user"></i>View Service Request
+                            <span class="label label-important" style="border-radius:30px"
+                                id="noti_numbers">3</span></a>
+                    </li>
+                    <li><a href="update_employees.php"><i class="icon-user"></i>View Feedback </a></li>
+                    <li><a href="update_employees.php"><i class="icon-user"></i>View Responce </a></li>
                 </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
@@ -83,8 +82,10 @@ $row = mysqli_fetch_array($u_name);
                 </ul>
             </li>
             <li>
-                <a href="generate_report.php"><i class="icon-reply"></i>
-                    <span>Generate Repor</span>
+                <a href="item_request.php"><i class="icon-reply"></i><span>Resource Request</span>
+            </li>
+            <li>
+                <a href="generate_report.php"><i class="icon-reply"></i><span>Generate Report</span>
             </li>
         </ul>
     </div>

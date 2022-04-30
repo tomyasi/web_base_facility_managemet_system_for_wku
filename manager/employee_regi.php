@@ -298,7 +298,7 @@ if (isset($_POST['register'])) {
     $row = mysqli_fetch_array($email_checker);
     if (!($email == $row["gmail"] && $phone == $row["phone"])) {
         $query = "INSERT INTO employee(id,emp_id,fname,mname,lname,gender,age,gmail,phone,nationality,address,salary,jop_position,status)
-    values(NULL,'12','$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity','salary','$jop',$status)";
+        values(NULL,'12','$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity','salary','$jop',$status)";
         $res = mysqli_query($con, $query) or die("Error occurd" . mysqli_error($con));
         if (!$res) {
 ?>

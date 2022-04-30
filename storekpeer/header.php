@@ -1,7 +1,7 @@
 <?php
 include("../connection.php");
-$u_name = mysqli_query($con, "select * from user;") or dir(mysqli_error($con));
-$row = mysqli_fetch_array($u_name);
+session_start();
+$full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,9 +39,7 @@ $row = mysqli_fetch_array($u_name);
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
-                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
-                        class="icon icon-user"></i> <span class="text"><?php echo "$row[fname] $row[lname]" ?></span><b
-                        class="caret"></b></a>
+                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -68,9 +66,10 @@ $row = mysqli_fetch_array($u_name);
                     <li><a href="item_view.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;ViewItem</a></li>
                 </ul>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>View</span></a>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>View</span>
+                    <span class="label label-important" style="border-radius:30px" id="noti_numbers">3</span></a></a>
                 <ul>
-                    <li><a href="employee_regi.php"><i class="icon-eye-open"></i>View Request</a></li>
+                    <li><a href="view_request.php"><i class="icon-eye-open"></i>View Request</a></li>
                     <li><a href="update_employees.php"><i class="icon-eye-open"></i>View Feedback </a></li>
                 </ul>
             </li>
@@ -91,3 +90,18 @@ $row = mysqli_fetch_array($u_name);
             </li> -->
         </ul>
     </div>
+    <script type="text/javascript">
+        function loadDoc() {
+            setInterval(function() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("noti_numbers").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("POST", "notify.php", true);
+                xhttp.send();
+            }, 1000);
+        }
+        loadDoc();
+    </script>

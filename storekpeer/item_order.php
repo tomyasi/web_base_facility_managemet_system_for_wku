@@ -10,7 +10,7 @@ $email_err = "";
     <div id="content-header">
         <div id="breadcrumb">
             <a href="item_register.php" title="Go to Employee Registration" class="tip-bottom">
-                <i class="icon icon-envelope"></i>Item Registration
+                <i class="icon icon-envelope"></i>Resource Order
             </a>
         </div>
     </div>
@@ -22,7 +22,7 @@ $email_err = "";
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                        <h5>Item Registration Form</h5>
+                        <h5>Resource Order Form</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <form name="formsend" action="#" method="POST" class="form-horizontal"
@@ -40,7 +40,6 @@ $email_err = "";
                                 <div class="controls">
                                     <select class="span11" name="type" required style="border-radius: 13px;">
                                         <option value="">Select item type...</option>
-
                                         <option value='Computer'>Computer</option>
                                         <option value='office material'>Office Material</option>
                                         <option value='Car'>Car</option>
@@ -144,10 +143,9 @@ $email_err = "";
                             </div>
                             <div class="alert alert-success" id="success" style="display:none;">
                                 <center>
-                                    <strong>Item Added successfully.</strong>
+                                    <strong>Item Registerd successfully.</strong>
                                 </center>
                             </div>
-
                         </form>
                     </div>
                 </div>

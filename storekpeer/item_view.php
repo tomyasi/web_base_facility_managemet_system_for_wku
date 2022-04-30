@@ -59,7 +59,7 @@ include("../connection.php")
         <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
             <div class="span12">
                 <div>
-                    <a href="printuser.php" class="btn btn-primary" style="border-radius:10px"><i
+                    <a href="print_item_info.php" class="btn btn-primary" style="border-radius:10px"><i
                             class="icon-print"></i> PRINT</a>
                 </div>
                 <div class="search-box">

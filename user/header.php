@@ -1,7 +1,10 @@
 <?php
 include("../connection.php");
-$u_name = mysqli_query($con, "select * from user;") or dir(mysqli_error($con));
-$row = mysqli_fetch_array($u_name);
+session_start();
+$user_id = $_SESSION['user_id'];
+$query = mysqli_query($con, "SELECT *FROM user where id=$user_id");
+$user_info = mysqli_fetch_array($query);
+$full_name = $user_info['fname'] . ' ' . $user_info['mname'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +43,7 @@ $row = mysqli_fetch_array($u_name);
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
                 <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
-                        class="icon icon-user"></i> <span class="text"><?php echo "$row[fname] $row[lname]" ?></span><b
+                        class="icon icon-user"></i> <span class="text"><?php echo $full_name; ?></span><b
                         class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>

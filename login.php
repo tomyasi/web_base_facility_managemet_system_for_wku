@@ -51,6 +51,9 @@ session_start();
                         <!-- <span class="add-on bg_lg">Role</span> -->
                         <select name="role" required style="border-radius: 13px;">
                             <option value="">...Select Role...</option>
+                            <option value="admin">Admin</option>
+                            <option value="manager">Manager</option>
+                            <option value="storekpeer">Storekpeer</option>
                             <option value="employee">Employee</option>
                             <option value="user">User</option>
                         </select>
@@ -59,7 +62,8 @@ session_start();
             </div>
             <div class="form-actions">
                 <center>
-                    <input type="submit" name="submit" value="login" class="btn btn-success">
+                    <input type="submit" name="submit" value="LOGIN" class="btn btn-success"
+                        style="border-radius: 13px;">
                 </center>
             </div>
         </form>
@@ -67,22 +71,20 @@ session_start();
         if (isset($_POST["submit"])) {
             //set timezone for lastlogin
             // date_default_timezone_set("	Africa/Addis_Ababa");
-            $insertdate = date("Y-m-d H:i:s");
+            $insertdate = date("Y/m/d H:i:s");
             $role = $_POST["role"];
-            if ($role == "employee") {
-                $username = mysqli_real_escape_string($con, $_POST["username"]);
-                $password = mysqli_real_escape_string($con, $_POST["password"]);
-                $sql = "SELECT * FROM eaccount WHERE username='$username' AND password='$password' AND status='active'";
-                $query1 = mysqli_query($con, $sql);
-                $row = mysqli_fetch_array($query1);
+            $username = mysqli_real_escape_string($con, $_POST["username"]);
+            $password = mysqli_real_escape_string($con, $_POST["password"]);
+
+            if ($role == "user") {
+                $sql1 = "SELECT * FROM uaccount WHERE username='$username' AND password='$password' AND status='1'";
+                $query1 = mysqli_query($con, $sql1);
+                $row1 = mysqli_fetch_array($query1);
                 if (mysqli_num_rows($query1) > 0) {
-                    if ($row['role'] == "employee") {
-                        header("Location:employee/home.php");
-                    } else if ($row['role'] == "manager") {
-                        header("Location:manager/home.php");
-                    } else if ($row['role'] == "admin") {
-                        header("Location:admin/home.php");
-                    }
+                    $_SESSION['user_id'] = $row1['user_id'];
+                    $_SESSION['username'] = $row1['username'];
+                    $_SESSION['role'] = "user";
+                    header("Location:user/home.php");
                 } else {
         ?>
         <script type="text/javascript">
@@ -95,13 +97,47 @@ session_start();
         <?php
                 }
             } else {
-                $username = mysqli_real_escape_string($con, $_POST["username"]);
-                $password = mysqli_real_escape_string($con, $_POST["password"]);
-                $sql1 = "SELECT * FROM uaccount WHERE username='$username' AND password='$password' AND status='active'";
-                $query1 = mysqli_query($con, $sql1);
-                $row = mysqli_fetch_array($query1);
-                if (mysqli_num_rows($query1) > 0) {
-                    header("Location:user/home.php");
+                $sql2 = "SELECT * FROM eaccount WHERE username='$username' AND password='$password' AND status='1'";
+                $query2 = mysqli_query($con, $sql2);
+                $row1 = mysqli_fetch_array($query2);
+                if (mysqli_num_rows($query2) > 0) {
+                    $eid = $row1['emp_id'];
+                    $role = mysqli_query($con, "SELECT *FROM employee where id=$eid");
+                    $row2 = mysqli_fetch_array($role);
+                    if ($row1['role'] == "employee") {
+                        //Employee SESSION
+                        $_SESSION['emp_id'] = $row1['emp_id'];
+                        $_SESSION['username'] = $row1['username'];
+                        $_SESSION['fname'] = $row2['fname'];
+                        $_SESSION['mname'] = $row2['mname'];
+                        $_SESSION['role'] = $row2['jop_position'];
+
+                        header("Location:employee/home.php");
+                    } else if ($row1['role'] == "manager") {
+                        //manager session
+                        $_SESSION['manager_id'] = $row1['id'];
+                        $_SESSION['username'] = $row1['username'];
+                        $_SESSION['fname'] = $row2['fname'];
+                        $_SESSION['mname'] = $row2['mname'];
+                        $_SESSION['role'] = $row2['jop_position'];
+                        header("Location:manager/home.php");
+                    } else if ($row1['role'] == "admin") {
+                        //admin session
+                        $_SESSION['admin_id'] = $row1['id'];
+                        $_SESSION['username'] = $row1['username'];
+                        $_SESSION['fname'] = $row2['fname'];
+                        $_SESSION['mname'] = $row2['mname'];
+                        $_SESSION['role'] = $row2['jop_position'];
+                        header("Location:admin/home.php");
+                    } else if ($row1['role'] == "storekpeer") {
+                        //storekpeer session
+                        $_SESSION['admin_id'] = $row1['id'];
+                        $_SESSION['username'] = $row1['username'];
+                        $_SESSION['fname'] = $row2['fname'];
+                        $_SESSION['mname'] = $row2['mname'];
+                        $_SESSION['role'] = $row2['jop_position'];
+                        header("Location:storekpeer/home.php");
+                    }
                 } else {
                 ?>
         <script type="text/javascript">
