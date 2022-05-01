@@ -82,7 +82,7 @@ $un_read = mysqli_num_rows($result);
                 </ul>
             </li>
             <li>
-                <a href="item_request.php"><i class="icon-reply"></i><span>Resource Request</span>
+                <a href="item_request_detail.php"><i class="icon-reply"></i><span>Resource Request</span>
             </li>
             <li>
                 <a href="generate_report.php"><i class="icon-reply"></i><span>Generate Report</span>

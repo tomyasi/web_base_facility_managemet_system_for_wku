@@ -30,7 +30,6 @@ include("../connection.php")
                                     <th>Item name</th>
                                     <th>Item Type</th>
                                     <th>Item category</th>
-                                    <th>Item Model</th>
                                     <th>Item Quality</th>
                                     <th>Item Quantity</th>
                                     <th>message</th>
@@ -39,14 +38,15 @@ include("../connection.php")
                             </thead>
                             <tbody id="output">
                                 <?php
-                                $e_id = $row["emp_id"];
-                                $sql = mysqli_query($con, "SELECT *FROM employee where id=$e_id") or die("error occured" . mysqli_error($con));
-                                $emp_info = mysqli_fetch_array($sql);
-                                $re_by = $emp_info['fname'] . ' ' . $emp_info['mname'];
+
                                 $result = mysqli_query($con, "select *from item_request;");
                                 $no = 1;
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_array($result)) {
+                                        $e_id = $row["emp_id"];
+                                        $sql = mysqli_query($con, "SELECT *FROM employee where id=$e_id") or die("error occured" . mysqli_error($con));
+                                        $emp_info = mysqli_fetch_array($sql);
+                                        $re_by = $emp_info['fname'] . ' ' . $emp_info['mname'];
                                 ?>
                                 <tr>
                                     <td><?php echo $no; ?></td>
@@ -54,7 +54,6 @@ include("../connection.php")
                                     <td><?php echo $row['item_name']; ?></td>
                                     <td><?php echo $row["item_type"]; ?></td>
                                     <td><?php echo $row["item_category"]; ?></td>
-                                    <td><?php echo $row["item_model"]; ?></td>
                                     <td><?php echo $row["item_quality"]; ?></td>
                                     <td><?php echo $row["item_quantity"]; ?></td>
                                     <td><?php echo $row["message"]; ?></td>

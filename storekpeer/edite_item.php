@@ -46,7 +46,7 @@ while ($row = mysqli_fetch_array($query)) {
                                 <label class="control-label"><strong>Item Code :</strong></label>
                                 <div class="controls">
                                     <input type="text" class="span11" placeholder="Enter item code" name="code" required
-                                        style="border-radius: 13px;" value="<?php echo $code; ?>" />
+                                        style="border-radius: 13px;" value="<?php echo $code; ?>" readonly />
                                 </div>
                             </div>
                             <div class="control-group">
@@ -171,7 +171,7 @@ while ($row = mysqli_fetch_array($query)) {
                                 <label class="control-label"><strong>Item Quantity :</strong></label>
                                 <div class="controls">
                                     <input type="number" class="span11" placeholder="Enter item quantity"
-                                        name="quantity" required min="1" style="border-radius: 13px;"
+                                        name="quantity" required min="0" style="border-radius: 13px;"
                                         value="<?php echo $quantity; ?>" />
                                 </div>
                             </div>
@@ -218,9 +218,9 @@ while ($row = mysqli_fetch_array($query)) {
 if (isset($_POST["send"])) {
 
     $sql1 = "UPDATE stock set 
-     item_code='$_POST[code]',item_type='$_POST[type]',item_category='$_POST[category]',
-     item_name='$_POST[name]',item_model='$_POST[model]',item_quality='$_POST[quality]',
-     item_quantity='$_POST[quantity]',status='$_POST[status]',WHERE item_id=$id";
+     item_code='$_POST[code]',item_name='$_POST[name]',item_type='$_POST[type]',
+     item_category='$_POST[category]',item_model='$_POST[model]',item_quality='$_POST[quality]',
+     item_quantity='$_POST[quantity]',status='$_POST[status]'WHERE item_id='$id'";
     $result = mysqli_query($con, $sql1) or die("Error occured" . mysqli_error($con));
     if ($result) {
 ?>
@@ -228,7 +228,7 @@ if (isset($_POST["send"])) {
 document.getElementById("success").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location = "update_users.php";
+    window.location = "item_update.php";
 }, 3000);
 </script>
 <?php

@@ -20,7 +20,9 @@ include "../user/connection.php";
                         </div>
 
                         <div class="widget-content nopadding">
-
+                            <center>
+                                <h4>Resource Reqiest Form</h4>
+                            </center>
 
                             <div class=" span4">
                                 <br>
@@ -48,7 +50,8 @@ include "../user/connection.php";
 
                                 <div>
                                     <label>Date</label>
-                                    <input type="text" class="span12" name="date" value="<?php echo date("Y-m-d") ?>" readonly>
+                                    <input type="text" class="span12" name="date" value="<?php echo date("Y-m-d") ?>"
+                                        readonly>
                                 </div>
                             </div>
 
@@ -72,7 +75,8 @@ include "../user/connection.php";
                     <div class="span2">
                         <div>
                             <label>Product Company</label>
-                            <select class="span11" name="company_name" id="company_name" onchange="select_company(this.value)">
+                            <select class="span11" name="company_name" id="company_name"
+                                onchange="select_company(this.value)">
                                 <option>Select</option>
                                 <?php
                                 $res = mysqli_query($link, "select * from company_name");
@@ -144,12 +148,7 @@ include "../user/connection.php";
                         </div>
                     </div>
 
-                    <div class="span1">
-                        <div>
-                            <label>&nbsp</label>
-                            <input type="button" class="span11 btn btn-success" value="Add">
-                        </div>
-                    </div>
+
 
                 </div>
             </div>
@@ -194,7 +193,8 @@ include "../user/connection.php";
                 </table>
 
                 <h4>
-                    <div style="float: right"><span style="float:left;">Total:&#8377;</span><span style="float: left">525</span></div>
+                    <div style="float: right"><span style="float:left;">Total:&#8377;</span><span
+                            style="float: left">525</span></div>
                 </h4>
 
 

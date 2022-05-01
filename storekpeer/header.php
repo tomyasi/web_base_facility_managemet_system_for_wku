@@ -39,7 +39,9 @@ $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
-                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
+                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
+                        class="icon icon-user"></i> <span class="text"><?php echo $full_name; ?></span><b
+                        class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -60,14 +62,14 @@ $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
                         Item</span></a>
                 <ul>
                     <li><a href="item_register.php"><i class="icon-laptop"></i>&nbsp;&nbsp;Register Item</a></li>
-                    <li><a href="item_add.php"><i class="icon-plus"></i>&nbsp;&nbsp;AddItem</a></li>
-                    <li><a href="item_update.php"><i class="icon-pencil"></i>&nbsp;&nbsp;UpdateItem </a></li>
-                    <li><a href="item_status.php"><i class="icon-ok"></i>&nbsp;&nbsp;statusItem</a></li>
-                    <li><a href="item_view.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;ViewItem</a></li>
+                    <li><a href="item_add.php"><i class="icon-plus"></i>&nbsp;&nbsp;Add Item</a></li>
+                    <li><a href="item_update.php"><i class="icon-pencil"></i>&nbsp;&nbsp;Update Item </a></li>
+                    <li><a href="item_status.php"><i class="icon-ok"></i>&nbsp;&nbsp;status Item</a></li>
+                    <li><a href="item_view.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;View Item</a></li>
                 </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>View</span>
-                    <span class="label label-important" style="border-radius:30px" id="noti_numbers">3</span></a></a>
+                    <span class="label label-important" style="border-radius:30px">3</span></a></a>
                 <ul>
                     <li><a href="view_request.php"><i class="icon-eye-open"></i>View Request</a></li>
                     <li><a href="update_employees.php"><i class="icon-eye-open"></i>View Feedback </a></li>
@@ -91,17 +93,17 @@ $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
         </ul>
     </div>
     <script type="text/javascript">
-        function loadDoc() {
-            setInterval(function() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("noti_numbers").innerHTML = this.responseText;
-                    }
-                };
-                xhttp.open("POST", "notify.php", true);
-                xhttp.send();
-            }, 1000);
-        }
-        loadDoc();
+    function loadDoc() {
+        setInterval(function() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("noti_numbers").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "notify.php", true);
+            xhttp.send();
+        }, 1000);
+    }
+    loadDoc();
     </script>

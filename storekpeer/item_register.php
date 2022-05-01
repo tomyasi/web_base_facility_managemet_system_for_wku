@@ -108,8 +108,12 @@ $email_err = "";
                             <div class="control-group">
                                 <label class="control-label"><strong>Item Quality:</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="subcity" class="span11" placeholder="Enter item quality"
-                                        name="quality" required style="border-radius: 13px;" />
+                                    <select class="span11" name="quality" required style="border-radius: 13px;">
+                                        <option value="">Select item quality...</option>
+                                        <option value='high'>High</option>
+                                        <option value='Moderate'>Moderate</option>
+                                        <option value='low'>Low</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -134,7 +138,6 @@ $email_err = "";
                                     <strong>Same thing error,please triy agian.</strong>
                                 </center>
                             </div>
-
                             <div class="form-actions">
                                 <center>
                                     <button type="submit" id="f" name="register" class="btn btn-success"
@@ -166,7 +169,7 @@ if (isset($_POST['register'])) {
     $quality = mysqli_real_escape_string($con, $_POST["quality"]);
     $quantity = mysqli_real_escape_string($con, $_POST["quantity"]);
     $status = mysqli_real_escape_string($con, $_POST["status"]);
-    $query = "INSERT INTO stock values(NULL,$code,'$type','$category','$name','$model','$quality','$quantity',$status)";
+    $query = "INSERT INTO stock values(NULL,$code,'$name','$type','$category','$model','$quality','$quantity',$status)";
     $res = mysqli_query($con, $query) or die("Error occurd" . mysqli_error($con));
     if (!$res) {
 ?>
@@ -174,7 +177,7 @@ if (isset($_POST['register'])) {
 document.getElementById("error").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location.href = window.location.href;
+    window.location.href = "item_register.php";
 }, 3000);
 </script>
 <?php
@@ -184,7 +187,7 @@ setTimeout(function() {
 document.getElementById("success").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location.href = window.location.href;
+    window.location.href = "item_register.php";
 }, 3000);
 </script>
 <?php

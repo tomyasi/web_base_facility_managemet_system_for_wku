@@ -9,9 +9,10 @@ $email_err = "";
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
-            <a href="item_register.php" title="Go to Employee Registration" class="tip-bottom">
-                <i class="icon icon-envelope"></i>Item Registration
+            <a href="#" title="Go to Employee Registration" class="tip-bottom">
+                <i class="icon icon-th-list"></i>Manage Item
             </a>
+            <a href="item_add.php"><i class="icon-plus"></i>Add Item</a>
         </div>
     </div>
     <!--End-breadcrumbs-->
@@ -27,119 +28,57 @@ $email_err = "";
                     <div class="widget-content nopadding">
                         <form name="formsend" action="#" method="POST" class="form-horizontal"
                             onsubmit='return formValidation()'>
-
-                            <div class="control-group">
-                                <label class="control-label"><strong>Item Code :</strong></label>
-                                <div class="controls">
-                                    <input type="number" class="span11" placeholder="Enter item code" name="code"
-                                        required min="1" style="border-radius: 13px;" />
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><strong>Item Type :</strong></label>
-                                <div class="controls">
-                                    <select class="span11" name="type" required style="border-radius: 13px;">
-                                        <option value="">Select item type...</option>
-
-                                        <option value='Computer'>Computer</option>
-                                        <option value='office material'>Office Material</option>
-                                        <option value='Car'>Car</option>
-                                        <option value='Oil'>Oil</option>
-                                        <option value='Clean material'>Clean material </option>
-                                        <option value='water Material'>water Material </option>
-                                        <option value='light Material'>light Material </option>
-                                        <option value='Security Material'>security Material </option>
-                                        <option value='other'>Others</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><strong>Item Categoty :</strong></label>
-                                <div class="controls">
-                                    <select class="span11" name="category" required style="border-radius: 13px;">
-                                        <option value="">Select item category...</option>
-                                        <option value='Returnable'>Returnable</option>
-                                        <option value='Disposable'>Disposable</option>
-                                        <option value='Consumable'>Consumable</option>
-                                        <option value='other'>Others</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><strong>Item Name :</strong></label>
-                                <div class="controls">
-                                    <select class="span11" name="name" required style="border-radius: 13px;">
-                                        <option value="">Select item name...</option>
-                                        <option value='desktop'>Desktop</option>
-                                        <option value='laptop'>Laptop</option>
-                                        <option value='Soap'>Soap</option>
-                                        <option value='Detergent'>Detergent</option>
-                                        <option value='gauntlet'>gauntlet</option>
-                                        <option value='selverbrush'>selverbrush</option>
-                                        <option value='metsrga'>metsrga</option>
-                                        <option value='chair'>Chair</option>
-                                        <option value='table'>table</option>
-                                        <option value='boarde'>boarde</option>
-                                        <option value='stapler'>Stapler</option>
-                                        <option value='kerosene'>kerosene</option>
-                                        <option value='naphtha'>naphtha</option>
-                                        <option value='grease'>grease</option>
-                                        <option value='bus'> bus</option>
-                                        <option value='minbus'> minbus</option>
-                                        <option value='loary'> loary</option>
-                                        <option value='teyota'> teyota</option>
-                                        <option value='motor'> motor</option>
-                                        <option value='cylinder'> cylinder</option>
-                                        <option value='tube'> tube</option>
-                                        <option value='watergage'> watergage</option>
-                                        <option value='vavola'> vavola</option>
-                                        <option value='switch on/off'> switch on/off</option>
-                                        <option value='wire'> wire</option>
-                                        <option value='other'> Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><strong>Item Model :</strong></label>
-                                <div class="controls">
-                                    <input type="text" id="nationality" class="span11" placeholder="Enter item model"
-                                        name="model" required style="border-radius: 13px;" />
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><strong>Item Quality:</strong></label>
-                                <div class="controls">
-                                    <input type="text" id="subcity" class="span11" placeholder="Enter item quality"
-                                        name="quality" required style="border-radius: 13px;" />
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><strong>Item Quantity :</strong></label>
-                                <div class="controls">
-                                    <input type="number" class="span11" placeholder="Enter item quantity"
-                                        name="quantity" required min="1" style="border-radius: 13px;" />
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><strong>Item Status :</strong></label>
-                                <div class="controls">
-                                    <select class="span11" name="status" required style="border-radius: 13px;">
-                                        <option value="">Select status...</option>
-                                        <option value="1">Enable</option>
-                                        <option value="0">Desable</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="alert alert-danger" id="error" style="display: none;">
                                 <center>
                                     <strong>Same thing error,please triy agian.</strong>
                                 </center>
                             </div>
-
+                            <div class="span3">
+                                <br>
+                                <div>
+                                    <?php
+                                    $query = mysqli_query($con, "SELECT *FROM stock") or die("Error occured" .
+                                        mysqli_error($con));
+                                    if (mysqli_num_rows($query) > 0) {
+                                    ?>
+                                    <label>Resource Name</label>
+                                    <select class="span11" required name="item_name" style="border-radius:10px">
+                                        <option value="">Select</option>
+                                        <?php while ($row = mysqli_fetch_array($query)) { ?>
+                                        <option value="<?php echo $row['item_name']; ?>">
+                                            <?php echo $row['item_name']; ?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <br>
+                                <div>
+                                    <label>Resource Quality</label>
+                                    <select class="span12" name="quality" required style="border-radius:10px">
+                                        <option value="">Select...</option>
+                                        <option value="high">High</option>
+                                        <option value="moderate">Moderate</option>
+                                        <option value="low">Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <br>
+                                <div>
+                                    <label>Enter Quantity</label>
+                                    <input type="number" class="span11" required name="quantity" id="qty"
+                                        autocomplete="off" style="border-radius:10px" min="1">
+                                </div>
+                            </div>
                             <div class="form-actions">
+                                <br>
                                 <center>
-                                    <button type="submit" id="f" name="register" class="btn btn-success"
-                                        style="border-radius: 13px;"><strong>Register</strong></button>
+                                    <button type="submit" id="f" name="add" class="btn btn-success"
+                                        style="border-radius: 13px;float:right"><strong>Add</strong></button>
                                 </center>
                             </div>
                             <div class="alert alert-success" id="success" style="display:none;">
@@ -147,36 +86,88 @@ $email_err = "";
                                     <strong>Item Added successfully.</strong>
                                 </center>
                             </div>
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- employee view inteble form  -->
+        <div class="row-fluid">
+            <div class="span12">
+                <center>
+                    <h4>Resource Information</h4>
+                </center>
+                <div class="widget-content nopadding">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Item ID</th>
+                                <th>Item Code</th>
+                                <th>Item name</th>
+                                <th>Item Type</th>
+                                <th>Item category</th>
+                                <th>Item Model</th>
+                                <th>Item Quality</th>
+                                <th>Item Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody id="output">
+                            <?php
+                            $result = mysqli_query($con, "select *from stock;");
+                            $no = 0;
+                            while ($row = mysqli_fetch_array($result)) {
+                                $no++;
+                            ?>
+                            <tr>
+                                <td><?php echo $no; ?></td>
+                                <td><?php echo $row["item_id"]; ?></td>
+                                <td><?php echo $row["item_code"]; ?></td>
+                                <td><?php echo $row["item_name"]; ?></td>
+                                <td><?php echo $row["item_type"]; ?></td>
+                                <td><?php echo $row["item_category"]; ?></td>
+                                <td><?php echo $row["item_model"]; ?></td>
+                                <td><?php echo $row["item_quality"]; ?></td>
+                                <td><?php echo $row["item_quantity"]; ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                    <h4>
+                        <div style="float: right"><span style="float:left;">Total:&nbsp;</span><span
+                                style="float: left"><?php echo $no; ?></span></div>
+                    </h4>
+
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+</div>
 </div>
 <!--end-main-container-part-->
 <?php
 // REGISTER USER
-if (isset($_POST['register'])) {
+if (isset($_POST['add'])) {
     // receive all input values from the form
-    $code = mysqli_real_escape_string($con, $_POST["code"]);
-    $type = mysqli_real_escape_string($con, $_POST["type"]);
-    $category = mysqli_real_escape_string($con, $_POST["category"]);
-    $name = mysqli_real_escape_string($con, $_POST["name"]);
-    $model = mysqli_real_escape_string($con, $_POST["model"]);
+    $name = mysqli_real_escape_string($con, $_POST["item_name"]);
     $quality = mysqli_real_escape_string($con, $_POST["quality"]);
     $quantity = mysqli_real_escape_string($con, $_POST["quantity"]);
-    $status = mysqli_real_escape_string($con, $_POST["status"]);
-    $query = "INSERT INTO stock values(NULL,$code,'$type','$category','$name','$model','$quality','$quantity',$status)";
-    $res = mysqli_query($con, $query) or die("Error occurd" . mysqli_error($con));
-    if (!$res) {
+    $sql = "SELECT *FROM stock where item_name='$name' and item_quality='$quality'";
+    $serch_item = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
+    $row = mysqli_fetch_array($serch_item);
+    $new_quantity = $row['item_quantity'] + $quantity;
+    $sql2 = "UPDATE stock set item_quantity='$new_quantity' where item_name='$name' and item_quality='$quality'";
+    $res = mysqli_query($con, $sql2) or die("Error occurd" . mysqli_error($con));
+    if (!$res && !$serch_item) {
 ?>
 <script type="text/javascript">
 document.getElementById("error").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location.href = window.location.href;
+    window.location.href = "item_add.php";
 }, 3000);
 </script>
 <?php
@@ -186,7 +177,7 @@ setTimeout(function() {
 document.getElementById("success").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location.href = window.location.href;
+    window.location.href = "item_add.php";
 }, 3000);
 </script>
 <?php
