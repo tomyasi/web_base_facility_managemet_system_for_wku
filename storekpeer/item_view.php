@@ -2,7 +2,7 @@
 include("header.php");
 include("../connection.php")
 ?>
-<style>
+<!-- <style>
 /* Formatting search box */
 .search-box {
     width: 300px;
@@ -43,7 +43,7 @@ include("../connection.php")
 .result p:hover {
     background: #f2f2f2;
 }
-</style>
+</style> -->
 <!--main-container-part-->
 <div id="content">
     <!--breadcrumbs-->
@@ -56,41 +56,51 @@ include("../connection.php")
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <hr>
+        <div class="row-fluid">
             <div class="span12">
                 <div>
                     <a href="print_item_info.php" class="btn btn-primary" style="border-radius:10px"><i
                             class="icon-print"></i> PRINT</a>
                 </div>
-                <div class="search-box">
+                <!-- <div class="search-box">
                     <input type="text" autocomplete="off" placeholder="Search..." name="live_search" id="search"
                         style="border-radius: 13px;" />
                     <div></div>
-                </div>
+                </div> -->
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>Item View Form</h5>
                     </div>
                     <!-- employee view inteble form  -->
-                    <div class="widget-content nopadding">
+                    <div class="widget-content nopadding" id="employee_table">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Item ID</th>
-                                    <th>Item Code</th>
-                                    <th>Item name</th>
-                                    <th>Item Type</th>
-                                    <th>Item category</th>
-                                    <th>Item Model</th>
-                                    <th>Item Quality</th>
-                                    <th>Item Quantity</th>
+                                    <th><a class="column_sort" id="item_id" data-order="desc" href="#">Item
+                                            ID</a></th>
+                                    <th><a class="column_sort" id="item_code" data-order="desc" href="#">Item
+                                            Code</a></th>
+                                    <th><a class="column_sort" id="item_name" data-order="desc" href="#">Item
+                                            name</a></th>
+                                    <th><a class="column_sort" id="item_type" data-order="desc" href="#">Item
+                                            Type</a></th>
+                                    <th><a class="column_sort" id="item_category" data-order="desc" href="#">Item
+                                            category</a></th>
+                                    <th><a class="column_sort" id="item_model" data-order="desc" href="#">Item
+                                            Model</a></th>
+                                    <th><a class="column_sort" id="item_quality" data-order="desc" href="#">Item
+                                            Quality</a></th>
+                                    <th><a class="column_sort" id="item_quantity" data-order="desc" href="#">Item
+                                            Quantity</a></th>
                                 </tr>
                             </thead>
                             <tbody id="output">
                                 <?php
                                 $result = mysqli_query($con, "select *from stock;");
                                 $no = 1;
+                                $total_item = 0;
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
                                 <tr>
@@ -106,10 +116,19 @@ include("../connection.php")
                                 </tr>
                                 <?php
                                     $no++;
+                                    $total_item += $row["item_quantity"];
                                 }
                                 ?>
                             </tbody>
                         </table>
+                        <h4 style="color: while;">
+                            <div style="float: right; background-color:black;border:10px;border-radius:5px">
+                                <span style="float:left;">Type of Resource:&nbsp;</span><span
+                                    style="float: left"><?php echo $no; ?></span>
+                                <span style="float:left;">&nbsp;&nbsp;&nbsp;Total:&nbsp;</span><span
+                                    style="float: left"><?php echo $total_item; ?></span>
+                            </div>
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -123,17 +142,29 @@ include("footer.php");
 ?>
 <script>
 $(document).ready(function() {
-    $("#search").keypress(function() {
+    $(document).on('click', '.column_sort', function() {
+        var column_name = $(this).attr("id");
+        var order = $(this).data("order");
+        var arrow = '';
+        //glyphicon glyphicon-arrow-up  
+        //glyphicon glyphicon-arrow-down  
+        if (order == 'desc') {
+            arrow = '&nbsp;<span class="glyphicon glyphicon-arrow-down"></span>';
+        } else {
+            arrow = '&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>';
+        }
         $.ajax({
-            type: 'POST',
-            url: 'item_search.php',
+            url: "sort_item.php",
+            method: "POST",
             data: {
-                name: $("#search").val(),
+                column_name: column_name,
+                order: order
             },
             success: function(data) {
-                $("#output").html(data);
+                $('#employee_table').html(data);
+                $('#' + column_name + '').append(arrow);
             }
-        });
+        })
     });
 });
 </script>

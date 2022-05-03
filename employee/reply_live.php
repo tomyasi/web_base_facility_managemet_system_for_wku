@@ -90,12 +90,13 @@ $user_id = $_SESSION['user_id'];
                                 <img src="../images/tick.png" alt="Yes" class="img-fluid"></a>
                                 <?php
                                             } else { ?>
-                                <a href="service_request_reply.php?id=<?php echo $row['s_id'] ?>" class="btn
+                                <a href="reply_live.php?id=<?php echo $row['s_id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px"><i class="icon-reply"></i>
                                     Reply</a>
-                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal" data-whatever="@mdo" style="border-radius: 13px;"><i
-                                        class="icon-reply"></i> Reply</button> -->
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal" data-whatever="@mdo" style="border-radius: 13px;">
+                                    Reply</button>
                                 <?php
                                             }
                                         ?>
@@ -119,45 +120,40 @@ $user_id = $_SESSION['user_id'];
         </div>
     </div>
 </div>
-
-<!-- Modal
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Service Request Schedule</h5>
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span> 
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="span3">
-                    <br>
-                    <div>
-                        <label>Schedule</label>
-                        <input type="text" name="schedule" data-date="01-02-2013" data-date-format="dd-mm-yyyy"
-                            class="datepicker span4" required style="border-radius: 13px;">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Sechedule:</label>
+                        <input type="text" class="form-control" id="sechedule-name">
                     </div>
-                </div>
-                <div class="span6">
-                    <br>
-                    <div>
-                        <label>Message</label>
-                        <textarea class="span4" placeholder="Write your message here" name="message" required
-                            style="border-radius: 13px;"></textarea>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                    style="border-radius: 10px;">Close</button>
-                <button type="button" class="btn btn-primary" style="border-radius: 10px;">Save changes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    style="border-radius: 13px;">Close</button>
+                <button type="button" class="btn btn-primary" style="border-radius: 13px;">Send message</button>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <?php
 mysqli_close($con);
 include("footer.php");
 ?>
+<script type="text/javascript">
+
+</script>

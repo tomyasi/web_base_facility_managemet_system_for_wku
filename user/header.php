@@ -22,8 +22,7 @@ $full_name = $user_info['fname'] . ' ' . $user_info['mname'];
     <link rel="stylesheet" href="../bootstrap/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="../bootstrap/css/jquery.gritter.css" />
 
-    <link href="../assets/img/wku im3.jpg" rel="icon">
-
+    <link href="../images/wkulogo7.png" rel="icon">
     <link rel="stylesheet" href="../boot/all.min.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>

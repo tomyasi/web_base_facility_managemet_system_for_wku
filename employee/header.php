@@ -2,8 +2,6 @@
 include("../connection.php");
 session_start();
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
-
-
 $result = mysqli_query($con, "SELECT *from serv_request where view='0';");
 $un_read = mysqli_num_rows($result);
 ?>
@@ -21,9 +19,7 @@ $un_read = mysqli_num_rows($result);
     <link rel="stylesheet" href="../bootstrap/css/matrix-media.css" />
     <link rel="stylesheet" href="../bootstrap/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="../bootstrap/css/jquery.gritter.css" />
-
-    <link href="../assets/img/wku im3.jpg" rel="icon">
-
+    <link href="../images/wkulogo7.png" rel="icon">
     <link rel="stylesheet" href="../boot/all.min.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
@@ -40,7 +36,9 @@ $un_read = mysqli_num_rows($result);
     <!--top-Header-menu-->
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
+
             <li class="dropdown" id="profile-messages">
+                <!-- <i class="icon-bell" style=" color:white; margin-left: 50px; margin-top: 20px; size: 23px;"></i> -->
                 <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
                         class="icon icon-user"></i>
                     <span class="text"><?php echo "$full_name"; ?></span><b class="caret"></b></a>
@@ -61,17 +59,25 @@ $un_read = mysqli_num_rows($result);
                 <a href="home.php"><i class="icon icon-home"></i><span>Dashboard</span></a>
             </li>
 
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>View</span>
-                    <span class="label label-important" style="border-radius:30px"
-                        id="noti_numbers"><?php $un_read; ?></span></a>
-                <ul>
-                    <li class="active"><a href="view_service_request.php"><i class="icon-user"></i>View Service Request
-                            <span class="label label-important" style="border-radius:30px"
-                                id="noti_numbers">3</span></a>
-                    </li>
-                    <li><a href="update_employees.php"><i class="icon-user"></i>View Feedback </a></li>
-                    <li><a href="update_employees.php"><i class="icon-user"></i>View Responce </a></li>
-                </ul>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i><span>View</span>
+                    <?php if ($un_read > 0) {
+                        echo '<span class="label label-important" style="border-radius:15px">' . $un_read . '</span></a></a>';
+                    } ?>
+                    <ul>
+                        <li class="active"><a href="view_service_request.php"><i
+                                    class="icon-eye-open"></i>&nbsp;&nbsp;Service Request
+                                <?php if ($un_read > 0) {
+                                    echo '<span class="label label-important" style="border-radius:15px">' . $un_read . '</span></a></a>';
+                                } ?>
+                        </li>
+                        <li><a href="update_employees.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;View Feedback </a>
+                        </li>
+                        <li><a href="update_employees.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;View Responce </a>
+                        </li>
+                        <li><a href="service-request_reply.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;View Give Reply
+                            </a>
+                        </li>
+                    </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
                 <ul>
@@ -83,9 +89,6 @@ $un_read = mysqli_num_rows($result);
             </li>
             <li>
                 <a href="item_request_detail.php"><i class="icon-reply"></i><span>Resource Request</span>
-            </li>
-            <li>
-                <a href="generate_report.php"><i class="icon-reply"></i><span>Generate Report</span>
             </li>
         </ul>
     </div>

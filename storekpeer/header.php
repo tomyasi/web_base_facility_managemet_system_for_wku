@@ -2,6 +2,8 @@
 include("../connection.php");
 session_start();
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
+$result = mysqli_query($con, "SELECT *from item_request where status='0';");
+$un_read = mysqli_num_rows($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,15 +21,13 @@ $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
     <link rel="stylesheet" href="../bootstrap/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="../bootstrap/css/jquery.gritter.css" />
 
-    <link href="../assets/img/wku im3.jpg" rel="icon">
-
+    <link href="../images/wkulogo7.png" rel="icon">
     <link rel="stylesheet" href="../boot/all.min.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <div id="header">
-
         <h2 style="color: white;position: absolute">
             <a href="home.php" style="color:white; margin-left: 30px; margin-top: 40px">WKUFMS</a>
         </h2>
@@ -69,24 +69,31 @@ $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
                 </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>View</span>
-                    <span class="label label-important" style="border-radius:30px">3</span></a></a>
-                <ul>
-                    <li><a href="view_request.php"><i class="icon-eye-open"></i>View Request</a></li>
-                    <li><a href="update_employees.php"><i class="icon-eye-open"></i>View Feedback </a></li>
-                </ul>
+                    <?php if ($un_read > 0) {
+                        echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span></a></a>';
+                    } ?>
+                    <ul>
+                        <li><a href="view_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Resource
+                                Request</a><?php if ($un_read > 0) {
+                                                echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span></a></a>';
+                                            } ?>
+                        </li>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
-                <ul>
-                    <li><a href="employee_regi.php"><i class="icon-user"></i>Item Ordered Report</a></li>
-                    <li><a href="update_employees.php"><i class="icon-user"></i>Store Item Report </a></li>
-                    <li><a href="employee_status.php"><i class="icon-user"></i>Give in Item Report</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="item_register.php"><i class="icon-reply"></i>
-                    <span>Item Order</span>
-            </li>
-            <!-- <li>
+            <li><a href="update_employees.php"><i class="icon-eye-open"></i> &nbsp;&nbsp;View Feedback </a></li>
+        </ul>
+        </li>
+        <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
+            <ul>
+                <li><a href="employee_regi.php"><i class="icon-user"></i>Item Ordered Report</a></li>
+                <li><a href="update_employees.php"><i class="icon-user"></i>Store Item Report </a></li>
+                <li><a href="employee_status.php"><i class="icon-user"></i>Give in Item Report</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="item_register.php"><i class="icon-reply"></i>
+                <span>Item Order</span>
+        </li>
+        <!-- <li>
                 <a href="generate_report.php"><i class="icon-reply"></i>
                     <span>Item Distribute</span>
             </li> -->

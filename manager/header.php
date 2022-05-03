@@ -42,7 +42,7 @@ $row = mysqli_fetch_array($u_name);
                     class="dropdown-toggle"><i class="icon icon-user"></i> <span
                         class="text"><?php echo "$row[fname] $row[lname]" ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
                     <li class="divider"></li>

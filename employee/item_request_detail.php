@@ -119,10 +119,9 @@ $insertdate = date("Y/m/d H:i:s");
                                         value="<?php echo $insertdate; ?>" readonly style="border-radius:10px">
                                 </div>
                             </div>
-
                             <div class="span2">
                                 <br>
-                                <div style="float: left;">
+                                <div style="float:right;">
                                     <label>&nbsp</label>
                                     <button type="submit" id="f" name="send" class="btn btn-success"
                                         style="border-radius: 13px;float: left;"><strong>Send Request</strong></button>

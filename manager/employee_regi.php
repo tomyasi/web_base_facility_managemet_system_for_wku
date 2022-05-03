@@ -23,27 +23,23 @@ $email_err = "";
                         <h5>Employee Registration Form</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form name="formsend" action="#" method="POST" class="form-horizontal"
-                            onsubmit='return formValidation()'>
+                        <form name="formsend" action="#" method="POST" class="form-horizontal" onsubmit='return formValidation()'>
                             <div class="control-group">
                                 <label class="control-label"><strong> First Name :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="fname" class="span11" placeholder="First name" name="fname"
-                                        required style="border-radius: 13px;" />
+                                    <input type="text" id="fname" class="span11" placeholder="First name" name="fname" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong> Middel Name :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="mname" class="span11" placeholder="Middel name" name="mname"
-                                        required style="border-radius: 13px;" />
+                                    <input type="text" id="mname" class="span11" placeholder="Middel name" name="mname" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Last Name :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="lname" class="span11" placeholder="Last name" name="lname"
-                                        required style="border-radius: 13px;" />
+                                    <input type="text" id="lname" class="span11" placeholder="Last name" name="lname" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
@@ -59,15 +55,13 @@ $email_err = "";
                             <div class="control-group">
                                 <label class="control-label"><strong>Age :</strong></label>
                                 <div class="controls">
-                                    <input type="number" class="span11" placeholder="Enter age" name="age" required
-                                        min="20" max="70" style="border-radius: 13px;" />
+                                    <input type="number" class="span11" placeholder="Enter age" name="age" required min="20" max="70" style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Email :</strong></label>
                                 <div class="controls">
-                                    <input type="email" id="email" class="span11" placeholder="Enter email" name="email"
-                                        required style="border-radius: 13px;" />
+                                    <input type="email" id="email" class="span11" placeholder="Enter email" name="email" required style="border-radius: 13px;" />
                                 </div>
                                 <span class="text-danger"><?php if (isset($email_err)) echo $email_err; ?></span>
                             </div>
@@ -75,30 +69,26 @@ $email_err = "";
                                 <label class="control-label"><strong>Phone number :</strong></label>
                                 <div class="controls">
                                     <div class="input-prepend"> <span class="add-on">+251 </span>
-                                        <input type="text" id="phone" placeholder="999 999 999" class="span11"
-                                            name="phone" required />
+                                        <input type="text" id="phone" placeholder="999 999 999" class="span11" name="phone" required />
                                     </div>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Nationality :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="nationality" class="span11" placeholder="Enter nationality"
-                                        name="nationality" required style="border-radius: 13px;" />
+                                    <input type="text" id="nationality" class="span11" placeholder="Enter nationality" name="nationality" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong> Subcity :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="subcity" class="span11" placeholder="Enter sucity"
-                                        name="subcity" required style="border-radius: 13px;" />
+                                    <input type="text" id="subcity" class="span11" placeholder="Enter sucity" name="subcity" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Salary :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="salary" class="span11" placeholder="Enter salary"
-                                        name="salary" required style="border-radius: 13px;" />
+                                    <input type="text" id="salary" class="span11" placeholder="Enter salary" name="salary" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
@@ -133,8 +123,7 @@ $email_err = "";
 
                             <div class="form-actions">
                                 <center>
-                                    <button type="submit" id="f" name="register" class="btn btn-success"
-                                        style="border-radius: 13px;"><strong>Register</strong></button>
+                                    <button type="submit" id="f" name="register" class="btn btn-success" style="border-radius: 13px;"><strong>Register</strong></button>
                                 </center>
                             </div>
                             <div class="alert alert-success" id="success" style="display:none;">
@@ -143,48 +132,49 @@ $email_err = "";
                                 </center>
                             </div>
                             <script type='text/javascript'>
-                            function formValidation() {
-                                //assign the fields
-                                var firstname = document.getElementById('fname');
-                                var middelname = document.getElementById('mname');
-                                var lastname = document.getElementById('lname');
-                                var phone = document.getElementById('phone');
-                                var email = document.getElementById('email');
-                                var subcity = document.getElementById('subcity');
-                                var nationality = document.getElementById('nationality');
-                                var salary = document.getElementById('salary');
+                                function formValidation() {
+                                    //assign the fields
+                                    var firstname = document.getElementById('fname');
+                                    var middelname = document.getElementById('mname');
+                                    var lastname = document.getElementById('lname');
+                                    var phone = document.getElementById('phone');
+                                    var email = document.getElementById('email');
+                                    var subcity = document.getElementById('subcity');
+                                    var nationality = document.getElementById('nationality');
+                                    var salary = document.getElementById('salary');
 
-                                if (isAlphabet(firstname, "please enter First name in letters only")) {
-                                    if (lengthRestriction(firstname, 3, 30, "for First name")) {
+                                    if (isAlphabet(firstname, "please enter First name in letters only")) {
+                                        if (lengthRestriction(firstname, 3, 30, "for First name")) {
 
-                                        if (isAlphabet(middelname, "please enter Middel name in letters only")) {
-                                            if (lengthRestriction(middelname, 3, 30, "for First name")) {
+                                            if (isAlphabet(middelname, "please enter Middel name in letters only")) {
+                                                if (lengthRestriction(middelname, 3, 30, "for First name")) {
 
-                                                if (isAlphabet(lastname, "please enter Last name in letters only")) {
-                                                    if (lengthRestriction(lastname, 3, 30, "for Last name")) {
-                                                        if (emailValidator(email,
-                                                                "Please Enter email in this form'sample@gmail.com'"
-                                                            )) {
-                                                            if (isNumeric(phone,
-                                                                    "please enter the Phone Number only Number ")) {
-                                                                if (lengthRestriction(phone, 9, 9,
-                                                                        "for your Phone number")) {
+                                                    if (isAlphabet(lastname, "please enter Last name in letters only")) {
+                                                        if (lengthRestriction(lastname, 3, 30, "for Last name")) {
+                                                            if (emailValidator(email,
+                                                                    "Please Enter email in this form'sample@gmail.com'"
+                                                                )) {
+                                                                if (isNumeric(phone,
+                                                                        "please enter the Phone Number only Number ")) {
+                                                                    if (lengthRestriction(phone, 9, 9,
+                                                                            "for your Phone number")) {
 
-                                                                    if (isAlphanumeric(nationality,
-                                                                            "please enter Your nationality in letters only"
-                                                                        )) {
-                                                                        if (lengthRestriction(nationality, 3, 25,
-                                                                                "for your nationality")) {
-                                                                            if (isAlphabet(subcity,
-                                                                                    "please enter Your subcity in letters only"
-                                                                                )) {
-                                                                                if (lengthRestriction(subcity, 3,
-                                                                                        30,
-                                                                                        "for your subcity ")) {
-                                                                                    if (isNumeric(salary,
-                                                                                            "please enter the employee salary only Number "
-                                                                                        )) {
-                                                                                        return true;
+                                                                        if (isAlphanumeric(nationality,
+                                                                                "please enter Your nationality in letters only"
+                                                                            )) {
+                                                                            if (lengthRestriction(nationality, 3, 25,
+                                                                                    "for your nationality")) {
+                                                                                if (isAlphabet(subcity,
+                                                                                        "please enter Your subcity in letters only"
+                                                                                    )) {
+                                                                                    if (lengthRestriction(subcity, 3,
+                                                                                            30,
+                                                                                            "for your subcity ")) {
+                                                                                        if (isNumeric(salary,
+                                                                                                "please enter the employee salary only Number "
+                                                                                            )) {
+                                                                                            return true;
+                                                                                        }
                                                                                     }
                                                                                 }
                                                                             }
@@ -198,76 +188,75 @@ $email_err = "";
                                             }
                                         }
                                     }
-                                }
-                                return false;
-                            }
-
-                            function isAlphabet(elem, helperMsg) {
-                                var alphaExp = /^[a-zA-Z]+$/;
-                                if (elem.value.match(alphaExp)) {
-                                    return true;
-                                } else {
-                                    alert(helperMsg);
-                                    elem.focus();
                                     return false;
                                 }
-                            }
 
-                            function emailValidator(elem, helperMsg) {
-                                var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-                                if (elem.value.match(emailExp)) {
-                                    return true;
-                                } else {
-                                    alert(helperMsg);
-                                    elem.focus();
-                                    return false;
+                                function isAlphabet(elem, helperMsg) {
+                                    var alphaExp = /^[a-zA-Z]+$/;
+                                    if (elem.value.match(alphaExp)) {
+                                        return true;
+                                    } else {
+                                        alert(helperMsg);
+                                        elem.focus();
+                                        return false;
+                                    }
                                 }
-                            }
 
-                            function isNumeric(elem, helperMsg) {
-                                var numericExpression = /^[0-9]+$/;
-                                if (elem.value.match(numericExpression)) {
-                                    return true;
-                                } else {
-                                    alert(helperMsg);
-                                    elem.focus();
-                                    return false;
+                                function emailValidator(elem, helperMsg) {
+                                    var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+                                    if (elem.value.match(emailExp)) {
+                                        return true;
+                                    } else {
+                                        alert(helperMsg);
+                                        elem.focus();
+                                        return false;
+                                    }
                                 }
-                            }
 
-                            function lengthRestriction(elem, min, max, helperMsg) {
-                                var uInput = elem.value;
-                                if (uInput.length >= min && uInput.length <= max) {
-                                    return true;
-                                } else {
-                                    alert("Please enter between " + min + " and " + max + " characters" +
-                                        helperMsg);
-                                    elem.focus();
-                                    return false;
+                                function isNumeric(elem, helperMsg) {
+                                    var numericExpression = /^[0-9]+$/;
+                                    if (elem.value.match(numericExpression)) {
+                                        return true;
+                                    } else {
+                                        alert(helperMsg);
+                                        elem.focus();
+                                        return false;
+                                    }
                                 }
-                            }
 
-                            function isAlphanumeric(elem, helperMsg) {
-                                var alphaExp = /^[0-9a-zA-Z\/]+$/;
-                                if (elem.value.match(alphaExp)) {
-                                    return true;
-                                } else {
-                                    alert(helperMsg);
-                                    elem.focus();
-                                    return false;
+                                function lengthRestriction(elem, min, max, helperMsg) {
+                                    var uInput = elem.value;
+                                    if (uInput.length >= min && uInput.length <= max) {
+                                        return true;
+                                    } else {
+                                        alert("Please enter between " + min + " and " + max + " characters" +
+                                            helperMsg);
+                                        elem.focus();
+                                        return false;
+                                    }
                                 }
-                            }
 
-                            function isAlphabet(elem, helperMsg) {
-                                var alphaExp = /^[a-zA-Z]+$/;
-                                if (elem.value.match(alphaExp)) {
-                                    return true;
-                                } else {
-                                    alert(helperMsg);
-                                    elem.focus();
-                                    return false;
+                                function isAlphanumeric(elem, helperMsg) {
+                                    var alphaExp = /^[0-9a-zA-Z\/]+$/;
+                                    if (elem.value.match(alphaExp)) {
+                                        return true;
+                                    } else {
+                                        alert(helperMsg);
+                                        elem.focus();
+                                        return false;
+                                    }
                                 }
-                            }
+
+                                function isAlphabet(elem, helperMsg) {
+                                    var alphaExp = /^[a-zA-Z]+$/;
+                                    if (elem.value.match(alphaExp)) {
+                                        return true;
+                                    } else {
+                                        alert(helperMsg);
+                                        elem.focus();
+                                        return false;
+                                    }
+                                }
                             </script>
                         </form>
                     </div>
@@ -302,25 +291,25 @@ if (isset($_POST['register'])) {
         $res = mysqli_query($con, $query) or die("Error occurd" . mysqli_error($con));
         if (!$res) {
 ?>
-<script type="text/javascript">
-document.getElementById("success").style.display = "none";
-document.getElementById("error").style.display = "block";
-// refresh the page after 3 second
-setTimeout(function() {
-    window.location.href = "employee_regi.php";
-}, 3000);
-</script>
-<?php
+            <script type="text/javascript">
+                document.getElementById("success").style.display = "none";
+                document.getElementById("error").style.display = "block";
+                // refresh the page after 3 second
+                setTimeout(function() {
+                    window.location.href = "employee_regi.php";
+                }, 3000);
+            </script>
+        <?php
         } else {
         ?>
-<script type="text/javascript">
-document.getElementById("error").style.display = "none";
-document.getElementById("success").style.display = "block";
-// refresh the page after 3 second
-setTimeout(function() {
-    window.location.href = "employee_regi.php";
-}, 3000);
-</script>
+            <script type="text/javascript">
+                document.getElementById("error").style.display = "none";
+                document.getElementById("success").style.display = "block";
+                // refresh the page after 3 second
+                setTimeout(function() {
+                    window.location.href = "employee_regi.php";
+                }, 3000);
+            </script>
 <?php
         }
     } else {

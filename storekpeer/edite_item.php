@@ -220,7 +220,7 @@ if (isset($_POST["send"])) {
     $sql1 = "UPDATE stock set 
      item_code='$_POST[code]',item_name='$_POST[name]',item_type='$_POST[type]',
      item_category='$_POST[category]',item_model='$_POST[model]',item_quality='$_POST[quality]',
-     item_quantity='$_POST[quantity]',status='$_POST[status]'WHERE item_id='$id'";
+     item_quantity='$_POST[quantity]',status='$_POST[status]' WHERE item_id='$id'";
     $result = mysqli_query($con, $sql1) or die("Error occured" . mysqli_error($con));
     if ($result) {
 ?>

@@ -82,7 +82,7 @@ if (isset($_POST["send"])) {
 document.getElementById("error").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location.href = window.location.href;
+    window.location.href = "send_request.php";
 }, 3000);
 </script>
 <?php
@@ -92,7 +92,7 @@ setTimeout(function() {
 document.getElementById("success").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location.href = window.location.href;
+    window.location.href = "send_request.php";
 }, 3000);
 </script>
 <?php
