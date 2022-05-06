@@ -21,7 +21,7 @@ $row = mysqli_fetch_array($u_name);
     <link rel="stylesheet" href="../boot/all.min.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 
-    <link href="../assets/img/wku im3.jpg" rel="icon">
+    <link href="../images/wkulogo7.png" rel="icon">
 </head>
 
 <body>
@@ -60,19 +60,20 @@ $row = mysqli_fetch_array($u_name);
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Manage
                         Employees</span></a>
                 <ul>
-                    <li class="active"><a href="employee_regi.php"><i class="icon-user"></i> Employee Registeration</a>
+                    <li class="active"><a href="employee_regi.php"><i class="icon-laptop"></i>&nbsp;&nbsp;Employee
+                            Registeration</a>
                     </li>
-                    <li><a href="update_employees.php"><i class="icon-user"></i> Employee Update </a></li>
-                    <li><a href="employee_status.php"><i class="icon-user"></i>Employee status</a></li>
-                    <li><a href="view_employee.php"><i class="icon-eye-open"></i>View Employee</a></li>
+                    <li><a href="update_employees.php"><i class="icon-pencil"></i> &nbsp;&nbsp;Employee Update </a></li>
+                    <li><a href="employee_status.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee status</a></li>
+                    <li><a href="view_employee.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;View Employee</a></li>
                 </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Manage Users</span></a>
                 <ul>
-                    <li><a href="user_regi.php"><i class="icon-user"></i>User Registeration </a></li>
-                    <li><a href="update_users.php"><i class="icon-user"></i>User Update </a></li>
-                    <li><a href="user_status.php"><i class="icon-user"></i>User Status</a></li>
-                    <li><a href="view_user.php"><i class="icon-eye-open"></i>User View </a></li>
+                    <li><a href="user_regi.php"><i class="icon-laptop"></i>&nbsp;&nbsp; Registeration </a></li>
+                    <li><a href="update_users.php"><i class="icon-pencil"></i> &nbsp;&nbsp;User Update </a></li>
+                    <li><a href="user_status.php"><i class="icon-user"></i>&nbsp;&nbsp;User Status</a></li>
+                    <li><a href="view_user.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;User View </a></li>
                 </ul>
             </li>
             <li class="x">

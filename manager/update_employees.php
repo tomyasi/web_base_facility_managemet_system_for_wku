@@ -7,13 +7,18 @@ include("../connection.php")
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
-            <a href="#"><i class="icon icon-th-list" title="Go to User Manage"></i> <span>Manage User</span></a>
-            <a href="updat_users.php" title="Go to Update Users page" class="tip-bottom"><i class="icon-pencil"></i>User
+            <a href="#"><i class="icon icon-th-list" title="Go to User Manage"></i> <span>Manage Employee</span></a>
+            <a href="updat_users.php" title="Go to Update Users page" class="tip-bottom"><i
+                    class="icon-pencil"></i>Employee
                 Update
             </a>
         </div>
     </div>
     <div class="container-fluid">
+        <hr>
+        <center>
+            <h5>EMPLOYEE UPDATE INFORMATIN PAGE</h5>
+        </center>
         <hr>
         <div class="row-fluid">
             <div class="span12">

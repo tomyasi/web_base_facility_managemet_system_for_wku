@@ -9,12 +9,15 @@ $insertdate = date("Y/m/d H:i:s");
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="home.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
-                Home</a></div>
+        <div id="breadcrumb"><a href="item_request_detail.php" title="Go to Resource Request Page" class="tip-bottom"><i
+                    class="icon-home"></i>
+                Resource Request</a></div>
     </div>
-    <!--End-breadcrumbs-->
-    <!--Action boxes-->
     <div class="container-fluid">
+        <hr>
+        <center>
+            <h5>RESOUCE REQUEST PAGE</h5>
+        </center>
         <hr>
         <form name="form1" action="" method="post" class="form-horizontal nopadding">
             <div class="row-fluid">

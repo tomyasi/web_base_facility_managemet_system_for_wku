@@ -34,10 +34,14 @@ while ($row = mysqli_fetch_array($query)) {
     <!--End-breadcrumbs-->
     <!--Action boxes-->
     <div class="container-fluid">
-
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <hr>
+        <center>
+            <h5>UPDATE USER INFORMATION PAGE</h5>
+        </center>
+        <hr>
+        <div class="row-fluid">
             <div class="span12">
-                <div class="widget-box">
+                <div class="widget-box" style="border-radius: 20px; margin-right:10%; margin-left:10%">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>User Edite Form</h5>
                     </div>

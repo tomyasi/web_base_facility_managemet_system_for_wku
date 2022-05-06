@@ -9,12 +9,17 @@ include("../connection.php")
         <div id="breadcrumb">
             <a href="#"><i class="icon icon-th-list"></i> <span>Manage User</span></a>
             <a href="view_employee.php" title="Go to User status" class="tip-bottom">
-                <i class="icon icon-envelope"></i>User Status
+                <i class="icon-user"></i> User Status
             </a>
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <hr>
+        <center>
+            <h5>USER STATUS PAGE</h5>
+        </center>
+        <hr>
+        <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>

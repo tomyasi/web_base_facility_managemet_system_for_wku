@@ -2,7 +2,7 @@
 include("header.php");
 include("../connection.php");
 session_start();
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['emp_id'];
 ?>
 <div id="content">
     <!--breadcrumbs-->
@@ -13,7 +13,7 @@ $user_id = $_SESSION['user_id'];
             </a>
         </div>
     </div>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <hr>
         <div class="row-fluid">
             <div class="span12">
@@ -21,36 +21,35 @@ $user_id = $_SESSION['user_id'];
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>View Services Request</h5>
                     </div>
-                    <!-- employee view inteble form  -->
-                    <div class="widget-content nopadding">
-                        <form name="formsend" action="#" method="POST" class="form-horizontal"
-                            onsubmit='return formValidation()'>
-                            <div class="alert alert-danger" id="error" style="display: none;">
-                                <center>
-                                    <strong>Same thing error,please triy agian.</strong>
-                                </center>
-                            </div>
-                            <div class="span10">
-                                <br>
-                                <div>
-                                    <label>Serche Request</label>
-                                    <input type="text" class="span11" placeholder="search" required name="quantity"
-                                        id="qty" autocomplete="off" style="border-radius:10px" min="1">
-                                </div>
-                            </div>
-                            <div class="form-actions">
-                                <br>
-                                <center>
-                                    <button type="submit" id="f" name="serch" class="btn btn-success"
-                                        style="border-radius: 10px; float:left"><strong>Serch</strong></button>
-                                </center>
-                            </div>
-                        </form>
-                    </div>
+                    employee view inteble form  
+    <div class="widget-content nopadding">
+        <form name="formsend" action="#" method="POST" class="form-horizontal" onsubmit='return formValidation()'>
+            <div class="alert alert-danger" id="error" style="display: none;">
+                <center>
+                    <strong>Same thing error,please triy agian.</strong>
+                </center>
+            </div>
+            <div class="span10">
+                <br>
+                <div>
+                    <label>Serche Request</label>
+                    <input type="text" class="span11" placeholder="search" required name="quantity" id="qty"
+                        autocomplete="off" style="border-radius:10px" min="1">
                 </div>
             </div>
-        </div>
+            <div class="form-actions">
+                <br>
+                <center>
+                    <button type="submit" id="f" name="serch" class="btn btn-success"
+                        style="border-radius: 10px; float:left"><strong>Serch</strong></button>
+                </center>
+            </div>
+        </form>
     </div>
+</div>
+</div>
+</div>
+</div> -->
     <div class="row-fluid">
         <div class="span12">
             <center>

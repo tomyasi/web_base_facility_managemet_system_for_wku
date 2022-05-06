@@ -12,7 +12,9 @@ include("header.php");
     <!--Action boxes-->
     <div class="container-fluid">
         <hr>
-        <h5>Home</h5>
+        <center>
+            <h5>HOME PAGE </h5>
+        </center>
         <hr>
         <div class="row-fluid">
             <div class="span5" style="float: right;">

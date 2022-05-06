@@ -38,33 +38,38 @@ if (isset($_POST['re_password'])) {
     <div class="container-fluid">
         <div class="row-fluid">
             <hr>
-            <h5>Change Password</h5>
+            <CENTER>
+                <h5>Change Password</h5>
+            </CENTER>
             <hr>
             <div class="span11">
-                <div class="widget-box">
+                <div class="widget-box" style="border-radius: 20px; margin-right:10%; margin-left:10%">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>User Change Password Form</h5>
                     </div>
-                    <div class="widget-content nopadding">
+                    <div class="widget-content nopadding" style="border-radius: 20px;">
                         <form name="formsend" action="#" method="POST" class="form-horizontal">
                             <div class="control-group" style="min-height: 50px;">
-                                <label class="control-label"><strong>Old Password :</strong></label>
+                                <label class="control-label"><strong>Old Password<small style="color: red;">*</small>
+                                        :</strong></label>
                                 <div class="controls">
-                                    <input type="password" class="span11" placeholder="Enter old password"
+                                    <input type="password" class="span8" placeholder="Enter old password"
                                         name="old_pass" required style="border-radius: 13px;" />
                                 </div>
                             </div>
-                            <div class="control-group" style="min-height: 50px;">
-                                <label class="control-label"><strong>New Password :</strong></label>
+                            <div class="control-group" style="min-height: 50px; min-height: 50px;">
+                                <label class="control-label"><strong>New Password<small style="color: red;">*</small>
+                                        :</strong></label>
                                 <div class="controls">
-                                    <input type="password" class="span11" placeholder="Enter new password"
+                                    <input type="password" class="span8" placeholder="Enter new password"
                                         name="new_pass" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group" style="min-height: 50px;">
-                                <label class="control-label"><strong>Confirm Password :</strong></label>
+                                <label class="control-label"><strong>Confirm Password<small
+                                            style="color: red;">*</small> :</strong></label>
                                 <div class="controls">
-                                    <input type="password" class="span11" placeholder="Confirm Password" name="re_pass"
+                                    <input type="password" class="span8" placeholder="Confirm Password" name="re_pass"
                                         required style="border-radius: 13px;" />
                                 </div>
                                 <div class="alert alert-danger" id="error" style="display: none;">

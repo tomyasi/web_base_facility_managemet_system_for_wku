@@ -6,11 +6,18 @@ include("../connection.php")
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="view_employee.php" title="Go to User View Employees" class="tip-bottom">
-                <i class="icon icon-envelope"></i>View Employees
-            </a></div>
+        <div id="breadcrumb"><a href="#"><i class="icon icon-th-list"></i> <span>Manage Employee</span></a>
+            <a href="employee_status.php" title="Go to User View Employees" class="tip-bottom">
+                <i class="icon-user"></i> Employees Status
+            </a>
+        </div>
     </div>
     <div class="container-fluid">
+        <hr>
+        <center>
+            <h5>EMPLOYEE STATUS PAGE</h5>
+        </center>
+        <hr>
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">

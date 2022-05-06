@@ -15,6 +15,12 @@ include("../connection.php")
     </div>
     <div class="container-fluid">
         <hr>
+        <center>
+            <h5>
+                <margee>vIEW USER ACCOUNT PAGE</margee>
+            </h5>
+        </center>
+        <hr>
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
@@ -40,21 +46,21 @@ include("../connection.php")
                                 $result = mysqli_query($con, "select *from uaccount;");
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                    <tr>
-                                        <th><?php echo $n; ?></th>
-                                        <td><?php echo $row["id"]; ?></td>
-                                        <td><?php echo $row["username"]; ?></td>
-                                        <td><?php echo $row["password"]; ?></td>
-                                        <td><?php echo $row["lastlogin"]; ?></td>
-                                        <td> <?php
+                                <tr>
+                                    <th><?php echo $n; ?></th>
+                                    <td><?php echo $row["id"]; ?></td>
+                                    <td><?php echo $row["username"]; ?></td>
+                                    <td><?php echo $row["password"]; ?></td>
+                                    <td><?php echo $row["lastlogin"]; ?></td>
+                                    <td> <?php
                                                 if ($row["status"] == "1") {
                                                     echo "Active";
                                                 } else {
                                                     echo "Deactive";
                                                 }
                                                 ?>
-                                    </tr>
-                                    </tr>
+                                </tr>
+                                </tr>
                                 <?php
                                     $n++;
                                 }

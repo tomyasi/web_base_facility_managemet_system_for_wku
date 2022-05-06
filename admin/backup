@@ -1,0 +1,32 @@
+$id_error = $pass_error = $cpass_error = "";
+if (isset($_POST["send"])) {
+
+$id = mysqli_real_escape_string($con, $_POST["id"]);
+$username = mysqli_real_escape_string($con, $_POST["username"]);
+$pass = mysqli_real_escape_string($con, $_POST["password"]);
+$cpassword = mysqli_real_escape_string($con, $_POST["cpassword"]);
+$role = mysqli_real_escape_string($con, $_POST["role"]);
+$status = mysqli_real_escape_string($con, $_POST["status"]);
+if (strlen($pass) < 6) { $pass_error="Password must be minimum of 6 characters" ; } if (!($pass==$cpassword)) {
+    $cpass_error="Password and confirm password doesn't mached" ; }
+    $id_check=mysqli_query($con, "SELECT *FROM employee WHERE id=$id" ); if (!$id_check) {
+    $id_error="ID doesn't exist!!!" ; } $insertdate=date("Y-m-d H:i:s"); if ($id_error=="" && $pass_error=="" &&
+    $cpass_error=="" ) { //passwor encrption using md5 $password=md5($pass);
+    $qur="INSERT INTO eaccount values(NULL,'$id','$username','$password','$status',' $insertdate','$role')" ;
+    $res=mysqli_query($con, $qur) or die("error occured" . mysqli_error($con)); if ($res) { ?>
+    <script type="text/javascript">
+    document.getElementById("error").style.display = "none";
+    document.getElementById("success").style.display = "block";
+    // refresh the page after 3 second
+    setTimeout(function() {
+        window.location.href = "employee_regi.php";
+    }, 3000);
+    </script>
+    <?php
+        } else {
+            echo "Error: " . $sql . "" . mysqli_error($con);
+        }
+    }
+}
+<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
+    onsubmit='return formValidation()'

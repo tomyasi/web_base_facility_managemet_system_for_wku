@@ -26,20 +26,24 @@ while ($row = mysqli_fetch_array($query)) {
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
-            <a href="#"><i class="icon icon-th-list"></i> <span>Manage User</span></a>
+            <a href="#"><i class="icon icon-th-list"></i> <span>Manage Employee</span></a>
             <a href="update_employees.php" title="Go to Employee update page" class="tip-bottom"><i
-                    class="icon-pencil"></i> Update Users</a>
-            <a href="employee_edite.php" title="Go to Employee update form" class="tip-bottom">
+                    class="icon-pencil"></i> Update Employee</a>
+            <a href="#" title="Go to Employee update form" class="tip-bottom">
                 Employee Update form</a>
         </div>
     </div>
     <!--End-breadcrumbs-->
     <!--Action boxes-->
     <div class="container-fluid">
-
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <hr>
+        <center>
+            <h5>UPDATE EMPLOYEE INFORMATION PAGE</h5>
+        </center>
+        <hr>
+        <div class="row-fluid">
             <div class="span12">
-                <div class="widget-box">
+                <div class="widget-box" style="border-radius: 20px; margin-right:10%; margin-left:10%">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>Employee Edite Form</h5>
                     </div>

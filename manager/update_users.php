@@ -15,7 +15,11 @@ include("../connection.php")
     </div>
     <div class="container-fluid">
         <hr>
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <center>
+            <h5>USER UPDATE INFORMATION PAGE</h5>
+        </center>
+        <hr>
+        <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
@@ -47,36 +51,37 @@ include("../connection.php")
                                 $no = 1;
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                    <tr>
-                                        <td><?php echo $no; ?></td>
-                                        <td><?php echo $row["user_id"]; ?></td>
-                                        <td><?php echo $row["fname"]; ?></td>
-                                        <td><?php echo $row["mname"]; ?></td>
-                                        <td><?php echo $row["lname"]; ?></td>
-                                        <td><?php
+                                <tr>
+                                    <td><?php echo $no; ?></td>
+                                    <td><?php echo $row["user_id"]; ?></td>
+                                    <td><?php echo $row["fname"]; ?></td>
+                                    <td><?php echo $row["mname"]; ?></td>
+                                    <td><?php echo $row["lname"]; ?></td>
+                                    <td><?php
                                             if ($row["gender"] == "m") {
                                                 echo "Male";
                                             } else {
                                                 echo "Female";
                                             }
                                             ?>
-                                        </td>
-                                        <td><?php echo $row["age"]; ?></td>
-                                        <td><?php echo $row["gmail"]; ?></td>
-                                        <td><?php echo $row["phone"]; ?></td>
-                                        <td><?php echo $row["nationality"]; ?></td>
-                                        <td><?php echo $row["subcity"]; ?></td>
-                                        <td> <?php
+                                    </td>
+                                    <td><?php echo $row["age"]; ?></td>
+                                    <td><?php echo $row["gmail"]; ?></td>
+                                    <td><?php echo $row["phone"]; ?></td>
+                                    <td><?php echo $row["nationality"]; ?></td>
+                                    <td><?php echo $row["subcity"]; ?></td>
+                                    <td> <?php
                                                 if ($row["status"] == "1") {
                                                     echo "Active";
                                                 } else {
                                                     echo "Deactive";
                                                 }
                                                 ?>
-                                        </td>
-                                        <td><a href="user_edite.php?id=<?php echo $row['id'] ?>" class="btn btn-primary" style="border-radius:13px"><i class="icon-pencil"></i>
-                                                Edit</a></td>
-                                    </tr>
+                                    </td>
+                                    <td><a href="user_edite.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"
+                                            style="border-radius:13px"><i class="icon-pencil"></i>
+                                            Edit</a></td>
+                                </tr>
                                 <?php
                                     $no++;
                                 }

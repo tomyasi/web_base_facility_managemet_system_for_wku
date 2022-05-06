@@ -14,19 +14,24 @@ include("../connection.php")
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <hr>
+        <center>
+            <h5>USRE INFORMATION</h5>
+        </center>
+        <hr>
+        <div class="row-fluid">
             <div class="span12">
                 <div>
                     <a href="printuser.php" class="btn btn-primary" style="border-radius:10px"><i
-                            class="icon-print"></i></a>
+                            class="icon-print">&nbsp;&nbsp;PRINT</i></a>
                 </div>
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>User View Form</h5>
                     </div>
                     <!-- employee view inteble form  -->
-                    <div class="widget-content nopadding">
-                        <table class="table table-bordered table-striped">
+                    <div class="widget-content nopadding table-responsive-sm">
+                        <table class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>

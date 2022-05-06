@@ -7,21 +7,27 @@ include("../connection.php")
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
-            <a href="#"><i class="icon icon-th-list"></i> <span>Manage User</span></a>
-            <a href="view_employee_account.php" title="Go to employee account view page" class="tip-bottom">
-                <i class="icon-user"></i>View employee account
+            <a href="generate_account.php" title="Go to  Generate Account page" class="tip-bottom">
+                <i class="icon-laptop"></i>Generate Account
             </a>
         </div>
     </div>
     <div class="container-fluid">
+        <hr>
+        <center>
+            <h5>
+                <margee> GENERATE ACCOUNT FROM DATABES PAGE</margee>
+            </h5>
+        </center>
+        <hr>
         <div class="row-fluid">
             <form name="formsend" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"
                 class="form-horizontal">
                 <hr>
                 <center>
                     <button type="submit" name="genrate_emp_account" class="btn btn-primary"
-                        style="border-radius: 13px;">Generate
-                        Employee Account from Database</button>
+                        style="border-radius: 10px;" title="Generate Employee Account From Databese">Generate
+                        Employee Account</button>
                 </center>
                 <div class="alert alert-success" id="success-emp" style="display:none;">
                     <center>
@@ -32,8 +38,8 @@ include("../connection.php")
                 <hr>
                 <center>
                     <button type="submit" name="generate_user_account" class="btn btn-primary"
-                        style="border-radius: 13px;">Generate
-                        User Account from Database</button>
+                        style="border-radius: 10px;" title="Generate User Account From Databese">Generate
+                        User Account</button>
                 </center>
                 <div class="alert alert-success" id="success-user" style="display:none;">
                     <center>
@@ -49,6 +55,7 @@ include("../connection.php")
 //generate a username from Full name
 if (isset($_POST["genrate_emp_account"])) {
     $result = mysqli_query($con, "SELECT *FROM employee");
+    $count = 0;
     while ($row = mysqli_fetch_array($result)) {
         $fname = $row["fname"];
         $lname = $row["lname"];
@@ -65,21 +72,25 @@ if (isset($_POST["genrate_emp_account"])) {
         $username = $fname . $lname; //. $part3; //str_shuffle to randomly shuffle all characters
         $password = $pass;
         $insertdate = date("Y-m-d H:i:s");
-        $qur = "INSERT INTO eaccount values(NULL,'$pass','$username','$password','$status',' $insertdate','$role')";
+        $qur = "INSERT INTO eaccount values(NULL,'$pass','$username','" . md5($password) . "','$status',' $insertdate','$role')";
         $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
         if ($res) {
+            $count++;
+        }
+    }
+    if ($count > 0) {
+        echo $count;
 ?>
 <script type="text/javascript">
 document.getElementById("success-emp").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location.href = "generate_username_pass_emp.php";
+    window.location.href = "generate_account.php";
 }, 3000);
 </script>
 <?php
-        } else {
-            echo "Error: " . $sql . "" . mysqli_error($con);
-        }
+    } else {
+        echo "Error: " . $sql . "" . mysqli_error($con);
     }
 }
 if (isset($_POST["generate_user_account"])) {
@@ -99,7 +110,7 @@ if (isset($_POST["generate_user_account"])) {
         $username = $fname . $lname; //. $part3; //str_shuffle to randomly shuffle all characters
         $password = $pass;
         $insertdate = date("Y-m-d H:i:s");
-        $qur = "INSERT INTO uaccount values(NULL,'$pass','$username','$password','$status',' $insertdate')";
+        $qur = "INSERT INTO uaccount values(NULL,'$pass','$username','" . md5($password) . "','$status',' $insertdate')";
         $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
         if ($res) {
         ?>
@@ -107,7 +118,7 @@ if (isset($_POST["generate_user_account"])) {
 document.getElementById("success-user").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location.href = "generate_username_pass_emp.php";
+    window.location.href = "generate_account.php";
 }, 3000);
 </script>
 <?php

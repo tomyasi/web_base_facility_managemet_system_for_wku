@@ -60,30 +60,30 @@ $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Create Account</span></a>
                 <ul>
-                    <li><a href="create_account_emp.php"><i class="icon-user"></i>Employee </a></li>
-                    <li><a href="create_account_user.php"><i class="icon-user"></i>User </a></li>
+                    <li><a href="create_account_emp.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee </a></li>
+                    <li><a href="create_account_user.php"><i class="icon-user"></i>&nbsp;&nbsp;User </a></li>
                 </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Update Account</span></a>
                 <ul>
-                    <li><a href="update_account_emp.php"><i class="icon-user"></i>Employee </a></li>
-                    <li><a href="update_account_user.php"><i class="icon-user"></i>User </a></li>
+                    <li><a href="update_account_emp.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee </a></li>
+                    <li><a href="update_account_user.php"><i class="icon-user"></i>&nbsp;&nbsp;User </a></li>
                 </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Status Account</span></a>
                 <ul>
-                    <li><a href="status_account_emp.php"><i class="icon-user"></i>Employee </a></li>
-                    <li><a href="status_account_user.php"><i class="icon-user"></i>User </a></li>
+                    <li><a href="status_account_emp.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee </a></li>
+                    <li><a href="status_account_user.php"><i class="icon-user"></i>&nbsp;&nbsp;User </a></li>
                 </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Vivew Account</span></a>
                 <ul>
-                    <li><a href="view_employee_account.php"><i class="icon-user"></i>Employee </a></li>
-                    <li><a href="view_user_account.php"><i class="icon-user"></i>User </a></li>
+                    <li><a href="view_employee_account.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee </a></li>
+                    <li><a href="view_user_account.php"><i class="icon-user"></i>&nbsp;&nbsp;User </a></li>
                 </ul>
             </li>
             <li>
-                <a href="generate_username_pass_emp.php"><i class="icon icon-cogs"></i>
+                <a href="generate_account.php"><i class="icon-laptop"></i>
                     <span>Generate Account</span></a>
             </li>
             <li>
