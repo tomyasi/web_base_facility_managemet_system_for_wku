@@ -46,7 +46,7 @@ include("../connection.php")
                             </thead>
                             <tbody>
                                 <?php
-                                $result = mysqli_query($con, "select *from user;");
+                                $result = mysqli_query($con, "select *from user");
                                 $no = 1;
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
@@ -78,7 +78,7 @@ include("../connection.php")
                                         <?php
                                             } else { ?>
                                         <a href="user_status_edite.php?id=<?php echo $row['id'] ?>"
-                                            class="btn btn-danger" style="border-radius:10px">Inactive</a>
+                                            class="btn btn-danger" style="border-radius:10px">Deactive</a>
                                         <?php
                                             }
                                             ?>

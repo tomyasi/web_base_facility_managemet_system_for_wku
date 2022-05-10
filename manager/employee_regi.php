@@ -385,7 +385,7 @@ setTimeout(function() {
 <?php
         }
     } else {
-        $email_err = "Email already exist!!!";
+        $email_err = "Email or Phone already exist!!!";
     }
     mysqli_close($con);
 }
