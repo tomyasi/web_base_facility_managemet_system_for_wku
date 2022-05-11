@@ -68,49 +68,31 @@ $un_read = mysqli_num_rows($result);
                     <li><a href="item_view.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;View Item</a></li>
                 </ul>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>View</span>
-                    <?php if ($un_read > 0) {
-                        echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span></a></a>';
-                    } ?>
-                    <ul>
-                        <li><a href="view_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Resource
-                                Request</a><?php if ($un_read > 0) {
-                                                echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span></a></a>';
-                                            } ?>
-                        </li>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i><span>View Notification
+                        <?php if ($un_read > 0) {
+                            echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
+                        } ?></span></a>
+                <ul>
+                    <li><a href="view_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Resource Request</a>
+                        <?php if ($un_read > 0) {
+                            echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
+                        } ?>
+                    </li>
+                    <li><a href="update_employees.php"><i class="icon-eye-open"></i> &nbsp;&nbsp;View Feedback </a>
+                    </li>
+                </ul>
             </li>
-            <li><a href="update_employees.php"><i class="icon-eye-open"></i> &nbsp;&nbsp;View Feedback </a></li>
-        </ul>
-        </li>
-        <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
-            <ul>
-                <li><a href="employee_regi.php"><i class="icon-user"></i>Item Ordered Report</a></li>
-                <li><a href="update_employees.php"><i class="icon-user"></i>Store Item Report </a></li>
-                <li><a href="employee_status.php"><i class="icon-user"></i>Give in Item Report</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="item_register.php"><i class="icon-reply"></i>
-                <span>Item Order</span>
-        </li>
-        <!-- <li>
-                <a href="generate_report.php"><i class="icon-reply"></i>
-                    <span>Item Distribute</span>
-            </li> -->
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
+                <ul>
+                    <li><a href="employee_regi.php"><i class="icon-briefcase"></i>&nbsp;&nbsp;Item Ordered Report</a>
+                    </li>
+                    <li><a href="update_employees.php"><i class="icon-user"></i>&nbsp;&nbsp;Store Item Report </a></li>
+                    <li><a href="employee_status.php"><i class="icon-user"></i>&nbsp;&nbsp;Give in Item Report</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="item_order.php"><i class="icon-briefcase"></i>
+                    <span>Item Orderd</span>
+            </li>
         </ul>
     </div>
-    <script type="text/javascript">
-    function loadDoc() {
-        setInterval(function() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("noti_numbers").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("POST", "notify.php", true);
-            xhttp.send();
-        }, 1000);
-    }
-    loadDoc();
-    </script>

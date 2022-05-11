@@ -37,13 +37,13 @@ include("../connection.php")
                                     <th>Item Quality</th>
                                     <th>Item Quantity</th>
                                     <th>Odered date</th>
-                                    <th>Aproved</th>
-                                    <th>Give Item</th>
+                                    <th>Aprove</th>
                                 </tr>
                             </thead>
                             <tbody id="output">
                                 <?php
-                                $result = mysqli_query($con, "SELECT *from item_order where aprove='1'");
+
+                                $result = mysqli_query($con, "select *from item_order;");
                                 $no = 1;
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_array($result)) {
@@ -65,15 +65,13 @@ include("../connection.php")
                                         <img src="../images/tick.png" alt="" class="img-fluid"></a>
                                         <?php
                                                     } else { ?>
-                                        <img src="../images/remove.png" alt="" class="img-fluid">
+                                        <a href="aprove_item_order.php?id=<?php echo $row['order_id'] ?>" class="btn
+                                        btn-primary" style="border-radius:13px"><i class="icon-check"></i>
+                                            Aprove</a>
                                         <?php
                                                     }
                                                 ?>
                                     </td>
-                                    <td><a href="item_request_reply.php?id=<?php echo $row['req_id'] ?>" class="btn
-                                        btn-primary" style="border-radius:13px"><i class="icon-reply"></i>
-                                            Give </a></td>
-
                                 </tr>
                                 <?php
                                         $no++;

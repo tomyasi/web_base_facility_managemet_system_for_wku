@@ -14,6 +14,11 @@ include("../connection.php")
     </div>
     <div class="container-fluid">
         <hr>
+        <center>
+            <h5>VIEW RESOURCE REQUEST PAGE</h5>
+        </center>
+        <hr>
+
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
@@ -32,8 +37,10 @@ include("../connection.php")
                                     <th>Item category</th>
                                     <th>Item Quality</th>
                                     <th>Item Quantity</th>
-                                    <th>message</th>
-                                    <th>Reply</th>
+                                    <th>Message</th>
+                                    <th>Requested Date</th>
+                                    <th>Order</th>
+                                    <th>Aproved</th>
                                 </tr>
                             </thead>
                             <tbody id="output">
@@ -57,13 +64,23 @@ include("../connection.php")
                                     <td><?php echo $row["item_quality"]; ?></td>
                                     <td><?php echo $row["item_quantity"]; ?></td>
                                     <td><?php echo $row["message"]; ?></td>
+                                    <td><?php echo $row["re_date"]; ?></td>
                                     <td> <?php if ($row["status"] == "1") { ?>
-                                        <img src="../images/tick.png" alt="" class="img-fluid"></a>
+                                        <img src="../images/tick.png" alt="" class="img-fluid">
                                         <?php
                                                     } else { ?>
                                         <a href="item_request_reply.php?id=<?php echo $row['re_id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px"><i class="icon-reply"></i>
-                                            Reply</a>
+                                            Order</a>
+                                        <?php
+                                                    }
+                                                ?>
+                                    </td>
+                                    <td> <?php if ($row["ordered"] == "1") { ?>
+                                        <img src="../images/tick.png" alt="" class="img-fluid">
+                                        <?php
+                                                    } else { ?>
+                                        <img src="../images/remove.png" alt="" class="img-fluid">
                                         <?php
                                                     }
                                                 ?>

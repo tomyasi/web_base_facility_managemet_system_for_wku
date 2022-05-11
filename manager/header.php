@@ -1,7 +1,9 @@
 <?php
 include("../connection.php");
-$u_name = mysqli_query($con, "select * from user;") or dir(mysqli_error($con));
-$row = mysqli_fetch_array($u_name);
+session_start();
+$full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
+$result = mysqli_query($con, "SELECT *from item_order where aprove='0';");
+$un_read = mysqli_num_rows($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +42,7 @@ $row = mysqli_fetch_array($u_name);
             <li class="dropdown" id="profile-messages">
                 <a title="Your profile" href="#" data-toggle="dropdown" data-target="#profile-messages"
                     class="dropdown-toggle"><i class="icon icon-user"></i> <span
-                        class="text"><?php echo "$row[fname] $row[lname]" ?></span><b class="caret"></b></a>
+                        class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -77,8 +79,11 @@ $row = mysqli_fetch_array($u_name);
                 </ul>
             </li>
             <li class="x">
-                <a href="home.php"><i class="icon-eye-open"></i>
-                    <span>View Requests</span><span class="label label-important">3</span></a>
+                <a href="view_item_order.php"><i class="icon-eye-open"></i>
+                    <span>View Item Order</span>
+                    <?php if ($un_read > 0) {
+                        echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span></a></a>';
+                    } ?></a>
             </li>
             <li class="x">
                 <a href="home.php"><i class="icon-eye-open"></i>
