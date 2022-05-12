@@ -73,10 +73,10 @@ $un_read = mysqli_num_rows($result);
                             echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
                         } ?></span></a>
                 <ul>
-                    <li><a href="view_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Resource Request</a>
-                        <?php if ($un_read > 0) {
-                            echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
-                        } ?>
+                    <li><a href="view_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Resource Request
+                            <?php if ($un_read > 0) {
+                                echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
+                            } ?></a>
                     </li>
                     <li><a href="update_employees.php"><i class="icon-eye-open"></i> &nbsp;&nbsp;View Feedback </a>
                     </li>

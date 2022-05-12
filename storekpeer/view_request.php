@@ -45,7 +45,6 @@ include("../connection.php")
                             </thead>
                             <tbody id="output">
                                 <?php
-
                                 $result = mysqli_query($con, "select *from item_request;");
                                 $no = 1;
                                 if (mysqli_num_rows($result) > 0) {
@@ -70,7 +69,7 @@ include("../connection.php")
                                         <?php
                                                     } else { ?>
                                         <a href="item_request_reply.php?id=<?php echo $row['re_id'] ?>" class="btn
-                                        btn-primary" style="border-radius:13px"><i class="icon-reply"></i>
+                                        btn-primary" style="border-radius:13px">
                                             Order</a>
                                         <?php
                                                     }

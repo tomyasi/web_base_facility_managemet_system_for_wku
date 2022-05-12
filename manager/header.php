@@ -82,7 +82,7 @@ $un_read = mysqli_num_rows($result);
                 <a href="view_item_order.php"><i class="icon-eye-open"></i>
                     <span>View Item Order</span>
                     <?php if ($un_read > 0) {
-                        echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span></a></a>';
+                        echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
                     } ?></a>
             </li>
             <li class="x">

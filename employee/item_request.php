@@ -51,7 +51,7 @@ include("header.php");
 <?php
 include("footer.php");
 ?>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function() {
     // Send Search Text to the server
     $("#search").keyup(function() {
@@ -77,4 +77,4 @@ $(document).ready(function() {
         $("#show-list").html("");
     });
 })
-</script>
+</script> -->

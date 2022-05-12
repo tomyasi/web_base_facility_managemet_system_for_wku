@@ -2,7 +2,7 @@
 include("header.php");
 include("../connection.php");
 $id = $_GET['id'];
-$sql = "select *from stock where item_id=$id";
+$sql = "SELECT *from stock where item_id=$id";
 $query = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
 $id = $code = $name = $type = $category = $model = $quality = $quantity = $status  = "";
 while ($row = mysqli_fetch_array($query)) {
@@ -29,10 +29,7 @@ while ($row = mysqli_fetch_array($query)) {
                 Item Update form</a>
         </div>
     </div>
-    <!--End-breadcrumbs-->
-    <!--Action boxes-->
     <div class="container-fluid">
-
         <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
             <div class="span12">
                 <div class="widget-box">

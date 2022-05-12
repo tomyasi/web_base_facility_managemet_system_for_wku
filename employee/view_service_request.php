@@ -1,7 +1,6 @@
 <?php
 include("header.php");
 include("../connection.php");
-session_start();
 $user_id = $_SESSION['emp_id'];
 ?>
 <div id="content">
@@ -13,48 +12,20 @@ $user_id = $_SESSION['emp_id'];
             </a>
         </div>
     </div>
-    <!-- <div class="container-fluid">
+    <div class="container-fluid">
+        <hr>
+        <center>
+            <h5>VIEW SERVICE REQUEST PAGE</h5>
+        </center>
         <hr>
         <div class="row-fluid">
             <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                        <h5>View Services Request</h5>
-                    </div>
-                    employee view inteble form  
-    <div class="widget-content nopadding">
-        <form name="formsend" action="#" method="POST" class="form-horizontal" onsubmit='return formValidation()'>
-            <div class="alert alert-danger" id="error" style="display: none;">
-                <center>
-                    <strong>Same thing error,please triy agian.</strong>
-                </center>
+
             </div>
-            <div class="span10">
-                <br>
-                <div>
-                    <label>Serche Request</label>
-                    <input type="text" class="span11" placeholder="search" required name="quantity" id="qty"
-                        autocomplete="off" style="border-radius:10px" min="1">
-                </div>
-            </div>
-            <div class="form-actions">
-                <br>
-                <center>
-                    <button type="submit" id="f" name="serch" class="btn btn-success"
-                        style="border-radius: 10px; float:left"><strong>Serch</strong></button>
-                </center>
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-</div>
-</div>
-</div> -->
     <div class="row-fluid">
         <div class="span12">
-            <center>
-                <h4>Resource Request Information</h4>
-            </center>
             <div class="widget-content nopadding">
                 <table class="table table-bordered table-striped">
                     <thead>
@@ -118,44 +89,6 @@ $user_id = $_SESSION['emp_id'];
         </div>
     </div>
 </div>
-
-<!-- Modal
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Service Request Schedule</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span> 
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="span3">
-                    <br>
-                    <div>
-                        <label>Schedule</label>
-                        <input type="text" name="schedule" data-date="01-02-2013" data-date-format="dd-mm-yyyy"
-                            class="datepicker span4" required style="border-radius: 13px;">
-                    </div>
-                </div>
-                <div class="span6">
-                    <br>
-                    <div>
-                        <label>Message</label>
-                        <textarea class="span4" placeholder="Write your message here" name="message" required
-                            style="border-radius: 13px;"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                    style="border-radius: 10px;">Close</button>
-                <button type="button" class="btn btn-primary" style="border-radius: 10px;">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div> -->
 <?php
 mysqli_close($con);
 include("footer.php");

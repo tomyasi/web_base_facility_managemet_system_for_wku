@@ -1,7 +1,6 @@
 <?php
 include("header.php");
 include("../connection.php");
-session_start();
 $user_id = $_SESSION['user_id'];
 ?>
 <div id="content">

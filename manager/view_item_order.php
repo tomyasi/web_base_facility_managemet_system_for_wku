@@ -55,7 +55,7 @@ include("../connection.php")
                                 <tr>
                                     <td><?php echo $no; ?></td>
                                     <td><?php echo $re_by; ?></td>
-                                    <td><?php echo $row['item-name']; ?></td>
+                                    <td><?php echo $row['item_name']; ?></td>
                                     <td><?php echo $row["item_type"]; ?></td>
                                     <td><?php echo $row["item_category"]; ?></td>
                                     <td><?php echo $row["quality"]; ?></td>

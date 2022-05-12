@@ -14,6 +14,10 @@ include("../connection.php")
     </div>
     <div class="container-fluid">
         <hr>
+        <center>
+            <h5>ITEM STATUS PAGE</h5>
+        </center>
+        <hr>
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">

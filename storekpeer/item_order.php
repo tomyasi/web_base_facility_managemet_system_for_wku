@@ -55,7 +55,7 @@ include("../connection.php")
                                 <tr>
                                     <td><?php echo $no; ?></td>
                                     <td><?php echo $re_by; ?></td>
-                                    <td><?php echo $row['item-name']; ?></td>
+                                    <td><?php echo $row['item_name']; ?></td>
                                     <td><?php echo $row["item_type"]; ?></td>
                                     <td><?php echo $row["item_category"]; ?></td>
                                     <td><?php echo $row["quality"]; ?></td>
@@ -70,10 +70,18 @@ include("../connection.php")
                                                     }
                                                 ?>
                                     </td>
-                                    <td><a href="item_request_reply.php?id=<?php echo $row['req_id'] ?>" class="btn
+                                    <td>
+                                        <?php if ($row["give"] == "1") { ?>
+                                        <img src="../images/tick.png" alt="" class="img-fluid"></a>
+                                        <?php
+                                                } else { ?>
+                                        <a href="give_item.php?id=<?php echo $row['order_id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px"><i class="icon-reply"></i>
-                                            Give </a></td>
-
+                                            Give </a>
+                                        <?php
+                                                }
+                                                ?>
+                                    </td>
                                 </tr>
                                 <?php
                                         $no++;
