@@ -136,6 +136,7 @@ $email_err = "";
                                         <option value="admin">Admin</option>
                                         <option value="manger">Manager</option>
                                         <option value="storekpeer">Storekpeer</option>
+                                        <option value="maintenance">Maintenance</option>
                                         <option value="security"> Security</option>
                                         <option value="clealiness"> Clealiness</option>
                                         <option value="other">Special Services</option>

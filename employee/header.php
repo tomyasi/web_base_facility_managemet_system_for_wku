@@ -95,7 +95,10 @@ $total = $un_read + $un_read_res;
                 </ul>
             </li>
             <li>
-                <a href="item_request_detail.php"><i class="icon-reply"></i><span>Resource Request</span>
+                <a href="item_request_detail.php"><i class="icon-reply"></i><span>Resource Request</span></a>
+            </li>
+            <li>
+                <a href="service_responce2.php"><i class="icon-reply"></i><span>User Service Responce</span></a>
             </li>
         </ul>
     </div>

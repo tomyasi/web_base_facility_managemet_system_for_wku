@@ -16,7 +16,7 @@ include("../connection.php")
     <div class="container-fluid">
         <hr>
         <center>
-            <h5>USRE INFORMATION</h5>
+            <h5>USEr INFORMATION</h5>
         </center>
         <hr>
         <div class="row-fluid">

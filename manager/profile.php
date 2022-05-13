@@ -213,14 +213,13 @@ $id = $row['id'];
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" style="border-radius: 10px;"><img
-                        src="../images/close.jpg" alt="Yes" class="img-fluid"></a></button>
+                        src="../images/close.jpg" alt="Yes" class="img-fluid"></button>
                 <button type="button" class="btn btn-primary" style="border-radius: 10px;"
                     onclick="update_profile()">Save</button>
             </div>
         </div>
     </div>
 </div>
-
 <?php
 // if (isset($_FILES["image"]["name"])) {
 //     $id = $_POST["id"];
@@ -312,6 +311,5 @@ function update_profile() {
             $('#firstname').modal('toggle');
         }
     });
-
 }
 </script>

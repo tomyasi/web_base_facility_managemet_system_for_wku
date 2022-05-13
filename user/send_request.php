@@ -1,8 +1,9 @@
 <?php
 include("header.php");
 include("../connection.php");
-session_start();
-$user_id = $_SESSION['user_id'];
+if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
+    header("Location: ../login.php");
+}
 $query = mysqli_query($con, "SELECT *FROM user where id=$user_id");
 $user_info = mysqli_fetch_array($query);
 $fname = $user_info['fname'];
@@ -20,18 +21,22 @@ $lname = $user_info['mname'];
     <!--Action boxes-->
     <div class="container-fluid">
         <hr>
+        <center>
+            <h5>SERVICE REQUEST PAGE</h5>
+        </center>
+        <hr>
         <div class="row-fluid">
             <div class="span12">
-                <div class="widget-box">
+                <div class="widget-box" style="border-radius: 20px; margin-right:10%; margin-left:10%">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>User Request Form</h5>
                     </div>
-                    <div class="widget-content nopadding">
+                    <div class="widget-content nopadding" style="border-radius: 20px;">
                         <form name="formsend" action="#" method="POST" class="form-horizontal">
                             <div class="control-group">
                                 <label class="control-label"><strong>Service :</strong></label>
                                 <div class="controls">
-                                    <select class="span11" name="service" required style="border-radius: 13px;">
+                                    <select class="span8" name="service" required style="border-radius: 13px;">
                                         <option value="">Select your service...</option>
                                         <option value="maintenance">Maintenance</option>
                                         <option value="security">Campus Safety and Security</option>
@@ -43,8 +48,8 @@ $lname = $user_info['mname'];
                             <div class="control-group">
                                 <label class="control-label"><strong> Message :</strong></label>
                                 <div class="controls">
-                                    <textarea class="span11" placeholder="Write your message here" name="message"
-                                        required style="border-radius: 13px;"></textarea>
+                                    <textarea class="span8" placeholder="Write your message here" name="message"
+                                        required style="border-radius: 13px;" rows="10" cols="20"></textarea>
                                 </div>
                             </div>
                             <div class="alert alert-danger" id="error" style="display: none;">

@@ -1,10 +1,15 @@
 <?php
-include("../connection.php");
 session_start();
+if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
+    header("Location: ../login.php");
+}
 $user_id = $_SESSION['user_id'];
+include("../connection.php");
 $query = mysqli_query($con, "SELECT *FROM user where id=$user_id");
 $user_info = mysqli_fetch_array($query);
 $full_name = $user_info['fname'] . ' ' . $user_info['mname'];
+$result = mysqli_query($con, "SELECT *from serv_responce where view='0';");
+$un_read = mysqli_num_rows($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +54,7 @@ $full_name = $user_info['fname'] . ' ' . $user_info['mname'];
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
                     <li class="divider"></li>
-                    <li><a href="../index.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>
@@ -65,8 +70,11 @@ $full_name = $user_info['fname'] . ' ' . $user_info['mname'];
                     <span>Send Request</span></a>
             </li>
             <li>
-                <a href="send_request.php"><i class="icon-reply"></i>
-                    <span>View Respons</span><span class="label label-important">3</span></a>
+                <a href="view_responce.php"><i class="icon-signin"></i>
+                    <span>View Respons</span>
+                    <?php if ($un_read > 0) {
+                        echo '<span class="label label-important" style="border-radius:15px">' . $un_read . '</span>';
+                    } ?></a>
             </li>
             <li>
                 <a href="change_password.php"><i class="icon icon-cogs"></i>

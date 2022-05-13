@@ -17,9 +17,22 @@ session_start();
 
     <link href="assets/img/wku im3.jpg" rel="icon">
 </head>
+<style>
+#loginbox {
+    opacity: 75%;
+
+}
+
+.form-actions input[type="submite"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 40px;
+}
+</style>
 
 <body class="img js-fullheight" style="background-image: url(assets/img/wkulogo1.jpg);">
-    <div id="loginbox">
+    <div id="loginbox" style="border-radius: 15px;">
         <form name="formlogin" class="form-vertical" action="" method="POST">
             <div class="control-group normal_text">
                 <h3>WKUFMS<br>Login Form</h3>

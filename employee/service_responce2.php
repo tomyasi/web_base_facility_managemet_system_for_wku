@@ -15,7 +15,7 @@ $user_id = $_SESSION['emp_id'];
     <div class="container-fluid">
         <hr>
         <center>
-            <h5>VIEW SERVICE REQUEST PAGE</h5>
+            <h5>USER SERVICE RESPONCE PAGE</h5>
         </center>
         <hr>
         <div class="row-fluid">
@@ -41,7 +41,7 @@ $user_id = $_SESSION['emp_id'];
                     <tbody id="output">
                         <tr>
                             <?php
-                            $result = mysqli_query($con, "SELECT *from serv_request ORDER BY req_date asc;");
+                            $result = mysqli_query($con, "SELECT *from serv_request where view='0' ORDER BY req_date asc;");
                             $un_read = mysqli_num_rows($result);
                             $no = 1;
                             if ($un_read > 0) {
@@ -63,6 +63,9 @@ $user_id = $_SESSION['emp_id'];
                                 <a href="service_request_reply.php?id=<?php echo $row['s_id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px"><i class="icon-reply"></i>
                                     Reply</a>
+                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal" data-whatever="@mdo" style="border-radius: 13px;"><i
+                                        class="icon-reply"></i> Reply</button> -->
                                 <?php
                                             }
                                         ?>

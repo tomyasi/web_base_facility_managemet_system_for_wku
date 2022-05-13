@@ -113,7 +113,7 @@ if (isset($_POST['send'])) {
 document.getElementById("error").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location.href = "service-request_reply.php";
+    window.location.href = "service_request_reply.php";
 }, 3000);
 </script>
 <?php
@@ -123,7 +123,7 @@ setTimeout(function() {
 document.getElementById("success").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
-    window.location.href = "service-request_reply.php";
+    window.location.href = "service_request_reply.php";
 }, 3000);
 </script>
 <?php
