@@ -1,4 +1,7 @@
 <?php
+if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
+    header("Location: ../login.php");
+}
 include("header.php");
 include("../connection.php");
 $emp_id = $_SESSION['emp_id'];
@@ -30,8 +33,7 @@ $e_id = $_GET['id'];
                         <h5>Item Registration Form</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form name="formsend" action="#" method="POST" class="form-horizontal"
-                            onsubmit='return formValidation()'>
+                        <form name="formsend" action="#" method="POST" class="form-horizontal" onsubmit='return formValidation()'>
                             <div class="alert alert-danger" id="error" style="display: none;">
                                 <center>
                                     <strong>Same thing error,please triy agian.</strong>
@@ -41,32 +43,27 @@ $e_id = $_GET['id'];
                                 <br>
                                 <div>
                                     <label>Date</label>
-                                    <input type="text" required class="span12" name="date"
-                                        value="<?php echo $insertdate; ?>" readonly style="border-radius:10px">
+                                    <input type="text" required class="span12" name="date" value="<?php echo $insertdate; ?>" readonly style="border-radius:10px">
                                 </div>
                             </div>
                             <div class="span3">
                                 <br>
                                 <div>
                                     <label>Schedule</label>
-                                    <input type="text" name="schedule" data-date="01-02-2013"
-                                        data-date-format="dd-mm-yyyy" class="datepicker span11" required
-                                        style="border-radius: 13px;">
+                                    <input type="datetime-local" name="schedule" min="<?php echo $insertdate; ?>" data-date-format="dd-mm-yyyy" class="datepicker span11" required style="border-radius: 13px;">
                                 </div>
                             </div>
                             <div class="span6">
                                 <br>
                                 <div>
                                     <label>Message</label>
-                                    <textarea class="span11" placeholder="Write your message here" name="message"
-                                        required style="border-radius: 13px;" rows="10" cols="20"></textarea>
+                                    <textarea class="span11" placeholder="Write your message here" name="message" required style="border-radius: 13px;" rows="10" cols="20"></textarea>
                                 </div>
                             </div>
                             <div class="form-actions">
                                 <br><br>
                                 <center>
-                                    <button type="submit" id="f" name="send" class="btn btn-success"
-                                        style="border-radius: 13px;float:left"><strong>Send Sechedule</strong></button>
+                                    <button type="submit" id="f" name="send" class="btn btn-success" style="border-radius: 13px;float:left"><strong>Send Sechedule</strong></button>
                                 </center>
                             </div>
                             <div class="alert alert-success" id="success" style="display:none;">
@@ -90,23 +87,23 @@ if (isset($_POST['send'])) {
     $re = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
     if (!$re) {
 ?>
-<script type="text/javascript">
-document.getElementById("error").style.display = "block";
-// refresh the page after 3 second
-setTimeout(function() {
-    window.location.href = "service-request_reply.php";
-}, 3000);
-</script>
-<?php
+        <script type="text/javascript">
+            document.getElementById("error").style.display = "block";
+            // refresh the page after 3 second
+            setTimeout(function() {
+                window.location.href = "service-request_reply.php";
+            }, 3000);
+        </script>
+    <?php
     } else {
     ?>
-<script type="text/javascript">
-document.getElementById("success").style.display = "block";
-// refresh the page after 3 second
-setTimeout(function() {
-    window.location.href = "service-request_reply.php";
-}, 3000);
-</script>
+        <script type="text/javascript">
+            document.getElementById("success").style.display = "block";
+            // refresh the page after 3 second
+            setTimeout(function() {
+                window.location.href = "service-request_reply.php";
+            }, 3000);
+        </script>
 <?php
     }
 }

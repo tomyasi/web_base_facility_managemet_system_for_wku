@@ -97,8 +97,10 @@ include("../connection.php");
                                         <option value="admin">Admin</option>
                                         <option value="manager">Manager</option>
                                         <option value="storekpeer">Storekpeer</option>
-                                        <option value="technitian">Technitian</option>
-                                        <option value="security">Security</option>
+                                        <option value="technician">Technician</option>
+                                        <option value="security"> Security</option>
+                                        <option value="clealiness"> Clealiness</option>
+                                        <option value="other">Special Services</option>
                                     </select>
                                 </div>
                             </div>

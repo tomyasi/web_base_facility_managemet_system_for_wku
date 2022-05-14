@@ -1,4 +1,7 @@
 <?php
+if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
+    header("Location: ../login.php");
+}
 include("header.php");
 include("../connection.php");
 $user_id = $_SESSION['emp_id'];
@@ -23,7 +26,7 @@ $user_id = $_SESSION['emp_id'];
             <div class="span12">
                 <!-- employee view inteble form  -->
                 <div class="widget-content nopadding">
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped thead-dark">
                         <thead>
                             <tr>
                                 <th>#</th>

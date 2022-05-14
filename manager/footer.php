@@ -25,10 +25,11 @@
 <script src="js/select2.min.js"></script>
 <script src="js/matrix.popover.js"></script>
 <script src="js/jquery.dataTables.min.js"></script>
+
 <script src="js/matrix.tables.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
-    $('.textarea_editor').wysihtml5();
+$('.textarea_editor').wysihtml5();
 </script>
 </body>
 

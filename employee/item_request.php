@@ -1,5 +1,8 @@
 <?php
 include("header.php");
+if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
+    header("Location: ../login.php");
+}
 ?>
 <!--main-container-part-->
 <div id="content">

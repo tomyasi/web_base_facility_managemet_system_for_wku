@@ -27,7 +27,7 @@ include("../connection.php")
                     </div>
                     <!-- employee view inteble form  -->
                     <div class="widget-content nopadding">
-                        <table class="table table-bordered table-striped table-hover">
+                        <table id="datatableid" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>

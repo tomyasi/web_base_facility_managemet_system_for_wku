@@ -22,8 +22,7 @@ include("../connection.php")
         <div class="row-fluid">
             <div class="span12">
                 <div>
-                    <a href="printuser.php" class="btn btn-primary" style="border-radius:10px"><i
-                            class="icon-print">&nbsp;&nbsp;PRINT</i></a>
+                    <a href="printuser.php" class="btn btn-primary" style="border-radius:10px"><i class="icon-print">&nbsp;&nbsp;PRINT</i></a>
                 </div>
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
@@ -31,7 +30,7 @@ include("../connection.php")
                     </div>
                     <!-- employee view inteble form  -->
                     <div class="widget-content nopadding table-responsive-sm">
-                        <table class="table table-bordered table-striped table-hover">
+                        <table id="datatableid" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -54,34 +53,34 @@ include("../connection.php")
                                 $no = 1;
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                <tr>
-                                    <td><?php echo $no; ?></td>
-                                    <td><?php echo $row["user_id"]; ?></td>
-                                    <td><?php echo $row["fname"]; ?></td>
-                                    <td><?php echo $row["mname"]; ?></td>
-                                    <td><?php echo $row["lname"]; ?></td>
-                                    <td><?php
+                                    <tr>
+                                        <td><?php echo $no; ?></td>
+                                        <td><?php echo $row["user_id"]; ?></td>
+                                        <td><?php echo $row["fname"]; ?></td>
+                                        <td><?php echo $row["mname"]; ?></td>
+                                        <td><?php echo $row["lname"]; ?></td>
+                                        <td><?php
                                             if ($row["gender"] == "m") {
                                                 echo "Male";
                                             } else {
                                                 echo "Female";
                                             }
                                             ?>
-                                    </td>
-                                    <td><?php echo $row["age"]; ?></td>
-                                    <td><?php echo $row["gmail"]; ?></td>
-                                    <td><?php echo $row["phone"]; ?></td>
-                                    <td><?php echo $row["nationality"]; ?></td>
-                                    <td><?php echo $row["subcity"]; ?></td>
-                                    <td> <?php
+                                        </td>
+                                        <td><?php echo $row["age"]; ?></td>
+                                        <td><?php echo $row["gmail"]; ?></td>
+                                        <td><?php echo $row["phone"]; ?></td>
+                                        <td><?php echo $row["nationality"]; ?></td>
+                                        <td><?php echo $row["subcity"]; ?></td>
+                                        <td> <?php
                                                 if ($row["status"] == "1") {
                                                     echo "Active";
                                                 } else {
                                                     echo "Deactive";
                                                 }
                                                 ?>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
                                 <?php
                                     $no++;
                                 }

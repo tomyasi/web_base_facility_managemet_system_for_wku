@@ -1,4 +1,7 @@
 <?php
+if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
+    header("Location: ../login.php");
+}
 include("header.php");
 include("../connection.php");
 if (isset($_POST['re_password'])) {
@@ -44,22 +47,19 @@ if (isset($_POST['re_password'])) {
                             <div class="control-group">
                                 <label class="control-label">Old Password :</label>
                                 <div class="controls">
-                                    <input type="password" class="span11" placeholder="Enter old password"
-                                        name="old_pass" required />
+                                    <input type="password" class="span11" placeholder="Enter old password" name="old_pass" required />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">New Password :</label>
                                 <div class="controls">
-                                    <input type="password" class="span11" placeholder="Enter new password"
-                                        name="new_pass" required />
+                                    <input type="password" class="span11" placeholder="Enter new password" name="new_pass" required />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Confirm Password :</label>
                                 <div class="controls">
-                                    <input type="password" class="span11" placeholder="Confirm Password" name="re_pass"
-                                        required />
+                                    <input type="password" class="span11" placeholder="Confirm Password" name="re_pass" required />
                                 </div>
                                 <div class="alert alert-danger" id="error" style="display: none;">
                                     <center>

@@ -45,7 +45,9 @@ include("../connection.php")
                                 <?php
                                 $n = 1;
                                 $result = mysqli_query($con, "select *from eaccount;");
-                                while ($row = mysqli_fetch_array($result)) {
+                                $no_acc = mysqli_num_rows($result);
+                                if ($no_acc > 0) {
+                                    while ($row = mysqli_fetch_array($result)) {
                                 ?>
                                 <tr>
                                     <td><?php echo $n; ?></td>
@@ -55,15 +57,23 @@ include("../connection.php")
                                     <td><?php echo $row["role"]; ?></td>
                                     <td><?php echo $row["lastlogin"]; ?></td>
                                     <td> <?php
-                                                if ($row["status"] == "1") {
-                                                    echo "Active";
-                                                } else {
-                                                    echo "Deactive";
-                                                }
-                                                ?>
+                                                    if ($row["status"] == "1") {
+                                                        echo "Active";
+                                                    } else {
+                                                        echo "Deactive";
+                                                    }
+                                                    ?>
                                 </tr>
                                 <?php
-                                    $n++;
+                                        $n++;
+                                    }
+                                } else { ?>
+                                <div class="alert alert-danger" id="error" style="display: block;">
+                                    <center>
+                                        <strong>Empty Employee Account.</strong>
+                                    </center>
+                                </div>
+                                <?php
                                 }
                                 ?>
                             </tbody>

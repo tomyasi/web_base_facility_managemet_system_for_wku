@@ -17,7 +17,7 @@ include("../connection.php")
         <hr>
         <center>
             <h5>
-                <margee>vIEW USER ACCOUNT PAGE</margee>
+                <margee>VIEW USER ACCOUNT PAGE</margee>
             </h5>
         </center>
         <hr>
@@ -44,7 +44,9 @@ include("../connection.php")
                                 <?php
                                 $n = 1;
                                 $result = mysqli_query($con, "select *from uaccount;");
-                                while ($row = mysqli_fetch_array($result)) {
+                                $no_acc = mysqli_num_rows($result);
+                                if ($no_acc > 0) {
+                                    while ($row = mysqli_fetch_array($result)) {
                                 ?>
                                 <tr>
                                     <th><?php echo $n; ?></th>
@@ -53,16 +55,24 @@ include("../connection.php")
                                     <td><?php echo $row["password"]; ?></td>
                                     <td><?php echo $row["lastlogin"]; ?></td>
                                     <td> <?php
-                                                if ($row["status"] == "1") {
-                                                    echo "Active";
-                                                } else {
-                                                    echo "Deactive";
-                                                }
-                                                ?>
+                                                    if ($row["status"] == "1") {
+                                                        echo "Active";
+                                                    } else {
+                                                        echo "Deactive";
+                                                    }
+                                                    ?>
                                 </tr>
                                 </tr>
                                 <?php
-                                    $n++;
+                                        $n++;
+                                    }
+                                } else { ?>
+                                <div class="alert alert-danger" id="error" style="display: block;">
+                                    <center>
+                                        <strong>Empty Employee User.</strong>
+                                    </center>
+                                </div>
+                                <?php
                                 }
                                 ?>
                             </tbody>
