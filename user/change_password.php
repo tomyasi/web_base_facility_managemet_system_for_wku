@@ -1,7 +1,8 @@
 <?php
+
 include("header.php");
 include("../connection.php");
-if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
+if (!(isset($_SESSION['user_id']))) {
     header("Location: ../login.php");
 }
 $user_id = $_SESSION['user_id'];

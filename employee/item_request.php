@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
+if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
 ?>
@@ -27,8 +27,7 @@ if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
                                 <br>
                                 <div>
                                     <label>&nbsp</label>
-                                    <input type="text" id="search" class="span12" placeholder="search resource"
-                                        name="full_name" style="border-radius:10px">
+                                    <input type="text" id="search" class="span12" placeholder="search resource" name="full_name" style="border-radius:10px">
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -40,8 +39,7 @@ if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
                                 <br>
                                 <div>
                                     <label>&nbsp</label>
-                                    <input type="button" class="span11 btn btn-success" value="Search"
-                                        style="border-radius:10px">
+                                    <input type="button" class="span11 btn btn-success" value="Search" style="border-radius:10px">
                                 </div>
                             </div>
                         </div>

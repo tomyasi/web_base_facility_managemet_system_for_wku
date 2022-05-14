@@ -1,6 +1,9 @@
 <?php
 include("header.php");
 include("../connection.php");
+if (!(isset($_SESSION['admin_id']))) {
+    header("Location: ../login.php");
+}
 ?>
 <!--main-container-part-->
 <div id="content">
@@ -40,23 +43,24 @@ include("../connection.php");
                                 $result = mysqli_query($con, "select *from uaccount;");
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                    <tr>
-                                        <td><?php echo $no; ?></td>
-                                        <td><?php echo $row["id"]; ?></td>
-                                        <td><?php echo $row["username"]; ?></td>
-                                        <td><?php echo $row["password"]; ?></td>
-                                        <td> <?php
+                                <tr>
+                                    <td><?php echo $no; ?></td>
+                                    <td><?php echo $row["id"]; ?></td>
+                                    <td><?php echo $row["username"]; ?></td>
+                                    <td><?php echo $row["password"]; ?></td>
+                                    <td> <?php
                                                 if ($row["status"] == "1") {
                                                     echo "Active";
                                                 } else {
                                                     echo "Deactive";
                                                 }
                                                 ?>
-                                        </td>
-                                        <td><?php echo $row["lastlogin"]; ?></td>
-                                        <td><a href="edite_user.php?id=<?php echo $row['id'] ?>" class="btn btn-primary" style="border-radius:10px"><i class="icon-edit"></i>
-                                                Edit</a></td>
-                                    </tr>
+                                    </td>
+                                    <td><?php echo $row["lastlogin"]; ?></td>
+                                    <td><a href="edite_user.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"
+                                            style="border-radius:10px"><i class="icon-edit"></i>
+                                            Edit</a></td>
+                                </tr>
                                 <?php
                                     $no++;
                                 }

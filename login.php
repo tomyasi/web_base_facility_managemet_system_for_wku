@@ -117,7 +117,7 @@ session_start();
                     $eid = $row1['emp_id'];
                     $role = mysqli_query($con, "SELECT *FROM employee where id=$eid");
                     $row2 = mysqli_fetch_array($role);
-                    if ($role == "employee") {
+                    if ($row1['role'] == "security") {
                         //Employee SESSION
                         $_SESSION['emp_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];

@@ -1,6 +1,9 @@
 <?php
 include("header.php");
 include("../connection.php");
+if (!(isset($_SESSION['admin_id']))) {
+    header("Location: ../login.php");
+}
 $id = $_GET['id'];
 $sql = "select *from eaccount where id='$id'";
 $result = mysqli_query($con, $sql);

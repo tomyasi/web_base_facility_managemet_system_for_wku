@@ -1,6 +1,9 @@
 <?php
 include("header.php");
 include("../connection.php");
+if (!(isset($_SESSION['admin_id']))) {
+    header("Location: ../login.php");
+}
 ?>
 <!--main-container-part-->
 <div id="content">
