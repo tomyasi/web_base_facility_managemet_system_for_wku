@@ -1,9 +1,10 @@
 <?php
+
+include("header.php");
+include("../connection.php");
 if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
-include("header.php");
-include("../connection.php");
 $user_id = $_SESSION['emp_id'];
 ?>
 <div id="content">
@@ -27,7 +28,7 @@ $user_id = $_SESSION['emp_id'];
                 <!-- employee view inteble form  -->
                 <div class="widget-content nopadding">
                     <table class="table table-bordered table-striped thead-dark">
-                        <thead>
+                        <thead style="color: red;">
                             <tr>
                                 <th>#</th>
                                 <th>Requested By</th>
@@ -53,38 +54,38 @@ $user_id = $_SESSION['emp_id'];
                                     $emp_info = mysqli_fetch_array($sql);
                                     $give_by = $emp_info['fname'] . ' ' . $emp_info['mname'];
                             ?>
-                                    <tr>
-                                        <td><?php echo $no; ?></td>
-                                        <td><?php echo $give_by; ?></td>
-                                        <td><?php echo $row['item_name']; ?></td>
-                                        <td><?php echo $row["item_type"]; ?></td>
-                                        <td><?php echo $row["item_category"]; ?></td>
-                                        <td><?php echo $row["quality"]; ?></td>
-                                        <td><?php echo $row["quantity"]; ?></td>
-                                        <td><?php echo $row["give_date"]; ?></td>
-                                        <td><?php echo $row["message"]; ?></td>
-                                        <td><?php echo $row["schedule"]; ?></td>
-                                        <td>
-                                            <?php if ($row["view"] == "1") { ?>
-                                                <img src="../images/tick.png" alt="" class="img-fluid"></a>
-                                            <?php
+                            <tr>
+                                <td><?php echo $no; ?></td>
+                                <td><?php echo $give_by; ?></td>
+                                <td><?php echo $row['item_name']; ?></td>
+                                <td><?php echo $row["item_type"]; ?></td>
+                                <td><?php echo $row["item_category"]; ?></td>
+                                <td><?php echo $row["quality"]; ?></td>
+                                <td><?php echo $row["quantity"]; ?></td>
+                                <td><?php echo $row["give_date"]; ?></td>
+                                <td><?php echo $row["message"]; ?></td>
+                                <td><?php echo $row["schedule"]; ?></td>
+                                <td>
+                                    <?php if ($row["view"] == "1") { ?>
+                                    <img src="../images/tick.png" alt="" class="img-fluid"></a>
+                                    <?php
                                             } else { ?>
-                                                <a href="feedback.php?id=<?php echo $row['id'] ?>" class="btn
+                                    <a href="feedback.php?id=<?php echo $row['id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px">Feedback </a>
-                                            <?php
+                                    <?php
                                             }
                                             ?>
-                                        </td>
-                                    </tr>
-                                <?php
+                                </td>
+                            </tr>
+                            <?php
                                     $no++;
                                 }
                             } else { ?>
-                                <div class="alert alert-danger" id="error" style="display: block;">
-                                    <center>
-                                        <strong>Empty Request.</strong>
-                                    </center>
-                                </div>
+                            <div class="alert alert-danger" id="error" style="display: block;">
+                                <center>
+                                    <strong>Empty Request.</strong>
+                                </center>
+                            </div>
                             <?php
                             }
                             ?>

@@ -360,7 +360,7 @@ setTimeout(function() {
 
     if ($email_err == "" && $phone_err == "") {
         $query = "INSERT INTO employee(id,emp_id,fname,mname,lname,gender,age,gmail,phone,nationality,address,salary,jop_position,status)
-        values(NULL,'12','$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity','salary','$jop',$status)";
+        values(NULL,'','$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity','salary','$jop',$status)";
         $res = mysqli_query($con, $query) or die("Error occurd" . mysqli_error($con));
         if (!$res) {
         ?>
@@ -374,6 +374,13 @@ setTimeout(function() {
 </script>
 <?php
         } else {
+            //Generate id
+            $last_id = mysqli_insert_id($con);
+            if ($last_id) {
+                $code = rand(1, 9999);
+                $id_genreted = "EMP_" . $code . "_" . $last_id;
+                $query = "UPDATE employee SET emp_id='" . $id_genreted . "' WHERE id='" . $last_id . "'";
+            }
         ?>
 <script type="text/javascript">
 document.getElementById("error").style.display = "none";

@@ -83,7 +83,11 @@ include("../connection.php");
                                 <div class="controls">
                                     <input type="email" id="email" class="span11" placeholder="Optional...."
                                         name="email" style="border-radius: 13px;" />
-                                    <span></span>
+                                </div>
+                                <div class="alert alert-danger" id="email_error" style="display: none;">
+                                    <center>
+                                        <strong>This email already exist!!!.</strong>
+                                    </center>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -93,7 +97,11 @@ include("../connection.php");
                                     <div class="input-prepend"> <span class="add-on">+251 </span>
                                         <input id="phone" type="text" placeholder="999 999 999" class="span11"
                                             name="phone" required style="border-radius: 13px;">
-                                        <span></span>
+                                    </div>
+                                    <div class="alert alert-danger" id="phone_error" style="display: none;">
+                                        <center>
+                                            <strong>This phone number already exist!!!.</strong>
+                                        </center>
                                     </div>
                                 </div>
                             </div>
@@ -274,6 +282,7 @@ include("../connection.php");
     </div>
 </div>
 <?php
+$email_err = $phone_err = "";
 if (isset($_POST["send"])) {
     // input form form
     $fname = mysqli_real_escape_string($con, $_POST["fname"]);
@@ -291,18 +300,46 @@ if (isset($_POST["send"])) {
     $subcity = mysqli_real_escape_string($con, $_POST["address"]);
     $subcity = ucfirst($status); //upercase first character
     $status = mysqli_real_escape_string($con, $_POST["status"]);
-
-    $qur = "INSERT INTO user(id,user_id,fname,mname,lname,gender,age,gmail,phone,nationality,subcity,status) 
-    values (NULL,NULL,'$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity',$status)";
-    $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
-    $last_id = mysqli_insert_id($con);
-    if ($last_id) {
-        $code = rand(1, 9999);
-        $id_genreted = "USER_" . $code . "_" . $last_id;
-        $query = "UPDATE user SET user_id='" . $id_genreted . "' WHERE id='" . $last_id . "'";
-    }
-    if ($res) {
+    //for email exist or not
+    $email_checker = mysqli_query($con, "SELECT *FROM user where gmail='$email'");
+    if (mysqli_num_rows($email_checker) > 0) {
+        $email_err = "email already exist!!!";
 ?>
+<script type="text/javascript">
+document.getElementById("email_error").style.display = "block";
+// refresh the page after 3 second
+setTimeout(function() {
+    window.location.href = "employee_regi.php";
+}, 5000);
+</script>
+<?php
+    }
+    // for phone number exist or not
+    $phone_checker = mysqli_query($con, "SELECT *FROM user where phone='$phone'");
+    if (mysqli_num_rows($phone_checker) > 0) {
+        $phone_err = "phone number already exist!!!";
+    ?>
+<script type="text/javascript">
+document.getElementById("phone_error").style.display = "block";
+// refresh the page after 3 second
+setTimeout(function() {
+    window.location.href = "employee_regi.php";
+}, 5000);
+</script>
+<?php
+    }
+    if ($email_err == "" && $phone_err == "") {
+        $qur = "INSERT INTO user(id,user_id,fname,mname,lname,gender,age,gmail,phone,nationality,subcity,status) 
+    values (NULL,NULL,'$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity',$status)";
+        $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
+        if ($res) {
+            $last_id = mysqli_insert_id($con);
+            if ($last_id) {
+                $code = rand(1, 9999);
+                $id_genreted = "USER_" . $code . "_" . $last_id;
+                $query = "UPDATE user SET user_id='$id_genreted ' WHERE id='$last_id'";
+            }
+        ?>
 <script type="text/javascript">
 document.getElementById("error").style.display = "none";
 document.getElementById("success").style.display = "block";
@@ -312,20 +349,22 @@ setTimeout(function() {
 }, 3000);
 </script>
 <?php
-    } else {
-    ?>
+        } else {
+        ?>
 <script type="text/javascript">
 document.getElementById("success").style.display = "none";
 document.getElementById("error").style.display = "block";
 </script>
 <?php
+        }
+    } else {
+        $email_err = "Email or Phone already exist!!!";
     }
 }
-
 mysqli_close($con);
 include("footer.php");
 ?>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $('document').ready(function() {
     var username_state = false;
     var email_state = false;
@@ -412,23 +451,23 @@ $('document').ready(function() {
             });
         }
     });
-});
-// $(document).ready(function() {
-//     $("#form").blur(function() {
-//         var phone = $("#phone").val();
-//         var gmail = $("#gmail").val();
-//         $.ajax({
-//             url: "check_exist_phone_email.php",
-//             type: "post",
-//             data: {
-//                 phone: phone,
-//                 gmail: gmail
-//             },
-//             success: function(data) {
-//                 $("#gmail-error").html(html);
-//                 $("#gmail-error").css("display", "block");
-//             }
-//         });
-//     });
+}); -->
+<!-- // $(document).ready(function() {
+// $("#form").blur(function() {
+// var phone = $("#phone").val();
+// var gmail = $("#gmail").val();
+// $.ajax({
+// url: "check_exist_phone_email.php",
+// type: "post",
+// data: {
+// phone: phone,
+// gmail: gmail
+// },
+// success: function(data) {
+// $("#gmail-error").html(html);
+// $("#gmail-error").css("display", "block");
+// }
 // });
-</script>
+// });
+// });
+</script> -->

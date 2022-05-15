@@ -2,11 +2,14 @@
 session_start();
 include("../connection.php");
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
+$emp_id = $_SESSION['emp_id'];
+$feedback = mysqli_query($con, "SELECT *FROM feedback where view='0'");
+$un_read_fee = mysqli_num_rows($feedback);
 $result = mysqli_query($con, "SELECT *from serv_request where view='0';");
 $un_read = mysqli_num_rows($result);
 $responce = mysqli_query($con, "SELECT * from give_item where view='0'");
 $un_read_res = mysqli_num_rows($responce);
-$total = $un_read + $un_read_res;
+$total = $un_read + $un_read_res + $un_read_fee;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,8 +76,10 @@ $total = $un_read + $un_read_res;
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read . '</span>';
                             } ?></a>
                     </li>
-                    <li><a href="update_employees.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Feedback
-                        </a>
+                    <li><a href="view_feedback.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Feedback
+                            <?php if ($un_read_fee > 0) {
+                                echo '<span class="label label-important" style="border-radius:15px">' . $un_read_fee . '</span>';
+                            } ?></a>
                     </li>
                     <li><a href="view_responce.php"><i class="icon-eye-open"></i>&nbsp;&nbsp; Responce
                             <?php if ($un_read_res > 0) {
@@ -98,7 +103,7 @@ $total = $un_read + $un_read_res;
                 <a href="item_request_detail.php"><i class="icon-reply"></i><span>Resource Request</span></a>
             </li>
             <li>
-                <a href="service_responce2.php"><i class="icon-reply"></i><span>User Service Responce</span></a>
+                <a href="service_responce2.php"><i class="icon-briefcase"></i><span>User Service Responce</span></a>
             </li>
         </ul>
     </div>

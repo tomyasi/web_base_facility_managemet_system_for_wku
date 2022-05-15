@@ -1,5 +1,5 @@
 <?php
-if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
+if (!(isset($_SESSION['emp_id']))) {
     header("Location: ../login.php");
 }
 include("header.php");

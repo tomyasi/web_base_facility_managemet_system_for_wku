@@ -2,5 +2,5 @@
 session_start();
 session_unset();
 session_destroy();
-header('Location: ../h.php');
+header('Location: h.php');
 exit();

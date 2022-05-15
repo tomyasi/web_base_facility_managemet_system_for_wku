@@ -42,6 +42,11 @@ session_start();
                     <strong>Invalid username or password,please triy agian.</strong>
                 </center>
             </div>
+            <div class="alert alert-danger" id="role_err" style="display: none;">
+                <center>
+                    <strong>Your Role is Invalid,please triy agian.</strong>
+                </center>
+            </div>
             <div class="control-group">
                 <div class="controls">
                     <div class="main_input_box">
@@ -117,7 +122,7 @@ session_start();
                     $eid = $row1['emp_id'];
                     $role = mysqli_query($con, "SELECT *FROM employee where id=$eid");
                     $row2 = mysqli_fetch_array($role);
-                    if ($row1['role'] == "security") {
+                    if ($row1['role'] == "security" || $row1['role'] == "technician" || $row1['role'] == "clealiness") {
                         //Employee SESSION
                         $_SESSION['emp_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
@@ -150,9 +155,19 @@ session_start();
                         $_SESSION['mname'] = $row2['mname'];
                         $_SESSION['role'] = $row2['jop_position'];
                         header("Location:storekpeer/home.php");
+                    } else {
+                    ?>
+        <script type="text/javascript">
+        document.getElementById("role_err").style.display = "block";
+        // refresh the page after 3 second
+        setTimeout(function() {
+            window.location.href = window.location.href;
+        }, 3000);
+        </script>
+        <?php
                     }
                 } else {
-                ?>
+                    ?>
         <script type="text/javascript">
         document.getElementById("error").style.display = "block";
         // refresh the page after 3 second

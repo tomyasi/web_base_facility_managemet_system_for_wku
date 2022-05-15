@@ -1,9 +1,9 @@
 <?php
+include("header.php");
+include("../connection.php");
 if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
-include("header.php");
-include("../connection.php");
 $user_id = $_SESSION['emp_id'];
 ?>
 <div id="content">
@@ -54,36 +54,36 @@ $user_id = $_SESSION['emp_id'];
                                     $user_info = mysqli_fetch_array($sql);
                                     $re_by = $user_info['fname'] . ' ' . $user_info['mname'];
                             ?>
-                                    <td><?php echo $no; ?></td>
-                                    <td><?php echo $re_by; ?></td>
-                                    <td><?php echo $row["req_service"]; ?></td>
-                                    <td><?php echo $row["message"]; ?></td>
-                                    <td><?php echo $row["req_date"]; ?></td>
-                                    <td> <?php if ($row["view"] == "1") { ?>
-                                            <img src="../images/tick.png" alt="Yes" class="img-fluid"></a>
-                                        <?php
+                            <td><?php echo $no; ?></td>
+                            <td><?php echo $re_by; ?></td>
+                            <td><?php echo $row["req_service"]; ?></td>
+                            <td><?php echo $row["message"]; ?></td>
+                            <td><?php echo $row["req_date"]; ?></td>
+                            <td> <?php if ($row["view"] == "1") { ?>
+                                <img src="../images/tick.png" alt="Yes" class="img-fluid"></a>
+                                <?php
                                             } else { ?>
-                                            <a href="service_request_reply.php?id=<?php echo $row['s_id'] ?>" class="btn
+                                <a href="service_request_reply.php?id=<?php echo $row['s_id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px"><i class="icon-reply"></i>
-                                                Reply</a>
-                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    Reply</a>
+                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#exampleModal" data-whatever="@mdo" style="border-radius: 13px;"><i
                                         class="icon-reply"></i> Reply</button> -->
-                                        <?php
+                                <?php
                                             }
                                         ?>
-                                    </td>
+                            </td>
                         </tr>
-                    <?php
+                        <?php
                                     $no++;
                                 }
                             } else { ?>
-                    <div class="alert alert-danger" id="error" style="display: block;">
-                        <center>
-                            <strong>Empty Request.</strong>
-                        </center>
-                    </div>
-                <?php
+                        <div class="alert alert-danger" id="error" style="display: block;">
+                            <center>
+                                <strong>Empty Request.</strong>
+                            </center>
+                        </div>
+                        <?php
                             }
                 ?>
                     </tbody>

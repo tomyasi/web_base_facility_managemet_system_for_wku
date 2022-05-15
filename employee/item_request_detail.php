@@ -1,9 +1,10 @@
 <?php
+
+include("header.php");
+include("../connection.php");
 if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
-include("header.php");
-include("../connection.php");
 $emp_id = $_SESSION['emp_id'];
 $insertdate = date("Y/m/d H:i:s");
 ?>
@@ -11,7 +12,8 @@ $insertdate = date("Y/m/d H:i:s");
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="item_request_detail.php" title="Go to Resource Request Page" class="tip-bottom"><i class="icon-home"></i>
+        <div id="breadcrumb"><a href="item_request_detail.php" title="Go to Resource Request Page" class="tip-bottom"><i
+                    class="icon-home"></i>
                 Resource Request</a></div>
     </div>
     <div class="container-fluid">
@@ -42,17 +44,18 @@ $insertdate = date("Y/m/d H:i:s");
                                     if (mysqli_num_rows($query) > 0) {
 
                                     ?>
-                                        <label>Resource Name</label>
-                                        <select class="span11" required name="item_name" onchange="select_company(this.value)" style="border-radius:10px">
-                                            <option value="">Select</option>
-                                            <?php while ($row = mysqli_fetch_array($query)) { ?>
-                                                <option value="<?php echo $row['item_name']; ?>">
-                                                    <?php echo $row['item_name']; ?></option>
+                                    <label>Resource Name</label>
+                                    <select class="span11" required name="item_name"
+                                        onchange="select_company(this.value)" style="border-radius:10px">
+                                        <option value="">Select</option>
+                                        <?php while ($row = mysqli_fetch_array($query)) { ?>
+                                        <option value="<?php echo $row['item_name']; ?>">
+                                            <?php echo $row['item_name']; ?></option>
                                         <?php
                                             }
                                         }
                                         ?>
-                                        </select>
+                                    </select>
                                 </div>
                             </div>
                             <div class="span3">
@@ -102,28 +105,32 @@ $insertdate = date("Y/m/d H:i:s");
                                 <br>
                                 <div>
                                     <label>Enter Quantity</label>
-                                    <input type="number" class="span11" required name="quantity" id="qty" autocomplete="off" style="border-radius:10px" min="1">
+                                    <input type="number" class="span11" required name="quantity" id="qty"
+                                        autocomplete="off" style="border-radius:10px" min="1">
                                 </div>
                             </div>
                             <div class="span5">
                                 <br>
                                 <div>
                                     <label>Message</label>
-                                    <textarea class="span11" placeholder="Write your message here" name="message" required style="border-radius: 13px;"></textarea>
+                                    <textarea class="span11" placeholder="Write your message here" name="message"
+                                        required style="border-radius: 13px;"></textarea>
                                 </div>
                             </div>
                             <div class="span3">
                                 <br>
                                 <div>
                                     <label>Date</label>
-                                    <input type="text" required class="span12" name="date" value="<?php echo $insertdate; ?>" readonly style="border-radius:10px">
+                                    <input type="text" required class="span12" name="date"
+                                        value="<?php echo $insertdate; ?>" readonly style="border-radius:10px">
                                 </div>
                             </div>
                             <div class="span2">
                                 <br>
                                 <div style="float:right;">
                                     <label>&nbsp</label>
-                                    <button type="submit" id="f" name="send" class="btn btn-success" style="border-radius: 13px;float: left;"><strong>Send Request</strong></button>
+                                    <button type="submit" id="f" name="send" class="btn btn-success"
+                                        style="border-radius: 13px;float: left;"><strong>Send Request</strong></button>
                                 </div>
                             </div>
                         </div>
@@ -151,23 +158,23 @@ if (isset($_POST['send'])) {
     $re = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
     if (!$re) {
 ?>
-        <script type="text/javascript">
-            document.getElementById("error").style.display = "block";
-            // refresh the page after 3 second
-            setTimeout(function() {
-                window.location.href = "item_request_detail.php";
-            }, 3000);
-        </script>
-    <?php
+<script type="text/javascript">
+document.getElementById("error").style.display = "block";
+// refresh the page after 3 second
+setTimeout(function() {
+    window.location.href = "item_request_detail.php";
+}, 3000);
+</script>
+<?php
     } else {
     ?>
-        <script type="text/javascript">
-            document.getElementById("success").style.display = "block";
-            // refresh the page after 3 second
-            setTimeout(function() {
-                window.location.href = "item_request_detail.php";
-            }, 3000);
-        </script>
+<script type="text/javascript">
+document.getElementById("success").style.display = "block";
+// refresh the page after 3 second
+setTimeout(function() {
+    window.location.href = "item_request_detail.php";
+}, 3000);
+</script>
 <?php
     }
 }

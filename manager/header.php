@@ -41,7 +41,9 @@ $un_read = mysqli_num_rows($result);
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
-                <a title="Your profile" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
+                <a title="Your profile" href="#" data-toggle="dropdown" data-target="#profile-messages"
+                    class="dropdown-toggle"><i class="icon icon-user"></i> <span
+                        class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -71,7 +73,7 @@ $un_read = mysqli_num_rows($result);
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Manage Users</span></a>
                 <ul>
-                    <li><a href="user_regi.php"><i class="icon-laptop"></i>&nbsp;&nbsp; Registeration </a></li>
+                    <li><a href="user_regi.php"><i class="icon-laptop"></i>&nbsp;&nbsp;User Registeration </a></li>
                     <li><a href="update_users.php"><i class="icon-pencil"></i> &nbsp;&nbsp;User Update </a></li>
                     <li><a href="user_status.php"><i class="icon-user"></i>&nbsp;&nbsp;User Status</a></li>
                     <li><a href="view_user.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;User View </a></li>
@@ -95,35 +97,35 @@ $un_read = mysqli_num_rows($result);
         </ul>
     </div>
     <script type="text/javascript">
-        // // Add active class to the current button (highlight it)
-        // var header = document.getElementById("bar");
-        // var btns = header.getElementsByClassName("x");
-        // for (var i = 0; i < btns.length; i++) {
-        //     btns[i].addEventListener("click", function() {
-        //         var current = document.getElementsByClassName("active");
-        //         current[0].className = current[0].className.replace(" active", "");
-        //         this.className += " active";
-        //     });
-        // }
+    // // Add active class to the current button (highlight it)
+    // var header = document.getElementById("bar");
+    // var btns = header.getElementsByClassName("x");
+    // for (var i = 0; i < btns.length; i++) {
+    //     btns[i].addEventListener("click", function() {
+    //         var current = document.getElementsByClassName("active");
+    //         current[0].className = current[0].className.replace(" active", "");
+    //         this.className += " active";
+    //     });
+    // }
 
 
 
-        // const curentLocation = location.href;
-        // const navbar = document.querySelectorAll('a');
-        // const navbarlength = navbar.length;
-        // for (let i = 0; i < navbarlength; i++) {
-        //     if (navbar[i].href === curentLocation) {
-        //         navbar[i].className = 'active';
-        //     }
-        // }
+    // const curentLocation = location.href;
+    // const navbar = document.querySelectorAll('a');
+    // const navbarlength = navbar.length;
+    // for (let i = 0; i < navbarlength; i++) {
+    //     if (navbar[i].href === curentLocation) {
+    //         navbar[i].className = 'active';
+    //     }
+    // }
 
-        // var bar = document.getElementById("bar");
-        // var btns = bar.getElementById("btn");
-        // for (var i = 0; i < btns.lngth, i++;) {
-        //     btns[i].addEventListener("click", function() {
-        //         var current = document.getElementsByClassName("active");
-        //         current[0].className = current[0].className.replace(" active");
-        //         this.className += " active";
-        //     })
-        // }
+    // var bar = document.getElementById("bar");
+    // var btns = bar.getElementById("btn");
+    // for (var i = 0; i < btns.lngth, i++;) {
+    //     btns[i].addEventListener("click", function() {
+    //         var current = document.getElementsByClassName("active");
+    //         current[0].className = current[0].className.replace(" active");
+    //         this.className += " active";
+    //     })
+    // }
     </script>

@@ -1,8 +1,8 @@
 <?php
-if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
+include("header.php");
+if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
-include("header.php");
 ?>
 <!--main-container-part-->
 <div id="content">

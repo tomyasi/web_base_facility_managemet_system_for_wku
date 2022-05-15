@@ -1,9 +1,10 @@
 <?php
+
+include("header.php");
+include("../connection.php");
 if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
-include("header.php");
-include("../connection.php");
 $emp_id = $_SESSION['emp_id'];
 $insertdate = date("Y/m/d H:i:s");
 $e_id = $_GET['id'];
