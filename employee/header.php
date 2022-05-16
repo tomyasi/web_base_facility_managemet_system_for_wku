@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!(isset($_SESSION['emp_id']))) {
+    header("Location: ../login.php");
+}
 include("../connection.php");
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $emp_id = $_SESSION['emp_id'];

@@ -16,7 +16,7 @@ if (isset($_POST['re_password'])) {
 
         if ($new_pass == $re_pass) {
             $update_pwd = mysqli_query($con, "UPDATE eaccount set password='$new_pass' where id='$user_id'");
-            echo "<script>alert('Update Sucessfully'); window.location='demo.php'</script>";
+            echo "<script>alert('Update Sucessfully'); window.location='home.php'</script>";
         } else {
             echo "<script>alert('Your new and Retype Password is not match'); window.location='change_password.php'</script>";
         }

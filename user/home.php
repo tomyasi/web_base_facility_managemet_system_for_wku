@@ -113,7 +113,6 @@ img {
                 <div class="mySlides">
                     <div class="numbertext">1 / 6</div>
                     <img src="../images/fms1.jpg" style="width:100%">
-                    <h5>image slide first</h5>
                 </div>
 
                 <div class="mySlides">

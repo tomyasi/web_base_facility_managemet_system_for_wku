@@ -1,6 +1,9 @@
 <?php
 session_start();
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
+if (!(isset($_SESSION['admin_id']))) {
+    header("Location: ../login.php");
+}
 include("../connection.php");
 ?>
 <!DOCTYPE html>

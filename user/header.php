@@ -15,7 +15,7 @@ $un_read = mysqli_num_rows($result);
 <html lang="en">
 
 <head>
-    <title>WKUFMS</title>
+    <title>WKUFMS USER PAGE</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -36,7 +36,7 @@ $un_read = mysqli_num_rows($result);
     <div id="header">
 
         <h2 style="color: white;position: absolute">
-            <a href="home.php" style="color:white; margin-left: 30px; margin-top: 40px">WKUFMS</a>
+            <a href="home.php" style="color:white; margin-left: 30px; margin-top: 40px">WKUFMS </a>
         </h2>
         <h2 style="color: white;">
             <center>User Page</center>
@@ -50,7 +50,7 @@ $un_read = mysqli_num_rows($result);
                         class="icon icon-user"></i> <span class="text"><?php echo $full_name; ?></span><b
                         class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
                     <li class="divider"></li>

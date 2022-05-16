@@ -56,7 +56,7 @@ $row = mysqli_fetch_array($result);
                                 <br>
                                 <div>
                                     <label>MESSAGE</label>
-                                    <textarea class="span11" placeholder="Write your message here" name="message"
+                                    <textarea class="span11" placeholder="Write your feedback here" name="message"
                                         required style="border-radius: 13px;" rows="10" cols="20"></textarea>
                                 </div>
                             </div>
