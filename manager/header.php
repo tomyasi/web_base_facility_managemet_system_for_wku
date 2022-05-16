@@ -1,6 +1,9 @@
 <?php
 session_start();
 include("../connection.php");
+if (!(isset($_SESSION['manager_id']))) {
+    header("Location: ../login.php");
+}
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $result = mysqli_query($con, "SELECT *from item_order where aprove='0';");
 $un_read = mysqli_num_rows($result);
@@ -49,7 +52,7 @@ $un_read = mysqli_num_rows($result);
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
                     <li class="divider"></li>
-                    <li><a href="../index.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>

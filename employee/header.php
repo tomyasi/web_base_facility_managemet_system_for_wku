@@ -62,7 +62,7 @@ $total = $un_read + $un_read_res + $un_read_fee;
     <div id="sidebar">
         <ul id="bar">
             <li class="active">
-                <a href="home.php"><i class="icon icon-home"></i><span>Dashboard</span></a>
+                <a href="home.php"><i class="icon-dashboard"></i></i><span>Dashboard</span></a>
             </li>
 
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i><span>View Notification</span>

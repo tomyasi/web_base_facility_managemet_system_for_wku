@@ -27,7 +27,7 @@ if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
     </div>
     <div class="row-fluid">
         <div class="span12">
-            <div class="widget-content nopadding">
+            <div class="widget-content nopadding table-responsive-sm">
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>

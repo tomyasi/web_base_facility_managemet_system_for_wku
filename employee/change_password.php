@@ -1,9 +1,9 @@
 <?php
+include("header.php");
+include("../connection.php");
 if (!(isset($_SESSION['emp_id']))) {
     header("Location: ../login.php");
 }
-include("header.php");
-include("../connection.php");
 if (isset($_POST['re_password'])) {
     $old_pass = $_POST['old_pass'];
     $new_pass = $_POST['new_pass'];

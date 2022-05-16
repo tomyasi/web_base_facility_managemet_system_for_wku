@@ -1,5 +1,4 @@
 <?php
-
 include("header.php");
 include("../connection.php");
 if (!(isset($_SESSION['user_id']))) {
@@ -57,24 +56,20 @@ if (isset($_POST['re_password'])) {
                                 <label class="control-label"><strong>Old Password<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="password" class="span8" placeholder="Enter old password"
-                                        name="old_pass" required style="border-radius: 13px;" />
+                                    <input type="password" class="span8" placeholder="Enter old password" name="old_pass" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group" style="min-height: 50px; min-height: 50px;">
                                 <label class="control-label"><strong>New Password<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="password" class="span8" placeholder="Enter new password"
-                                        name="new_pass" required style="border-radius: 13px;" />
+                                    <input type="password" class="span8" placeholder="Enter new password" name="new_pass" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group" style="min-height: 50px;">
-                                <label class="control-label"><strong>Confirm Password<small
-                                            style="color: red;">*</small> :</strong></label>
+                                <label class="control-label"><strong>Confirm Password<small style="color: red;">*</small> :</strong></label>
                                 <div class="controls">
-                                    <input type="password" class="span8" placeholder="Confirm Password" name="re_pass"
-                                        required style="border-radius: 13px;" />
+                                    <input type="password" class="span8" placeholder="Confirm Password" name="re_pass" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="alert alert-danger" id="error" style="display: none;">
@@ -84,8 +79,7 @@ if (isset($_POST['re_password'])) {
                             </div>
                             <div class="form-actions">
                                 <center>
-                                    <button type="submit" name="re_password" class="btn btn-success"
-                                        style="border-radius: 13px;">Change
+                                    <button type="submit" name="re_password" class="btn btn-success" style="border-radius: 13px;">Change
                                         Password</button>
                                 </center>
                             </div>
