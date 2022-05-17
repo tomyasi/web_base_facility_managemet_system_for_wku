@@ -34,11 +34,11 @@ $user_id = $_SESSION['emp_id'];
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Requested By</th>
-                            <th>Request Service</th>
-                            <th>Message</th>
-                            <th>Requested Date</th>
-                            <th>Reply</th>
+                            <th>REQUESTED BY</th>
+                            <th>REQUEST SERVICE</th>
+                            <th>MESSAGE</th>
+                            <th>REQUESTED DATE</th>
+                            <th>REPLY</th>
                         </tr>
                     </thead>
                     <tbody id="output">

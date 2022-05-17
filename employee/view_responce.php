@@ -31,16 +31,15 @@ $user_id = $_SESSION['emp_id'];
                         <thead style="color: red;">
                             <tr>
                                 <th>#</th>
-                                <th>Requested By</th>
-                                <th>Item name</th>
-                                <th>Item Type</th>
-                                <th>Item category</th>
-                                <th>Item Quality</th>
-                                <th>Item Quantity</th>
-                                <th>give date</th>
-                                <th>Message</th>
-                                <th>Schedul To Take Item</th>
-                                <th>Feedback</th>
+                                <th>REQUESTED DATE</th>
+                                <th>ITEM NAME</th>
+                                <th>ITEM TYPE</th>
+                                <th>ITEM CATEGORY</th>
+                                <th>ITEM QUALITY</th>
+                                <th>ITEM QUANTITY</th>
+                                <th>GIVING DATE</th>
+                                <th>MESSAGE</th>
+                                <th>FEEDBACK</th>
                             </tr>
                         </thead>
                         <tbody id="output">
@@ -64,7 +63,7 @@ $user_id = $_SESSION['emp_id'];
                                 <td><?php echo $row["quantity"]; ?></td>
                                 <td><?php echo $row["give_date"]; ?></td>
                                 <td><?php echo $row["message"]; ?></td>
-                                <td><?php echo $row["schedule"]; ?></td>
+
                                 <td>
                                     <?php if ($row["view"] == "1") { ?>
                                     <img src="../images/tick.png" alt="" class="img-fluid"></a>

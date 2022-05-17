@@ -18,7 +18,7 @@ $total = $un_read + $un_read_res + $un_read_fee;
 <html lang="en">
 
 <head>
-    <title>WKUFMS</title>
+    <title>WKUFMS EMPLOYEE PAGE</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
@@ -52,7 +52,7 @@ $total = $un_read + $un_read_res + $un_read_fee;
                         class="icon icon-user"></i>
                     <span class="text"><?php echo "$full_name"; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
                     <li class="divider"></li>
@@ -89,24 +89,27 @@ $total = $un_read + $un_read_res + $un_read_fee;
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_res . '</span>';
                             } ?></a>
                     </li>
-                    <li><a href="service-request_reply.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Give Reply
+                    <li><a href="service_request_reply.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Give Reply
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
+            <!-- <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
                 <ul>
                     <li class="active"><a href="employee_regi.php"><i class="icon-user"></i>Item Ordered Report</a></li>
                     <li><a href="update_employees.php"><i class="icon-user"></i>Store Item Report </a></li>
                     <li><a href="employee_status.php"><i class="icon-user"></i>Give in Item Report</a></li>
 
                 </ul>
+            </li> -->
+            <li>
+                <a href="item_request_detail.php"><i class="icon-briefcase"></i><span>Generate Report</span></a>
             </li>
             <li>
                 <a href="item_request_detail.php"><i class="icon-reply"></i><span>Resource Request</span></a>
             </li>
             <li>
-                <a href="service_responce2.php"><i class="icon-briefcase"></i><span>User Service Responce</span></a>
+                <a href="service_responce2.php"><i class="icon-exchange"></i><span>User Service Responce</span></a>
             </li>
         </ul>
     </div>
