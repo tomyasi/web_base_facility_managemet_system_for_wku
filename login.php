@@ -15,7 +15,7 @@ session_start();
     <link rel="stylesheet" href="bootstrap/font-awesome/css/font-awesome.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 
-    <link href="assets/img/wku im3.jpg" rel="icon">
+    <link href="images/wkulogo7.png" rel="icon">
 </head>
 <style>
 #loginbox {
@@ -122,7 +122,7 @@ session_start();
                     $eid = $row1['emp_id'];
                     $role = mysqli_query($con, "SELECT *FROM employee where id=$eid");
                     $row2 = mysqli_fetch_array($role);
-                    if ($row1['role'] == "security" || $row1['role'] == "technician" || $row1['role'] == "clealiness") {
+                    if ($row1['role'] == "security" || $row1['role'] == "technician" || $row1['role'] == "clealiness" || $row1['role'] == "other") {
                         //Employee SESSION
                         $_SESSION['emp_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
@@ -149,7 +149,7 @@ session_start();
                         header("Location:admin/home.php");
                     } else if ($row1['role'] == "storekpeer") {
                         //storekpeer session
-                        $_SESSION['admin_id'] = $row1['id'];
+                        $_SESSION['stor_id'] = $row1['id'];
                         $_SESSION['username'] = $row1['username'];
                         $_SESSION['fname'] = $row2['fname'];
                         $_SESSION['mname'] = $row2['mname'];

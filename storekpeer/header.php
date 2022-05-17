@@ -1,7 +1,11 @@
 <?php
 include("../connection.php");
 session_start();
+if (!(isset($_SESSION['stor_id']))) {
+    header("Location: ../login.php");
+}
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
+$stor_id = $_SESSION['stor_id'];
 $result = mysqli_query($con, "SELECT *from item_request where status='0';");
 $un_read = mysqli_num_rows($result);
 ?>
@@ -9,7 +13,7 @@ $un_read = mysqli_num_rows($result);
 <html lang="en">
 
 <head>
-    <title>WKUFMS</title>
+    <title>WKUFMS STOREKPEER PAGE</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -43,11 +47,11 @@ $un_read = mysqli_num_rows($result);
                         class="icon icon-user"></i> <span class="text"><?php echo $full_name; ?></span><b
                         class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
                     <li class="divider"></li>
-                    <li><a href="../index.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>

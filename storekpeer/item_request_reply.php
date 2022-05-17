@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
             $sql2 = "INSERT INTO item_order
             values(NULL,'$result[re_id]','$result[emp_id]','$result[item_name]',
             '$result[item_type]','$result[item_category]','$result[item_quality]',
-            '$result[item_quantity]',' $insertdate','0')";
+            '$result[item_quantity]',' $insertdate','0','0')";
             mysqli_query($con, $sql2) or die("Error occured" . mysqli_error($con));
             header("location:view_request.php");
         } else {

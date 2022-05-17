@@ -44,7 +44,7 @@ $user_id = $_SESSION['emp_id'];
                     <tbody id="output">
                         <tr>
                             <?php
-                            $result = mysqli_query($con, "SELECT *from serv_request where view='0' ORDER BY req_date asc;");
+                            $result = mysqli_query($con, "SELECT *from serv_request where view='0' and req_service='$_SESSION[role]'");
                             $un_read = mysqli_num_rows($result);
                             $no = 1;
                             if ($un_read > 0) {

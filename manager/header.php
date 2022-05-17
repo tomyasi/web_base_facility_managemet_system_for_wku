@@ -4,6 +4,7 @@ include("../connection.php");
 if (!(isset($_SESSION['manager_id']))) {
     header("Location: ../login.php");
 }
+$manager_id = $_SESSION['manager_id'];
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $result = mysqli_query($con, "SELECT *from item_order where aprove='0';");
 $un_read = mysqli_num_rows($result);
@@ -12,7 +13,7 @@ $un_read = mysqli_num_rows($result);
 <html lang="en">
 
 <head>
-    <title>WKUFMS</title>
+    <title>WKUFMS MANAGER PAGE</title>
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,9 +45,7 @@ $un_read = mysqli_num_rows($result);
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
-                <a title="Your profile" href="#" data-toggle="dropdown" data-target="#profile-messages"
-                    class="dropdown-toggle"><i class="icon icon-user"></i> <span
-                        class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
+                <a title="Your profile" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -89,10 +88,10 @@ $un_read = mysqli_num_rows($result);
                         echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
                     } ?></a>
             </li>
-            <li class="x">
+            <!-- <li class="x">
                 <a href="home.php"><i class="icon-eye-open"></i>
                     <span>View Reports</span><span class="label label-important">3</span></a>
-            </li>
+            </li> -->
             <li class="x">
                 <a href="change_password.php"><i class="icon icon-cogs"></i>
                     <span>Change Password</span></a>
@@ -100,35 +99,35 @@ $un_read = mysqli_num_rows($result);
         </ul>
     </div>
     <script type="text/javascript">
-    // // Add active class to the current button (highlight it)
-    // var header = document.getElementById("bar");
-    // var btns = header.getElementsByClassName("x");
-    // for (var i = 0; i < btns.length; i++) {
-    //     btns[i].addEventListener("click", function() {
-    //         var current = document.getElementsByClassName("active");
-    //         current[0].className = current[0].className.replace(" active", "");
-    //         this.className += " active";
-    //     });
-    // }
+        // // Add active class to the current button (highlight it)
+        // var header = document.getElementById("bar");
+        // var btns = header.getElementsByClassName("x");
+        // for (var i = 0; i < btns.length; i++) {
+        //     btns[i].addEventListener("click", function() {
+        //         var current = document.getElementsByClassName("active");
+        //         current[0].className = current[0].className.replace(" active", "");
+        //         this.className += " active";
+        //     });
+        // }
 
 
 
-    // const curentLocation = location.href;
-    // const navbar = document.querySelectorAll('a');
-    // const navbarlength = navbar.length;
-    // for (let i = 0; i < navbarlength; i++) {
-    //     if (navbar[i].href === curentLocation) {
-    //         navbar[i].className = 'active';
-    //     }
-    // }
+        // const curentLocation = location.href;
+        // const navbar = document.querySelectorAll('a');
+        // const navbarlength = navbar.length;
+        // for (let i = 0; i < navbarlength; i++) {
+        //     if (navbar[i].href === curentLocation) {
+        //         navbar[i].className = 'active';
+        //     }
+        // }
 
-    // var bar = document.getElementById("bar");
-    // var btns = bar.getElementById("btn");
-    // for (var i = 0; i < btns.lngth, i++;) {
-    //     btns[i].addEventListener("click", function() {
-    //         var current = document.getElementsByClassName("active");
-    //         current[0].className = current[0].className.replace(" active");
-    //         this.className += " active";
-    //     })
-    // }
+        // var bar = document.getElementById("bar");
+        // var btns = bar.getElementById("btn");
+        // for (var i = 0; i < btns.lngth, i++;) {
+        //     btns[i].addEventListener("click", function() {
+        //         var current = document.getElementsByClassName("active");
+        //         current[0].className = current[0].className.replace(" active");
+        //         this.className += " active";
+        //     })
+        // }
     </script>

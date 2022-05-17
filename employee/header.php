@@ -6,13 +6,15 @@ if (!(isset($_SESSION['emp_id']))) {
 include("../connection.php");
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $emp_id = $_SESSION['emp_id'];
-$feedback = mysqli_query($con, "SELECT *FROM feedback where view='0'");
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+$feedback = mysqli_query($con, "SELECT *FROM feedback where view='0' and send_to='$emp_id'");
 $un_read_fee = mysqli_num_rows($feedback);
-$result = mysqli_query($con, "SELECT *from serv_request where view='0';");
-$un_read = mysqli_num_rows($result);
-$responce = mysqli_query($con, "SELECT * from give_item where view='0'");
+$result1 = mysqli_query($con, "SELECT *from serv_request where view='0'and req_service='$_SESSION[role]'");
+$un_read = mysqli_num_rows($result1);
+$responce = mysqli_query($con, "SELECT * from give_item where view='0'and give_to='$emp_id'");
 $un_read_res = mysqli_num_rows($responce);
 $total = $un_read + $un_read_res + $un_read_fee;
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +105,7 @@ $total = $un_read + $un_read_res + $un_read_fee;
                 </ul>
             </li> -->
             <li>
-                <a href="item_request_detail.php"><i class="icon-briefcase"></i><span>Generate Report</span></a>
+                <a href="report.php"><i class="icon-briefcase"></i><span>Generate Report</span></a>
             </li>
             <li>
                 <a href="item_request_detail.php"><i class="icon-reply"></i><span>Resource Request</span></a>

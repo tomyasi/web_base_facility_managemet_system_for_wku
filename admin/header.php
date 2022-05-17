@@ -1,16 +1,16 @@
 <?php
 session_start();
-$full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 if (!(isset($_SESSION['admin_id']))) {
     header("Location: ../login.php");
 }
+$full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 include("../connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>WKUFMS</title>
+    <title>WKUFMS ADMIN PAGE</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -42,8 +42,7 @@ include("../connection.php");
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
-                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
-                        class="icon icon-user"></i>
+                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>
                     <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
