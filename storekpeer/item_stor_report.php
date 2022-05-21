@@ -6,14 +6,17 @@ include("../connection.php")
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb">
-            <a href="#"><i class="icon icon-th-list"></i> <span>Manage Item</span></a>
-            <a href="item_view.php" title="Go to view User" class="tip-bottom">
-                <i class="icon-eye-open"></i>View Item
+        <div id="breadcrumb"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
+            <a href="item_stor_report.php" title="Go to view User" class="tip-bottom">
+                <i class="icon-eye-open"></i>Item Store Report
             </a>
         </div>
     </div>
     <div class="container-fluid">
+        <hr>
+        <center>
+            <h5>ITEM STORE REPORT PAGE PAGE</h5>
+        </center>
         <hr>
         <div class="row-fluid">
             <div class="span12">
@@ -81,13 +84,11 @@ include("../connection.php")
                     <div style="float: right;border:10px;border-radius:5px">
                         <span style="float:left;">Type of Resource:&nbsp;</span><span
                             style="float: left"><?php echo $no; ?></span>
-
                     </div>
                 </h4><br>
                 <h4 style="color: while;">
                     <div style="float: right;border:10px;border-radius:5px">
-
-                        <span style="float:left;">&nbsp;&nbsp;&nbsp;Total:&nbsp;</span><span
+                        <span style="float:left;">&nbsp;&nbsp;&nbsp;Total Resource In Store:&nbsp;</span><span
                             style="float: left"><?php echo $total_item; ?></span>
                     </div>
                 </h4>

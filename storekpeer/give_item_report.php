@@ -18,7 +18,6 @@ include("../connection.php")
             <h5>VIEW RESOURCE REQUEST PAGE</h5>
         </center>
         <hr>
-
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
@@ -54,46 +53,46 @@ include("../connection.php")
                                         $emp_info = mysqli_fetch_array($sql);
                                         $re_by = $emp_info['fname'] . ' ' . $emp_info['mname'];
                                 ?>
-                                <tr>
-                                    <td><?php echo $no; ?></td>
-                                    <td><?php echo $re_by; ?></td>
-                                    <td><?php echo $row['item_name']; ?></td>
-                                    <td><?php echo $row["item_type"]; ?></td>
-                                    <td><?php echo $row["item_category"]; ?></td>
-                                    <td><?php echo $row["item_quality"]; ?></td>
-                                    <td><?php echo $row["item_quantity"]; ?></td>
-                                    <td><?php echo $row["message"]; ?></td>
-                                    <td><?php echo $row["re_date"]; ?></td>
-                                    <td> <?php if ($row["status"] == "1") { ?>
-                                        <img src="../images/tick.png" alt="" class="img-fluid">
-                                        <?php
+                                        <tr>
+                                            <td><?php echo $no; ?></td>
+                                            <td><?php echo $re_by; ?></td>
+                                            <td><?php echo $row['item_name']; ?></td>
+                                            <td><?php echo $row["item_type"]; ?></td>
+                                            <td><?php echo $row["item_category"]; ?></td>
+                                            <td><?php echo $row["item_quality"]; ?></td>
+                                            <td><?php echo $row["item_quantity"]; ?></td>
+                                            <td><?php echo $row["message"]; ?></td>
+                                            <td><?php echo $row["re_date"]; ?></td>
+                                            <td> <?php if ($row["status"] == "1") { ?>
+                                                    <img src="../images/tick.png" alt="" class="img-fluid">
+                                                <?php
                                                     } else { ?>
-                                        <a href="item_request_reply.php?id=<?php echo $row['re_id'] ?>" class="btn
+                                                    <a href="item_request_reply.php?id=<?php echo $row['re_id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px">
-                                            Order</a>
-                                        <?php
+                                                        Order</a>
+                                                <?php
                                                     }
                                                 ?>
-                                    </td>
-                                    <td> <?php if ($row["ordered"] == "1") { ?>
-                                        <img src="../images/tick.png" alt="" class="img-fluid">
-                                        <?php
+                                            </td>
+                                            <td> <?php if ($row["ordered"] == "1") { ?>
+                                                    <img src="../images/tick.png" alt="" class="img-fluid">
+                                                <?php
                                                     } else { ?>
-                                        <img src="../images/remove.png" alt="" class="img-fluid">
-                                        <?php
+                                                    <img src="../images/remove.png" alt="" class="img-fluid">
+                                                <?php
                                                     }
                                                 ?>
-                                    </td>
-                                </tr>
-                                <?php
+                                            </td>
+                                        </tr>
+                                    <?php
                                         $no++;
                                     }
                                 } else { ?>
-                                <div class="alert alert-danger" id="error" style="display: block;">
-                                    <center>
-                                        <strong>Empty Request.</strong>
-                                    </center>
-                                </div>
+                                    <div class="alert alert-danger" id="error" style="display: block;">
+                                        <center>
+                                            <strong>Empty Request.</strong>
+                                        </center>
+                                    </div>
                                 <?php
                                 }
                                 ?>

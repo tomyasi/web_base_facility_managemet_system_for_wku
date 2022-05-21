@@ -23,6 +23,11 @@ $insertdate = date("Y/m/d H:i:s");
         </center>
         <hr>
         <form name="form1" action="" method="post" class="form-horizontal nopadding">
+            <div class="alert alert-success" id="success" style="display:none;">
+                <center>
+                    <strong>Send Request successfully.</strong>
+                </center>
+            </div>
             <div class="row-fluid">
                 <div class="span12">
                     <div class="alert alert-danger" id="error" style="display: none;">
@@ -42,7 +47,6 @@ $insertdate = date("Y/m/d H:i:s");
                                     $query = mysqli_query($con, "SELECT *FROM stock") or die("Error occured" .
                                         mysqli_error($con));
                                     if (mysqli_num_rows($query) > 0) {
-
                                     ?>
                                     <label>Resource Name</label>
                                     <select class="span11" required name="item_name"
@@ -136,11 +140,6 @@ $insertdate = date("Y/m/d H:i:s");
 
 
                         </div>
-                    </div>
-                    <div class="alert alert-success" id="success" style="display:none;">
-                        <center>
-                            <strong>Send Request successfully.</strong>
-                        </center>
                     </div>
                 </div>
             </div>

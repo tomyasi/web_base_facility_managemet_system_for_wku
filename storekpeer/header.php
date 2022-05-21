@@ -6,8 +6,11 @@ if (!(isset($_SESSION['stor_id']))) {
 }
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $stor_id = $_SESSION['stor_id'];
-$result = mysqli_query($con, "SELECT *from item_request where status='0';");
+$result = mysqli_query($con, "SELECT *from item_request where status='0'");
 $un_read = mysqli_num_rows($result);
+$feedback = mysqli_query($con, "SELECT *from feedback where send_to=$stor_id");
+$count_fee = mysqli_num_rows($feedback);
+$total = $un_read + $count_fee;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,8 +76,8 @@ $un_read = mysqli_num_rows($result);
                 </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i><span>View Notification
-                        <?php if ($un_read > 0) {
-                            echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
+                        <?php if ($total > 0) {
+                            echo '<span class="label label-important" style="border-radius:30px">' . $total . '</span>';
                         } ?></span></a>
                 <ul>
                     <li><a href="view_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Resource Request
@@ -82,7 +85,10 @@ $un_read = mysqli_num_rows($result);
                                 echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
                             } ?></a>
                     </li>
-                    <li><a href="update_employees.php"><i class="icon-eye-open"></i> &nbsp;&nbsp;View Feedback </a>
+                    <li><a href="view_feedback.php"><i class="icon-eye-open"></i> &nbsp;&nbsp;View Feedback
+                            <?php if ($count_fee > 0) {
+                                echo '<span class="label label-important" style="border-radius:30px">' . $count_fee . '</span>';
+                            } ?></a>
                     </li>
                 </ul>
             </li>
@@ -91,8 +97,8 @@ $un_read = mysqli_num_rows($result);
                     <li><a href="item_order_report.php"><i class="icon-briefcase"></i>&nbsp;&nbsp;Item Ordered
                             Report</a>
                     </li>
-                    <li><a href="update_employees.php"><i class="icon-user"></i>&nbsp;&nbsp;Store Item Report </a></li>
-                    <li><a href="employee_status.php"><i class="icon-user"></i>&nbsp;&nbsp;Give in Item Report</a></li>
+                    <li><a href="item_stor_report.php"><i class="icon-user"></i>&nbsp;&nbsp;Store Item Report </a></li>
+                    <li><a href="give_item_report.php"><i class="icon-user"></i>&nbsp;&nbsp;Give in Item Report</a></li>
                 </ul>
             </li>
             <li>

@@ -1,9 +1,6 @@
 <?php
 include("header.php");
 include("../connection.php");
-if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
-    header("Location: ../login.php");
-}
 ?>
 <div id="content">
     <!--breadcrumbs-->
@@ -41,15 +38,15 @@ if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
                     <tbody id="output">
                         <tr>
                             <?php
-                            $result = mysqli_query($con, "SELECT *from feedback where send_to='$emp_id'");
+                            $result = mysqli_query($con, "SELECT *from feedback where send_to='$stor_id'");
                             $un_read = mysqli_num_rows($result);
                             $no = 1;
-
-                            while ($row = mysqli_fetch_array($result)) {
-                                $e_id = $row["feedback_by"];
-                                $sql = mysqli_query($con, "SELECT *FROM user where id='$e_id'") or die("error occured" . mysqli_error($con));
-                                $user_info = mysqli_fetch_array($sql);
-                                $re_by = $user_info['fname'] . ' ' . $user_info['mname'];
+                            if ($un_read > 0) {
+                                while ($row = mysqli_fetch_array($result)) {
+                                    $e_id = $row["feedback_by"];
+                                    $sql = mysqli_query($con, "SELECT *FROM employee where id='$e_id'") or die("error occured" . mysqli_error($con));
+                                    $user_info = mysqli_fetch_array($sql);
+                                    $re_by = $user_info['fname'] . ' ' . $user_info['mname'];
                             ?>
                             <td><?php echo $no; ?></td>
                             <td><?php echo $re_by; ?></td>
@@ -58,19 +55,27 @@ if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
                             <td> <?php if ($row["view"] == "1") { ?>
                                 <img src="../images/tick.png" alt="Yes" class="img-fluid"></a>
                                 <?php
-                                        } else { ?>
+                                            } else { ?>
                                 <a href="check_view.php?id=<?php echo $row['id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px"><i class="icon-ok"></i>
                                     OK</a>
                                 <?php
-                                        }
-                                    ?>
+                                            }
+                                        ?>
                             </td>
                         </tr>
                         <?php
-                                $no++;
+                                    $no++;
+                                }
+                            } else { ?>
+                        <div class="alert alert-danger" id="error" style="display: block;">
+                            <center>
+                                <strong>Empty Feedback.</strong>
+                            </center>
+                        </div>
+                        <?php
                             }
-                    ?>
+                ?>
                     </tbody>
                 </table>
             </div>
