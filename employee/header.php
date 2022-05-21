@@ -6,13 +6,16 @@ if (!(isset($_SESSION['emp_id']))) {
 include("../connection.php");
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $emp_id = $_SESSION['emp_id'];
+$info = mysqli_query($con, "SELECT * FROM employee WHERE id='$emp_id'");
+$row = mysqli_fetch_array($info);
+$emp_position = $row['jop_position'];
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-$feedback = mysqli_query($con, "SELECT *FROM feedback where view='0' and send_to='$emp_id'");
-$un_read_fee = mysqli_num_rows($feedback);
-$result1 = mysqli_query($con, "SELECT *from serv_request where view='0'and req_service='$_SESSION[role]'");
+$result1 = mysqli_query($con, "SELECT *from serv_request where view='0'and req_service='$emp_position'");
 $un_read = mysqli_num_rows($result1);
 $responce = mysqli_query($con, "SELECT * from give_item where view='0'and give_to='$emp_id'");
 $un_read_res = mysqli_num_rows($responce);
+$feedback = mysqli_query($con, "SELECT *FROM feedback where view='0' and send_to='$emp_id'");
+$un_read_fee = mysqli_num_rows($feedback);
 $total = $un_read + $un_read_res + $un_read_fee;
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ?>
@@ -91,19 +94,8 @@ $total = $un_read + $un_read_res + $un_read_fee;
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_res . '</span>';
                             } ?></a>
                     </li>
-                    <li><a href="service_request_reply.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Give Reply
-                        </a>
-                    </li>
                 </ul>
             </li>
-            <!-- <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
-                <ul>
-                    <li class="active"><a href="employee_regi.php"><i class="icon-user"></i>Item Ordered Report</a></li>
-                    <li><a href="update_employees.php"><i class="icon-user"></i>Store Item Report </a></li>
-                    <li><a href="employee_status.php"><i class="icon-user"></i>Give in Item Report</a></li>
-
-                </ul>
-            </li> -->
             <li>
                 <a href="report.php"><i class="icon-briefcase"></i><span>Generate Report</span></a>
             </li>

@@ -7,8 +7,10 @@ if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
 $emp_id = $_SESSION['emp_id'];
 $insertdate = date("Y/m/d H:i:s");
 $e_id = $_GET['id'];
-if (isset($_GET['id'])) {
-}
+$result = mysqli_query($con, "SELECT *from serv_request where s_id=$e_id");
+$requester = mysqli_fetch_array($result);
+$user = $requester['user_id'];
+
 ?>
 <!--main-container-part-->
 <div id="content">
@@ -110,7 +112,7 @@ if (isset($_POST['send'])) {
     /**   ++++++++++++++++++++++++++++++++++++  **/
     $schedule = mysqli_real_escape_string($con, $_POST["schedule"]);
     $message = mysqli_real_escape_string($con, $_POST["message"]);
-    $sql = "INSERT INTO serv_responce values(NULL,'$emp_id','3','$message','$insertdate','$insertdate','0')";
+    $sql = "INSERT INTO serv_responce values(NULL,'$emp_id','$requester[user_id]','$message','$insertdate','$insertdate','0')";
     $re = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
     if (!$re) {
 ?>

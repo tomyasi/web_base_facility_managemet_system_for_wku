@@ -88,7 +88,8 @@ $un_read = mysqli_num_rows($result);
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
                 <ul>
-                    <li><a href="employee_regi.php"><i class="icon-briefcase"></i>&nbsp;&nbsp;Item Ordered Report</a>
+                    <li><a href="item_order_report.php"><i class="icon-briefcase"></i>&nbsp;&nbsp;Item Ordered
+                            Report</a>
                     </li>
                     <li><a href="update_employees.php"><i class="icon-user"></i>&nbsp;&nbsp;Store Item Report </a></li>
                     <li><a href="employee_status.php"><i class="icon-user"></i>&nbsp;&nbsp;Give in Item Report</a></li>

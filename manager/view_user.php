@@ -49,46 +49,77 @@ include("../connection.php")
                             </thead>
                             <tbody>
                                 <?php
-                                $result = mysqli_query($con, "select *from user;");
-                                $no = 1;
-                                while ($row = mysqli_fetch_array($result)) {
+                                $result = mysqli_query($con, "SELECT *from user;");
+                                $user = mysqli_num_rows($result);
+                                if ($user > 0) {
+                                    $no = 0;
+                                    $female = 0;
+                                    $male = 0;
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        $no++;
                                 ?>
-                                    <tr>
-                                        <td><?php echo $no; ?></td>
-                                        <td><?php echo $row["user_id"]; ?></td>
-                                        <td><?php echo $row["fname"]; ?></td>
-                                        <td><?php echo $row["mname"]; ?></td>
-                                        <td><?php echo $row["lname"]; ?></td>
-                                        <td><?php
-                                            if ($row["gender"] == "m") {
-                                                echo "Male";
-                                            } else {
-                                                echo "Female";
-                                            }
-                                            ?>
-                                        </td>
-                                        <td><?php echo $row["age"]; ?></td>
-                                        <td><?php echo $row["gmail"]; ?></td>
-                                        <td><?php echo $row["phone"]; ?></td>
-                                        <td><?php echo $row["nationality"]; ?></td>
-                                        <td><?php echo $row["subcity"]; ?></td>
-                                        <td> <?php
-                                                if ($row["status"] == "1") {
-                                                    echo "Active";
+                                        <tr>
+                                            <td><?php echo $no; ?></td>
+                                            <td><?php echo $row["user_id"]; ?></td>
+                                            <td><?php echo $row["fname"]; ?></td>
+                                            <td><?php echo $row["mname"]; ?></td>
+                                            <td><?php echo $row["lname"]; ?></td>
+                                            <td><?php
+                                                if ($row["gender"] == "m") {
+                                                    $male++;
+                                                    echo "Male";
                                                 } else {
-                                                    echo "Deactive";
+                                                    $female++;
+                                                    echo "Female";
                                                 }
                                                 ?>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                            <td><?php echo $row["age"]; ?></td>
+                                            <td><?php echo $row["gmail"]; ?></td>
+                                            <td><?php echo $row["phone"]; ?></td>
+                                            <td><?php echo $row["nationality"]; ?></td>
+                                            <td><?php echo $row["subcity"]; ?></td>
+                                            <td> <?php
+                                                    if ($row["status"] == "1") {
+                                                        echo "Active";
+                                                    } else {
+                                                        echo "Deactive";
+                                                    }
+                                                    ?>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                } else { ?>
+                                    <div class="alert alert-danger" id="error" style="display: block;">
+                                        <center>
+                                            <strong>Empty.</strong>
+                                        </center>
+                                    </div>
                                 <?php
-                                    $no++;
                                 }
                                 ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <h4 style="color: while;">
+                    <div style="float: right;border:10px;border-radius:5px">
+                        <span style="float:left;">Total Female:&nbsp;</span><span style="float: left"><?php echo $female; ?></span>
+                    </div>
+                </h4>
+                <br>
+                <h4 style="color: while;">
+                    <div style="float: right;border:10px;border-radius:5px">
+                        <span style="float:left;">Total Male:&nbsp;</span><span style="float: left"><?php echo $male; ?></span>
+                    </div>
+                </h4>
+                <br>
+                <h4 style="color: while;">
+                    <div style="float: right;border:10px;border-radius:5px">
+                        <span style="float:left;">Total:&nbsp;</span><span style="float: left"><?php echo $no; ?></span>
+                    </div>
+                </h4>
             </div>
         </div>
     </div>

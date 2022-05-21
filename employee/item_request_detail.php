@@ -133,12 +133,14 @@ $insertdate = date("Y/m/d H:i:s");
                                         style="border-radius: 13px;float: left;"><strong>Send Request</strong></button>
                                 </div>
                             </div>
+
+
                         </div>
-                        <div class="alert alert-success" id="success" style="display:none;">
-                            <center>
-                                <strong>Send Request successfully.</strong>
-                            </center>
-                        </div>
+                    </div>
+                    <div class="alert alert-success" id="success" style="display:none;">
+                        <center>
+                            <strong>Send Request successfully.</strong>
+                        </center>
                     </div>
                 </div>
             </div>
@@ -154,7 +156,7 @@ if (isset($_POST['send'])) {
     $quantity = mysqli_real_escape_string($con, $_POST["quantity"]);
     $message = mysqli_real_escape_string($con, $_POST["message"]);
 
-    $sql = "INSERT INTO item_request values(NULL,'$emp_id','$name','$type','$category','$quality','$quantity','$message',' $insertdate','0')";
+    $sql = "INSERT INTO item_request values(NULL,'$emp_id','$name','$type','$category','$quality','$quantity','$message',' $insertdate','0','0')";
     $re = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
     if (!$re) {
 ?>

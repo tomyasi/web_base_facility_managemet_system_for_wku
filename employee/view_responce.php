@@ -44,7 +44,7 @@ $user_id = $_SESSION['emp_id'];
                         </thead>
                         <tbody id="output">
                             <?php
-                            $result = mysqli_query($con, "SELECT *from give_item");
+                            $result = mysqli_query($con, "SELECT *from give_item where give_to='$emp_id'");
                             $no = 1;
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_array($result)) {

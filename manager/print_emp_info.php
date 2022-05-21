@@ -41,6 +41,8 @@ include("../connection.php");
             <?php
             $result = mysqli_query($con, "select *from employee;");
             $no = 1;
+            $female = 0;
+            $male = 0;
             while ($row = mysqli_fetch_array($result)) {
             ?>
             <tr>
@@ -51,8 +53,10 @@ include("../connection.php");
                 <td><?php echo $row["lname"]; ?></td>
                 <td><?php
                         if ($row["gender"] == "m") {
+                            $male++;
                             echo "Male";
                         } else {
+                            $female++;
                             echo "Female";
                         }
                         ?>
@@ -72,6 +76,23 @@ include("../connection.php");
             ?>
         </tbody>
     </table>
+    <h4 style="color: while;">
+        <div style="float: right;border:10px;border-radius:5px">
+            <span style="float:left;">Total Female:&nbsp;</span><span style="float: left"><?php echo $female; ?></span>
+        </div>
+    </h4>
+    <br>
+    <h4 style="color: while;">
+        <div style="float: right;border:10px;border-radius:5px">
+            <span style="float:left;">Total Male:&nbsp;</span><span style="float: left"><?php echo $male; ?></span>
+        </div>
+    </h4>
+    <br>
+    <h4 style="color: while;">
+        <div style="float: right;border:10px;border-radius:5px">
+            <span style="float:left;">Total:&nbsp;</span><span style="float: left"><?php echo $no; ?></span>
+        </div>
+    </h4>
     <?php
     mysqli_close($con);
     ?>

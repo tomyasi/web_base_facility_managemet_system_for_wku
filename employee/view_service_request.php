@@ -44,7 +44,7 @@ $user_id = $_SESSION['emp_id'];
                     <tbody id="output">
                         <tr>
                             <?php
-                            $result = mysqli_query($con, "SELECT *from serv_request where req_service='$_SESSION[role]'");
+                            $result = mysqli_query($con, "SELECT *from serv_request where req_service='$emp_position'");
                             $un_read = mysqli_num_rows($result);
                             $no = 1;
                             if ($un_read > 0) {
@@ -54,33 +54,33 @@ $user_id = $_SESSION['emp_id'];
                                     $user_info = mysqli_fetch_array($sql);
                                     $re_by = $user_info['fname'] . ' ' . $user_info['mname'];
                             ?>
-                            <td><?php echo $no; ?></td>
-                            <td><?php echo $re_by; ?></td>
-                            <td><?php echo $row["req_service"]; ?></td>
-                            <td><?php echo $row["message"]; ?></td>
-                            <td><?php echo $row["req_date"]; ?></td>
-                            <td> <?php if ($row["view"] == "1") { ?>
-                                <img src="../images/tick.png" alt="Yes" class="img-fluid"></a>
-                                <?php
+                                    <td><?php echo $no; ?></td>
+                                    <td><?php echo $re_by; ?></td>
+                                    <td><?php echo $row["req_service"]; ?></td>
+                                    <td><?php echo $row["message"]; ?></td>
+                                    <td><?php echo $row["req_date"]; ?></td>
+                                    <td> <?php if ($row["view"] == "1") { ?>
+                                            <img src="../images/tick.png" alt="Yes" class="img-fluid"></a>
+                                        <?php
                                             } else { ?>
-                                <a href="service_request_reply.php?id=<?php echo $row['s_id'] ?>" class="btn
+                                            <a href="service_request_reply.php?id=<?php echo $row['s_id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px"><i class="icon-reply"></i>
-                                    Reply</a>
-                                <?php
+                                                Reply</a>
+                                        <?php
                                             }
                                         ?>
-                            </td>
+                                    </td>
                         </tr>
-                        <?php
+                    <?php
                                     $no++;
                                 }
                             } else { ?>
-                        <div class="alert alert-danger" id="error" style="display: block;">
-                            <center>
-                                <strong>Empty Request.</strong>
-                            </center>
-                        </div>
-                        <?php
+                    <div class="alert alert-danger" id="error" style="display: block;">
+                        <center>
+                            <strong>Empty Request.</strong>
+                        </center>
+                    </div>
+                <?php
                             }
                 ?>
                     </tbody>

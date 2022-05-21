@@ -2,48 +2,6 @@
 include("header.php");
 include("../connection.php")
 ?>
-<!-- <style>
-/* Formatting search box */
-.search-box {
-    width: 300px;
-    position: relative;
-    display: inline-block;
-    font-size: 14px;
-}
-
-.search-box input[type="text"] {
-    height: 32px;
-    padding: 5px 10px;
-    border: 1px solid #CCCCCC;
-    font-size: 14px;
-}
-
-.result {
-    position: absolute;
-    z-index: 999;
-    top: 100%;
-    left: 0;
-}
-
-.search-box input[type="text"],
-.result {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Formatting result items */
-.result p {
-    margin: 0;
-    padding: 7px 10px;
-    border: 1px solid #CCCCCC;
-    border-top: none;
-    cursor: pointer;
-}
-
-.result p:hover {
-    background: #f2f2f2;
-}
-</style> -->
 <!--main-container-part-->
 <div id="content">
     <!--breadcrumbs-->
@@ -63,11 +21,6 @@ include("../connection.php")
                     <a href="print_item_info.php" class="btn btn-primary" style="border-radius:10px"><i
                             class="icon-print"></i> PRINT</a>
                 </div>
-                <!-- <div class="search-box">
-                    <input type="text" autocomplete="off" placeholder="Search..." name="live_search" id="search"
-                        style="border-radius: 13px;" />
-                    <div></div>
-                </div> -->
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>Item View Form</h5>
@@ -121,16 +74,23 @@ include("../connection.php")
                                 ?>
                             </tbody>
                         </table>
-                        <h4 style="color: while;">
-                            <div style="float: right; background-color:black;border:10px;border-radius:5px">
-                                <span style="float:left;">Type of Resource:&nbsp;</span><span
-                                    style="float: left"><?php echo $no; ?></span>
-                                <span style="float:left;">&nbsp;&nbsp;&nbsp;Total:&nbsp;</span><span
-                                    style="float: left"><?php echo $total_item; ?></span>
-                            </div>
-                        </h4>
+
                     </div>
                 </div>
+                <h4 style="color: while;">
+                    <div style="float: right;border:10px;border-radius:5px">
+                        <span style="float:left;">Type of Resource:&nbsp;</span><span
+                            style="float: left"><?php echo $no; ?></span>
+
+                    </div>
+                </h4><br>
+                <h4 style="color: while;">
+                    <div style="float: right;border:10px;border-radius:5px">
+
+                        <span style="float:left;">&nbsp;&nbsp;&nbsp;Total:&nbsp;</span><span
+                            style="float: left"><?php echo $total_item; ?></span>
+                    </div>
+                </h4>
             </div>
         </div>
     </div>

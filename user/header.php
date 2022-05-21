@@ -8,7 +8,7 @@ include("../connection.php");
 $query = mysqli_query($con, "SELECT *FROM user where id=$user_id");
 $user_info = mysqli_fetch_array($query);
 $full_name = $user_info['fname'] . ' ' . $user_info['mname'];
-$result = mysqli_query($con, "SELECT *from serv_responce where view='0';");
+$result = mysqli_query($con, "SELECT *from serv_responce where view='0'and requ_by=$user_id");
 $un_read = mysqli_num_rows($result);
 ?>
 <!DOCTYPE html>

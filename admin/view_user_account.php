@@ -72,7 +72,7 @@ if (!(isset($_SESSION['admin_id']))) {
                                 } else { ?>
                                 <div class="alert alert-danger" id="error" style="display: block;">
                                     <center>
-                                        <strong>Empty Employee User.</strong>
+                                        <strong>Empty User account.</strong>
                                     </center>
                                 </div>
                                 <?php

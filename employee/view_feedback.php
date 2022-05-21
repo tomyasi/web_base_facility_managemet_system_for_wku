@@ -41,7 +41,7 @@ if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
                     <tbody id="output">
                         <tr>
                             <?php
-                            $result = mysqli_query($con, "SELECT *from feedback");
+                            $result = mysqli_query($con, "SELECT *from feedback where send_to='$emp_id'");
                             $un_read = mysqli_num_rows($result);
                             $no = 1;
                             if ($un_read > 0) {
