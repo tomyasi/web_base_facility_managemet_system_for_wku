@@ -36,18 +36,18 @@ if (!(isset($_SESSION['admin_id']))) {
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Emp_id</th>
-                                    <th>username</th>
-                                    <th>password</th>
-                                    <th>Role</th>
-                                    <th>lastlogin</th>
-                                    <th>Status</th>
+                                    <th>EMPLOYEE ID</th>
+                                    <th>USERNAME</th>
+                                    <th>PASSWORD</th>
+                                    <th>ROLE</th>
+                                    <th>LASTLOGIN DATE</th>
+                                    <th>STATUS</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 $n = 1;
-                                $result = mysqli_query($con, "select *from eaccount;");
+                                $result = mysqli_query($con, "SELECT *from eaccount;");
                                 $no_acc = mysqli_num_rows($result);
                                 if ($no_acc > 0) {
                                     while ($row = mysqli_fetch_array($result)) {

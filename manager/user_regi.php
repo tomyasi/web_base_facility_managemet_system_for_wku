@@ -183,11 +183,11 @@ include("../connection.php");
                                                                         )) {
                                                                         if (lengthRestriction(nationality, 3, 25,
                                                                                 " for your nationality")) {
-                                                                            if (isAlphabet(address,
-                                                                                    "please enter Your address in letters only"
+                                                                            if (isAlphabet(subcity,
+                                                                                    "please enter Your subcity in letters only"
                                                                                 )) {
-                                                                                if (lengthRestriction(address, 3, 30,
-                                                                                        " for your address ")) {
+                                                                                if (lengthRestriction(subcity, 3, 30,
+                                                                                        " for your subcity ")) {
                                                                                     return true;
 
                                                                                 }

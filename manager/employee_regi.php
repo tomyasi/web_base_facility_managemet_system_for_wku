@@ -128,6 +128,14 @@ $email_err = "";
                                 </div>
                             </div>
                             <div class="control-group">
+                                <label class="control-label"><strong>Salary<small style="color: red;">*</small>
+                                        :</strong></label>
+                                <div class="controls">
+                                    <input type="hidden" id="hidd" value="hidden" class="span11"
+                                        placeholder="Enter salary" name="hidd" required style="border-radius: 13px;" />
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 <label class="control-label"><strong>Job position<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
@@ -182,6 +190,7 @@ $email_err = "";
                                 var subcity = document.getElementById('subcity');
                                 var nationality = document.getElementById('nationality');
                                 var salary = document.getElementById('salary');
+                                var hidden = document.getElementById('hidd');
 
                                 if (isAlphabet(firstname, "please enter First name in letters only")) {
                                     if (lengthRestriction(firstname, 3, 30, "for First name")) {
@@ -213,7 +222,12 @@ $email_err = "";
                                                                                     if (isNumeric(salary,
                                                                                             "please enter the employee salary only Number "
                                                                                         )) {
-                                                                                        return true;
+                                                                                        if (lengthRestriction(hidden,
+                                                                                                3,
+                                                                                                30,
+                                                                                                "for your subcity ")) {
+                                                                                            return true;
+                                                                                        }
                                                                                     }
                                                                                 }
                                                                             }
