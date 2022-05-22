@@ -23,13 +23,13 @@ include("../connection.php")
             <form class="form-inline" action="" name="form1" method="post">
                 <div class="form-group">
                     <label for="email">Start Date</label>
-                    <input type="text" name="dt" id="dt" autocomplete="off" class="form-control" required
+                    <input type="datetime-local" name="dt" autocomplete="off" class="form-control" required
                         style="width:200px;border-style:solid; border-width:1px; border-radius: 13px;border-color:#666666"
                         placeholder="click here to open calender">
                 </div>
                 <div class="form-group">
                     <label for="email">End Date</label>
-                    <input type="text" name="dt2" id="dt2" autocomplete="off" placeholder="click here to open calender"
+                    <input type="datetime-local" name="dt2" autocomplete="off" placeholder="click here to open calender"
                         class="form-control"
                         style="width:200px;border-style:solid; border-width:1px;border-radius: 13px; border-color:#666666">
                 </div>
@@ -75,7 +75,7 @@ include("../connection.php")
                             </thead>
                             <tbody>
                                 <?php
-                                        $result = mysqli_query($con, "SELECT *from item_request WHERE (re_date>='$starte_date'&& re_date<='$end_date')");
+                                        $result = mysqli_query($con, "SELECT *from item_request WHERE (re_date>='$starte_date' and re_date<='$end_date')");
                                         $aprove = mysqli_query($con, "SELECT *from item_request WHERE ordered='0'");
                                         $cou_aprove = mysqli_num_rows($aprove);
                                         if (mysqli_num_rows($result) > 0) {
@@ -130,9 +130,7 @@ include("../connection.php")
                             </thead>
                             <tbody id="output">
                                 <?php
-                                        $result = mysqli_query($con, "SELECT *from item_request;");
-                                        $aprove = mysqli_query($con, "SELECT *from item_request WHERE ordered='0'");
-                                        $cou_aprove = mysqli_num_rows($aprove);
+                                        $result = mysqli_query($con, "SELECT *from item_request where status='1'");
                                         if (mysqli_num_rows($result) > 0) {
                                             while ($row = mysqli_fetch_array($result)) {
                                                 $no++;
@@ -171,13 +169,6 @@ include("../connection.php")
                         ?>
                     </div>
                 </div>
-                <h4 style="color: while;">
-                    <div style="float: right;border:10px;border-radius:5px">
-                        <span style="float:left;">Total Approved item:&nbsp;</span><span
-                            style="float: left"><?php echo $cou_aprove; ?></span>&nbsp;&nbsp;&nbsp;
-                    </div>
-                </h4>
-                <br>
                 <h4 style="color: while;">
                     <div style="float: right;border:10px;border-radius:5px">
                         <span style="float:left;">Total Number of Order:&nbsp;</span><span

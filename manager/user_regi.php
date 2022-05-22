@@ -338,6 +338,7 @@ setTimeout(function() {
                 $code = rand(1, 9999);
                 $id_genreted = "USER_" . $code . "_" . $last_id;
                 $query = "UPDATE user SET user_id='$id_genreted ' WHERE id='$last_id'";
+                mysqli_query($con, $query);
             }
         ?>
 <script type="text/javascript">

@@ -357,7 +357,6 @@ setTimeout(function() {
 </script>
 <?php
     }
-
     if ($email_err == "" && $phone_err == "") {
         $query = "INSERT INTO employee(id,emp_id,fname,mname,lname,gender,age,gmail,phone,nationality,address,salary,jop_position,status)
         values(NULL,'','$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity','salary','$jop',$status)";
@@ -380,6 +379,7 @@ setTimeout(function() {
                 $code = rand(1, 9999);
                 $id_genreted = "EMP_" . $code . "_" . $last_id;
                 $query = "UPDATE employee SET emp_id='$id_genreted' WHERE id='$last_id'";
+                mysqli_query($con, $query);
             }
         ?>
 <script type="text/javascript">

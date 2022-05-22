@@ -39,23 +39,33 @@ include("../connection.php");
             $no = 1;
             while ($row = mysqli_fetch_array($result)) {
             ?>
-            <tr>
-                <td><?php echo $no; ?></td>
-                <td><?php echo $row["item_id"]; ?></td>
-                <td><?php echo $row["item_code"]; ?></td>
-                <td><?php echo $row["item_name"]; ?></td>
-                <td><?php echo $row["item_type"]; ?></td>
-                <td><?php echo $row["item_category"]; ?></td>
-                <td><?php echo $row["item_model"]; ?></td>
-                <td><?php echo $row["item_quality"]; ?></td>
-                <td><?php echo $row["item_quantity"]; ?></td>
-            </tr>
+                <tr>
+                    <td><?php echo $no; ?></td>
+                    <td><?php echo $row["item_id"]; ?></td>
+                    <td><?php echo $row["item_code"]; ?></td>
+                    <td><?php echo $row["item_name"]; ?></td>
+                    <td><?php echo $row["item_type"]; ?></td>
+                    <td><?php echo $row["item_category"]; ?></td>
+                    <td><?php echo $row["item_model"]; ?></td>
+                    <td><?php echo $row["item_quality"]; ?></td>
+                    <td><?php echo $row["item_quantity"]; ?></td>
+                </tr>
             <?php
                 $no++;
             }
             ?>
         </tbody>
     </table>
+    <h4 style="color: while;">
+        <div style="float: right;border:10px;border-radius:5px">
+            <span style="float:left;">Type of Resource:&nbsp;</span><span style="float: left"><?php echo $no; ?></span>
+        </div>
+    </h4><br>
+    <h4 style="color: while;">
+        <div style="float: right;border:10px;border-radius:5px">
+            <span style="float:left;">&nbsp;&nbsp;&nbsp;Total Resource In Store:&nbsp;</span><span style="float: left"><?php echo $total_item; ?></span>
+        </div>
+    </h4>
     <?php
     mysqli_close($con);
     ?>
