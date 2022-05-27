@@ -18,7 +18,6 @@ $un_read = mysqli_num_rows($result);
     <title>WKUFMS USER PAGE</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="../bootstrap/css/fullcalendar.css" />
@@ -34,7 +33,6 @@ $un_read = mysqli_num_rows($result);
 
 <body>
     <div id="header">
-
         <h2 style="color: white;position: absolute">
             <a href="home.php" style="color:white; margin-left: 30px; margin-top: 40px">WKUFMS </a>
         </h2>

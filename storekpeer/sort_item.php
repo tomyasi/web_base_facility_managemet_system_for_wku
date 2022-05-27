@@ -45,12 +45,5 @@ while ($row = mysqli_fetch_array($result)) {
 ?>
 <?php
 $output .= '</table>';
-$output .= ' <h4>
-<div style="float: right; background-color:black;border:10px;border-radius:5px">
-    <span style="float:left;">Type of Resource:&nbsp;</span><span
-        style="float: left"> ' . $no . '</span>
-<span style="float:left;">&nbsp;&nbsp;&nbsp;Total:&nbsp;</span><span style="float: left"> ' . $total_item . '</span>
-</div>
-</h4>';
 echo $output;
 ?>

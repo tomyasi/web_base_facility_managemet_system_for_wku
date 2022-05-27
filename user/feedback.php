@@ -38,7 +38,6 @@ $row = mysqli_fetch_array($result);
                     <div class="widget-content nopadding"
                         style="border-radius: 20px; margin-right:20%; margin-left:10%">
                         <form name="formsend" action="#" method="POST" class="form-horizontal">
-
                             <div class="alert alert-danger" id="error" style="display: none;">
                                 <center>
                                     <strong>Same thing error,please triy agian.</strong>

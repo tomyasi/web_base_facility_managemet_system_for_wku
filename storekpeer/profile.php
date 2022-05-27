@@ -1,7 +1,8 @@
 <?php
 include("header.php");
 include("../connection.php");
-$profile = mysqli_query($con, "SELECT * FROM employee WHERE id='$_SESSION[stor_id]'") or die("Error occurde in profile query" . mysqli_error($con));
+$profile = mysqli_query($con, "SELECT * FROM employee WHERE id='$_SESSION[stor_id]'") or
+    die("Error occurde in profile query" . mysqli_error($con));
 $row = mysqli_fetch_array($profile);
 ?>
 <style>
