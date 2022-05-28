@@ -44,7 +44,6 @@ if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
                             $result = mysqli_query($con, "SELECT *from feedback where send_to='$emp_id'");
                             $un_read = mysqli_num_rows($result);
                             $no = 1;
-
                             while ($row = mysqli_fetch_array($result)) {
                                 $e_id = $row["feedback_by"];
                                 $sql = mysqli_query($con, "SELECT *FROM user where id='$e_id'") or die("error occured" . mysqli_error($con));

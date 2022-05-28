@@ -18,7 +18,6 @@ include("../connection.php")
             <h5>VIEW RESOURCE REQUEST PAGE</h5>
         </center>
         <hr>
-
         <div class="row-fluid">
             <form class="form-inline" action="" name="form1" method="post">
                 <div class="form-group">
@@ -40,6 +39,9 @@ include("../connection.php")
             </form>
             <br>
             <div class="span12">
+                <a href="print_order_report.php" class="btn btn-primary" style="border-radius:10px"><i
+                        class="icon-print"></i>
+                    PRINT</a>
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>View Request</h5>
@@ -48,6 +50,7 @@ include("../connection.php")
                     <div class="widget-content nopadding">
                         <?php
                         $no = 0;
+                        $total_item = 0;
                         $cou_aprove = 0;
                         if (isset($_POST['submit2'])) {
                         ?>
@@ -138,6 +141,7 @@ include("../connection.php")
                                                 $sql = mysqli_query($con, "SELECT *FROM employee where id=$e_id") or die("error occured" . mysqli_error($con));
                                                 $emp_info = mysqli_fetch_array($sql);
                                                 $re_by = $emp_info['fname'] . ' ' . $emp_info['mname'];
+                                                $total_item += $row['item_quantity'];
                                     ?>
                                 <tr>
                                     <td><?php echo $no; ?></td>
@@ -169,10 +173,57 @@ include("../connection.php")
                         ?>
                     </div>
                 </div>
+                <hr>
+                <center>
+                    <h3>Report Information</h3>
+                </center>
+                <hr>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>MONTH</th>
+                            <th>TOTAL ORDER ITEM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql1 = "SELECT  MONTHNAME(orderd_date) as mname, sum(quantity) as total from item_order GROUP BY MONTH(orderd_date)";
+                        $result1 = mysqli_query($con, $sql1);
+                        $n = 0;
+                        if (mysqli_num_rows($result1) > 0) {
+                            while ($row = mysqli_fetch_array($result1)) {
+                                $n++;
+                        ?>
+                        <tr>
+                            <td><?php echo $n; ?></td>
+                            <td><?php echo $row['mname']; ?></td>
+                            <td><?php echo $row["total"]; ?></td>
+                        </tr>
+                        <?php
+                            }
+                        } else { ?>
+                        <div class="alert alert-danger" id="error" style="display: block;">
+                            <center>
+                                <strong>Empty Request.</strong>
+                            </center>
+                        </div>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
                 <h4 style="color: while;">
                     <div style="float: right;border:10px;border-radius:5px">
                         <span style="float:left;">Total Number of Order:&nbsp;</span><span
                             style="float: left"><?php echo $no; ?></span>&nbsp;&nbsp;&nbsp;
+                    </div>
+                </h4>
+                <br>
+                <h4 style="color: while;">
+                    <div style="float: right;border:10px;border-radius:5px">
+                        <span style="float:left;">Total Number of Item Orderd:&nbsp;</span><span
+                            style="float: left"><?php echo $total_item; ?></span>&nbsp;&nbsp;&nbsp;
                     </div>
                 </h4>
             </div>

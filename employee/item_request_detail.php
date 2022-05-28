@@ -1,5 +1,4 @@
 <?php
-
 include("header.php");
 include("../connection.php");
 if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
@@ -44,13 +43,13 @@ $insertdate = date("Y/m/d H:i:s");
                                 <br>
                                 <div>
                                     <?php
-                                    $query = mysqli_query($con, "SELECT *FROM stock") or die("Error occured" .
+                                    $query = mysqli_query($con, "SELECT *FROM stock where status='1'") or die("Error occured" .
                                         mysqli_error($con));
                                     if (mysqli_num_rows($query) > 0) {
                                     ?>
                                     <label>Resource Name</label>
-                                    <select class="span11" required name="item_name"
-                                        onchange="select_company(this.value)" style="border-radius:10px">
+                                    <select class="span11" required name="name" onchange="select_type(this.value)"
+                                        style="border-radius:10px" id="name">
                                         <option value="">Select</option>
                                         <?php while ($row = mysqli_fetch_array($query)) { ?>
                                         <option value="<?php echo $row['item_name']; ?>">
@@ -65,23 +64,10 @@ $insertdate = date("Y/m/d H:i:s");
                             <div class="span3">
                                 <br>
                                 <div>
-                                    <label>Resource Category</label>
-                                    <select class="span11" name="category" required style="border-radius: 13px;">
-                                        <option value="">Select...</option>
-                                        <option value='Returnable'>Returnable</option>
-                                        <option value='Disposable'>Disposable</option>
-                                        <option value='Consumable'>Consumable</option>
-                                        <option value='other'>Others</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="span3">
-                                <br>
-                                <div>
                                     <label>Resource Type</label>
-                                    <select class="span11" name="type" required style="border-radius: 13px;">
-                                        <option value="">Select one...</option>
-                                        <option value='Computer'>Computer</option>
+                                    <select class="span11" name="type" required style="border-radius: 13px;" id="type">
+                                        <option value="">Select type...</option>
+                                        <!-- <option value='Computer'>Computer</option>
                                         <option value='office material'>Office Material</option>
                                         <option value='Car'>Car</option>
                                         <option value='Oil'>Oil</option>
@@ -89,10 +75,25 @@ $insertdate = date("Y/m/d H:i:s");
                                         <option value='water Material'>water Material </option>
                                         <option value='light Material'>light Material </option>
                                         <option value='Security Material'>security Material </option>
+                                        <option value='other'>Others</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <br>
+                                <div>
+                                    <label>Resource Category</label>
+                                    <select class="span11" name="category" required style="border-radius: 13px;"
+                                        onchange="select_quality(this.value)">
+                                        <option value="">Select category...</option>
+                                        <option value='Returnable'>Returnable</option>
+                                        <option value='Disposable'>Disposable</option>
+                                        <option value='Consumable'>Consumable</option>
                                         <option value='other'>Others</option>
                                     </select>
                                 </div>
                             </div>
+
                             <div class="span3">
                                 <br>
                                 <div>
@@ -137,8 +138,6 @@ $insertdate = date("Y/m/d H:i:s");
                                         style="border-radius: 13px;float: left;"><strong>Send Request</strong></button>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -148,16 +147,19 @@ $insertdate = date("Y/m/d H:i:s");
 </div>
 <?php
 if (isset($_POST['send'])) {
-    $name = mysqli_real_escape_string($con, $_POST["item_name"]);
+    $name = mysqli_real_escape_string($con, $_POST["name"]);
     $type = mysqli_real_escape_string($con, $_POST["type"]);
     $category = mysqli_real_escape_string($con, $_POST["category"]);
     $quality = mysqli_real_escape_string($con, $_POST["quality"]);
     $quantity = mysqli_real_escape_string($con, $_POST["quantity"]);
     $message = mysqli_real_escape_string($con, $_POST["message"]);
+    $check_quantity = mysqli_query($con, "SELECT *FROM stock where item_name='$name' and item_quality='$quality'");
+    $row = mysqli_fetch_array($check_quantity);
+    if ($row['item_quantity'] >= $quantity) {
 
-    $sql = "INSERT INTO item_request values(NULL,'$emp_id','$name','$type','$category','$quality','$quantity','$message',' $insertdate','0','0')";
-    $re = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
-    if (!$re) {
+        $sql = "INSERT INTO item_request values(NULL,'$emp_id','$name','$type','$category','$quality','$quantity','$message',' $insertdate','0','0')";
+        $re = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
+        if (!$re) {
 ?>
 <script type="text/javascript">
 document.getElementById("error").style.display = "block";
@@ -167,8 +169,10 @@ setTimeout(function() {
 }, 3000);
 </script>
 <?php
-    } else {
-    ?>
+        } else {
+            //decrease the stock
+            mysqli_query($con, "UPDATE stock set item_quantity=item_quantity-$quantity where item_name='$name'");
+        ?>
 <script type="text/javascript">
 document.getElementById("success").style.display = "block";
 // refresh the page after 3 second
@@ -177,7 +181,42 @@ setTimeout(function() {
 }, 3000);
 </script>
 <?php
+        }
+    } else {
+        echo "<script>alert('Not avalabile Resource,Please enter less than $row[item_quantity]'); 
+        window.location='item_request_detail.php'</script>";
     }
 }
 include("footer.php");
 ?>
+<script type="text/javascript">
+function select_quality(vari) {
+    $('#category').html('');
+    //$('#city').html('<option>Select City</option>');
+    $.ajax({
+        type: 'post',
+        url: 'ajax_selection.php',
+        data: {
+            vari: vari
+        },
+        success: function(data) {
+            $('#category').html(data);
+        }
+    })
+}
+
+function select_type(vari) {
+    $('#type').html('');
+    //$('#city').html('<option>Select City</option>');
+    $.ajax({
+        type: 'post',
+        url: 'ajax_selection.php',
+        data: {
+            type: vari
+        },
+        success: function(data) {
+            $('#type').html(data);
+        }
+    })
+}
+</script>

@@ -19,7 +19,6 @@ include("../connection.php")
         </center>
         <hr>
         <div class="row-fluid">
-
             <div class="span12">
                 <a href="print_give_report.php" class="btn btn-primary" style="border-radius:10px"><i
                         class="icon-print"></i>
@@ -94,7 +93,7 @@ include("../connection.php")
                         <tr>
                             <th>#</th>
                             <th>MONTH</th>
-                            <th>TOTAL</th>
+                            <th>TOTAL GIVE ITEM</th>
                         </tr>
                     </thead>
                     <tbody>
