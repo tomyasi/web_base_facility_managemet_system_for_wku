@@ -18,9 +18,14 @@ $user_id = $_SESSION['emp_id'];
     <div class="container-fluid">
         <hr>
         <center>
-            <h5>VIEW SERVICE REQUEST PAGE</h5>
+            <h5>USER SERVICE RESPONCE PAGE</h5>
         </center>
         <hr>
+        <div class="row-fluid">
+            <div class="span12">
+
+            </div>
+        </div>
     </div>
     <div class="row-fluid">
         <div class="span12">
@@ -29,17 +34,17 @@ $user_id = $_SESSION['emp_id'];
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>REQUESTED BY</th>
-                            <th>REQUEST SERVICE</th>
-                            <th>MESSAGE</th>
-                            <th>REQUESTED DATE</th>
-                            <th>REPLY</th>
+                            <th>Requested By</th>
+                            <th>Request Service</th>
+                            <th>Message</th>
+                            <th>Requested Date</th>
+                            <th>Reply</th>
                         </tr>
                     </thead>
                     <tbody id="output">
                         <tr>
                             <?php
-                            $result = mysqli_query($con, "SELECT *from serv_request where req_service='$emp_position'");
+                            $result = mysqli_query($con, "SELECT *from serv_request where view='0' and req_service='$emp_position'");
                             $un_read = mysqli_num_rows($result);
                             $no = 1;
                             if ($un_read > 0) {

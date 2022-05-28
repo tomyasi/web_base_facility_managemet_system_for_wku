@@ -15,13 +15,13 @@ include("../connection.php");
             <form class="form-inline" action="" name="form1" method="post">
                 <div class="form-group">
                     <label for="email"> Start Date</label>
-                    <input type="datetime-local" name="dt" autocomplete="off" class="form-control" required
+                    <input type="text" name="dt" id="dt" autocomplete="off" class="form-control" required
                         style="width:200px;border-style:solid; border-width:1px;border-radius: 10px; border-color:#666666"
                         placeholder="click here to open calender">
                 </div>
                 <div class="form-group">
                     <label for="email"> End Date</label>
-                    <input type="datetime-local" name="dt2" autocomplete="off" placeholder="click here to open calender"
+                    <input type="text" name="dt2" id="dt2" autocomplete="off" placeholder="click here to open calender"
                         class="form-control"
                         style="width:200px;border-style:solid; border-width:1px;border-radius: 10px; border-color:#666666">
                 </div>
@@ -52,7 +52,7 @@ include("../connection.php");
                             <tbody id="output">
                                 <tr>
                                     <?php
-                                        $result = mysqli_query($con, "SELECT *from serv_request where req_service='$emp_position' and (req_date>=$_POST[dt] and req_date<=$_POST[dt2])");
+                                        $result = mysqli_query($con, "SELECT *from serv_request where (req_date>=$_POST[dt]and req_date<=$_POST[dt2])");
                                         $un_read = mysqli_num_rows($result);
                                         if ($un_read > 0) {
                                             while ($row = mysqli_fetch_array($result)) {
@@ -97,7 +97,7 @@ include("../connection.php");
                             <tbody id="output">
                                 <tr>
                                     <?php
-                                        $result = mysqli_query($con, "SELECT *from serv_request where req_service='$emp_position'");
+                                        $result = mysqli_query($con, "SELECT *from serv_request where");
                                         $un_read = mysqli_num_rows($result);
                                         if ($un_read > 0) {
                                             while ($row = mysqli_fetch_array($result)) {

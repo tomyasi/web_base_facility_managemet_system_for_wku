@@ -79,7 +79,7 @@ $lname = $user_info['mname'];
 if (isset($_POST["send"])) {
     $service = mysqli_real_escape_string($con, $_POST["service"]);
     $message = mysqli_real_escape_string($con, $_POST["message"]);
-    $insertdate = date("Y/m/d H:i:s");
+    $insertdate = date("Y-m-d H:i:s");
     $qur = "INSERT into serv_request values(NULL,' $user_id ','$service','$message',' $insertdate',0);";
     if (!mysqli_query($con, $qur)) {
 ?>
