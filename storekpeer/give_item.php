@@ -5,6 +5,7 @@ $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $full_name = ucfirst($full_name); //upercase first character
 $insertdate = date("Y/m/d H:i:s");
 $e_id = $_GET['id'];
+
 mysqli_query($con, "UPDATE item_order set give='1' where order_id='$e_id'") or die("Error occured" . mysqli_error($con));
 $sql1 = mysqli_query($con, "SELECT *FROM item_order where order_id=$e_id");
 $order_info = mysqli_fetch_array($sql1);
@@ -13,6 +14,13 @@ $sql = mysqli_query($con, "SELECT *FROM employee where id=$emp_id") or die("erro
 $emp_info = mysqli_fetch_array($sql);
 $re_by = $emp_info['fname'] . ' ' . $emp_info['mname'];
 $re_by = ucfirst($re_by); //upercase first character
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+$result = mysqli_query($con, "SELECT *FROM item_order where order_id='$e_id'");
+$row = mysqli_fetch_array($result);
+$name = $row['item_name'];
+$quality = $row['quality'];
+$quantity = $row['quantity'];
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ?>
 <!--border style-->
 <!--main-container-part-->
@@ -117,6 +125,8 @@ setTimeout(function() {
 </script>
 <?php
     } else {
+        //decrease the stock
+        mysqli_query($con, "UPDATE stock set item_quantity=item_quantity-$quantity where (item_name='$name' and item_quality='$quality')");
     ?>
 <script type="text/javascript">
 document.getElementById("success").style.display = "block";

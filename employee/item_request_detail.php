@@ -170,8 +170,6 @@ setTimeout(function() {
 </script>
 <?php
         } else {
-            //decrease the stock
-            mysqli_query($con, "UPDATE stock set item_quantity=item_quantity-$quantity where item_name='$name'");
         ?>
 <script type="text/javascript">
 document.getElementById("success").style.display = "block";

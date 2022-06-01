@@ -43,7 +43,7 @@ include("../connection.php")
                             <tbody id="output">
                                 <?php
 
-                                $result = mysqli_query($con, "select *from item_order;");
+                                $result = mysqli_query($con, "SELECT *from item_order;");
                                 $no = 1;
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_array($result)) {

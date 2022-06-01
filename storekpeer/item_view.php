@@ -53,7 +53,7 @@ include("../connection.php")
                             </thead>
                             <tbody id="output">
                                 <?php
-                                $result = mysqli_query($con, "select *from stock;");
+                                $result = mysqli_query($con, "SELECT *from stock;");
                                 $no = 0;
                                 $total_item = 0;
                                 while ($row = mysqli_fetch_array($result)) {
