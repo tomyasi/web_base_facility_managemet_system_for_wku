@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 include("../connection.php");
-if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
+if (!(isset($_SESSION['leder_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
 ?>
@@ -41,7 +41,7 @@ if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
                     <tbody id="output">
                         <tr>
                             <?php
-                            $result = mysqli_query($con, "SELECT *from feedback where send_to='$emp_id'");
+                            $result = mysqli_query($con, "SELECT *from feedback where send_to='$leder_id'");
                             $un_read = mysqli_num_rows($result);
                             $no = 1;
                             while ($row = mysqli_fetch_array($result)) {

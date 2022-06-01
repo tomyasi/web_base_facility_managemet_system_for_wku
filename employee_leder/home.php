@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
+if (!(isset($_SESSION['leder_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
 ?>

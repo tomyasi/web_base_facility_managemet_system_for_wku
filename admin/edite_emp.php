@@ -52,22 +52,19 @@ while ($row = mysqli_fetch_array($result)) {
                             <div class="control-group">
                                 <label class="control-label"><strong> ID :</strong></label>
                                 <div class="controls">
-                                    <input type="text" class="span8" value="<?php echo $aid; ?>" name="id" readonly
-                                        style="border-radius: 13px;" />
+                                    <input type="text" class="span8" value="<?php echo $aid; ?>" name="id" readonly style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Username :</strong></label>
                                 <div class="controls">
-                                    <input type="text" class="span8" value="<?php echo $username; ?>" name="username"
-                                        required style="border-radius: 13px;" />
+                                    <input type="text" class="span8" value="<?php echo $username; ?>" name="username" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Password :</strong> </label>
                                 <div class="controls">
-                                    <input type="password" class="span8" value="<?php echo $password; ?>"
-                                        name="password" required style="border-radius: 13px;" />
+                                    <input type="password" class="span8" value="<?php echo $password; ?>" name="password" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
@@ -109,8 +106,7 @@ while ($row = mysqli_fetch_array($result)) {
                             </div>
                             <div class="form-actions">
                                 <center>
-                                    <button type="submit" name="send" class="btn btn-success"
-                                        style="border-radius: 13px;">Update</button>
+                                    <button type="submit" name="send" class="btn btn-success" style="border-radius: 13px;">Update</button>
                                 </center>
                             </div>
                             <div class="alert alert-success" id="success" style="display:none;">
@@ -128,25 +124,25 @@ while ($row = mysqli_fetch_array($result)) {
 </div>
 <?php
 if (isset($_POST['send'])) {
-    $query = "update eaccount set username='$_POST[username]',password='$_POST[password]',role='$_POST[role]',status='$_POST[status]' where id=$id";
+    $query = "UPDATE eaccount set username='$_POST[username]',password='$_POST[password]',role='$_POST[role]',status='$_POST[status]' where id=$id";
     $res = mysqli_query($con, $query) or die("error occured" . mysqli_error($con));
     if ($res) {
 ?>
-<script type="text/javascript">
-document.getElementById("success").style.display = "block";
-setTimeout(function() {
-    window.location.href = "update_account_emp.php";
-}, 3000);
-</script>
-<?php
+        <script type="text/javascript">
+            document.getElementById("success").style.display = "block";
+            setTimeout(function() {
+                window.location.href = "update_account_emp.php";
+            }, 3000);
+        </script>
+    <?php
     } else {
     ?>
-<script type="text/javascript">
-document.getElementById("error").style.display = "block";
-setTimeout(function() {
-    window.location.href = "update_account_emp.php";
-}, 3000);
-</script>
+        <script type="text/javascript">
+            document.getElementById("error").style.display = "block";
+            setTimeout(function() {
+                window.location.href = "update_account_emp.php";
+            }, 3000);
+        </script>
 <?php
     }
 }

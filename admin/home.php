@@ -44,12 +44,12 @@ $total = $user_count + $emp_count;
                         bulk of the
                         card's content.</p>
                     <a href="view_user_account.php" class="btn btn-primary text-center"
-                        style="margin-left:50px;border-radius:10px">Get
+                        style="margin-left:70px;border-radius:15px">Get
                         More</a>
                 </div>
             </div>
             <div class="card"
-                style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:10px;">
+                style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:60px;">
                 <img class="card-img-top" src="../images/employees.jpg" alt="Card image cap"
                     style="border-radius: 10px;">
                 <div class="card-body">
@@ -59,12 +59,12 @@ $total = $user_count + $emp_count;
                         bulk of the
                         card's content.</p>
                     <a href="view_employee_account.php" class="btn btn-primary text-center"
-                        style="margin-left:50px;border-radius:10px">Go
+                        style="margin-left:70px;border-radius:15px">Go
                         more</a>
                 </div>
             </div>
             <div class="card"
-                style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:20px;">
+                style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:60px;">
                 <img class="card-img-top" src="../images/wkulogo2.jpg" alt="Card image cap"
                     style="border-radius: 10px;">
                 <div class="card-body">

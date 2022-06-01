@@ -69,10 +69,10 @@ session_start();
                         <!-- <span class="add-on bg_lg">Role</span> -->
                         <select name="role" required style="border-radius: 13px;">
                             <option value="">...Select Role...</option>
-                            <option value="admin">Admin</option>
+                            <!-- <option value="admin">Admin</option>
                             <option value="manager">Manager</option>
-                            <option value="storekpeer">Storekpeer</option>
-                            <option value="employee">Employee</option>
+                            <option value="storekpeer">Storekpeer</option> -->
+                            <option value="employee">Employee's</option>
                             <option value="user">User</option>
                         </select>
                     </div>
@@ -102,6 +102,7 @@ session_start();
                     $_SESSION['user_id'] = $row1['user_id'];
                     $_SESSION['username'] = $row1['username'];
                     $_SESSION['role'] = "user";
+                    mysqli_query($con, "UPDATE uaccount set lastlogin='$insertdate'where id='$row1[user_id]'");
                     header("Location:user/home.php");
                 } else {
         ?>
@@ -129,7 +130,7 @@ session_start();
                         $_SESSION['fname'] = $row2['fname'];
                         $_SESSION['mname'] = $row2['mname'];
                         $_SESSION['role'] = $row2['jop_position'];
-
+                        mysqli_query($con, "UPDATE eaccount set lastlogin='$insertdate'where id='$row1[id]'");
                         header("Location:employee/home.php");
                     } else if ($row1['role'] == "manager") {
                         //manager session
@@ -138,6 +139,7 @@ session_start();
                         $_SESSION['fname'] = $row2['fname'];
                         $_SESSION['mname'] = $row2['mname'];
                         $_SESSION['role'] = $row2['jop_position'];
+                        mysqli_query($con, "UPDATE eaccount set lastlogin='$insertdate'where id='$row1[id]'");
                         header("Location:manager/home.php");
                     } else if ($row1['role'] == "admin") {
                         //admin session
@@ -146,6 +148,7 @@ session_start();
                         $_SESSION['fname'] = $row2['fname'];
                         $_SESSION['mname'] = $row2['mname'];
                         $_SESSION['role'] = $row2['jop_position'];
+                        mysqli_query($con, "UPDATE eaccount set lastlogin='$insertdate' where id='$row1[id]'");
                         header("Location:admin/home.php");
                     } else if ($row1['role'] == "storekpeer") {
                         //storekpeer session
@@ -154,7 +157,17 @@ session_start();
                         $_SESSION['fname'] = $row2['fname'];
                         $_SESSION['mname'] = $row2['mname'];
                         $_SESSION['role'] = $row2['jop_position'];
+                        mysqli_query($con, "UPDATE eaccount set lastlogin='$insertdate'where id='$row1[id]'");
                         header("Location:storekpeer/home.php");
+                    } else if ($row1['role'] == "leder") {
+                        //storekpeer session
+                        $_SESSION['leder_id'] = $row1['id'];
+                        $_SESSION['username'] = $row1['username'];
+                        $_SESSION['fname'] = $row2['fname'];
+                        $_SESSION['mname'] = $row2['mname'];
+                        $_SESSION['role'] = $row2['jop_position'];
+                        mysqli_query($con, "UPDATE eaccount set lastlogin='$insertdate'where id='$row1[id]'");
+                        header("Location:employee_leder/home.php");
                     } else {
                     ?>
         <script type="text/javascript">

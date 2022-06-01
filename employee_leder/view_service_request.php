@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 include("../connection.php");
-if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
+if (!(isset($_SESSION['leder_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
 $user_id = $_SESSION['emp_id'];

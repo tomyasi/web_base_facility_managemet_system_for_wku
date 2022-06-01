@@ -128,15 +128,7 @@ $email_err = "";
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"><strong>Salary<small style="color: red;">*</small>
-                                        :</strong></label>
-                                <div class="controls">
-                                    <input type="hidden" id="hidd" value="hidden" class="span11"
-                                        placeholder="Enter salary" name="hidd" required style="border-radius: 13px;" />
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><strong>Job position<small style="color: red;">*</small>
+                                <label class="control-label"><strong>Role<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
                                     <select class="span11" name="position" required style="border-radius: 13px;">

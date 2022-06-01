@@ -1,20 +1,20 @@
 <?php
 session_start();
-if (!(isset($_SESSION['emp_id']))) {
+if (!(isset($_SESSION['leder_id']))) {
     header("Location: ../login.php");
 }
 include("../connection.php");
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
-$emp_id = $_SESSION['emp_id'];
-$info = mysqli_query($con, "SELECT * FROM employee WHERE id='$emp_id'");
+$leder_id = $_SESSION['leder_id'];
+$info = mysqli_query($con, "SELECT * FROM employee WHERE id='$leder_id'");
 $row = mysqli_fetch_array($info);
-$emp_position = $row['jop_position'];
+//$emp_position = $row['jop_position'];
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 $result1 = mysqli_query($con, "SELECT *from serv_request where view='0'");
 $un_read = mysqli_num_rows($result1);
 $responce = mysqli_query($con, "SELECT * from give_item where view='0'");
 $un_read_res = mysqli_num_rows($responce);
-$feedback = mysqli_query($con, "SELECT *FROM feedback where view='0' ");
+$feedback = mysqli_query($con, "SELECT *FROM feedback where view='0' and send_to='$leder_id' ");
 $un_read_fee = mysqli_num_rows($feedback);
 $total = $un_read + $un_read_res + $un_read_fee;
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -89,7 +89,7 @@ $total = $un_read + $un_read_res + $un_read_fee;
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_fee . '</span>';
                             } ?></a>
                     </li>
-                    <li><a href="view_responce.php"><i class="icon-eye-open"></i>&nbsp;&nbsp; Responce
+                    <li><a href="view_responce.php"><i class="icon-eye-open"></i>&nbsp;&nbsp; Response
                             <?php if ($un_read_res > 0) {
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_res . '</span>';
                             } ?></a>
@@ -103,7 +103,7 @@ $total = $un_read + $un_read_res + $un_read_fee;
                 <a href="item_request_detail.php"><i class="icon-reply"></i><span>Resource Request</span></a>
             </li>
             <li>
-                <a href="service_responce2.php"><i class="icon-exchange"></i><span>User Service Responce</span></a>
+                <a href="service_responce2.php"><i class="icon-exchange"></i><span>User Service Response</span></a>
             </li>
         </ul>
     </div>

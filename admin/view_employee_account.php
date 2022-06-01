@@ -51,10 +51,13 @@ if (!(isset($_SESSION['admin_id']))) {
                                 $no_acc = mysqli_num_rows($result);
                                 if ($no_acc > 0) {
                                     while ($row = mysqli_fetch_array($result)) {
+                                        $e_id = $row["emp_id"];
+                                        $sql = mysqli_query($con, "SELECT emp_id FROM employee where id='$e_id'") or die("error occured" . mysqli_error($con));
+                                        $emp_id = mysqli_fetch_array($sql);
                                 ?>
                                 <tr>
                                     <td><?php echo $n; ?></td>
-                                    <td><?php echo $row["id"]; ?></td>
+                                    <td><?php echo $emp_id["emp_id"]; ?></td>
                                     <td><?php echo $row["username"]; ?></td>
                                     <td><?php echo $row["password"]; ?></td>
                                     <td><?php echo $row["role"]; ?></td>
