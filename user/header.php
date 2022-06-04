@@ -50,7 +50,7 @@ $un_read = mysqli_num_rows($result);
                 <ul class="dropdown-menu">
                     <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
-                    <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
+                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
                     <li class="divider"></li>
                     <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
@@ -74,9 +74,16 @@ $un_read = mysqli_num_rows($result);
                         echo '<span class="label label-important" style="border-radius:15px">' . $un_read . '</span>';
                     } ?></a>
             </li>
-            <li>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
+                <ul>
+                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
+                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
+                    <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
+                </ul>
+            </li>
+            <!-- <li>
                 <a href="change_password.php"><i class="icon icon-cogs"></i>
                     <span>Change Password</span></a>
-            </li>
+            </li> -->
         </ul>
     </div>

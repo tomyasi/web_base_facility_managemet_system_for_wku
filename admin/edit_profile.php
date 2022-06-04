@@ -2,7 +2,7 @@
 include("header.php");
 include("../connection.php");
 $id = $_GET['id'];
-$sql = "SELECT *from user where id=$id";
+$sql = "SELECT *from employee where id=$id";
 $query = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
 $id = $fname = $mname = $lname = $gnder = $age = $gmail = $phone = $nationality = $address = "";
 while ($row = mysqli_fetch_array($query)) {
@@ -15,7 +15,7 @@ while ($row = mysqli_fetch_array($query)) {
     $gmail = $row["gmail"];
     $phone = $row["phone"];
     $nationality = $row["nationality"];
-    $address = $row["subcity"];
+    $address = $row["address"];
 }
 ?>
 <!--main-container-part-->
@@ -279,11 +279,11 @@ while ($row = mysqli_fetch_array($query)) {
 </div>
 <?php
 if (isset($_POST["send"])) {
-    $sql1 = "UPDATE user set 
+    $sql1 = "UPDATE employee set 
      fname='$_POST[fname]',mname='$_POST[mname]',lname='$_POST[lname]',
      gender='$_POST[gender]',age='$_POST[age]',gmail='$_POST[email]',
      phone='$_POST[phone]',nationality='$_POST[nationality]',
-     subcity='$_POST[address]' WHERE id=$id";
+     address='$_POST[address]' WHERE id=$id";
     $result = mysqli_query($con, $sql1) or die("Error occured" . mysqli_error($con));
     if ($result) {
 ?>

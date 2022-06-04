@@ -15,13 +15,9 @@ $total = $user_count + $emp_count;
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-
         <div id="breadcrumb"><a href="home.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
                 Home</a></div>
     </div>
-    <!--End-breadcrumbs-->
-
-    <!--Action boxes-->
     <div class="container-fluid">
         <hr>
         <center>
@@ -43,30 +39,24 @@ $total = $user_count + $emp_count;
                     <p class="card-text text-center">Some quick example text to build on the card title and make up the
                         bulk of the
                         card's content.</p>
-                    <a href="view_user_account.php" class="btn btn-primary text-center"
-                        style="margin-left:70px;border-radius:15px">Get
+                    <a href="view_user_account.php" class="btn btn-primary text-center" style="margin-left:70px;border-radius:15px">Get
                         More</a>
                 </div>
             </div>
-            <div class="card"
-                style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:60px;">
-                <img class="card-img-top" src="../images/employees.jpg" alt="Card image cap"
-                    style="border-radius: 10px;">
+            <div class="card" style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:60px;">
+                <img class="card-img-top" src="../images/employees.jpg" alt="Card image cap" style="border-radius: 10px;">
                 <div class="card-body">
                     <h3 class="card-title text-center">Employee Account</h3>
                     <h1 class="card-text text-center"><?php echo $emp_count; ?></h1>
                     <p class="card-text text-center">Some quick example text to build on the card title and make up the
                         bulk of the
                         card's content.</p>
-                    <a href="view_employee_account.php" class="btn btn-primary text-center"
-                        style="margin-left:70px;border-radius:15px">Go
+                    <a href="view_employee_account.php" class="btn btn-primary text-center" style="margin-left:70px;border-radius:15px">Go
                         more</a>
                 </div>
             </div>
-            <div class="card"
-                style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:60px;">
-                <img class="card-img-top" src="../images/wkulogo2.jpg" alt="Card image cap"
-                    style="border-radius: 10px;">
+            <div class="card" style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:60px;">
+                <img class="card-img-top" src="../images/wkulogo2.jpg" alt="Card image cap" style="border-radius: 10px;">
                 <div class="card-body">
                     <h3 class="card-title text-center">Total No of Account</h3>
                     <h1 class="card-text text-center"><?php echo $total; ?></h1>
@@ -75,10 +65,8 @@ $total = $user_count + $emp_count;
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-
 <!--end-main-container-part-->
 <?php
 include("footer.php");

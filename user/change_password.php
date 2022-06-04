@@ -31,7 +31,7 @@ if (isset($_POST['re_password'])) {
         <div id="breadcrumb"><a href="home.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
                 Home</a>
             <a href="change_password.php" title="Go to Change Pasword" class="tip-bottom">
-                <i class="icon icon-cogs"></i>Change Password
+                <i class="icon-cog"></i>Change Password
             </a>
         </div>
     </div>

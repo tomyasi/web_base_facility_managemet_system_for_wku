@@ -92,24 +92,24 @@ function myTimer() {
 	echo "<div id = 'mainmain'>";
 	echo "<table class='main' ><tr><td id = 'calld' colspan = 7><center>Calendar &nbsp; &nbsp; &nbsp;<b id = 'demo'></b></tr>";
 	//echo "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>";
-	echo "<tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr>";
+	//echo "<tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr>";
 
 	////// End of the top line showing name of the days of the week//////////
 
 	//////// Starting of the days//////////
-	for ($i = 1; $i <= $no_of_days; $i++) {
-		$pv = "'$month'" . "," . "'$i'" . "," . "'$year'";
-		echo $adj . "<td><center>$i"; // This will display the date inside the calendar cell
-		echo " </td>";
-		$adj = '';
-		$j++;
-		if ($j == 7) {
-			echo "</tr><tr>"; // start a new row
-			$j = 0;
-		}
-	}
-	echo $adj2;   // Blank the balance cell of calendar at the end 
-	echo "</tr></table>";
-	echo '</div>';
+	// for ($i = 1; $i <= $no_of_days; $i++) {
+	// 	$pv = "'$month'" . "," . "'$i'" . "," . "'$year'";
+	// 	echo $adj . "<td><center>$i"; // This will display the date inside the calendar cell
+	// 	echo " </td>";
+	// 	$adj = '';
+	// 	$j++;
+	// 	if ($j == 7) {
+	// 		echo "</tr><tr>"; // start a new row
+	// 		$j = 0;
+	// 	}
+	// }
+	// echo $adj2;   // Blank the balance cell of calendar at the end 
+	// echo "</tr></table>";
+	// echo '</div>';
 	?>
 </div>

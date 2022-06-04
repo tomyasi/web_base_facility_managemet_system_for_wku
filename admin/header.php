@@ -4,6 +4,7 @@ if (!(isset($_SESSION['admin_id']))) {
     header("Location: ../login.php");
 }
 $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
+$admin_id = $_SESSION['admin_id'];
 include("../connection.php");
 ?>
 <!DOCTYPE html>
@@ -42,12 +43,13 @@ include("../connection.php");
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
-                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>
+                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
+                        class="icon icon-user"></i>
                     <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
-                    <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
+                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
@@ -88,9 +90,17 @@ include("../connection.php");
                 <a href="generate_account.php"><i class="icon-laptop"></i>
                     <span>Generate Account</span></a>
             </li>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
+                <ul>
+                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
+                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
+                    <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
+                </ul>
+            </li>
+            <!-- 
             <li>
                 <a href="change_password.php"><i class="icon icon-cogs"></i>
                     <span>Change Password</span></a>
-            </li>
+            </li> -->
         </ul>
     </div>

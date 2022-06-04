@@ -107,7 +107,8 @@ while ($row = mysqli_fetch_array($result)) {
 </div>
 <?php
 if (isset($_POST['send'])) {
-    $query = "update uaccount set username='$_POST[username]',password='$_POST[password]',status='$_POST[status]' where id=$id";
+    $pass = md5($_POST['password']);
+    $query = "update uaccount set username='$_POST[username]',password='$pass',status='$_POST[status]' where id=$id";
     $res = mysqli_query($con, $query) or die("error occured" . mysqli_error($con));
     if ($res) {
 ?>

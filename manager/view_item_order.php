@@ -7,15 +7,15 @@ include("../connection.php")
     <div id="content-header">
         <div id="breadcrumb">
             <a href="#"><i class="icon icon-th-list"></i> <span>View</span></a>
-            <a href="view_request.php" title="Go to view User" class="tip-bottom">
-                <i class="icon-eye-open"></i>View Request
+            <a href="view_item_order.php" title="Go to view item order" class="tip-bottom">
+                <i class="icon-eye-open"></i>view item order
             </a>
         </div>
     </div>
     <div class="container-fluid">
         <hr>
         <center>
-            <h5>ITEM ORDER PAGE</h5>
+            <h5>VIEW ITEM ORDER PAGE</h5>
         </center>
         <hr>
         <div class="row-fluid">

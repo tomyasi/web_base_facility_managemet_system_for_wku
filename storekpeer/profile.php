@@ -1,9 +1,9 @@
 <?php
 include("header.php");
 include("../connection.php");
-$profile = mysqli_query($con, "SELECT * FROM employee WHERE id='$_SESSION[stor_id]'") or
+$profile = mysqli_query($con, "SELECT * FROM employee WHERE id=$stor_id") or
     die("Error occurde in profile query" . mysqli_error($con));
-$row = mysqli_fetch_array($profile);
+$profile_info = mysqli_fetch_array($profile);
 ?>
 <style>
 #profile {
@@ -43,56 +43,56 @@ $row = mysqli_fetch_array($profile);
                         <form action="#" method="Post" class="form-horizontal">
                             <div class="control-group" id="profile">
                                 <label class="control-label">First Name :</label>
-                                <strong class="control-label"><?php echo $row['fname']; ?>
+                                <strong class="control-label"><?php echo $profile_info['fname']; ?>
                                 </strong>
                             </div>
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label">Middel Name :</label>
-                                <strong class="control-label" id="a"><?php echo $row['mname']; ?>
+                                <strong class="control-label" id="a"><?php echo $profile_info['mname']; ?>
                                 </strong>
                             </div>
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label">Last Name :</label>
-                                <strong class="control-label"><?php echo $row['lname']; ?>
+                                <strong class="control-label"><?php echo $profile_info['lname']; ?>
                                 </strong>
                             </div>
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label">Gender :</label>
                                 <strong class="control-label">
-                                    <?php if ($row['gender'] == 'm') echo "Male";
+                                    <?php if ($profile_info['gender'] == 'm') echo "Male";
                                     else echo "Female"; ?></strong>
                             </div>
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label">Gmail :</label>
-                                <strong class="control-label"><?php echo $row['gmail']; ?>
+                                <strong class="control-label"><?php echo $profile_info['gmail']; ?>
                                 </strong>
                             </div>
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label">Mobile :</label>
-                                <strong class="control-label"><?php echo $row['phone']; ?>
+                                <strong class="control-label"><?php echo $profile_info['phone']; ?>
                                 </strong>
                             </div>
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label">Nationality :</label>
-                                <strong class="control-label"><?php echo $row['nationality']; ?>
+                                <strong class="control-label"><?php echo $profile_info['nationality']; ?>
                                 </strong>
                             </div>
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label">Subcity :</label>
-                                <strong class="control-label"><?php echo $row['address']; ?>
+                                <strong class="control-label"><?php echo $profile_info['address']; ?>
                                 </strong>
                             </div>
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label"></label>
-                                <a href="edit_profile.php?id=<?php echo $row['id'] ?>"
+                                <a href="edit_profile.php?id=<?php echo $profile_info['id'] ?>"
                                     class="btn btn-primary control-label" style="border-radius:10px;"><i
                                         class="icon-pencil"></i>
                                     UPDATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>

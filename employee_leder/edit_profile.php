@@ -15,7 +15,7 @@ while ($row = mysqli_fetch_array($query)) {
     $gmail = $row["gmail"];
     $phone = $row["phone"];
     $nationality = $row["nationality"];
-    $address = $row["address"];
+    $address = $row["subcity"];
 }
 ?>
 <!--main-container-part-->
@@ -46,32 +46,34 @@ while ($row = mysqli_fetch_array($query)) {
                     </div>
                     <!-- user edite in table form  -->
                     <div class="widget-content nopadding">
-                        <form name="formsend" action="#" method="POST" class="form-horizontal">
+                        <form name="formsend" action="#" method="POST" class="form-horizontal"
+                            onsubmit='return formValidation()'>
                             <div class="control-group">
                                 <label class="control-label"><strong>First Name :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="fname" class="span11" name="fname"
+                                    <input type="text" id="fname" class="span11" name="fname" id="fname"
                                         value="<?php echo $fname ?>" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong> Middel Name :</strong></label>
                                 <div class="controls">
-                                    <input type="text" class="span11" name="mname" value="<?php echo $mname ?>" required
-                                        style="border-radius: 13px;" />
+                                    <input type="text" class="span11" name="mname" id="mname"
+                                        value="<?php echo $mname ?>" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong> Last Name :</strong></label>
                                 <div class="controls">
-                                    <input type="text" class="span11" name="lname" value="<?php echo $lname ?>" required
-                                        style="border-radius: 13px;" />
+                                    <input type="text" class="span11" name="lname" id="lname"
+                                        value="<?php echo $lname ?>" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Gender :</strong></label>
                                 <div class="controls">
-                                    <select class="span11" name="gender" required style="border-radius: 13px;">
+                                    <select class="span11" name="gender" id="gender" required
+                                        style="border-radius: 13px;">
                                         <option value="m" <?php if ($gender == "m") {
                                                                 echo "selected";
                                                             } ?>>Male</option>
@@ -140,6 +142,134 @@ while ($row = mysqli_fetch_array($query)) {
                                     <strong>The Updated successfully.</strong>
                                 </center>
                             </div>
+                            <script type='text/javascript'>
+                            function formValidation() {
+                                //assign the fields
+                                var firstname = document.getElementById('fname');
+                                var middelname = document.getElementById('mname');
+                                var lastname = document.getElementById('lname');
+                                var phone = document.getElementById('phone');
+                                var email = document.getElementById('email');
+                                var subcity = document.getElementById('subcity');
+                                var nationality = document.getElementById('nationality');
+
+                                if (isAlphabet(firstname, "please enter First name in letters only")) {
+                                    if (lengthRestriction(firstname, 3, 30, "for First name")) {
+
+                                        if (isAlphabet(middelname, "please enter Middel name in letters only")) {
+                                            if (lengthRestriction(middelname, 3, 30, "for First name")) {
+
+                                                if (isAlphabet(lastname, "please enter Last name in letters only")) {
+                                                    if (lengthRestriction(lastname, 3, 30, "for Last name")) {
+                                                        if (emailValidator(email,
+                                                                "Please Enter email in this form'sample@gmail.com'"
+                                                            )) {
+                                                            if (isNumeric(phone,
+                                                                    "please enter the Phone Number only Number ")) {
+                                                                if (lengthRestriction(phone, 9, 9,
+                                                                        "for your Phone number")) {
+
+                                                                    if (isAlphanumeric(nationality,
+                                                                            "please enter Your nationality in letters only"
+                                                                        )) {
+                                                                        if (lengthRestriction(nationality, 3, 25,
+                                                                                "for your nationality")) {
+                                                                            if (isAlphabet(subcity,
+                                                                                    "please enter Your subcity in letters only"
+                                                                                )) {
+                                                                                if (lengthRestriction(subcity, 3,
+                                                                                        30,
+                                                                                        "for your subcity ")) {
+                                                                                    if (lengthRestriction(hidden,
+                                                                                            3,
+                                                                                            30,
+                                                                                            "for your subcity ")) {
+                                                                                        return true;
+                                                                                    }
+
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                return false;
+                            }
+
+                            function isAlphabet(elem, helperMsg) {
+                                var alphaExp = /^[a-zA-Z]+$/;
+                                if (elem.value.match(alphaExp)) {
+                                    return true;
+                                } else {
+                                    alert(helperMsg);
+                                    elem.focus();
+                                    return false;
+                                }
+                            }
+
+                            function emailValidator(elem, helperMsg) {
+                                var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+                                if (elem.value.match(emailExp)) {
+                                    return true;
+                                } else {
+                                    alert(helperMsg);
+                                    elem.focus();
+                                    return false;
+                                }
+                            }
+
+                            function isNumeric(elem, helperMsg) {
+                                var numericExpression = /^[0-9]+$/;
+                                if (elem.value.match(numericExpression)) {
+                                    return true;
+                                } else {
+                                    alert(helperMsg);
+                                    elem.focus();
+                                    return false;
+                                }
+                            }
+
+                            function lengthRestriction(elem, min, max, helperMsg) {
+                                var uInput = elem.value;
+                                if (uInput.length >= min && uInput.length <= max) {
+                                    return true;
+                                } else {
+                                    alert("Please enter between " + min + " and " + max + " characters" +
+                                        helperMsg);
+                                    elem.focus();
+                                    return false;
+                                }
+                            }
+
+                            function isAlphanumeric(elem, helperMsg) {
+                                var alphaExp = /^[0-9a-zA-Z\/]+$/;
+                                if (elem.value.match(alphaExp)) {
+                                    return true;
+                                } else {
+                                    alert(helperMsg);
+                                    elem.focus();
+                                    return false;
+                                }
+                            }
+
+                            function isAlphabet(elem, helperMsg) {
+                                var alphaExp = /^[a-zA-Z]+$/;
+                                if (elem.value.match(alphaExp)) {
+                                    return true;
+                                } else {
+                                    alert(helperMsg);
+                                    elem.focus();
+                                    return false;
+                                }
+                            }
+                            </script>
                         </form>
                     </div>
                 </div>
@@ -149,12 +279,11 @@ while ($row = mysqli_fetch_array($query)) {
 </div>
 <?php
 if (isset($_POST["send"])) {
-
-    $sql1 = "UPDATE employee set 
+    $sql1 = "UPDATE user set 
      fname='$_POST[fname]',mname='$_POST[mname]',lname='$_POST[lname]',
      gender='$_POST[gender]',age='$_POST[age]',gmail='$_POST[email]',
      phone='$_POST[phone]',nationality='$_POST[nationality]',
-     address='$_POST[address]' WHERE id=$id";
+     subcity='$_POST[address]' WHERE id=$id";
     $result = mysqli_query($con, $sql1) or die("Error occured" . mysqli_error($con));
     if ($result) {
 ?>

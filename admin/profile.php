@@ -1,18 +1,19 @@
 <?php
 include("header.php");
 include("../connection.php");
-$profile = mysqli_query($con, "SELECT * FROM employee WHERE id='$admin_id'") or die("Error occurde in profile query" . mysqli_error($con));
+$profile = mysqli_query($con, "SELECT * FROM employee WHERE id='$admin_id'") or
+    die("Error occurde in profile query" . mysqli_error($con));
 $row = mysqli_fetch_array($profile);
 ?>
 <style>
-#profile {
-    min-height: 80px;
+    #profile {
+        min-height: 80px;
 
-}
+    }
 
-#a {
-    margin-right: 34px;
-}
+    #a {
+        margin-right: 34px;
+    }
 </style>
 <!--main-container-part-->
 <div id="content">
@@ -91,9 +92,7 @@ $row = mysqli_fetch_array($profile);
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label"></label>
-                                <a href="edit_profile.php?id=<?php echo $row['id'] ?>"
-                                    class="btn btn-primary control-label" style="border-radius:10px;"><i
-                                        class="icon-pencil"></i>
+                                <a href="edit_profile.php?id=<?php echo $row['id'] ?>" class="btn btn-primary control-label" style="border-radius:10px;"><i class="icon-pencil"></i>
                                     UPDATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                             </div>
                         </form>

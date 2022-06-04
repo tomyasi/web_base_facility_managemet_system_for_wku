@@ -134,7 +134,7 @@ session_start();
                         header("Location:employee/home.php");
                     } else if ($row1['role'] == "manager") {
                         //manager session
-                        $_SESSION['manager_id'] = $row1['id'];
+                        $_SESSION['manager_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
                         $_SESSION['fname'] = $row2['fname'];
                         $_SESSION['mname'] = $row2['mname'];
@@ -143,7 +143,7 @@ session_start();
                         header("Location:manager/home.php");
                     } else if ($row1['role'] == "admin") {
                         //admin session
-                        $_SESSION['admin_id'] = $row1['id'];
+                        $_SESSION['admin_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
                         $_SESSION['fname'] = $row2['fname'];
                         $_SESSION['mname'] = $row2['mname'];
@@ -152,7 +152,7 @@ session_start();
                         header("Location:admin/home.php");
                     } else if ($row1['role'] == "storekpeer") {
                         //storekpeer session
-                        $_SESSION['stor_id'] = $row1['id'];
+                        $_SESSION['stor_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
                         $_SESSION['fname'] = $row2['fname'];
                         $_SESSION['mname'] = $row2['mname'];
@@ -161,7 +161,7 @@ session_start();
                         header("Location:storekpeer/home.php");
                     } else if ($row1['role'] == "leder") {
                         //storekpeer session
-                        $_SESSION['leder_id'] = $row1['id'];
+                        $_SESSION['leder_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
                         $_SESSION['fname'] = $row2['fname'];
                         $_SESSION['mname'] = $row2['mname'];
