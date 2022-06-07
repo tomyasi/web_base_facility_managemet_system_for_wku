@@ -38,7 +38,7 @@ $lname = $user_info['mname'];
                                 <div class="controls">
                                     <select class="span8" name="service" required style="border-radius: 13px;">
                                         <option value="">Select your service...</option>
-                                        <option value="technitian">Maintenance</option>
+                                        <option value="technician">Maintenance</option>
                                         <option value="security">Campus Safety and Security</option>
                                         <option value="clealiness">Campus Beauty and Clealiness</option>
                                         <option value="other">Special Services</option>

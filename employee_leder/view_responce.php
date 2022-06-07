@@ -5,7 +5,7 @@ include("../connection.php");
 if (!(isset($_SESSION['leder_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
-$user_id = $_SESSION['emp_id'];
+$user_id = $_SESSION['leder_id'];
 ?>
 <div id="content">
     <!--breadcrumbs-->
@@ -44,7 +44,7 @@ $user_id = $_SESSION['emp_id'];
                         </thead>
                         <tbody id="output">
                             <?php
-                            $result = mysqli_query($con, "SELECT *from give_item where give_to='$emp_id'");
+                            $result = mysqli_query($con, "SELECT *from give_item where give_to='$leder_id'");
                             $no = 1;
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_array($result)) {

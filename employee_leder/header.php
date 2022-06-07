@@ -10,13 +10,13 @@ $info = mysqli_query($con, "SELECT * FROM employee WHERE id='$leder_id'");
 $row = mysqli_fetch_array($info);
 //$emp_position = $row['jop_position'];
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-$result1 = mysqli_query($con, "SELECT *from serv_request where view='0'");
-$un_read = mysqli_num_rows($result1);
+// $result1 = mysqli_query($con, "SELECT *from serv_request where view='0'");
+// $un_read = mysqli_num_rows($result1);
 $responce = mysqli_query($con, "SELECT * from give_item where view='0'");
 $un_read_res = mysqli_num_rows($responce);
 $feedback = mysqli_query($con, "SELECT *FROM feedback where view='0' and send_to='$leder_id' ");
 $un_read_fee = mysqli_num_rows($feedback);
-$total = $un_read + $un_read_res + $un_read_fee;
+$total = $un_read_res + $un_read_fee;
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ?>
 <!DOCTYPE html>
@@ -73,16 +73,14 @@ $total = $un_read + $un_read_res + $un_read_fee;
                 <a href="home.php"><i class="icon-dashboard"></i></i><span>Dashboard</span></a>
             </li>
 
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i><span>View Notification</span>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i><span>View</span>
                     <?php if ($total > 0) {
                         echo '<span class="label label-important" style="border-radius:15px">' . $total . '</span>';
                     } ?></a>
                 <ul>
                     <li class="active"><a href="view_service_request.php"><i
                                 class="icon-eye-open"></i>&nbsp;&nbsp;Service Request
-                            <?php if ($un_read > 0) {
-                                echo '<span class="label label-important" style="border-radius:15px">' . $un_read . '</span>';
-                            } ?></a>
+                        </a>
                     </li>
                     <li><a href="view_feedback.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Feedback
                             <?php if ($un_read_fee > 0) {
@@ -104,6 +102,13 @@ $total = $un_read + $un_read_res + $un_read_fee;
             </li>
             <li>
                 <a href="service_responce2.php"><i class="icon-exchange"></i><span>User Service Response</span></a>
+            </li>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
+                <ul>
+                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
+                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
+                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
+                </ul>
             </li>
         </ul>
     </div>

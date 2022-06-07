@@ -58,9 +58,10 @@ $user_id = $_SESSION['emp_id'];
                                 <img src="../images/tick.png" alt="Yes" class="img-fluid"></a>
                                 <?php
                                             } else { ?>
-                                <a href="service_request_reply.php?id=<?php echo $row['s_id'] ?>" class="btn
+                                <img src="../images/remove.png" alt="No" class="img-fluid"></a>
+                                <!-- <a href="service_request_reply.php?id=<//?php echo $row['s_id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px"><i class="icon-reply"></i>
-                                    Reply</a>
+                                    Reply</a> -->
                                 <?php
                                             }
                                         ?>
