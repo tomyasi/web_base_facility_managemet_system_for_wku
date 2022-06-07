@@ -62,8 +62,8 @@ $email_err = "";
                                 <div class="controls">
                                     <select class="span11" name="gender" required style="border-radius: 13px;">
                                         <option value="">Select gender...</option>
-                                        <option value="M">Male</option>
-                                        <option value="F">Female</option>
+                                        <option value="m">Male</option>
+                                        <option value="f">Female</option>
                                     </select>
                                 </div>
                             </div>
@@ -182,7 +182,6 @@ $email_err = "";
                                 var subcity = document.getElementById('subcity');
                                 var nationality = document.getElementById('nationality');
                                 var salary = document.getElementById('salary');
-                                var hidden = document.getElementById('hidd');
 
                                 if (isAlphabet(firstname, "please enter First name in letters only")) {
                                     if (lengthRestriction(firstname, 3, 30, "for First name")) {
@@ -211,15 +210,10 @@ $email_err = "";
                                                                                 if (lengthRestriction(subcity, 3,
                                                                                         30,
                                                                                         "for your subcity ")) {
-                                                                                    if (isNumeric(salary,
+                                                                                    if (isFloat(salary,
                                                                                             "please enter the employee salary only Number "
                                                                                         )) {
-                                                                                        if (lengthRestriction(hidden,
-                                                                                                3,
-                                                                                                30,
-                                                                                                "for your subcity ")) {
-                                                                                            return true;
-                                                                                        }
+                                                                                        return true;
                                                                                     }
                                                                                 }
                                                                             }
@@ -293,8 +287,8 @@ $email_err = "";
                                 }
                             }
 
-                            function isAlphabet(elem, helperMsg) {
-                                var alphaExp = /^[a-zA-Z]+$/;
+                            function isFloat(elem, helperMsg) {
+                                var alphaExp = /^(\d)*\.(\d)+$/;
                                 if (elem.value.match(alphaExp)) {
                                     return true;
                                 } else {
@@ -331,7 +325,7 @@ if (isset($_POST['register'])) {
     $nationality = ucfirst($nationality); //upercase first character
     $subcity = mysqli_real_escape_string($con, $_POST["subcity"]);
     $subcity = ucfirst($subcity); //upercase first character
-    $salary = mysqli_real_escape_string($con, $_POST["salary"]);
+    $salary = $_POST["salary"];
     $jop = mysqli_real_escape_string($con, $_POST["position"]);
     $status = mysqli_real_escape_string($con, $_POST["status"]);
 
@@ -365,7 +359,7 @@ setTimeout(function() {
     }
     if ($email_err == "" && $phone_err == "") {
         $query = "INSERT INTO employee(id,emp_id,fname,mname,lname,gender,age,gmail,phone,nationality,address,salary,jop_position,status)
-        values(NULL,'','$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity','salary','$jop',$status)";
+        values(NULL,'','$fname','$mname','$lname','$gender','$age','$email','$phone','$nationality','$subcity','$salary','$jop',$status)";
         $res = mysqli_query($con, $query) or die("Error occurd" . mysqli_error($con));
         if (!$res) {
         ?>

@@ -30,6 +30,9 @@ include("../connection.php")
                     </div>
                     <!-- employee view inteble form  -->
                     <div class="widget-content nopadding table-responsive-sm">
+                        <?php
+                        $female = $male = 0;
+                        ?>
                         <table id="datatableid" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
@@ -53,8 +56,6 @@ include("../connection.php")
                                 $user = mysqli_num_rows($result);
                                 if ($user > 0) {
                                     $no = 0;
-                                    $female = 0;
-                                    $male = 0;
                                     while ($row = mysqli_fetch_array($result)) {
                                         $no++;
                                 ?>

@@ -29,8 +29,39 @@
 <script src="js/matrix.tables.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
-$('.textarea_editor').wysihtml5();
+    $('.textarea_editor').wysihtml5();
 </script>
 </body>
 
 </html>
+<script type="text/javascript">
+    function select_quality(vari) {
+        $('#category').html('');
+        //$('#city').html('<option>Select City</option>');
+        $.ajax({
+            type: 'post',
+            url: 'ajax_selection.php',
+            data: {
+                vari: vari
+            },
+            success: function(data) {
+                $('#category').html(data);
+            }
+        })
+    }
+
+    function select_type(vari) {
+        $('#type').html('');
+        //$('#city').html('<option>Select City</option>');
+        $.ajax({
+            type: 'post',
+            url: 'ajax_selection.php',
+            data: {
+                type: vari
+            },
+            success: function(data) {
+                $('#type').html(data);
+            }
+        })
+    }
+</script>

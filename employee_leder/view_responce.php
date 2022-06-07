@@ -82,7 +82,7 @@ $user_id = $_SESSION['leder_id'];
                             } else { ?>
                             <div class="alert alert-danger" id="error" style="display: block;">
                                 <center>
-                                    <strong>Empty Request.</strong>
+                                    <strong>Empty Responce.</strong>
                                 </center>
                             </div>
                             <?php

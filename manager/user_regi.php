@@ -65,8 +65,8 @@ include("../connection.php");
                                     <select id="gender" class="span11" name="gender" required
                                         style="border-radius: 13px;">
                                         <option value="">Select gender...</option>
-                                        <option value="M">Male</option>
-                                        <option value="F">Female</option>
+                                        <option value="m">Male</option>
+                                        <option value="f">Female</option>
                                     </select>
                                 </div>
                             </div>
@@ -298,7 +298,7 @@ if (isset($_POST["send"])) {
     $nationality = mysqli_real_escape_string($con, $_POST["nationality"]);
     $nationality = ucfirst($nationality); //upercase first character
     $subcity = mysqli_real_escape_string($con, $_POST["address"]);
-    $subcity = ucfirst($status); //upercase first character
+    $subcity = ucfirst($subcity); //upercase first character
     $status = mysqli_real_escape_string($con, $_POST["status"]);
     //for email exist or not
     $email_checker = mysqli_query($con, "SELECT *FROM user where gmail='$email'");

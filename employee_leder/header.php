@@ -12,7 +12,7 @@ $row = mysqli_fetch_array($info);
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // $result1 = mysqli_query($con, "SELECT *from serv_request where view='0'");
 // $un_read = mysqli_num_rows($result1);
-$responce = mysqli_query($con, "SELECT * from give_item where view='0'");
+$responce = mysqli_query($con, "SELECT * from give_item where view='0' and give_to='$leder_id'");
 $un_read_res = mysqli_num_rows($responce);
 $feedback = mysqli_query($con, "SELECT *FROM feedback where view='0' and send_to='$leder_id' ");
 $un_read_fee = mysqli_num_rows($feedback);
