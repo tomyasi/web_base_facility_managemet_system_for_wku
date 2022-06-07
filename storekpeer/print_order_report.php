@@ -38,6 +38,7 @@ include("../connection.php");
             $result = mysqli_query($con, "SELECT *from give_item");
             $no = 1;
             $total_give = 0;
+            $total_item = 0;
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $no++;
@@ -45,7 +46,7 @@ include("../connection.php");
                     $sql = mysqli_query($con, "SELECT *FROM employee where id=$e_id") or die("error occured" . mysqli_error($con));
                     $emp_info = mysqli_fetch_array($sql);
                     $re_by = $emp_info['fname'] . ' ' . $emp_info['mname'];
-                    $total_give += $row["quantity"];
+                    $total_item += $row['quantity'];
             ?>
             <tr>
                 <td><?php echo $no; ?></td>

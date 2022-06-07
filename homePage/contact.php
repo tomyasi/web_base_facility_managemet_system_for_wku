@@ -41,7 +41,7 @@
             <p>
             <div class="header-container d-flex align-items-center justify-content-between">
                 <div class="logo">
-                    <h1 class="text-light"><a href="index.html"><span>WKUFMS</span></a></h1>
+                    <h1 class="text-light"><a href="../h.php"><span>WKUFMS</span></a></h1>
                 </div>
                 <nav id="navbar" class="navbar">
                     <ul>

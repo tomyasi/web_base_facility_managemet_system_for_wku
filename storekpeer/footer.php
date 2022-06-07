@@ -99,7 +99,7 @@ $('.textarea_editor').wysihtml5();
 <script type="text/javascript">
 $(function() {
     $("#dt").datepicker({
-        dateFormat: 'yy/mm/dd h:i:s',
+        dateFormat: 'yy-mm-dd',
         defaultDate: "+1w",
         changeMonth: true,
         changeYear: true,
@@ -110,7 +110,7 @@ $(function() {
         }
     });
     $("#dt2").datepicker({
-        dateFormat: 'yy/mm/dd h:i:s',
+        dateFormat: 'yy-mm-dd',
         defaultDate: "+1w",
         changeMonth: true,
         changeYear: true,

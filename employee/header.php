@@ -59,7 +59,7 @@ $total = $un_read + $un_read_res + $un_read_fee;
                 <ul class="dropdown-menu">
                     <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
-                    <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
+                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
                     <li class="divider"></li>
                     <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
@@ -104,6 +104,13 @@ $total = $un_read + $un_read_res + $un_read_fee;
             </li>
             <li>
                 <a href="service_responce2.php"><i class="icon-exchange"></i><span>User Service Responce</span></a>
+            </li>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
+                <ul>
+                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
+                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
+                    <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
+                </ul>
             </li>
         </ul>
     </div>

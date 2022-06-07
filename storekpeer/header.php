@@ -103,7 +103,14 @@ $total = $un_read + $count_fee;
             </li>
             <li>
                 <a href="item_order.php"><i class="icon-briefcase"></i>
-                    <span>Item Orderd</span>
+                    <span>Item Orderd</span></a>
+            </li>
+            <li class="submenu" id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
+                <ul>
+                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
+                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
+                    <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
+                </ul>
             </li>
         </ul>
     </div>
