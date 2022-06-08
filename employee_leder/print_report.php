@@ -35,7 +35,10 @@ include("../connection.php");
         <tbody id="output">
             <tr>
                 <?php
-                $result = mysqli_query($con, "SELECT *from serv_request ");
+                $from = $_SESSION['from'];
+                $to = $_SESSION['to'];
+                $sub_sql = "where req_date >= '$from' && req_date <= '$to'";
+                $result = mysqli_query($con, "SELECT *from serv_request $sub_sql");
                 $un_read = mysqli_num_rows($result);
                 if ($un_read > 0) {
                     while ($row = mysqli_fetch_array($result)) {
@@ -44,7 +47,7 @@ include("../connection.php");
                         $sql = mysqli_query($con, "SELECT *FROM user where id='$e_id'") or die("error occured" . mysqli_error($con));
                         $user_info = mysqli_fetch_array($sql);
                         $re_by = $user_info['fname'] . ' ' . $user_info['mname'];
-                        if ($row["req_service"] == "technitian") {
+                        if ($row["req_service"] == "technician") {
                             $ma++;
                         } elseif ($row["req_service"] == "security") {
                             $secu++;
@@ -54,21 +57,21 @@ include("../connection.php");
                             $other++;
                         }
                 ?>
-                        <td><?php echo $no; ?></td>
-                        <td><?php echo $re_by; ?></td>
-                        <td><?php echo $row["req_service"]; ?></td>
-                        <td><?php echo $row["message"]; ?></td>
-                        <td><?php echo $row["req_date"]; ?></td>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $re_by; ?></td>
+                <td><?php echo $row["req_service"]; ?></td>
+                <td><?php echo $row["message"]; ?></td>
+                <td><?php echo $row["req_date"]; ?></td>
             </tr>
-        <?php
+            <?php
                     }
                 } else { ?>
-        <div class="alert alert-danger" id="error" style="display: block;">
-            <center>
-                <strong>Empty Report.</strong>
-            </center>
-        </div>
-    <?php
+            <div class="alert alert-danger" id="error" style="display: block;">
+                <center>
+                    <strong>Empty Report.</strong>
+                </center>
+            </div>
+            <?php
                 }
     ?>
         </tbody>
@@ -111,19 +114,22 @@ include("../connection.php");
     <br>
     <h4 style="color: while;">
         <div style="float: right;border:10px;border-radius:5px">
-            <span style="float:left;">Response service:&nbsp;</span><span style="float: left"><?php echo $no - $ur; ?></span>&nbsp;&nbsp;&nbsp;
+            <span style="float:left;">Response service:&nbsp;</span><span
+                style="float: left"><?php echo $no - $ur; ?></span>&nbsp;&nbsp;&nbsp;
         </div>
     </h4>
     <br>
     <h4 style="color: while;">
         <div style="float: right;border:10px;border-radius:5px">
-            <span style="float:left;">Unresponsed Service:&nbsp;</span><span style="float: left"><?php echo $ur; ?></span>&nbsp;&nbsp;&nbsp;
+            <span style="float:left;">Unresponsed Service:&nbsp;</span><span
+                style="float: left"><?php echo $ur; ?></span>&nbsp;&nbsp;&nbsp;
         </div>
     </h4>
     <br>
     <h4 style="color: while;">
         <div style="float: right;border:10px;border-radius:5px">
-            <span style="float:left;">Total Number of Request service:&nbsp;</span><span style="float: left"><?php echo $no; ?></span>&nbsp;&nbsp;&nbsp;
+            <span style="float:left;">Total Number of Request service:&nbsp;</span><span
+                style="float: left"><?php echo $no; ?></span>&nbsp;&nbsp;&nbsp;
         </div>
     </h4>
     </div>

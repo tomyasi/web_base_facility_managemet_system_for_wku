@@ -32,7 +32,7 @@ $total = $user_count + $emp_count;
                 <div class="card-body">
                     <h3 class="card-title text-center"> Users</h3>
                     <h1 class="card-text text-center"><?php echo $user_count; ?></h1>
-                    <p class="card-text text-center">There are <?php echo $user_count; ?> users rgister in this system
+                    <p class="card-text text-center">There are <?php echo $user_count; ?> users registerd in the system
                         to gete services.</p>
                     <a href="view_user.php" class="btn btn-primary text-center"
                         style="margin-left:70px;border-radius:15px">Get
@@ -46,9 +46,9 @@ $total = $user_count + $emp_count;
                 <div class="card-body">
                     <h3 class="card-title text-center">Employee's</h3>
                     <h1 class="card-text text-center"><?php echo $emp_count; ?></h1>
-                    <p class="card-text text-center">Some quick example text to build on the card title and make up the
-                        bulk of the
-                        card's content.</p>
+                    <p class="card-text text-center">There are <?php echo $emp_count; ?> employees registerd in the
+                        system
+                        to give services.</p>
                     <a href="view_employee.php" class="btn btn-primary text-center"
                         style="margin-left:70px;border-radius:15px">Go
                         more</a>
@@ -61,8 +61,8 @@ $total = $user_count + $emp_count;
                 <div class="card-body">
                     <h3 class="card-title text-center">Total</h3>
                     <h1 class="card-text text-center"><?php echo $total; ?></h1>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <p class="card-text">There are <?php echo $total; ?> users registerd in the system
+                        to gete services.</p>
                 </div>
             </div>
         </div>

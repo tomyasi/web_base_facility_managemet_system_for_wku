@@ -6,7 +6,7 @@ include("../connection.php");
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb"><a href="report.php" class="tip-bottom" title="Go to Report page"><i
-                    class="icon-briefcase"></i>Report</a></div>
+                    class="icon-briefcase"></i>Genrate Report</a></div>
     </div>
     <!--End-breadcrumbs-->
     <!--Action boxes-->
@@ -39,21 +39,23 @@ include("../connection.php");
                             class="icon-print"></i>
                         PRINT</a>
                     <div class="widget-content nopadding">
-                        <?php $no = 0;
-                        $ma = $secu = $cl = $other = 0;
-                        $resu = mysqli_query($con, "SELECT *from serv_request where view='0'");
-                        $ur = mysqli_num_rows($resu);
+                        <?php
+                        $no =  $ma = $secu = $cl = $other =  $ur = 0;
+                        // $resu = mysqli_query($con, "SELECT *from serv_request where view='0'");
+                        // $ur = mysqli_num_rows($resu);
                         if (isset($_POST['submit1'])) {
                             $from = $_POST['dt'];
                             $fromDate = $from;
                             $fromArr = explode("/", $from);
                             $from = $from . " 00:00:00";
-
+                            $_SESSION['from'] = $from;
                             $to = $_POST['dt2'];
                             $toDate = $to;
                             $toArr = explode("/", $to);
                             $to = $to . " 23:59:59";
-                            $sub_sql = " where req_date >= '$from' && req_date <= '$to' ";
+                            $_SESSION['to'] = $to;
+                            $sub_sql = " WHERE req_date >= '$from' && req_date <= '$to' ";
+                            //$_SESSION["sub_sql"] = $sub_sql;
                         ?>
                         <table class="table table-bordered table-striped">
                             <thead>
@@ -86,6 +88,8 @@ include("../connection.php");
                                                 } elseif ($row["req_service"] == "other") {
                                                     $other++;
                                                 }
+                                                //count unrespoce services
+                                                if ($row['view'] == '1') $ur++;
                                         ?>
                                     <td><?php echo $no; ?></td>
                                     <td><?php echo $re_by; ?></td>
@@ -131,7 +135,7 @@ include("../connection.php");
                                                 $sql = mysqli_query($con, "SELECT *FROM user where id='$e_id'") or die("error occured" . mysqli_error($con));
                                                 $user_info = mysqli_fetch_array($sql);
                                                 $re_by = $user_info['fname'] . ' ' . $user_info['mname'];
-                                                if ($row["req_service"] == "technitian") {
+                                                if ($row["req_service"] == "technician") {
                                                     $ma++;
                                                 } elseif ($row["req_service"] == "security") {
                                                     $secu++;
@@ -140,6 +144,8 @@ include("../connection.php");
                                                 } elseif ($row["req_service"] == "other") {
                                                     $other++;
                                                 }
+                                                //count unrespoce services
+                                                if ($row['view'] == '1') $ur++;
                                         ?>
                                     <td><?php echo $no; ?></td>
                                     <td><?php echo $re_by; ?></td>
@@ -205,14 +211,15 @@ include("../connection.php");
             <h4 style="color: while;">
                 <div style="float: right;border:10px;border-radius:5px">
                     <span style="float:left;">Responce service:&nbsp;</span><span
-                        style="float: left"><?php echo $no - $ur; ?></span>&nbsp;&nbsp;&nbsp;
+                        style="float: left"><?php echo $ur; ?></span>&nbsp;&nbsp;&nbsp;
                 </div>
             </h4>
             <br>
             <h4 style="color: while;">
                 <div style="float: right;border:10px;border-radius:5px">
                     <span style="float:left;">Unresponced Service:&nbsp;</span><span
-                        style="float: left"><?php echo $ur; ?></span>&nbsp;&nbsp;&nbsp;
+                        style="float: left"><?php echo $no - $ur;
+                                                                                                            ?></span>&nbsp;&nbsp;&nbsp;
                 </div>
             </h4>
             <br>
