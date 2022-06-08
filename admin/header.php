@@ -43,7 +43,8 @@ include("../connection.php");
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
-                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>
+                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
+                        class="icon icon-user"></i>
                     <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
@@ -63,14 +64,14 @@ include("../connection.php");
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Create Account</span></a>
                 <ul>
-                    <li><a href="create_account_emp.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee </a></li>
-                    <li><a href="create_account_user.php"><i class="icon-user"></i>&nbsp;&nbsp;User </a></li>
+                    <li><a href="create_account_emp.php"><i class="icon-laptop"></i>&nbsp;&nbsp;Employee </a></li>
+                    <li><a href="create_account_user.php"><i class="icon-laptop"></i>&nbsp;&nbsp;User </a></li>
                 </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Update Account</span></a>
                 <ul>
-                    <li><a href="update_account_emp.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee </a></li>
-                    <li><a href="update_account_user.php"><i class="icon-user"></i>&nbsp;&nbsp;User </a></li>
+                    <li><a href="update_account_emp.php"><i class="icon-pencil"></i>&nbsp;&nbsp;Employee </a></li>
+                    <li><a href="update_account_user.php"><i class="icon-pencil"></i>&nbsp;&nbsp;User </a></li>
                 </ul>
             </li>
             <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Status Account</span></a>

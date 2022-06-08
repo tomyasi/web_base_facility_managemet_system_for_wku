@@ -42,7 +42,8 @@ if (!(isset($_SESSION['admin_id']))) {
                                 <label class="control-label"><strong>ID<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="id" class="span8" placeholder="First name" name="id" required style="border-radius: 13px;" />
+                                    <input type="text" id="id" class="span8" placeholder="First name" name="id" required
+                                        style="border-radius: 13px;" onchange="select_input(this.value)" />
                                     <span></span>
                                     <div class="alert alert-danger" id="id_exist" style="display: none;">
                                         <center>
@@ -56,7 +57,8 @@ if (!(isset($_SESSION['admin_id']))) {
                                 <label class="control-label"><strong>Username<small style="color: red;">*</small>
                                         :</strong> </label>
                                 <div class="controls">
-                                    <input type="text" class="span8" placeholder="username" name="username" required style="border-radius: 13px;" id="username" />
+                                    <input type="text" class="span8" placeholder="username" name="username" required
+                                        style="border-radius: 13px;" id="username" />
                                     <span></span>
                                 </div>
                             </div>
@@ -64,7 +66,8 @@ if (!(isset($_SESSION['admin_id']))) {
                                 <label class="control-label"><strong>Password<small style="color: red;">*</small>
                                         :</strong> </label>
                                 <div class="controls">
-                                    <input type="password" class="span8" placeholder="passsword" name="password" required style="border-radius: 13px;" id="password" />
+                                    <input type="password" class="span8" placeholder="passsword" name="password"
+                                        required style="border-radius: 13px;" id="password" />
                                     <span></span>
                                     <div class="alert alert-danger" id="pass_error" style="display: none;">
                                         <center>
@@ -77,7 +80,8 @@ if (!(isset($_SESSION['admin_id']))) {
                                 <label class="control-label"><strong>Confirm<small style="color: red;">*</small>
                                         :</strong> </label>
                                 <div class="controls">
-                                    <input type="password" class="span8" placeholder="passsword" name="cpassword" required style="border-radius: 13px;" id="repassword" />
+                                    <input type="password" class="span8" placeholder="passsword" name="cpassword"
+                                        required style="border-radius: 13px;" id="repassword" />
                                     <span></span>
                                     <div class="alert alert-danger" id="cpass_error" style="display: none;">
                                         <center>
@@ -90,7 +94,7 @@ if (!(isset($_SESSION['admin_id']))) {
                                 <label class="control-label"><strong>Role<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <select class="span8" name="role" required style="border-radius: 13px;">
+                                    <select class="span8" name="role" id="role" required style="border-radius: 13px;">
                                         <option value="">Select role...</option>
                                         <option value="admin">Admin</option>
                                         <option value="manager">Manager</option>
@@ -120,7 +124,8 @@ if (!(isset($_SESSION['admin_id']))) {
                             </div>
                             <div class="form-actions">
                                 <center>
-                                    <button type="submit" name="send" id="send" class="btn btn-success" style="border-radius: 13px;">Create</button>
+                                    <button type="submit" name="send" id="send" class="btn btn-success"
+                                        style="border-radius: 13px;">Create</button>
                                 </center>
                             </div>
                             <div class="alert alert-success" id="success" style="display:none;">
@@ -152,65 +157,65 @@ if (isset($_POST["send"])) {
     if (mysqli_num_rows($id_check) < 1) {
         $id_error = "This ID doesn't register in this system exist!!!";
 ?>
-        <script type="text/javascript">
-            document.getElementById("id_error").style.display = "block";
-            // refresh the page after 5 second
-            setTimeout(function() {
-                window.location.href = "create_account_emp.php";
-            }, 5000);
-        </script>
-    <?php
+<script type="text/javascript">
+document.getElementById("id_error").style.display = "block";
+// refresh the page after 5 second
+setTimeout(function() {
+    window.location.href = "create_account_emp.php";
+}, 5000);
+</script>
+<?php
     }
     $id_check = mysqli_query($con, "SELECT *FROM eaccount WHERE emp_id='$id'");
     if (mysqli_num_rows($id_check) > 0) {
         $regi_id_err = "This ID already exist!!!";
     ?>
-        <script type="text/javascript">
-            document.getElementById("id_exist").style.display = "block";
-            // refresh the page after 3 second
-            setTimeout(function() {
-                window.location.href = "create_account_emp.php";
-            }, 5000);
-        </script>
-    <?php
+<script type="text/javascript">
+document.getElementById("id_exist").style.display = "block";
+// refresh the page after 3 second
+setTimeout(function() {
+    window.location.href = "create_account_emp.php";
+}, 5000);
+</script>
+<?php
     }
 
     if (strlen($pass) < 6) {
         $pass_error = "Password must be minimum of 6 characters";
     ?>
-        <script type="text/javascript">
-            document.getElementById("pass_error").style.display = "block";
-            // refresh the page after 5 second
-            setTimeout(function() {
-                window.location.href = "create_account_emp.php";
-            }, 5000);
-        </script>
-    <?php
+<script type="text/javascript">
+document.getElementById("pass_error").style.display = "block";
+// refresh the page after 5 second
+setTimeout(function() {
+    window.location.href = "create_account_emp.php";
+}, 5000);
+</script>
+<?php
     }
     if (!($pass == $cpassword)) {
         $cpass_error = "Password and confirm password doesn't mached!!!";
     ?>
-        <script type="text/javascript">
-            document.getElementById("cpass_error").style.display = "block";
-            // refresh the page after 3 second
-            setTimeout(function() {
-                window.location.href = "create_account_emp.php";
-            }, 5000);
-        </script>
-        <?php
+<script type="text/javascript">
+document.getElementById("cpass_error").style.display = "block";
+// refresh the page after 3 second
+setTimeout(function() {
+    window.location.href = "create_account_emp.php";
+}, 5000);
+</script>
+<?php
     }
 
     if ($id_error == "" && $pass_error == "" && $cpass_error == "" && $regi_id_err == "") {
         $qur = "INSERT INTO eaccount values(NULL,'$id','$username','" . md5($pass) . "','$status',' $insertdate','$role')";
         $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
         if ($res) { ?>
-            <script type="text/javascript">
-                document.getElementById("success").style.display = "block";
-                // refresh the page after 3 second
-                setTimeout(function() {
-                    window.location.href = "create_account_emp.php";
-                }, 5000);
-            </script>
+<script type="text/javascript">
+document.getElementById("success").style.display = "block";
+// refresh the page after 3 second
+setTimeout(function() {
+    window.location.href = "create_account_emp.php";
+}, 5000);
+</script>
 <?php
         } else {
             echo "Error: " . $sql . "" . mysqli_error($con);

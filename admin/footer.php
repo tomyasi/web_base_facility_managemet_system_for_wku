@@ -30,32 +30,16 @@
 
 </html>
 <script type="text/javascript">
-function select_quality(vari) {
-    $('#category').html('');
-    //$('#city').html('<option>Select City</option>');
+function select_input(vari) {
+    $('#role').html('');
     $.ajax({
         type: 'post',
-        url: 'ajax_selection.php',
+        url: 'onChangeEvent.php',
         data: {
             vari: vari
         },
         success: function(data) {
-            $('#category').html(data);
-        }
-    })
-}
-
-function select_type(vari) {
-    $('#type').html('');
-    //$('#city').html('<option>Select City</option>');
-    $.ajax({
-        type: 'post',
-        url: 'ajax_selection.php',
-        data: {
-            type: vari
-        },
-        success: function(data) {
-            $('#type').html(data);
+            $('#role').html(data);
         }
     })
 }
