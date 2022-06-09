@@ -11,6 +11,6 @@ if (isset($_POST['vari'])) {
             echo '<option value=' . $row['jop_position'] . '>' . $row['jop_position'] . '</option>';
         }
     } else {
-        echo '<option>ID is not Found!</option>';
+        echo '<option style="color: red;">ID is not Found!</option>';
     }
 }

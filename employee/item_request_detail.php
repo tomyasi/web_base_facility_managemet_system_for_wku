@@ -153,6 +153,7 @@ if (isset($_POST['send'])) {
     $quality = mysqli_real_escape_string($con, $_POST["quality"]);
     $quantity = mysqli_real_escape_string($con, $_POST["quantity"]);
     $message = mysqli_real_escape_string($con, $_POST["message"]);
+
     $check_quantity = mysqli_query($con, "SELECT *FROM stock where item_name='$name' and item_quality='$quality'");
     $row = mysqli_fetch_array($check_quantity);
     if ($row['item_quantity'] >= $quantity) {
