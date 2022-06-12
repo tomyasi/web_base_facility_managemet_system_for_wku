@@ -61,54 +61,87 @@ $total = $un_read + $count_fee;
     </div>
     <!--sidebar-menu-->
     <div id="sidebar">
+        <?php $page_active = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1); ?>
         <ul id="bar">
-            <li class="active">
+            <li class="<?= $page_active == 'home.php' ? 'active' : '' ?>">
                 <a href="home.php"><i class="icon icon-home"></i><span>Dashboard</span></a>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Manage
+            <li class="submenu <?= $page_active == 'item_register.php' ||
+                                    $page_active == 'item_add.php' ||
+                                    $page_active == 'item_update.php' ||
+                                    $page_active == 'item_status.php' ||
+                                    $page_active == 'item_view.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
+                        class="icon icon-th-list"></i> <span>Manage
                         Item</span></a>
                 <ul>
-                    <li><a href="item_register.php"><i class="icon-laptop"></i>&nbsp;&nbsp;Register Item</a></li>
-                    <li><a href="item_add.php"><i class="icon-plus"></i>&nbsp;&nbsp;Add Item</a></li>
-                    <li><a href="item_update.php"><i class="icon-pencil"></i>&nbsp;&nbsp;Update Item </a></li>
-                    <li><a href="item_status.php"><i class="icon-ok"></i>&nbsp;&nbsp;status Item</a></li>
-                    <li><a href="item_view.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;View Item</a></li>
+                    <li class="<?= $page_active == 'item_register.php' ? 'active' : '' ?>">
+                        <a href="item_register.php"><i class="icon-laptop"></i>&nbsp;&nbsp;Register Item</a>
+                    </li>
+                    <li class="<?= $page_active == 'item_add.php' ? 'active' : '' ?>">
+                        <a href="item_add.php"><i class="icon-plus"></i>&nbsp;&nbsp;Add Item</a>
+                    </li>
+                    <li class="<?= $page_active == 'item_update.php' ? 'active' : '' ?>">
+                        <a href="item_update.php"><i class="icon-pencil"></i>&nbsp;&nbsp;Update Item </a>
+                    </li>
+                    <li class="<?= $page_active == 'item_status.php' ? 'active' : '' ?>">
+                        <a href="item_status.php"><i class="icon-ok"></i>&nbsp;&nbsp;status Item</a>
+                    </li>
+                    <li class="<?= $page_active == 'item_view.php' ? 'active' : '' ?>">
+                        <a href="item_view.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;View Item</a>
+                    </li>
                 </ul>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i><span>View Notification
+            <li class="submenu <?= $page_active == 'view_request.php' ||
+                                    $page_active == 'view_feedback.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
+                        class="icon icon-th-list"></i><span>View Notification
                         <?php if ($total > 0) {
                             echo '<span class="label label-important" style="border-radius:30px">' . $total . '</span>';
                         } ?></span></a>
                 <ul>
-                    <li><a href="view_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Resource Request
+                    <li class="<?= $page_active == 'view_request.php' ? 'active' : '' ?>">
+                        <a href="view_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Resource Request
                             <?php if ($un_read > 0) {
                                 echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
                             } ?></a>
                     </li>
-                    <li><a href="view_feedback.php"><i class="icon-eye-open"></i> &nbsp;&nbsp;View Feedback
+                    <li class="<?= $page_active == 'view_feedback.php' ? 'active' : '' ?>">
+                        <a href="view_feedback.php"><i class="icon-eye-open"></i> &nbsp;&nbsp;View Feedback
                             <?php if ($count_fee > 0) {
                                 echo '<span class="label label-important" style="border-radius:30px">' . $count_fee . '</span>';
                             } ?></a>
                     </li>
                 </ul>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
+            <li class="submenu <?= $page_active == 'item_order_report.php' ||
+                                    $page_active == 'item_stor_report.php' ||
+                                    $page_active == 'give_item_report.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
+                        class="icon icon-th-list"></i> <span>Generate Report</span></a>
                 <ul>
-                    <li><a href="item_order_report.php"><i class="icon-briefcase"></i>&nbsp;&nbsp;Item Ordered
+                    <li class="<?= $page_active == 'item_order_report.php' ? 'active' : '' ?>">
+                        <a href="item_order_report.php"><i class="icon-briefcase"></i>&nbsp;&nbsp;Item Ordered
                             Report</a>
                     </li>
-                    <li><a href="item_stor_report.php"><i class="icon-user"></i>&nbsp;&nbsp;Store Item Report </a></li>
-                    <li><a href="give_item_report.php"><i class="icon-user"></i>&nbsp;&nbsp;Give in Item Report</a></li>
+                    <li class="<?= $page_active == 'item_stor_report.php' ? 'active' : '' ?>">
+                        <a href="item_stor_report.php"><i class="icon-user"></i>&nbsp;&nbsp;Store Item Report </a>
+                    </li>
+                    <li class="<?= $page_active == 'give_item_report.php' ? 'active' : '' ?>">
+                        <a href="give_item_report.php"><i class="icon-user"></i>&nbsp;&nbsp;Give in Item Report</a>
+                    </li>
                 </ul>
             </li>
-            <li>
+            <li class="<?= $page_active == 'item_order.php' ? 'active' : '' ?>">
                 <a href="item_order.php"><i class="icon-briefcase"></i>
                     <span>Item Orderd</span></a>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
+            <li class="submenu <?= $page_active == 'profile.php' || $page_active == 'change_password.php'  ? 'active' : '' ?>"
+                id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
                 <ul>
-                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
-                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
+                    <li class="<?= $page_active == 'profile.php' ? 'active' : '' ?>">
+                        <a href="profile.php"><i class="icon-user"></i> My Profile</a>
+                    </li>
+                    <li class="<?= $page_active == 'change_password.php' ? 'active' : '' ?>">
+                        <a href="change_password.php"><i class="icon-cog"></i> Change Password</a>
+                    </li>
                     <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
             </li>

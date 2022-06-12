@@ -36,7 +36,7 @@ $email_err = "";
                                 <label class="control-label"><strong> First Name<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="fname" class="span11" placeholder="First name" name="fname"
+                                    <input type="text" id="fname" class="span8" placeholder="First name" name="fname"
                                         required style="border-radius: 13px;" />
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ $email_err = "";
                                 <label class="control-label"><strong> Middel Name<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="mname" class="span11" placeholder="Middel name" name="mname"
+                                    <input type="text" id="mname" class="span8" placeholder="Middel name" name="mname"
                                         required style="border-radius: 13px;" />
                                 </div>
                             </div>
@@ -52,7 +52,7 @@ $email_err = "";
                                 <label class="control-label"><strong>Last Name<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="lname" class="span11" placeholder="Last name" name="lname"
+                                    <input type="text" id="lname" class="span8" placeholder="Last name" name="lname"
                                         required style="border-radius: 13px;" />
                                 </div>
                             </div>
@@ -60,18 +60,26 @@ $email_err = "";
                                 <label class="control-label"><strong>Gender<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <select class="span11" name="gender" required style="border-radius: 13px;">
+                                    <select class="span8" name="gender" required style="border-radius: 13px;">
                                         <option value="">Select gender...</option>
                                         <option value="m">Male</option>
                                         <option value="f">Female</option>
                                     </select>
                                 </div>
+                                <!-- <div class="controls">
+                                    <label>
+                                        <input type="radio" name="radios" />&nbsp;&nbsp;
+                                        Male</label>
+                                    <label>
+                                        <input type="radio" name="radios" />&nbsp;&nbsp;
+                                        Female</label>
+                                </div> -->
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Age<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="number" class="span11" placeholder="Enter age" name="age" required
+                                    <input type="number" class="span8" placeholder="Enter age" name="age" required
                                         min="20" max="70" style="border-radius: 13px;" />
                                 </div>
                             </div>
@@ -79,7 +87,7 @@ $email_err = "";
                                 <label class="control-label"><strong>Email<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="email" id="email" class="span11" placeholder="Enter email" name="email"
+                                    <input type="email" id="email" class="span8" placeholder="Enter email" name="email"
                                         required style="border-radius: 13px;" />
                                     <div class="alert alert-danger" id="email_error" style="display: none;">
                                         <center>
@@ -107,7 +115,7 @@ $email_err = "";
                                 <label class="control-label"><strong>Nationality<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="nationality" class="span11" placeholder="Enter nationality"
+                                    <input type="text" id="nationality" class="span8" placeholder="Enter nationality"
                                         name="nationality" required style="border-radius: 13px;" />
                                 </div>
                             </div>
@@ -115,7 +123,7 @@ $email_err = "";
                                 <label class="control-label"><strong> Subcity<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="subcity" class="span11" placeholder="Enter sucity"
+                                    <input type="text" id="subcity" class="span8" placeholder="Enter sucity"
                                         name="subcity" required style="border-radius: 13px;" />
                                 </div>
                             </div>
@@ -123,7 +131,7 @@ $email_err = "";
                                 <label class="control-label"><strong>Salary<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="salary" class="span11" placeholder="Enter salary"
+                                    <input type="text" id="salary" class="span8" placeholder="Enter salary"
                                         name="salary" required style="border-radius: 13px;" />
                                 </div>
                             </div>
@@ -131,7 +139,7 @@ $email_err = "";
                                 <label class="control-label"><strong>Role<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <select class="span11" name="position" required style="border-radius: 13px;">
+                                    <select class="span8" name="position" required style="border-radius: 13px;">
                                         <option value="">Select job position...</option>
                                         <option value="admin">Admin</option>
                                         <option value="manger">Manager</option>
@@ -147,7 +155,7 @@ $email_err = "";
                                 <label class="control-label"><strong>Status<small style="color: red;">*</small>
                                         :</strong></label>
                                 <div class="controls">
-                                    <select class="span11" name="status" required style="border-radius: 13px;">
+                                    <select class="span8" name="status" required style="border-radius: 13px;">
                                         <option value="">Select status...</option>
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>

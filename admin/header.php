@@ -58,49 +58,64 @@ include("../connection.php");
     </div>
     <!--sidebar-menu-->
     <div id="sidebar">
+        <?php $page_active = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1); ?>
         <ul>
-            <li class="active">
+            <li class="<?= $page_active == 'home.php' ? 'active' : '' ?>">
                 <a href="home.php"><i class="icon icon-home"></i><span>Dashboard</span></a>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Create Account</span></a>
+            <li class="submenu <?= $page_active == 'create_account_emp.php' ||
+                                    $page_active == 'create_account_user.php' ? 'active' : '' ?>" id="btn"><a
+                    href="#"><i class="icon icon-th-list"></i> <span>Create Account</span></a>
                 <ul>
-                    <li><a href="create_account_emp.php"><i class="icon-laptop"></i>&nbsp;&nbsp;Employee </a></li>
-                    <li><a href="create_account_user.php"><i class="icon-laptop"></i>&nbsp;&nbsp;User </a></li>
+                    <li class="<?= $page_active == 'create_account_emp.php' ? 'active' : '' ?>"><a
+                            href="create_account_emp.php"><i class="icon-laptop"></i>&nbsp;&nbsp;Employee </a></li>
+                    <li class="<?= $page_active == 'create_account_user.php' ? 'active' : '' ?>"><a
+                            href="create_account_user.php"><i class="icon-laptop"></i>&nbsp;&nbsp;User </a></li>
                 </ul>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Update Account</span></a>
+            <li class="submenu <?= $page_active == 'update_account_emp.php' ||
+                                    $page_active == 'update_account_user.php' ||
+                                    $page_active == 'edite_emp.php' ||
+                                    $page_active == 'edite_user.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
+                        class="icon icon-th-list"></i> <span>Update Account</span></a>
                 <ul>
-                    <li><a href="update_account_emp.php"><i class="icon-pencil"></i>&nbsp;&nbsp;Employee </a></li>
-                    <li><a href="update_account_user.php"><i class="icon-pencil"></i>&nbsp;&nbsp;User </a></li>
+                    <li class="<?= $page_active == 'update_account_emp.php' ? 'active' : '' ?>"><a
+                            href="update_account_emp.php"><i class="icon-pencil"></i>&nbsp;&nbsp;Employee </a></li>
+                    <li class="<?= $page_active == 'update_account_user.php' ? 'active' : '' ?>"><a
+                            href="update_account_user.php"><i class="icon-pencil"></i>&nbsp;&nbsp;User </a></li>
                 </ul>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Status Account</span></a>
+            <li class="submenu <?= $page_active == 'status_account_emp.php' || $page_active == 'status_account_user.php' ? 'active' : '' ?>"
+                id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Status Account</span></a>
                 <ul>
-                    <li><a href="status_account_emp.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee </a></li>
-                    <li><a href="status_account_user.php"><i class="icon-user"></i>&nbsp;&nbsp;User </a></li>
+                    <li class="<?= $page_active == 'status_account_emp.php' ? 'active' : '' ?>"><a
+                            href="status_account_emp.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee </a></li>
+                    <li class="<?= $page_active == 'status_account_user.php' ? 'active' : '' ?>"><a
+                            href="status_account_user.php"><i class="icon-user"></i>&nbsp;&nbsp;User </a></li>
                 </ul>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Vivew Account</span></a>
+            <li class="submenu <?= $page_active == 'view_employee_account.php' || $page_active == 'view_user_account.php' ? 'active' : '' ?>"
+                id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Vivew Account</span></a>
                 <ul>
-                    <li><a href="view_employee_account.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee </a></li>
-                    <li><a href="view_user_account.php"><i class="icon-user"></i>&nbsp;&nbsp;User </a></li>
+                    <li class="<?= $page_active == 'view_employee_account.php' ? 'active' : '' ?>"><a
+                            href="view_employee_account.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee </a></li>
+                    <li class="<?= $page_active == 'view_user_account.php' ? 'active' : '' ?>"><a
+                            href="view_user_account.php"><i class="icon-user"></i>&nbsp;&nbsp;User </a></li>
                 </ul>
             </li>
-            <li>
+            <li class="<?= $page_active == 'generate_account.php' ? 'active' : '' ?>">
                 <a href="generate_account.php"><i class="icon-laptop"></i>
                     <span>Generate Account</span></a>
             </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
+            <li class="submenu <?= $page_active == 'profile.php' || $page_active == 'change_password.php' || $page_active == 'edit_profile.php'  ? 'active' : '' ?>"
+                id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
                 <ul>
-                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
-                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
+                    <li class="<?= $page_active == 'profile.php' ? 'active' : '' ?>"><a href="profile.php"><i
+                                class="icon-user"></i> My Profile</a></li>
+                    <li class="<?= $page_active == 'change_password.php' ? 'active' : '' ?>"><a
+                            href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
                     <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
             </li>
-            <!-- 
-            <li>
-                <a href="change_password.php"><i class="icon icon-cogs"></i>
-                    <span>Change Password</span></a>
-            </li> -->
         </ul>
     </div>

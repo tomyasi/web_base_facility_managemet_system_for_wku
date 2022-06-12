@@ -46,7 +46,7 @@ $email_err = "";
                                         mysqli_error($con));
                                     if (mysqli_num_rows($query) > 0) {
                                     ?>
-                                    <label>Resource Name</label>
+                                    <label>Resource Name<small style="color: red;">*</small></label>
                                     <select class="span11" required name="item_name" style="border-radius:10px">
                                         <option value="">Select</option>
                                         <?php while ($row = mysqli_fetch_array($query)) { ?>
@@ -62,7 +62,7 @@ $email_err = "";
                             <div class="span3">
                                 <br>
                                 <div>
-                                    <label>Resource Quality</label>
+                                    <label>Resource Quality<small style="color: red;">*</small></label>
                                     <select class="span12" name="quality" required style="border-radius:10px">
                                         <option value="">Select...</option>
                                         <option value="high">High</option>
@@ -74,7 +74,7 @@ $email_err = "";
                             <div class="span3">
                                 <br>
                                 <div>
-                                    <label>Enter Quantity</label>
+                                    <label>Enter Quantity<small style="color: red;">*</small></label>
                                     <input type="number" class="span11" required name="quantity" id="qty"
                                         autocomplete="off" style="border-radius:10px" min="1">
                                 </div>

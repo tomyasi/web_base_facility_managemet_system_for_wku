@@ -25,7 +25,10 @@ while ($row = mysqli_fetch_array($result)) {
     <div id="content-header">
         <div id="breadcrumb">
             <a href="#"><i class="icon icon-th-list"></i> <span>Manage User</span></a>
-            <a href="update_account_emp.php" title="Go to update user account form page" class="tip-bottom">
+            <a href="update_account_user.php" title="Go to user account page" class="tip-bottom">
+                <i class="icon-user"></i>User
+            </a>
+            <a href="edite_user.php" title="Go to update user account form page" class="tip-bottom">
                 <i class="icon-user"></i>Update user account form
             </a>
         </div>

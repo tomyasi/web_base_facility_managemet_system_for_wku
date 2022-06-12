@@ -26,7 +26,10 @@ while ($row = mysqli_fetch_array($result)) {
     <div id="content-header">
         <div id="breadcrumb">
             <a href="#"><i class="icon icon-th-list"></i> <span>Manage User</span></a>
-            <a href="update_account_emp.php" title="Go to update employee account form page" class="tip-bottom">
+            <a href="update_account_emp.php" title="Go to employee account page" class="tip-bottom">
+                <i class="icon-user"></i>Employee
+            </a>
+            <a href="edite_emp.php" title="Go to update employee account form page" class="tip-bottom">
                 <i class="icon-user"></i>Update employee account form
             </a>
         </div>
@@ -52,19 +55,22 @@ while ($row = mysqli_fetch_array($result)) {
                             <div class="control-group">
                                 <label class="control-label"><strong> ID :</strong></label>
                                 <div class="controls">
-                                    <input type="text" class="span8" value="<?php echo $aid; ?>" name="id" readonly style="border-radius: 13px;" />
+                                    <input type="text" class="span8" value="<?php echo $aid; ?>" name="id" readonly
+                                        style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Username :</strong></label>
                                 <div class="controls">
-                                    <input type="text" class="span8" value="<?php echo $username; ?>" name="username" required style="border-radius: 13px;" />
+                                    <input type="text" class="span8" value="<?php echo $username; ?>" name="username"
+                                        required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Password :</strong> </label>
                                 <div class="controls">
-                                    <input type="password" class="span8" value="<?php echo $password; ?>" name="password" required style="border-radius: 13px;" />
+                                    <input type="password" class="span8" value="<?php echo $password; ?>"
+                                        name="password" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
@@ -83,6 +89,15 @@ while ($row = mysqli_fetch_array($result)) {
                                         <option value="manager" <?php if ($role == "manager") {
                                                                     echo "selected";
                                                                 } ?>>Manager</option>
+                                        <option value="manager" <?php if ($role == "technician") {
+                                                                    echo "selected";
+                                                                } ?>>Technician</option>
+                                        <option value="manager" <?php if ($role == "clealiness") {
+                                                                    echo "selected";
+                                                                } ?>>Clealiness</option>
+                                        <option value="manager" <?php if ($role == "other") {
+                                                                    echo "selected";
+                                                                } ?>>Special Services</option>
                                     </select>
                                 </div>
                             </div>
@@ -106,7 +121,8 @@ while ($row = mysqli_fetch_array($result)) {
                             </div>
                             <div class="form-actions">
                                 <center>
-                                    <button type="submit" name="send" class="btn btn-success" style="border-radius: 13px;">Update</button>
+                                    <button type="submit" name="send" class="btn btn-success"
+                                        style="border-radius: 13px;">Update</button>
                                 </center>
                             </div>
                             <div class="alert alert-success" id="success" style="display:none;">
@@ -128,21 +144,21 @@ if (isset($_POST['send'])) {
     $res = mysqli_query($con, $query) or die("error occured" . mysqli_error($con));
     if ($res) {
 ?>
-        <script type="text/javascript">
-            document.getElementById("success").style.display = "block";
-            setTimeout(function() {
-                window.location.href = "update_account_emp.php";
-            }, 3000);
-        </script>
-    <?php
+<script type="text/javascript">
+document.getElementById("success").style.display = "block";
+setTimeout(function() {
+    window.location.href = "update_account_emp.php";
+}, 3000);
+</script>
+<?php
     } else {
     ?>
-        <script type="text/javascript">
-            document.getElementById("error").style.display = "block";
-            setTimeout(function() {
-                window.location.href = "update_account_emp.php";
-            }, 3000);
-        </script>
+<script type="text/javascript">
+document.getElementById("error").style.display = "block";
+setTimeout(function() {
+    window.location.href = "update_account_emp.php";
+}, 3000);
+</script>
 <?php
     }
 }

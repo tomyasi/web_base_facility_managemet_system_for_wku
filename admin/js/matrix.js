@@ -1,8 +1,5 @@
 
 $(document).ready(function(){
-
-	
-	
 	// === Sidebar navigation === //
 	
 	$('.submenu > a').click(function(e)
@@ -26,16 +23,14 @@ $(document).ready(function(){
 				submenus.slideUp();			
 				submenu.slideDown();
 			} else {
-				submenus.fadeOut(250);			
-				submenu.fadeIn(250);
+				submenus.fadeOut(500);			
+				submenu.fadeIn(500);
 			}
 			submenus_parents.removeClass('open');		
 			li.addClass('open');	
 		}
 	});
-	
 	var ul = $('#sidebar > ul');
-	
 	$('#sidebar > a').click(function(e)
 	{
 		e.preventDefault();

@@ -36,7 +36,7 @@ include("../connection.php")
                                     <th>Item category</th>
                                     <th>Item Quality</th>
                                     <th>Item Quantity</th>
-                                    <th>Odered date</th>
+                                    <th>Ordered date</th>
                                     <th>Aprove</th>
                                 </tr>
                             </thead>

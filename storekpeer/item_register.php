@@ -24,23 +24,25 @@ $email_err = "";
         <hr>
         <div class="row-fluid">
             <div class="span12">
-                <div class="widget-box">
+                <div class="widget-box" style="border-radius: 20px; margin-right:10%; margin-left:10%">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>Item Registration Form</h5>
                     </div>
-                    <div class="widget-content nopadding">
+                    <div class="widget-content nopadding" style="border-radius: 20px;">
                         <form name="formsend" action="#" method="POST" class="form-horizontal"
                             onsubmit='return formValidation()'>
-
+                            <span><small style="color: red;">* Required</small></span>
                             <div class="control-group">
-                                <label class="control-label"><strong>Item Code :</strong></label>
+                                <label class="control-label"><strong>Item Code<small style="color: red;">*</small>
+                                        :</strong></label>
                                 <div class="controls">
                                     <input type="number" class="span11" placeholder="Enter item code" name="code"
                                         required min="1" style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"><strong>Item Type :</strong></label>
+                                <label class="control-label"><strong>Item Type<small style="color: red;">*</small>
+                                        :</strong></label>
                                 <div class="controls">
                                     <select class="span11" name="type" required style="border-radius: 13px;">
                                         <option value="">Select item type...</option>
@@ -57,7 +59,8 @@ $email_err = "";
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"><strong>Item Categoty :</strong></label>
+                                <label class="control-label"><strong>Item Categoty<small style="color: red;">*</small>
+                                        :</strong></label>
                                 <div class="controls">
                                     <select class="span11" name="category" required style="border-radius: 13px;">
                                         <option value="">Select item category...</option>
@@ -69,7 +72,8 @@ $email_err = "";
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"><strong>Item Name :</strong></label>
+                                <label class="control-label"><strong>Item Name<small style="color: red;">*</small>
+                                        :</strong></label>
                                 <div class="controls">
                                     <select class="span11" name="name" required style="border-radius: 13px;">
                                         <option value="">Select item name...</option>
@@ -103,14 +107,16 @@ $email_err = "";
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"><strong>Item Model :</strong></label>
+                                <label class="control-label"><strong>Item Model<small style="color: red;">*</small>
+                                        :</strong></label>
                                 <div class="controls">
                                     <input type="text" id="nationality" class="span11" placeholder="Enter item model"
                                         name="model" required style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"><strong>Item Quality:</strong></label>
+                                <label class="control-label"><strong>Item Quality<small style="color: red;">*</small>
+                                        :</strong></label>
                                 <div class="controls">
                                     <select class="span11" name="quality" required style="border-radius: 13px;">
                                         <option value="">Select item quality...</option>
@@ -121,14 +127,16 @@ $email_err = "";
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"><strong>Item Quantity :</strong></label>
+                                <label class="control-label"><strong>Item Quantity<small style="color: red;">*</small>
+                                        :</strong></label>
                                 <div class="controls">
                                     <input type="number" class="span11" placeholder="Enter item quantity"
                                         name="quantity" required min="1" style="border-radius: 13px;" />
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"><strong>Item Status :</strong></label>
+                                <label class="control-label"><strong>Item Status<small style="color: red;">*</small>
+                                        :</strong></label>
                                 <div class="controls">
                                     <select class="span11" name="status" required style="border-radius: 13px;">
                                         <option value="">Select status...</option>
