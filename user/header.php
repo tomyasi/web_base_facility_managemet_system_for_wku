@@ -52,7 +52,7 @@ $un_read = mysqli_num_rows($result);
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
                     <li class="divider"></li>
-                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-signout"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>
@@ -87,7 +87,7 @@ $un_read = mysqli_num_rows($result);
                     <li class="<?= $page_active == 'change_password.php' ? 'active' : '' ?>">
                         <a href="change_password.php"><i class="icon-cog"></i> Change Password</a>
                     </li>
-                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-signout"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>

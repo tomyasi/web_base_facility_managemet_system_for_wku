@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../connection.php");
 ?>
 <!DOCTYPE html>
@@ -19,34 +20,43 @@ include("../connection.php");
             <center><b>Item Information</b></center>
         </h1>
     </div>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped table-responsive">
         <thead>
             <tr>
                 <th>#</th>
-                <th>GIVEN TO</th>
+                <th>REQUESTED BY</th>
                 <th>ITEM NAME</th>
                 <th>ITEM TYPE</th>
                 <th>ITEM CATEGORY</th>
                 <th>ITEM QUALITY</th>
-                <th>ITEM QUANTITY</th>
+                <th>ITEM Quantity</th>
                 <th>MESSAGE</th>
-                <th>GIVEN DATE</th>
+                <th>REQUESTED DATE</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $result = mysqli_query($con, "SELECT *from give_item");
-            $no = 1;
-            $total_give = 0;
-            $total_item = 0;
+            $no = $total_item = $count_aprove =  $count_order = 0;
+            $sub_sql = "";
+            if (isset($_SESSION['from']) && isset($_SESSION['to'])) {
+                $from  = $_SESSION['from'];
+                $to = $_SESSION['to'];
+                $sub_sql = "WHERE (re_date >= '$from' && re_date <= '$to') ";
+            }
+            $result = mysqli_query($con, "SELECT *from item_request $sub_sql");
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $no++;
-                    $e_id = $row["give_to"];
-                    $sql = mysqli_query($con, "SELECT *FROM employee where id=$e_id") or die("error occured" . mysqli_error($con));
+                    $e_id = $row["emp_id"];
+                    $sql = mysqli_query($con, "SELECT *FROM employee where id=$e_id") or die("error occured" .
+                        mysqli_error($con));
                     $emp_info = mysqli_fetch_array($sql);
                     $re_by = $emp_info['fname'] . ' ' . $emp_info['mname'];
-                    $total_item += $row['quantity'];
+                    $total_item += $row['item_quantity'];
+                    if ($row['status' == '1']) {
+                        $count_order++;
+                    }
+
             ?>
             <tr>
                 <td><?php echo $no; ?></td>
@@ -54,17 +64,19 @@ include("../connection.php");
                 <td><?php echo $row['item_name']; ?></td>
                 <td><?php echo $row["item_type"]; ?></td>
                 <td><?php echo $row["item_category"]; ?></td>
-                <td><?php echo $row["quality"]; ?></td>
-                <td><?php echo $row["quantity"]; ?></td>
+                <td><?php echo $row["item_quality"]; ?></td>
+                <td><?php echo $row["item_quantity"]; ?></td>
                 <td><?php echo $row["message"]; ?></td>
-                <td><?php echo $row["schedule"]; ?></td>
+                <td><?php echo $row["re_date"]; ?></td>
+
             </tr>
             <?php
+
                 }
             } else { ?>
             <div class="alert alert-danger" id="error" style="display: block;">
                 <center>
-                    <strong>Empty Request.</strong>
+                    <strong>Empty Report.</strong>
                 </center>
             </div>
             <?php
@@ -74,7 +86,7 @@ include("../connection.php");
     </table>
     <hr>
     <center>
-        <h3>Report Information</h3>
+        <h3>Requested and Ordered Report Information</h3>
     </center>
     <hr>
     <table class="table table-bordered table-striped">
@@ -82,12 +94,12 @@ include("../connection.php");
             <tr>
                 <th>#</th>
                 <th>MONTH</th>
-                <th>TOTAL ORDER</th>
+                <th>TOTAL ORDER ITEM</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $sql1 = "SELECT  MONTHNAME(orderd_date) as mname, sum(quantity) as total from item_order GROUP BY MONTH(orderd_date)";
+            $sql1 = "SELECT  MONTHNAME(re_date) as mname, sum(item_quantity) as total from item_request $sub_sql GROUP BY MONTH(re_date)";
             $result1 = mysqli_query($con, $sql1);
             $n = 0;
             if (mysqli_num_rows($result1) > 0) {
@@ -112,10 +124,18 @@ include("../connection.php");
             ?>
         </tbody>
     </table>
+
     <h4 style="color: while;">
         <div style="float: right;border:10px;border-radius:5px">
-            <span style="float:left;">Total Number of Order:&nbsp;</span><span
+            <span style="float:left;">Total Number of Requested:&nbsp;</span><span
                 style="float: left"><?php echo $no; ?></span>&nbsp;&nbsp;&nbsp;
+        </div>
+    </h4>
+    <br>
+    <h4 style="color: while;">
+        <div style="float: right;border:10px;border-radius:5px">
+            <span style="float:left;">Total Number of Ordered:&nbsp;</span><span
+                style="float: left"><?php echo $count_order; ?></span>&nbsp;&nbsp;&nbsp;
         </div>
     </h4>
     <br>

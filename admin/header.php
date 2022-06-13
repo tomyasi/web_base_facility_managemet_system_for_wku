@@ -51,7 +51,7 @@ include("../connection.php");
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
                     <li class="divider"></li>
-                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-signout"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>
@@ -107,6 +107,10 @@ include("../connection.php");
                 <a href="generate_account.php"><i class="icon-laptop"></i>
                     <span>Generate Account</span></a>
             </li>
+            <li class="<?= $page_active == 'backup.php' ? 'active' : '' ?>">
+                <a href="backup.php"><i class="icon-laptop"></i>
+                    <span>Backup and Recovery</span></a>
+            </li>
             <li class="submenu <?= $page_active == 'profile.php' || $page_active == 'change_password.php' || $page_active == 'edit_profile.php'  ? 'active' : '' ?>"
                 id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
                 <ul>
@@ -114,7 +118,7 @@ include("../connection.php");
                                 class="icon-user"></i> My Profile</a></li>
                     <li class="<?= $page_active == 'change_password.php' ? 'active' : '' ?>"><a
                             href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
-                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-signout"></i>Log Out</a></li>
                 </ul>
             </li>
         </ul>

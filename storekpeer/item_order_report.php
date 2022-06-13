@@ -62,10 +62,12 @@ include("../connection.php")
                             $from = $_POST['dt'];
                             $fromDate = $from;
                             $from = $from . " 00:00:00";
+                            $_SESSION['from'] = $from;
 
                             $to = $_POST['dt2'];
                             $toDate = $to;
                             $to = $to . " 23:59:59";
+                            $_SESSION['to'] = $to;
                             $sub_sql = "WHERE (re_date >= '$from' && re_date <= '$to') ";
                         ?>
                         <table class="table table-bordered table-striped table-responsive">

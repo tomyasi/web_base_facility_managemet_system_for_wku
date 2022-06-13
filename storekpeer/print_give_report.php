@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../connection.php");
 ?>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@ include("../connection.php");
 <body onload="print()">
     <div>
         <h1>
-            <center><b>Item Information</b></center>
+            <center><b> Information</b></center>
         </h1>
     </div>
     <table class="table table-bordered table-striped">
@@ -35,9 +36,14 @@ include("../connection.php");
         </thead>
         <tbody>
             <?php
-            $result = mysqli_query($con, "SELECT *from give_item");
-            $no = 1;
-            $total_give = 0;
+            $sub_sql = "";
+            if (isset($_SESSION['from']) && isset($_SESSION['to'])) {
+                $from  = $_SESSION['from'];
+                $to = $_SESSION['to'];
+                $sub_sql = "WHERE (schedule >= '$from' && schedule <= '$to') ";
+            }
+            $result = mysqli_query($con, "SELECT *from give_item $sub_sql");
+            $no = $total_give = 0;
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $no++;
@@ -63,7 +69,7 @@ include("../connection.php");
             } else { ?>
             <div class="alert alert-danger" id="error" style="display: block;">
                 <center>
-                    <strong>Empty Request.</strong>
+                    <strong>Empty.</strong>
                 </center>
             </div>
             <?php
@@ -73,7 +79,7 @@ include("../connection.php");
     </table>
     <hr>
     <center>
-        <h3>Report Information</h3>
+        <h3>Give Item Report Information</h3>
     </center>
     <hr>
     <table class="table table-bordered table-striped">
@@ -86,7 +92,7 @@ include("../connection.php");
         </thead>
         <tbody>
             <?php
-            $sql1 = "SELECT  MONTHNAME(schedule) as mname, sum(quantity) as total from give_item GROUP BY MONTH(schedule)";
+            $sql1 = "SELECT  MONTHNAME(schedule) as mname, sum(quantity) as total from give_item $sub_sql GROUP BY MONTH(schedule)";
             $result1 = mysqli_query($con, $sql1);
             $n = 0;
             if (mysqli_num_rows($result1) > 0) {

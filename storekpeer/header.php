@@ -54,7 +54,7 @@ $total = $un_read + $count_fee;
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
                     <li class="divider"></li>
-                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-signout"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>
@@ -122,14 +122,14 @@ $total = $un_read + $count_fee;
                             Report</a>
                     </li>
                     <li class="<?= $page_active == 'item_stor_report.php' ? 'active' : '' ?>">
-                        <a href="item_stor_report.php"><i class="icon-user"></i>&nbsp;&nbsp;Store Item Report </a>
+                        <a href="item_stor_report.php"><i class="icon-briefcase"></i>&nbsp;&nbsp;Store Item Report </a>
                     </li>
                     <li class="<?= $page_active == 'give_item_report.php' ? 'active' : '' ?>">
-                        <a href="give_item_report.php"><i class="icon-user"></i>&nbsp;&nbsp;Give in Item Report</a>
+                        <a href="give_item_report.php"><i class="icon-briefcase"></i>&nbsp;&nbsp;Give in Item Report</a>
                     </li>
                 </ul>
             </li>
-            <li class="<?= $page_active == 'item_order.php' ? 'active' : '' ?>">
+            <li class="<?= $page_active == 'item_order.php' || $page_active == 'give_item.php' ? 'active' : '' ?>">
                 <a href="item_order.php"><i class="icon-briefcase"></i>
                     <span>Item Orderd</span></a>
             </li>
@@ -142,7 +142,7 @@ $total = $un_read + $count_fee;
                     <li class="<?= $page_active == 'change_password.php' ? 'active' : '' ?>">
                         <a href="change_password.php"><i class="icon-cog"></i> Change Password</a>
                     </li>
-                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-signout"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>

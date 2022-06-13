@@ -109,6 +109,65 @@ img {
     <div class="container-fluid">
         <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
             <div class="container">
+                <td width="685" height="195" align="left" valign="top" style="color:#000000; ">
+                    <font style="font-family:tahoma; font-size:12px;">
+                        <p />
+                        <p><span style="LINE-HEIGHT: 115%; FONT-FAMILY: "></span><span style="LINE-HEIGHT: 
+																		  115%; FONT-FAMILY: "></span></p>
+                        <p style="LINE-HEIGHT: 18pt; MARGIN: 0in 0in 0pt" dir="ltr" class="MsoNormal" align="left"><span
+                                style="FONT-FAMILY: 
+								 " lang="RU"><strong>
+                                    <h2>
+                                        <font color="#003333">Welcome to facility management system!<br> Things to do in
+                                            Customer</font> <br /><br />
+                                    </h2>
+                                </strong>
+                                <font color="#003333">
+                                    <marquee behavior="scroll" direction="up">
+                                        <strong>
+                                            <h3>&diams;&nbsp;&nbsp;&nbsp;View Response</h3>
+                                        </strong>
+
+                                        <strong>
+                                            <h3>&diams;&nbsp;&nbsp;&nbsp;send Request</h3>
+                                        </strong>
+                                        <strong>
+                                            <h3>&diams;&nbsp;&nbsp;&nbsp;send Feedback</h3>
+                                        </strong>
+                                        <strong>
+                                            <h3>&diams;&nbsp;&nbsp;&nbsp;change passwords.</h3>
+                                        </strong>
+
+                                    </marquee>
+
+                                </font>
+                            </span><span style="FONT-FAMILY: "></span></p>
+                        <p align="left">
+                            <font color="#003333"></font>
+                        </p>
+                        <p style="MARGIN: 0in 0in 10pt" class="MsoNormal" align="left">
+                            <font color="#003333"></font>
+                        </p>
+                        <p align="left">
+                            <font color="#003333"></font>
+                        </p>
+                        <p align="left">
+                            <font color="#003333"></font>
+                        </p>
+                        <p align="left">
+                            <font color="#003333"></font>
+                        </p>
+                        <p align="left">
+                            <font color="#003333"></font>
+                        </p>
+                        <p align="left">
+                            <font color="#003333"></font>
+                        </p>
+                        <p align="left"><span style="LINE-HEIGHT: 
+  115%; FONT-FAMILY: "></span>
+                            <font color="#003333"><span style="LINE-HEIGHT: 115%; FONT-FAMILY: ">
+                </td>
+
                 <!-- Full-width images with number text -->
                 <div class="mySlides">
                     <div class="numbertext">1 / 6</div>

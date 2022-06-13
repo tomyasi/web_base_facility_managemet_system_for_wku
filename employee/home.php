@@ -1,8 +1,5 @@
 <?php
 include("header.php");
-if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
-    header("Location: ../login.php");
-}
 ?>
 <!--main-container-part-->
 <div id="content">
@@ -14,10 +11,51 @@ if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
     <!--End-breadcrumbs-->
     <!--Action boxes-->
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
-            sdsd
+        <div class="row-fluid">
+            <hr>
+            <center>
+                <h5>
+                    <margee>HOME PAGE</margee>
+                </h5>
+            </center>
+            <marquee direction="right" height="40%" behavior="alternate">
+
+                <span style="FONT-FAMILY: " lang="RU"><strong>
+                        <h2>
+                            <font color="#003333">Welcome to facility management system!<br> Employee Page</font>
+                        </h2>
+                    </strong>
+            </marquee>
+            <hr>
         </div>
 
+        <td width="685" height="195" align="left" valign="top" style="color:#000000; ">
+            <font style="font-family:tahoma; font-size:12px;">
+                <p style="LINE-HEIGHT: 18pt; MARGIN: 0in 0in 0pt" dir="ltr" class="MsoNormal" align="left">
+                    <center>
+                        <span style="FONT-FAMILY: " lang="RU"><strong>
+                                <h2>
+                                    <font color="#003333">Things to do in
+                                        Employee</font>
+                                </h2>
+                            </strong></span>
+
+                        <strong>
+                            <h3>&diams;&nbsp;&nbsp;&nbsp;View Response</h3>
+                        </strong>
+                        <strong>
+                            <h3>&diams;&nbsp;&nbsp;&nbsp;Send Request</h3>
+                        </strong>
+                        <strong>
+                            <h3>&diams;&nbsp;&nbsp;&nbsp;Send Feedback</h3>
+                        </strong>
+                        <strong>
+                            <h3>&diams;&nbsp;&nbsp;&nbsp;Seting Profile.</h3>
+                        </strong>
+                    </center>
+                </p>
+            </font>
+        </td>
     </div>
 </div>
 

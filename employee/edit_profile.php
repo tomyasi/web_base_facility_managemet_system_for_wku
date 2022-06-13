@@ -15,7 +15,7 @@ while ($row = mysqli_fetch_array($query)) {
     $gmail = $row["gmail"];
     $phone = $row["phone"];
     $nationality = $row["nationality"];
-    $address = $row["subcity"];
+    $address = $row["address"];
 }
 ?>
 <!--main-container-part-->

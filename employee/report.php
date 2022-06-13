@@ -34,6 +34,9 @@ include("../connection.php");
             <br>
             <hr>
             <div class="row-fluid">
+                <a href="print_report.php" class="btn btn-primary" style="border-radius:10px"><i class="icon-print"></i>
+                    PRINT</a>
+                <hr>
                 <div class="span12">
                     <div class="widget-content nopadding">
                         <?php
@@ -43,17 +46,12 @@ include("../connection.php");
                         if (isset($_POST['submit1'])) {
                             $from = $_POST['dt'];
                             $fromDate = $from;
-                            $fromArr = explode("/", $from);
-                            // $from = $fromArr['2'] . '-' . $fromArr['1'] . '-' . $fromArr['0'];
                             $from = $from . " 00:00:00";
-
+                            $_SESSION['from'] = $from;
                             $to = $_POST['dt2'];
                             $toDate = $to;
-                            $toArr = explode("/", $to);
-                            //$to = $toArr['2'] . '-' . $toArr['1'] . '-' . $toArr['0'];
                             $to = $to . " 23:59:59";
-                            //echo $to;
-
+                            $_SESSION['to'] = $to;
                             $sub_sql = " and req_date >= '$from' && req_date <= '$to' ";
                         ?>
                         <table class="table table-bordered table-striped">

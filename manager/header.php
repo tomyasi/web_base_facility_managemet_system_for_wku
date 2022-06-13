@@ -53,7 +53,7 @@ $un_read = mysqli_num_rows($result);
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon icon-cogs"></i> Change Password</a></li>
                     <li class="divider"></li>
-                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-signout"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>
@@ -119,45 +119,8 @@ $un_read = mysqli_num_rows($result);
                     <li class="<?= $page_active == 'change_password.php' ? 'active' : '' ?>">
                         <a href="change_password.php"><i class="icon-cog"></i> Change Password</a>
                     </li>
-                    <li><a href="../logout.php"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="../logout.php"><i class="icon-signout"></i>Log Out</a></li>
                 </ul>
             </li>
-            <!-- <li class="x">
-                <a href="change_password.php"><i class="icon icon-cogs"></i>
-                    <span>Change Password</span></a>
-            </li> -->
         </ul>
     </div>
-    <script type="text/javascript">
-    // // Add active class to the current button (highlight it)
-    // var header = document.getElementById("bar");
-    // var btns = header.getElementsByClassName("x");
-    // for (var i = 0; i < btns.length; i++) {
-    //     btns[i].addEventListener("click", function() {
-    //         var current = document.getElementsByClassName("active");
-    //         current[0].className = current[0].className.replace(" active", "");
-    //         this.className += " active";
-    //     });
-    // }
-
-
-
-    // const curentLocation = location.href;
-    // const navbar = document.querySelectorAll('a');
-    // const navbarlength = navbar.length;
-    // for (let i = 0; i < navbarlength; i++) {
-    //     if (navbar[i].href === curentLocation) {
-    //         navbar[i].className = 'active';
-    //     }
-    // }
-
-    // var bar = document.getElementById("bar");
-    // var btns = bar.getElementById("btn");
-    // for (var i = 0; i < btns.lngth, i++;) {
-    //     btns[i].addEventListener("click", function() {
-    //         var current = document.getElementsByClassName("active");
-    //         current[0].className = current[0].className.replace(" active");
-    //         this.className += " active";
-    //     })
-    // }
-    </script>

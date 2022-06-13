@@ -6,16 +6,16 @@ include("../connection.php")
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
-            <a href="#"><i class="icon icon-th-list"></i> <span>View</span></a>
+            <a href="#"><i class="icon icon-th-list"></i> <span>Generate Report</span></a>
             <a href="view_request.php" title="Go to view User" class="tip-bottom">
-                <i class="icon-eye-open"></i>View Request
+                <i class="icon-briefcase"></i>Generate Give Item Report
             </a>
         </div>
     </div>
     <div class="container-fluid">
         <hr>
         <center>
-            <h5>VIEW RESOURCE REQUEST PAGE</h5>
+            <h5>GENERATE GIVE ITEM REPORT PAGE</h5>
         </center>
         <hr>
         <div class="row-fluid">
@@ -52,16 +52,16 @@ include("../connection.php")
                         <?php
                         $no = 1;
                         $total_give = 0;
-                        $sub_sql = "";
-                        $toDate = $fromDate = "";
+                        $sub_sql = $toDate = $fromDate = "";
                         if (isset($_POST['submit1'])) {
                             $from = $_POST['dt'];
                             $fromDate = $from;
                             $from = $from . " 00:00:00";
-
+                            $_SESSION['from'] = $from;
                             $to = $_POST['dt2'];
                             $toDate = $to;
                             $to = $to . " 23:59:59";
+                            $_SESSION['t0'] = $to;
                             $sub_sql = "WHERE (schedule >= '$from' && schedule <= '$to') ";
                         ?>
                         <table class="table table-bordered table-striped">
@@ -174,7 +174,7 @@ include("../connection.php")
                 </div>
                 <hr>
                 <center>
-                    <h3>Report Information</h3>
+                    <h3>Give Item Report Information</h3>
                 </center>
                 <hr>
                 <table class="table table-bordered table-striped">

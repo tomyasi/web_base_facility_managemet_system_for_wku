@@ -6,7 +6,6 @@ $full_name = ucfirst($full_name); //upercase first character
 $insertdate = date("Y/m/d H:i:s");
 $e_id = $_GET['id'];
 
-mysqli_query($con, "UPDATE item_order set give='1' where order_id='$e_id'") or die("Error occured" . mysqli_error($con));
 $sql1 = mysqli_query($con, "SELECT *FROM item_order where order_id=$e_id");
 $order_info = mysqli_fetch_array($sql1);
 $emp_id = $order_info['emp_id'];
@@ -126,6 +125,7 @@ setTimeout(function() {
 <?php
     } else {
         //decrease the stock
+        mysqli_query($con, "UPDATE item_order set give='1' where order_id='$e_id'") or die("Error occured" . mysqli_error($con));
         mysqli_query($con, "UPDATE stock set item_quantity=item_quantity-$quantity where (item_name='$name' and item_quality='$quality')");
     ?>
 <script type="text/javascript">
