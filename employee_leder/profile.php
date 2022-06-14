@@ -1,7 +1,8 @@
 <?php
 include("header.php");
 include("../connection.php");
-$profile = mysqli_query($con, "SELECT * FROM employee WHERE id='$leder_id'") or die("Error occurde in profile query" . mysqli_error($con));
+$profile = mysqli_query($con, "SELECT * FROM employee WHERE id='$leder_id'") or
+    die("Error occurde in profile query" . mysqli_error($con));
 $row = mysqli_fetch_array($profile);
 ?>
 <style>
@@ -21,7 +22,7 @@ $row = mysqli_fetch_array($profile);
         <div id="breadcrumb"><a href="home.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
                 Home</a>
             <a href="view_service_request.php" title="Go to your profile" class="tip-bottom">
-                <i class="icon-eye-open"></i>Profile Page</a>
+                <i class="icon-folder-open"></i>Profile Page</a>
         </div>
     </div>
     <!--End-breadcrumbs-->
@@ -104,5 +105,6 @@ $row = mysqli_fetch_array($profile);
     </div>
 </div>
 <?php
+mysqli_close($con);
 include("footer.php");
 ?>

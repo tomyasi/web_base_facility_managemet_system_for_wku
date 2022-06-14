@@ -45,15 +45,12 @@ include("../connection.php");
                         // $ur = mysqli_num_rows($resu);
                         if (isset($_POST['submit1'])) {
                             $from = $_POST['dt'];
-                            $fromDate = $from;
-                            $fromArr = explode("/", $from);
                             $from = $from . " 00:00:00";
-                            $_SESSION['from'] = $from;
+                            $_SESSION['f'] = $from;
+
                             $to = $_POST['dt2'];
-                            $toDate = $to;
-                            $toArr = explode("/", $to);
                             $to = $to . " 23:59:59";
-                            $_SESSION['to'] = $to;
+                            $_SESSION['t'] = $to;
                             $sub_sql = " WHERE req_date >= '$from' && req_date <= '$to' ";
                             //$_SESSION["sub_sql"] = $sub_sql;
                         ?>

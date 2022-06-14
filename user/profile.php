@@ -5,14 +5,14 @@ $profile = mysqli_query($con, "SELECT * FROM user WHERE id='$user_id'") or die("
 $row = mysqli_fetch_array($profile);
 ?>
 <style>
-#profile {
-    min-height: 80px;
+    #profile {
+        min-height: 80px;
 
-}
+    }
 
-#a {
-    margin-right: 34px;
-}
+    #a {
+        margin-right: 34px;
+    }
 </style>
 <!--main-container-part-->
 <div id="content">
@@ -21,7 +21,7 @@ $row = mysqli_fetch_array($profile);
         <div id="breadcrumb"><a href="home.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
                 Home</a>
             <a href="view_service_request.php" title="Go to your profile" class="tip-bottom">
-                <i class="icon-eye-open"></i>Profile Page</a>
+                <i class="icon-folder-open"></i>Profile Page</a>
         </div>
     </div>
     <!--End-breadcrumbs-->
@@ -91,9 +91,7 @@ $row = mysqli_fetch_array($profile);
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label"></label>
-                                <a href="edit_profile.php?id=<?php echo $row['id'] ?>"
-                                    class="btn btn-primary control-label" style="border-radius:10px;"><i
-                                        class="icon-pencil"></i>
+                                <a href="edit_profile.php?id=<?php echo $row['id'] ?>" class="btn btn-primary control-label" style="border-radius:10px;"><i class="icon-pencil"></i>
                                     UPDATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                             </div>
                         </form>

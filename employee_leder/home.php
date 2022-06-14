@@ -1,8 +1,11 @@
 <?php
 include("header.php");
-if (!(isset($_SESSION['leder_id'])) || !(isset($_SESSION['username']))) {
-    header("Location: ../login.php");
-}
+include("../connection.php");
+$user = mysqli_query($con, "SELECT *FROM user");
+$user_count = mysqli_num_rows($user);
+$emp = mysqli_query($con, "SELECT *FROM employee");
+$emp_count = mysqli_num_rows($emp);
+$total = $user_count + $emp_count;
 ?>
 <!--main-container-part-->
 <div id="content">
@@ -14,8 +17,52 @@ if (!(isset($_SESSION['leder_id'])) || !(isset($_SESSION['username']))) {
     <!--End-breadcrumbs-->
     <!--Action boxes-->
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
-            sdsd
+        <hr>
+        <center>
+            <h5>
+                <margee>HOME PAGE</margee>
+            </h5>
+        </center>
+        <hr>
+        <marquee direction="right" height="40%" behavior="alternate" class="text-center">
+            <h4>WELL COME TO FACILITY MANAGEMENT SYSTEM</h4>
+            <h4> EMPLOYEE LEDER PAGE</h4>
+        </marquee>
+        <hr>
+        <div class="row-fluid">
+            <div class="card" style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;">
+                <img class="card-img-top" src="../images/users.png" alt="Card image cap" style="border-radius: 10px;">
+                <div class="card-body">
+                    <h3 class="card-title text-center"> Users</h3>
+                    <h1 class="card-text text-center"><?php echo $user_count; ?></h1>
+                    <p class="card-text text-center">There are <?php echo $user_count; ?> users registerd in the system
+                        to gete services.</p>
+                </div>
+            </div>
+            <div class="card"
+                style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:50px;">
+                <img class="card-img-top" src="../images/employees.jpg" alt="Card image cap"
+                    style="border-radius: 10px;">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Employee's</h3>
+                    <h1 class="card-text text-center"><?php echo $emp_count; ?></h1>
+                    <p class="card-text text-center">There are <?php echo $emp_count; ?> employees registerd in the
+                        system
+                        to give services.</p>
+
+                </div>
+            </div>
+            <div class="card"
+                style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:50px;">
+                <img class="card-img-top" src="../images/wkulogo2.jpg" alt="Card image cap"
+                    style="border-radius: 10px;">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Total</h3>
+                    <h1 class="card-text text-center"><?php echo $total; ?></h1>
+                    <p class="card-text text-center">There are <?php echo $total; ?>total Employee's and users registerd
+                        in the system to give and gete services.</p>
+                </div>
+            </div>
         </div>
 
     </div>

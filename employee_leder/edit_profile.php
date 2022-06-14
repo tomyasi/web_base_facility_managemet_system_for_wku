@@ -15,7 +15,7 @@ while ($row = mysqli_fetch_array($query)) {
     $gmail = $row["gmail"];
     $phone = $row["phone"];
     $nationality = $row["nationality"];
-    $address = $row["subcity"];
+    $address = $row["address"];
 }
 ?>
 <!--main-container-part-->
@@ -25,9 +25,9 @@ while ($row = mysqli_fetch_array($query)) {
         <div id="breadcrumb"><a href="home.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
                 Home</a>
             <a href="profile.php" title="Go to your profile" class="tip-bottom">
-                <i class="icon-eye-open"></i>Profile</a>
+                <i class="icon-folder-open"></i>Profile</a>
             <a href="edit_profile.php" title="Go to your profile edit page" class="tip-bottom">
-                <i class="icon-eye-open"></i>Profile Edit Page</a>
+                <i class="icon-folder-open"></i>Profile Edit Page</a>
         </div>
     </div>
     <!--End-breadcrumbs-->

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!(isset($_SESSION['leder_id']))) {
+if (!(isset($_SESSION['leder_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
 include("../connection.php");
@@ -68,45 +68,58 @@ $total = $un_read_res + $un_read_fee;
     </div>
     <!--sidebar-menu-->
     <div id="sidebar">
+        <?php $page_active = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1); ?>
         <ul id="bar">
-            <li class="active">
+            <li class="<?= $page_active == 'home.php' ? 'active' : '' ?>">
                 <a href="home.php"><i class="icon-dashboard"></i></i><span>Dashboard</span></a>
             </li>
 
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-th-list"></i><span>View</span>
+            <li class="submenu <?= $page_active == 'view_service_request.php' ||
+                                    $page_active == 'view_feedback.php' ||
+                                    $page_active == 'view_responce.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
+                        class="icon icon-th-list"></i><span>View</span>
                     <?php if ($total > 0) {
                         echo '<span class="label label-important" style="border-radius:15px">' . $total . '</span>';
                     } ?></a>
                 <ul>
-                    <li class="active"><a href="view_service_request.php"><i
-                                class="icon-eye-open"></i>&nbsp;&nbsp;Service Request
+                    <li class="<?= $page_active == 'view_service_request.php' ? 'active' : '' ?>"><a
+                            href="view_service_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Service Request
                         </a>
                     </li>
-                    <li><a href="view_feedback.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Feedback
+                    <li class="<?= $page_active == 'view_feedback.php' ? 'active' : '' ?>"><a
+                            href="view_feedback.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Feedback
                             <?php if ($un_read_fee > 0) {
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_fee . '</span>';
                             } ?></a>
                     </li>
-                    <li><a href="view_responce.php"><i class="icon-eye-open"></i>&nbsp;&nbsp; Response
+                    <li class="<?= $page_active == 'view_responce.php' ? 'active' : '' ?>"><a
+                            href="view_responce.php"><i class="icon-eye-open"></i>&nbsp;&nbsp; Response
                             <?php if ($un_read_res > 0) {
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_res . '</span>';
                             } ?></a>
                     </li>
                 </ul>
             </li>
-            <li>
+            <li class="<?= $page_active == 'report.php' ? 'active' : '' ?>">
                 <a href="report.php"><i class="icon-briefcase"></i><span>Generate Report</span></a>
             </li>
-            <li>
+            <li class="<?= $page_active == 'item_request_detail.php' ? 'active' : '' ?>">
                 <a href="item_request_detail.php"><i class="icon-reply"></i><span>Resource Request</span></a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="service_responce2.php"><i class="icon-exchange"></i><span>User Service Response</span></a>
-            </li>
-            <li class="submenu" id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
+            </li> -->
+            <li class="submenu <?= $page_active == 'profile.php' ||
+                                    $page_active == 'change_password.php' ||
+                                    $page_active == 'edit_profile.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
+                        class="icon icon-cogs"></i> <span>Setting</span></a>
                 <ul>
-                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
-                    <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
+                    <li class="<?= $page_active == 'profile.php' ? 'active' : '' ?>">
+                        <a href="profile.php"><i class="icon-user"></i> My Profile</a>
+                    </li>
+                    <li class="<?= $page_active == 'change_password.php' ? 'active' : '' ?>">
+                        <a href="change_password.php"><i class="icon-cog"></i> Change Password</a>
+                    </li>
                     <li><a href="../logout.php"><i class="icon-signout"></i> Log Out</a></li>
                 </ul>
             </li>

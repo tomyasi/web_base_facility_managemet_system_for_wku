@@ -21,6 +21,12 @@ include("../connection.php");
     $ma = $secu = $cl = $other = 0;
     $resu = mysqli_query($con, "SELECT *from serv_request where view='0'");
     $ur = mysqli_num_rows($resu);
+    $sub_sql = "";
+    if (isset($_SESSION['f']) && isset($_SESSION['t'])) {
+        $from = $_SESSION['f'];
+        $to = $_SESSION['t'];
+        $sub_sql = " WHERE req_date >= '$from' && req_date <= '$to'";
+    }
     ?>
     <table class="table table-bordered table-striped">
         <thead>
@@ -35,16 +41,14 @@ include("../connection.php");
         <tbody id="output">
             <tr>
                 <?php
-                $from = $_SESSION['from'];
-                $to = $_SESSION['to'];
-                $sub_sql = "where req_date >= '$from' && req_date <= '$to'";
                 $result = mysqli_query($con, "SELECT *from serv_request $sub_sql");
                 $un_read = mysqli_num_rows($result);
                 if ($un_read > 0) {
                     while ($row = mysqli_fetch_array($result)) {
                         $no++;
                         $e_id = $row["user_id"];
-                        $sql = mysqli_query($con, "SELECT *FROM user where id='$e_id'") or die("error occured" . mysqli_error($con));
+                        $sql = mysqli_query($con, "SELECT *FROM user where id='$e_id'") or
+                            die("error occured" . mysqli_error($con));
                         $user_info = mysqli_fetch_array($sql);
                         $re_by = $user_info['fname'] . ' ' . $user_info['mname'];
                         if ($row["req_service"] == "technician") {
@@ -136,7 +140,6 @@ include("../connection.php");
 
     <?php
     mysqli_close($con);
-
     ?>
 </body>
 

@@ -95,7 +95,7 @@ if (isset($_POST['backup'])) {
     fclose($handle);
 ?>
 <script type="text/javascript">
-document.getElementById("success-user").style.display = "block";
+document.getElementById("success-emp").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
     window.location.href = "backup.php";

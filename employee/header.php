@@ -76,7 +76,6 @@ $total = $un_read + $un_read_res + $un_read_fee;
 
             <li class="submenu <?= $page_active == 'view_service_request.php' ||
                                     $page_active == 'view_feedback.php' ||
-                                    $page_active == 'item_update.php' ||
                                     $page_active == 'view_responce.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
                         class="icon icon-th-list"></i><span>View Notification</span>
                     <?php if ($total > 0) {

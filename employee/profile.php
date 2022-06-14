@@ -22,7 +22,7 @@ $row = mysqli_fetch_array($profile);
         <div id="breadcrumb"><a href="home.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
                 Home</a>
             <a href="view_service_request.php" title="Go to your profile" class="tip-bottom">
-                <i class="icon-eye-open"></i>Profile Page</a>
+                <i class="icon-folder-open"></i>Profile Page</a>
         </div>
     </div>
     <!--End-breadcrumbs-->
