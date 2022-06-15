@@ -5,7 +5,7 @@ include("../connection.php");
 if (!(isset($_SESSION['user_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
-$emp_id = $_SESSION['emp_id'];
+$emp_id = $_SESSION['user_id'];
 $insertdate = date("Y/m/d H:i:s");
 $e_id = $_GET['id'];
 $result = mysqli_query($con, "SELECT * FROM serv_responce WHERE res_id=$e_id");

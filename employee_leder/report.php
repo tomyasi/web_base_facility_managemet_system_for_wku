@@ -32,12 +32,13 @@ include("../connection.php");
                     Search</button>
             </form>
             <br>
-            <hr>
+
             <div class="row-fluid">
                 <div class="span12">
                     <a href="print_report.php" class="btn btn-primary" style="border-radius:10px"><i
                             class="icon-print"></i>
                         PRINT</a>
+                    <hr>
                     <div class="widget-content nopadding">
                         <?php
                         $no =  $ma = $secu = $cl = $other =  $ur = 0;

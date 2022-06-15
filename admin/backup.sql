@@ -13,15 +13,15 @@ CREATE TABLE `eaccount` (
   CONSTRAINT `eaccount_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO eaccount VALUES("145","113","manager","123","1","2022-06-10 20:58:18","manager");
-INSERT INTO eaccount VALUES("146","114","admin","admin","1","2022-06-13 14:41:37","admin");
+INSERT INTO eaccount VALUES("145","113","manager","321","1","2022-06-15 09:26:23","manager");
+INSERT INTO eaccount VALUES("146","114","admin","admin","1","2022-06-15 08:58:15","admin");
 INSERT INTO eaccount VALUES("147","115","security","security","1","2022-06-12 22:02:58","security");
 INSERT INTO eaccount VALUES("148","116","technician","technician","1","2022-05-29 10:19:16","technician");
 INSERT INTO eaccount VALUES("183","116","stor","stor","1","2022-06-13 13:11:22","storekpeer");
 INSERT INTO eaccount VALUES("184","120","leder","f9025508216a1db7044e63a02f3d32d9","1","2022-05-29 10:19:16","manager");
 INSERT INTO eaccount VALUES("185","123","RegarfHghshsgyt","202cb962ac59075b964b07152d234b70","0","2022-05-29 10:19:16","admin");
-INSERT INTO eaccount VALUES("186","124","RegarfHghshsgyt","c8ffe9a587b126f152ed3d89a146b445","0","2022-05-29 10:19:16","clealiness");
-INSERT INTO eaccount VALUES("187","116","leder","leder","1","2022-06-08 09:55:32","leder");
+INSERT INTO eaccount VALUES("186","124","RegarfHghshsgyt","c8ffe9a587b126f152ed3d89a146b445","1","2022-05-29 10:19:16","clealiness");
+INSERT INTO eaccount VALUES("187","116","leder","leder","1","2022-06-14 14:07:14","leder");
 INSERT INTO eaccount VALUES("188","125","RegarfHghshsgyt","3def184ad8f4755ff269862ea77393dd","1","2022-06-10 12:08:48","manger");
 INSERT INTO eaccount VALUES("189","126","RegarfHghshsgyt","069059b7ef840f0c74a814ec9237b6ec","1","2022-06-10 12:08:48","admin");
 INSERT INTO eaccount VALUES("190","127","RegarfDfsdf","ec5decca5ed3d6b8079e2e7e7bacc9f2","1","2022-06-10 12:08:48","manger");
@@ -49,11 +49,11 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO employee VALUES("113","2","tuii","ryu","gess","f","30","fg@gmail.com","123456789","ethiopia","addissssss","10000","manager","0","gf");
-INSERT INTO employee VALUES("114","","Tesfa","Middel","Selam","m","23","tom@gmail.com","960035866","Ethiopia","Debre","1999","admin","0","");
+INSERT INTO employee VALUES("113","2","Getasew","ttesera","gess","f","39","fg67@gmail.com","123456789","ethiopia","addissssss","10000","manager","1","gf");
+INSERT INTO employee VALUES("114","","Tesfa","Middel","Selam","m","23","tom@gmail.com","960035866","Ethiopia","Debre","1999","admin","1","");
 INSERT INTO employee VALUES("115","","Yalew","Selemon","Bimrew","m","65","tommyasichenek@gmail.com","123123345","Ethiopia","Debremarkos","0","security","1","");
-INSERT INTO employee VALUES("116","","Demeku","Gashew","Dfsdf","f","32","demeku@gmail.com","568754342","Ethiopia","Debre","0","technician","1","");
-INSERT INTO employee VALUES("120","EMP_3248_120","Temesgen","Middel","Asi","f","45","tomy@gmail.com","123123123","Ethiopia","Debremarkos","0","manger","1","");
+INSERT INTO employee VALUES("116","","Demeku","Gashew","Dfsdf","f","32","demeku@gmail.com","568754342","Ethiopia","Debre","0","technician","0","");
+INSERT INTO employee VALUES("120","EMP_3248_120","wer","Misdl","Asifrgfg","m","48","tomy@gmail.com","123123123","Ethiopia","Debremarkos","34556","manager","0","");
 INSERT INTO employee VALUES("123","EMP_3226_123","Regarf","Fgfdyhtrshfg","Hghshsgyt","m","65","egdvrtr@gmail.com","123545456","Etr","Rtty","0","admin","1","");
 INSERT INTO employee VALUES("124","EMP_1743_124","Regarf","Fgfdyhtrshfg","Hghshsgyt","m","23","et@gmail.com","123545458","Etr","Rtty","0","clealiness","1","");
 INSERT INTO employee VALUES("125","EMP_9054_125","Regarf","Fgfdyhtrshfg","Hghshsgyt","m","45","egdv5@gmail.com","123545450","Etr","Rtty","0","manger","1","");
@@ -147,7 +147,7 @@ INSERT INTO item_order VALUES("38","11","115","laptop","Security Material","Cons
 INSERT INTO item_order VALUES("39","12","115","laptop","Security Material","Consumable","moderate","1","2022-06-21 13:13:38","1","0");
 INSERT INTO item_order VALUES("57","9","115","laptop","office material","Returnable","high","3","2022-06-09 09:43:50","1","1");
 INSERT INTO item_order VALUES("58","11","115","laptop","Security Material","Consumable","moderate","2","2022-06-09 09:43:51","1","1");
-INSERT INTO item_order VALUES("59","30","115","bus","Car","Returnable","high","10","2022-06-09 09:49:51","0","0");
+INSERT INTO item_order VALUES("59","30","115","bus","Car","Returnable","high","3","2022-06-09 09:49:51","1","0");
 
 
 
@@ -183,7 +183,7 @@ INSERT INTO item_request VALUES("26","115","laptop","Clean material","Returnable
 INSERT INTO item_request VALUES("27","115","bus","office","Returnable","high","4","jdfhjh","2022-05-28 11:25:01","1","1");
 INSERT INTO item_request VALUES("28","115","bus","Car","Returnable","high","1","tyhgfgjfjg","2022-06-01 11:32:31","1","1");
 INSERT INTO item_request VALUES("29","115","bus","office","Returnable","high","2","gnbxfgbhdfg","2022-06-01 21:46:01","1","1");
-INSERT INTO item_request VALUES("30","115","bus","Car","Returnable","high","10","uyyy","2022-06-09 09:43:13","1","0");
+INSERT INTO item_request VALUES("30","115","bus","Car","Returnable","high","10","uyyy","2022-06-09 09:43:13","1","1");
 
 
 

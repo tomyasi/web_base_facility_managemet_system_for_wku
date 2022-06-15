@@ -6,7 +6,7 @@ $sql = "SELECT *from stock where item_id=$id";
 $query = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
 $id = $code = $name = $type = $category = $model = $quality = $quantity = $status  = "";
 while ($row = mysqli_fetch_array($query)) {
-    $id = $row["id"];
+    $id = $row["item_id"];
     $code = $row["item_code"];
     $name = $row["item_name"];
     $type = $row["item_type"];
@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_array($query)) {
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
+        <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>

@@ -84,6 +84,10 @@ session_start();
                         style="border-radius: 13px;">
                 </center>
             </div>
+            <div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Forgot Password</button>
+
+            </div>
         </form>
         <?php
         if (isset($_POST["submit"])) {

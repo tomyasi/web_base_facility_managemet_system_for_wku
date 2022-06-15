@@ -50,7 +50,7 @@ include("../connection.php")
                     <!-- employee view inteble form  -->
                     <div class="widget-content nopadding">
                         <?php
-                        $no = 1;
+                        $no = 0;
                         $total_give = 0;
                         $sub_sql = $toDate = $fromDate = "";
                         if (isset($_POST['submit1'])) {
