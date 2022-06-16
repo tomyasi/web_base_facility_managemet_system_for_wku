@@ -66,7 +66,6 @@ session_start();
             <div class="control-group">
                 <div class="controls">
                     <div class="main_input_box">
-                        <!-- <span class="add-on bg_lg">Role</span> -->
                         <select name="role" required style="border-radius: 13px;">
                             <option value="">...Select Role...</option>
                             <!-- <option value="admin">Admin</option>
@@ -85,8 +84,7 @@ session_start();
                 </center>
             </div>
             <div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Forgot Password</button>
-
+                <a href="forgot_password.php" class="btn btn-lg btn-primary btn-block" name="forgot">Forgot Password</a>
             </div>
         </form>
         <?php

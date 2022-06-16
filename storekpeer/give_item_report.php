@@ -106,7 +106,7 @@ include("../connection.php")
                                     } else { ?>
                                 <div class="alert alert-danger" id="error" style="display: block;">
                                     <center>
-                                        <strong>Empty Request.</strong>
+                                        <strong>Empty.</strong>
                                     </center>
                                 </div>
                                 <?php

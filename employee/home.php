@@ -13,17 +13,19 @@ include("header.php");
     <div class="container-fluid">
         <div class="row-fluid">
             <hr>
-            <center>
+            <!-- <center>
                 <h5>
                     <margee>HOME PAGE</margee>
                 </h5>
-            </center>
+            </center> -->
             <marquee direction="right" height="40%" behavior="alternate">
 
-                <span style="FONT-FAMILY: " lang="RU"><strong>
-                        <h2>
-                            <font color="#003333">Welcome to facility management system!<br> Employee Page</font>
-                        </h2>
+                <span lang="RU"><strong>
+                        <center>
+                            <h2>
+                                <font color="#003333">Welcome to facility management system!<br> Employee Page</font>
+                            </h2>
+                        </center>
                     </strong>
             </marquee>
             <hr>
@@ -33,7 +35,7 @@ include("header.php");
             <font style="font-family:tahoma; font-size:12px;">
                 <p style="LINE-HEIGHT: 18pt; MARGIN: 0in 0in 0pt" dir="ltr" class="MsoNormal" align="left">
                     <center>
-                        <span style="FONT-FAMILY: " lang="RU"><strong>
+                        <span lang="RU"><strong>
                                 <h2>
                                     <font color="#003333">Things to do in
                                         Employee</font>

@@ -103,7 +103,10 @@ $total = $un_read + $un_read_res + $un_read_fee;
                 <a href="report.php"><i class="icon-briefcase"></i><span>Generate Report</span></a>
             </li>
             <li class="<?= $page_active == 'item_request_detail.php' ? 'active' : '' ?>">
-                <a href="item_request_detail.php"><i class="icon-reply"></i><span>Resource Request</span></a>
+                <a href="view_responce.php"><i class="icon-reply"></i><span>Resource Request</span></a>
+            </li>
+            <li class="<?= $page_active == 'item_return.php' ? 'active' : '' ?>">
+                <a href="item_return.php"><i class="icon-reply"></i>Return Item</a>
             </li>
             <li
                 class="<?= $page_active == 'service_responce2.php' || $page_active == 'service_request_reply.php' ? 'active' : '' ?>">

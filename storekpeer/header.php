@@ -68,6 +68,7 @@ $total = $un_read + $count_fee;
             </li>
             <li class="submenu <?= $page_active == 'item_register.php' ||
                                     $page_active == 'item_add.php' ||
+                                    $page_active == 'edite_item.php' ||
                                     $page_active == 'item_update.php' ||
                                     $page_active == 'item_status.php' ||
                                     $page_active == 'item_view.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
@@ -129,10 +130,11 @@ $total = $un_read + $count_fee;
                     </li>
                 </ul>
             </li>
-            <li class="<?= $page_active == 'item_order.php' || $page_active == 'give_item.php' ? 'active' : '' ?>">
-                <a href="item_order.php"><i class="icon-briefcase"></i>
-                    <span>Item Orderd</span></a>
+            <li class="<?= $page_active == 'returnable_item.php' ? 'active' : '' ?>">
+                <a href="returnable_item.php"><i class="icon-briefcase"></i>
+                    <span>Returnable Item</span></a>
             </li>
+            <!-- <li><a href="item_view.php"><i class="icon-signout"></i> Log Out</a></li> -->
             <li class="submenu <?= $page_active == 'profile.php' || $page_active == 'change_password.php'  ? 'active' : '' ?>"
                 id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
                 <ul>

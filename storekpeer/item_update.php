@@ -7,8 +7,8 @@ include("../connection.php")
     <div id="content-header">
         <div id="breadcrumb">
             <a href="#"><i class="icon icon-th-list"></i> <span>Manage Item</span></a>
-            <a href="item_view.php" title="Go to view User" class="tip-bottom">
-                <i class="icon-eye-open"></i>View Item
+            <a href="item_update.php" title="Go to view User" class="tip-bottom">
+                <i class="icon-pencil"></i>Item Update
             </a>
         </div>
     </div>

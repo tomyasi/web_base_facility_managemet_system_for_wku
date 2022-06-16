@@ -23,21 +23,26 @@ while ($row = mysqli_fetch_array($query)) {
     <div id="content-header">
         <div id="breadcrumb">
             <a href="#"><i class="icon icon-th-list"></i> <span>Manage Item</span></a>
-            <a href="update_users.php" title="Go to User update" class="tip-bottom"><i class="icon-pencil"></i> Update
+            <a href="item_update.php" title="Go to Item update" class="tip-bottom"><i class="icon-pencil"></i> Update
                 Item</a>
-            <a href="user_edite.php" title="Go to User update form" class="tip-bottom">
+            <a href="edite_item.php" title="Go to Item update form" class="tip-bottom">
                 Item Update form</a>
         </div>
     </div>
     <div class="container-fluid">
+        <hr>
+        <center>
+            <h5>ITEM UPDATE PAGE</h5>
+        </center>
+        <hr>
         <div class="row-fluid">
             <div class="span12">
-                <div class="widget-box">
+                <div class="widget-box" style="border-radius: 20px; margin-right:10%; margin-left:10%">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>Item Update Form</h5>
                     </div>
                     <!-- user edite in table form  -->
-                    <div class="widget-content nopadding">
+                    <div class="widget-content nopadding" style="border-radius: 20px;">
                         <form name="formsend" action="#" method="POST" class="form-horizontal">
                             <div class="control-group">
                                 <label class="control-label"><strong>Item Code :</strong></label>
@@ -157,18 +162,26 @@ while ($row = mysqli_fetch_array($query)) {
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"><strong>Item Quality:</strong></label>
+                                <label class="control-label"><strong>Item Quality :</strong></label>
                                 <div class="controls">
-                                    <input type="text" id="subcity" class="span11" placeholder="Enter item quality"
-                                        name="quality" required style="border-radius: 13px;"
-                                        value="<?php echo $quality; ?>" />
+                                    <select class="span11" name="quality" required style="border-radius: 13px;">
+                                        <option value="<?php if ($quality == "high") {
+                                                            echo "selected";
+                                                        } ?>">High</option>
+                                        <option value="<?php if ($quality == "Moderate") {
+                                                            echo "selected";
+                                                        } ?>">Moderate</option>
+                                        <option value="<?php if ($quality == "low") {
+                                                            echo "selected";
+                                                        } ?>">Low</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Item Quantity :</strong></label>
                                 <div class="controls">
-                                    <input type="number" class="span11" placeholder="Enter item quantity"
-                                        name="quantity" required min="0" style="border-radius: 13px;"
+                                    <input type="text" id="subcity" class="span11" placeholder="Enter item quality"
+                                        name="quality" required style="border-radius: 13px;"
                                         value="<?php echo $quantity; ?>" />
                                 </div>
                             </div>
