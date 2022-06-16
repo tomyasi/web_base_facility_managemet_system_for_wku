@@ -46,7 +46,7 @@ $user = $requester['user_id'];
                             <div class="span2">
                                 <br>
                                 <div>
-                                    <label>Date</label>
+                                    <label>Today</label>
                                     <input type="text" required class="span12" name="date"
                                         value="<?php echo $insertdate; ?>" readonly style="border-radius:10px">
                                 </div>

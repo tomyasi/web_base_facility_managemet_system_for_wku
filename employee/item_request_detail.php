@@ -34,11 +34,11 @@ $insertdate = date("Y/m/d H:i:s");
                             <strong>Same thing error,please triy agian.</strong>
                         </center>
                     </div>
-                    <div class="widget-box">
+                    <div class="widget-box" style="border-radius: 20px; margin-right:10%; margin-left:10%">
                         <div class="widget-title"><span class="icon"> <i class="icon-align-justify"></i> </span>
                             <h5>Resource Request Form</h5>
                         </div>
-                        <div class="widget-content nopadding">
+                        <div class="widget-content nopadding" style="border-radius: 20px;">
                             <div class="span3">
                                 <br>
                                 <div>
