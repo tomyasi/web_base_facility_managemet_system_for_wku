@@ -15,7 +15,6 @@ $output .= '
  <table class="table table-bordered">  
       <tr>  
       <th>#</th>
-      <th><a class="column_sort" id="item_id" data-order="' . $order . '" href="#">Item ID</a></th>
       <th><a class="column_sort" id="item_code" data-order="' . $order . '" href="#">Item Code</a></th>
       <th><a class="column_sort" id="item_name" data-order="' . $order . '" href="#">Item name</a></th>
       <th><a class="column_sort" id="item_type" data-order="' . $order . '" href="#">Item Type</a></th>
@@ -29,7 +28,6 @@ while ($row = mysqli_fetch_array($result)) {
     $output .= '  
       <tr>  
       <td>' . $no . '</td>
-      <td>' . $row["item_id"] . '</td>
       <td>' . $row["item_code"] . '</td>
       <td>' . $row["item_name"] . '</td>
       <td>' . $row["item_type"] . '</td>

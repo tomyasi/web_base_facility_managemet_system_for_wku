@@ -63,7 +63,7 @@ include("../connection.php");
                 </td>
                 <td><?php echo $row["age"]; ?></td>
                 <td><?php echo $row["gmail"]; ?></td>
-                <td><?php echo $row["phone"]; ?></td>
+                <td><?php echo "+251 ", $row["phone"]; ?></td>
                 <td><?php echo $row["nationality"]; ?></td>
                 <td><?php echo $row["address"]; ?></td>
                 <td><?php echo $row["salary"]; ?></td>

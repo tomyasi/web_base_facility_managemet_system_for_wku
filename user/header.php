@@ -68,7 +68,8 @@ $un_read = mysqli_num_rows($result);
                 <a href="send_request.php"><i class="icon icon-envelope"></i>
                     <span>Send Request</span></a>
             </li>
-            <li class="<?= $page_active == 'view_responce.php' ? 'active' : '' ?>">
+            <li
+                class="<?= $page_active == 'view_responce.php' || $page_active == 'employee_info.php' ? 'active' : '' ?>">
                 <a href="view_responce.php"><i class="icon-signin"></i>
                     <span>View Respons</span>
                     <?php if ($un_read > 0) {

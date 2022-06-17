@@ -164,15 +164,16 @@ if (isset($_POST['add'])) {
     $name = mysqli_real_escape_string($con, $_POST["item_name"]);
     $quality = mysqli_real_escape_string($con, $_POST["quality"]);
     $quantity = mysqli_real_escape_string($con, $_POST["quantity"]);
+
     $sql = "SELECT *FROM stock where item_name='$name' and item_quality='$quality'";
     $serch_item = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
-    $row = mysqli_fetch_array($serch_item);
-    if (!$serch_item) {
-        $new_quantity = $row['item_quantity'] + $quantity;
-        $sql2 = "UPDATE stock set item_quantity='$new_quantity' where item_name='$name' and item_quality='$quality'";
+    // $row = mysqli_fetch_array($serch_item);
+    //$new_quantity = $row['item_quantity'] + $quantity;
+    if (mysqli_num_rows($serch_item) > 0) {
+        $sql2 = "UPDATE stock set item_quantity=item_quantity+'$quantity' where item_name='$name' and item_quality='$quality'";
         $res = mysqli_query($con, $sql2) or die("Error occurd" . mysqli_error($con));
-        if (!$res) {
-?>
+        echo $res;
+        if ($res) { ?>
 <script type="text/javascript">
 document.getElementById("success").style.display = "block";
 // refresh the page after 3 second
@@ -181,7 +182,8 @@ setTimeout(function() {
 }, 3000);
 </script>
 <?php
-        } else {    ?>
+
+        } else { ?>
 <script type="text/javascript">
 document.getElementById("e").style.display = "block";
 // refresh the page after 3 second
@@ -189,9 +191,9 @@ setTimeout(function() {
     window.location.href = "item_add.php";
 }, 3000);
 </script>
-<?php }
-    } else {
-        ?>
+<?php
+        }
+    } else { ?>
 <script type="text/javascript">
 document.getElementById("error").style.display = "block";
 // refresh the page after 3 second
@@ -201,7 +203,6 @@ setTimeout(function() {
 </script>
 <?php
     }
-
     mysqli_close($con);
 }
 include("footer.php");

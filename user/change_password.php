@@ -5,13 +5,13 @@ if (isset($_POST['re_password'])) {
     $old_pass = $_POST['old_pass'];
     $new_pass = $_POST['new_pass'];
     $re_pass = $_POST['re_pass'];
-    $password_query = mysqli_query($con, "SELECT * from uaccount where id='$user_id'");
+    $password_query = mysqli_query($con, "SELECT * from uaccount where user_id='$user_id'");
     $password_row = mysqli_fetch_array($password_query);
     $database_password = $password_row['password'];
     if ($database_password == $old_pass) {
 
         if ($new_pass == $re_pass) {
-            $update_pwd = mysqli_query($con, "UPDATE uaccount set password='$new_pass' where id='$user_id'");
+            $update_pwd = mysqli_query($con, "UPDATE uaccount set password='$new_pass' where user_id='$user_id'");
             echo "<script>alert('Update Sucessfully'); window.location='home.php'</script>";
         } else {
             echo "<script>alert('Your new and Retype Password is not match'); window.location='change_password.php'</script>";

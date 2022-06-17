@@ -9,8 +9,9 @@ $email_err = "";
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
+            <a href="#"><i class="icon icon-th-list"></i> <span>Manage Item</span></a>
             <a href="item_register.php" title="Go to Employee Registration" class="tip-bottom">
-                <i class="icon icon-envelope"></i>Item Registration
+                <i class="icon-laptop"></i>Item Registration
             </a>
         </div>
     </div>

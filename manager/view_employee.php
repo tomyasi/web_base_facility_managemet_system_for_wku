@@ -25,7 +25,7 @@ include("../connection.php")
                     <div class="span2">
                         <div>
                             <label>Search</label>
-                            <select class="span11" name="sex" required style="border-radius: 13px;" id="type">
+                            <select class="span12" name="sex" required style="border-radius: 13px;" id="type">
                                 <option value="all">All</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -40,7 +40,16 @@ include("../connection.php")
                         </div>
                     </div>
                 </form>
-                <br><br>
+                <br>
+                <form name="formsend" action="#" method="POST" class="form-horizontal">
+                    <input type="text" class="span6" name="live_search" id="live_search" autocomplete="off"
+                        placeholder="Search ..." style="border-radius:10px" required>
+                    &nbsp;&nbsp;
+                    <button type="submit" id="f" name="ind_search" class="btn btn-primary"
+                        style="border-radius: 13px;float: left;"><strong>Search</strong></button>
+                    <button type="button" name="submit2" class="btn btn-warning"
+                        onclick="window.location.href=window.location.href" style="border-radius: 10px;">Clear</button>
+                </form><br>
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>Employee View Form</h5>
@@ -100,7 +109,7 @@ include("../connection.php")
                                     </td>
                                     <td><?php echo $row["age"]; ?></td>
                                     <td><?php echo $row["gmail"]; ?></td>
-                                    <td><?php echo $row["phone"]; ?></td>
+                                    <td><?php echo "+251 ", $row["phone"]; ?></td>
                                     <td><?php echo $row["nationality"]; ?></td>
                                     <td><?php echo $row["salary"]; ?></td>
                                     <td><?php echo $row["jop_position"]; ?></td>
@@ -168,7 +177,7 @@ include("../connection.php")
                                     </td>
                                     <td><?php echo $row["age"]; ?></td>
                                     <td><?php echo $row["gmail"]; ?></td>
-                                    <td><?php echo $row["phone"]; ?></td>
+                                    <td><?php echo "+251 ", $row["phone"]; ?></td>
                                     <td><?php echo $row["nationality"]; ?></td>
                                     <td><?php echo $row["salary"]; ?></td>
                                     <td><?php echo $row["jop_position"]; ?></td>
@@ -236,7 +245,7 @@ include("../connection.php")
                                     </td>
                                     <td><?php echo $row["age"]; ?></td>
                                     <td><?php echo $row["gmail"]; ?></td>
-                                    <td><?php echo $row["phone"]; ?></td>
+                                    <td><?php echo "+251 ", $row["phone"]; ?></td>
                                     <td><?php echo $row["nationality"]; ?></td>
                                     <td><?php echo $row["salary"]; ?></td>
                                     <td><?php echo $row["jop_position"]; ?></td>
@@ -256,8 +265,81 @@ include("../connection.php")
                         </table>
                         <?php
                             }
-                        } else {
+                        } elseif (isset($_POST['ind_search'])) {
+                            $search = mysqli_real_escape_string($con, $_POST['live_search']);
                             ?>
+                        <table id="datatableid" class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th><a class="column_sort" id="emp_id" data-order="desc" href="#">Emp_ID</a></th>
+                                    <th><a class="column_sort" id="fname" data-order="desc" href="#">FIRST NAME</a>
+                                    </th>
+                                    <th><a class="column_sort" id="mname" data-order="desc" href="#">MIDDEL NAME</a>
+                                    </th>
+                                    <th><a class="column_sort" id="sex" data-order="desc" href="#">SEX</a></th>
+                                    <th><a class="column_sort" id="age" data-order="desc" href="#">AGE</a></th>
+                                    <th><a class="column_sort" id="gmail" data-order="desc" href="#">GMAIL</a></th>
+                                    <th><a class="column_sort" id="phone" data-order="desc" href="#">PHONE</a></th>
+                                    <th><a class="column_sort" id="nationality" data-order="desc"
+                                            href="#">NATIONALITY</a></th>
+                                    <th><a class="column_sort" id="salary" data-order="desc" href="#">SALARY</a></th>
+                                    <th><a class="column_sort" id="jop_position" data-order="desc" href="#">JOP
+                                            POSITION</a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $result = mysqli_query($con, "SELECT *from employee where
+                                    emp_id  LIKE '%" . $search . "%'
+                                    OR fname LIKE '%" . $search . "%'
+                                    OR mname LIKE '%" . $search . "%' 
+                                    OR lname LIKE '%" . $search . "%' ");
+                                    $user = mysqli_num_rows($result);
+                                    if ($user > 0) {
+                                        $no = 0;
+                                        while ($row = mysqli_fetch_array($result)) {
+                                            $no++;
+                                    ?>
+                                <tr>
+                                    <td><?php echo $no; ?></td>
+                                    <td><?php echo $row["emp_id"]; ?></td>
+                                    <td><?php echo $row["fname"]; ?></td>
+                                    <td><?php echo $row["mname"]; ?></td>
+                                    <td><?php
+                                                    if ($row["gender"] == "m") {
+                                                        $male++;
+                                                        echo "Male";
+                                                    } else {
+                                                        $female++;
+                                                        echo "Female";
+                                                    }
+                                                    ?>
+                                    </td>
+                                    <td><?php echo $row["age"]; ?></td>
+                                    <td><?php echo $row["gmail"]; ?></td>
+                                    <td><?php echo "+251 ", $row["phone"]; ?></td>
+                                    <td><?php echo $row["nationality"]; ?></td>
+                                    <td><?php echo $row["salary"]; ?></td>
+                                    <td><?php echo $row["jop_position"]; ?></td>
+                                    <?php
+
+                                        }
+                                    } else { ?>
+                                    <div class="alert alert-danger" id="error" style="display: block;">
+                                        <center>
+                                            <strong>Empty.</strong>
+                                        </center>
+                                    </div>
+                                    <?php
+                                    }
+                                        ?>
+                            </tbody>
+                        </table>
+                        <?php
+                        } else {
+                        ?>
                         <table id="datatableid" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
@@ -305,7 +387,7 @@ include("../connection.php")
                                     </td>
                                     <td><?php echo $row["age"]; ?></td>
                                     <td><?php echo $row["gmail"]; ?></td>
-                                    <td><?php echo $row["phone"]; ?></td>
+                                    <td><?php echo "+251 ", $row["phone"]; ?></td>
                                     <td><?php echo $row["nationality"]; ?></td>
                                     <td><?php echo $row["salary"]; ?></td>
                                     <td><?php echo $row["jop_position"]; ?></td>

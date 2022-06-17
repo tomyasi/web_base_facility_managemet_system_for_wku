@@ -63,7 +63,7 @@ $row = mysqli_fetch_array($u_name);
                             <hr>
                             <div class="control-group" id="profile">
                                 <label class="control-label">Mobile :</label>
-                                <strong class="control-label"><?php echo $row['phone']; ?>
+                                <strong class="control-label"><?php echo "+251", $row['phone']; ?>
                                 </strong>
                             </div>
                         </form>
