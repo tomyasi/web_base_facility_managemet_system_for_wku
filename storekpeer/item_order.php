@@ -6,9 +6,8 @@ include("../connection.php")
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
-            <a href="#"><i class="icon icon-th-list"></i> <span>View</span></a>
-            <a href="view_request.php" title="Go to view User" class="tip-bottom">
-                <i class="icon-eye-open"></i>View Request
+            <a href="item_order.php" title="Go to view User" class="tip-bottom">
+                <i class="icon-reorder"></i> View Item ordered
             </a>
         </div>
     </div>
@@ -38,12 +37,12 @@ include("../connection.php")
                                     <th>Item Quantity</th>
                                     <th>Odered date</th>
                                     <th>Aproved</th>
-                                    <th>Give Item</th>
+                                    <!-- <th>Give Item</th> -->
                                 </tr>
                             </thead>
                             <tbody id="output">
                                 <?php
-                                $result = mysqli_query($con, "SELECT *from item_order where aprove='1'");
+                                $result = mysqli_query($con, "SELECT *from item_order "); //where aprove='1'
                                 $no = 1;
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_array($result)) {
@@ -61,27 +60,45 @@ include("../connection.php")
                                     <td><?php echo $row["quality"]; ?></td>
                                     <td><?php echo $row["quantity"]; ?></td>
                                     <td><?php echo $row["orderd_date"]; ?></td>
-                                    <td> <?php if ($row["aprove"] == "1") { ?>
-                                        <img src="../images/tick.png" alt="" class="img-fluid"></a>
-                                        <?php
-                                                    } else { ?>
-                                        <img src="../images/remove.png" alt="" class="img-fluid">
-                                        <?php
-                                                    }
-                                                ?>
-                                    </td>
                                     <td>
-                                        <?php if ($row["give"] == "1") { ?>
-                                        <img src="../images/tick.png" alt="" class="img-fluid"></a>
+                                        <?php if ($row["aprove"] == "0") {
+                                                ?>
+                                        <i class="icon-spinner icon-spin icon-large"></i>panding
                                         <?php
-                                                } else { ?>
+                                                } elseif ($row["aprove"] == "1") {
+                                                ?>
                                         <a href="give_item.php?id=<?php echo $row['order_id'] ?>" class="btn
-                                        btn-primary" style="border-radius:13px"><i class="icon-reply"></i>
-                                            Give </a>
+                                        btn-success" style="border-radius:13px" title="Give Item"><i
+                                                class="icon-check"></i>
+                                        </a>
+                                        <!-- <img src="../images/tick.png" alt="" class="img-fluid"> -->
+                                        <?php
+                                                } elseif ($row["aprove"] == "3") {
+                                                ?>
+                                        <p style="color: green;">completed</p>
+                                        <?php
+                                                } else {
+                                                ?>
+                                        <img src="../images/remove.png" alt="" class="img-fluid">Rejected
                                         <?php
                                                 }
                                                 ?>
                                     </td>
+                                    <!-- <td>
+                                        <?php // if ($row["give"] == "1") { 
+                                        ?>
+                                        <img src="../images/tick.png" alt="" class="img-fluid"></a>
+                                        <?php
+                                        // } else { 
+                                        ?>
+                                        <a href="give_item.php?id=<?php //echo $row['order_id'] 
+                                                                    ?>" class="btn
+                                        btn-success" style="border-radius:13px"><i class="icon-reply"></i>
+                                            Give </a>
+                                        <?php
+                                        //  }
+                                        ?>
+                                    </td> -->
                                 </tr>
                                 <?php
                                         $no++;
@@ -89,7 +106,7 @@ include("../connection.php")
                                 } else { ?>
                                 <div class="alert alert-danger" id="error" style="display: block;">
                                     <center>
-                                        <strong>Empty Request.</strong>
+                                        <strong>Empty.</strong>
                                     </center>
                                 </div>
                                 <?php

@@ -107,42 +107,57 @@ img {
 
     <!--Action boxes-->
     <div class="container-fluid">
-        <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
-            <div class="container">
-                <td width="685" height="195" align="left" valign="top" style="color:#000000; ">
-                    <font style="font-family:tahoma; font-size:12px;">
-                        <p />
-                        <p><span style="LINE-HEIGHT: 115%; FONT-FAMILY: "></span><span style="LINE-HEIGHT: 
-																		  115%; FONT-FAMILY: "></span></p>
-                        <p style="LINE-HEIGHT: 18pt; MARGIN: 0in 0in 0pt" dir="ltr" class="MsoNormal" align="left"><span
-                                style="FONT-FAMILY: 
-								 " lang="RU"><strong>
-                                    <h2>
-                                        <font color="#003333">Welcome to facility management system!<br> Things to do in
-                                            Customer</font> <br /><br />
-                                    </h2>
-                                </strong>
-                                <font color="#003333">
-                                    <marquee behavior="scroll" direction="up">
-                                        <strong>
-                                            <h3>&diams;&nbsp;&nbsp;&nbsp;View Response</h3>
-                                        </strong>
+        <div class="row-fluid">
+            <hr>
+            <!-- <center>
+                <h5>
+                    <margee>HOME PAGE</margee>
+                </h5>
+            </center> -->
+            <marquee direction="right" height="40%" behavior="alternate">
 
-                                        <strong>
-                                            <h3>&diams;&nbsp;&nbsp;&nbsp;send Request</h3>
-                                        </strong>
-                                        <strong>
-                                            <h3>&diams;&nbsp;&nbsp;&nbsp;send Feedback</h3>
-                                        </strong>
-                                        <strong>
-                                            <h3>&diams;&nbsp;&nbsp;&nbsp;change passwords.</h3>
-                                        </strong>
+                <span lang="RU"><strong>
+                        <center>
+                            <h2>
+                                <font color="#003333">Welcome To Facility Management System!<br> User Page</font>
+                            </h2>
+                        </center>
+                    </strong>
+            </marquee>
+            <hr>
+            <div class="row-fluid">
+                <div class="container">
+                    <td width="685" height="195" align="left" valign="top" style="color:#000000; ">
+                        <font style="font-family:tahoma; font-size:12px;">
+                            <p><span style="LINE-HEIGHT: 115%;"></span>
+                                <span style="LINE-HEIGHT:115%;"></span>
+                            </p>
+                            <p style="LINE-HEIGHT: 18pt; MARGIN: 0in 0in 0pt" dir="ltr" class="MsoNormal" align="left">
+                                <center><span lang="RU">
+                                        <h2>
+                                            <font color="#003333">Things to do in
+                                                Users</font>
+                                        </h2>
+                                    </span>
+                                    <!-- <marquee behavior="scroll" direction="up"> -->
+                                    <strong>
+                                        <h3>&diams;&nbsp;&nbsp;&nbsp;View Response</h3>
+                                    </strong>
+                                    <strong>
+                                        <h3>&diams;&nbsp;&nbsp;&nbsp;send Request</h3>
+                                    </strong>
+                                    <strong>
+                                        <h3>&diams;&nbsp;&nbsp;&nbsp;send Feedback</h3>
+                                    </strong>
+                                    <strong>
+                                        <h3>&diams;&nbsp;&nbsp;&nbsp;change passwords.</h3>
+                                    </strong>
+                                    <!-- </marquee> -->
+                                </center>
+                            </p>
+                        </font>
 
-                                    </marquee>
-
-                                </font>
-                            </span><span style="FONT-FAMILY: "></span></p>
-                        <p align="left">
+                        <!-- <p align="left">
                             <font color="#003333"></font>
                         </p>
                         <p style="MARGIN: 0in 0in 10pt" class="MsoNormal" align="left">
@@ -163,77 +178,10 @@ img {
                         <p align="left">
                             <font color="#003333"></font>
                         </p>
-                        <p align="left"><span style="LINE-HEIGHT: 
-  115%; FONT-FAMILY: "></span>
-                            <font color="#003333"><span style="LINE-HEIGHT: 115%; FONT-FAMILY: ">
-                </td>
-
-                <!-- Full-width images with number text -->
-                <div class="mySlides">
-                    <div class="numbertext">1 / 6</div>
-                    <img src="../images/fms1.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">2 / 6</div>
-                    <img src="../images/fms2.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">3 / 6</div>
-                    <img src="../images/fms3.png" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">4 / 6</div>
-                    <img src="../images/fms4.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">5 / 6</div>
-                    <img src="../images/fms5.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">6 / 6</div>
-                    <img src="../images/fms3.png" style="width:100%">
-                </div>
-
-                <!-- Next and previous buttons -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                <!-- Image text -->
-                <div class="caption-container">
-                    <p id="caption"> caption</p>
-                </div>
-
-                <!-- Thumbnail images -->
-                <div class="row">
-                    <div class="column">
-                        <img class="demo cursor" src="../images/fms1.jpg" style="width:100%" onclick="currentSlide(1)"
-                            alt="The Woods">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="../images/fms2.jpg" style="width:100%" onclick="currentSlide(2)"
-                            alt="Cinque Terre">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="../images/fms3.png" style="width:100%" onclick="currentSlide(3)"
-                            alt="Mountains and fjords">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="../images/fms4.png" style="width:100%" onclick="currentSlide(4)"
-                            alt="Northern Lights">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="../images/fms5.jpg" style="width:100%" onclick="currentSlide(5)"
-                            alt="Nature and sunrise">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="../images/fms3.png" style="width:100%" onclick="currentSlide(6)"
-                            alt="Snowy Mountains">
-                    </div>
+                        <p align="left"><span style="LINE-HEIGHT: 115%;"></span>
+                            <font color="#003333"><span style="LINE-HEIGHT: 115%;"></span></font>
+                        </p> -->
+                    </td>
                 </div>
             </div>
         </div>

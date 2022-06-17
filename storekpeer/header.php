@@ -11,6 +11,8 @@ $un_read = mysqli_num_rows($result);
 $feedback = mysqli_query($con, "SELECT *from feedback where send_to=$stor_id");
 $count_fee = mysqli_num_rows($feedback);
 $total = $un_read + $count_fee;
+$return = mysqli_query($con, "SELECT *from give_item where retu='1' and item_category='Returnable'");
+$return_count = mysqli_num_rows($return);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -132,9 +134,13 @@ $total = $un_read + $count_fee;
             </li>
             <li class="<?= $page_active == 'returnable_item.php' ? 'active' : '' ?>">
                 <a href="returnable_item.php"><i class="icon-briefcase"></i>
-                    <span>Returnable Item</span></a>
+                    <span>Returnable Item<?php if ($return_count > 0) {
+                                                echo '<span class="label label-important" style="border-radius:30px">' . $return_count . '</span>';
+                                            } ?></span></a>
             </li>
-            <!-- <li><a href="item_view.php"><i class="icon-signout"></i> Log Out</a></li> -->
+            <li class="<?= $page_active == 'item_order.php' || $page_active == 'give_item.php' ? 'active' : '' ?>">
+                <a href="item_order.php"><i class="icon-reorder"></i> Request Ordered</a>
+            </li>
             <li class="submenu <?= $page_active == 'profile.php' || $page_active == 'change_password.php'  ? 'active' : '' ?>"
                 id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
                 <ul>

@@ -3,8 +3,6 @@ include("header.php");
 include("../connection.php");
 $insertdate = date("Y/m/d H:i:s");
 $id = $_GET['id'];
-$qury = mysqli_query($con, "SELECT * FROM item_order where order_id='$id'");
-$row = mysqli_fetch_array($qury);
 ?>
 <!--main-container-part-->
 <div id="content">
@@ -13,8 +11,8 @@ $row = mysqli_fetch_array($qury);
         <div id="breadcrumb"><a href="view_item_order.php" title="Go to view item order" class="tip-bottom"><i
                     class="icon-eye-open"></i>
                 View Item Order</a>
-            <a href="aprove_item_order.php" title="Go to approve item order" class="tip-bottom">
-                <i class="icon-check"></i>Approve Item Order
+            <a href="reject_item_order.php" title="Go to Reject item order" class="tip-bottom">
+                <i class="icon-remove-sign"></i>Reject Item Order
             </a>
         </div>
     </div>
@@ -26,11 +24,10 @@ $row = mysqli_fetch_array($qury);
             <div class="span12">
                 <div class="widget-box" style="border-radius: 20px; margin-right:10%; margin-left:10%">
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                        <h5>Item Approval Form</h5>
+                        <h5>Item Reject Form</h5>
                     </div>
                     <div class="widget-content nopadding" style=" margin-left:20%">
-                        <form name="formsend" action="#" method="POST" class="form-horizontal"
-                            onsubmit='return formValidation()'>
+                        <form name="formsend" action="#" method="POST" class="form-horizontal">
                             <div class="alert alert-danger" id="error" style="display: none;">
                                 <center>
                                     <strong>Same thing error,please triy agian.</strong>
@@ -39,23 +36,30 @@ $row = mysqli_fetch_array($qury);
                             <div class="span8">
                                 <br>
                                 <div>
-                                    <label>Approved Quantity</label>
-                                    <input type="number" name="new_quantity" min="1"
-                                        max="<?php echo $row['quantity']; ?>" value="<?php echo $row['quantity']; ?>"
-                                        required style="border-radius: 13px;">
+                                    <label>Remark</label>
+                                    <textarea class="span11" placeholder="Write your remark here" name="message"
+                                        required style="border-radius: 13px;" rows="10" cols="20"></textarea>
                                 </div>
                             </div>
-
-                            <div class="form-actions">
+                            <div class="span8">
                                 <br>
-                                <center>
-                                    <button type="submit" id="f" name="send" class="btn btn-success"
-                                        style="border-radius: 13px;"><strong>Approve</strong></button>
-                                </center>
+                                <div>
+                                    <center>
+                                        <button type="submit" id="f" name="send" class="btn btn-danger"
+                                            style="border-radius: 13px;"><strong>Reject</strong></button>
+                                    </center>
+                                </div>
                             </div>
+                            <!-- <div class="form-actions">
+                                <br>
+
+                                <button type="submit" id="f" name="send" class="btn btn-success"
+                                    style="border-radius: 13px;"><strong>Reject</strong></button>
+
+                            </div> -->
                             <div class="alert alert-success" id="success" style="display:none;">
                                 <center>
-                                    <strong>The Approved Successfully.</strong>
+                                    <strong>The Reject Successfully.</strong>
                                 </center>
                             </div>
                         </form>
@@ -68,16 +72,16 @@ $row = mysqli_fetch_array($qury);
 <!--end-main-container-part-->
 <?php
 if (isset($_POST['send'])) {
-    $new_quantity = $_POST['new_quantity'];
+    $remark = $_POST['message'];
     if (isset($_GET['id'])) {
         $e_id = $_GET['id'];
-        $statment = mysqli_query($con, "SELECT * from item_order where order_id=$e_id");
-        $row = mysqli_fetch_array($statment);
-        $sta = "UPDATE item_order set aprove='1' where order_id=$e_id";
+        //$statment = mysqli_query($con, "SELECT * from item_order where order_id=$e_id");
+        //$row = mysqli_fetch_array($statment);
+        $sta = "UPDATE item_order set aprove='2',message='$remark' where order_id=$e_id";
         $resu = mysqli_query($con, $sta);
-        $query = mysqli_query($con, "UPDATE item_request SET ordered='1' WHERE re_id=$row[req_id]");
+        //$query = mysqli_query($con, "UPDATE item_request SET ordered='2' WHERE re_id=$row[req_id]");
         //decrease the approval quantity
-        mysqli_query($con, "UPDATE item_order set quantity=$new_quantity where order_id='$id'");
+        //mysqli_query($con, "UPDATE item_order set quantity=$new_quantity where order_id='$id'");
         if (!$resu) {
 ?>
 <script type="text/javascript">

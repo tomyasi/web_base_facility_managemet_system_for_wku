@@ -30,7 +30,6 @@ include("header.php");
             </marquee>
             <hr>
         </div>
-
         <td width="685" height="195" align="left" valign="top" style="color:#000000; ">
             <font style="font-family:tahoma; font-size:12px;">
                 <p style="LINE-HEIGHT: 18pt; MARGIN: 0in 0in 0pt" dir="ltr" class="MsoNormal" align="left">

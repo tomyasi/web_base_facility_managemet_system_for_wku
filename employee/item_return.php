@@ -11,7 +11,7 @@ $user_id = $_SESSION['emp_id'];
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
-            <a href="view_request.php" title="Go to view User" class="tip-bottom">
+            <a href="item_return.php" title="Go to view User" class="tip-bottom">
                 <i class="icon-reply"></i>Return Item
             </a>
         </div>
@@ -67,7 +67,7 @@ $user_id = $_SESSION['emp_id'];
                                     <a href="return.php?id=<?php echo $row['id'] ?>" class="btn
                                         btn-primary" style="border-radius:13px">Return </a>
                                     <?php } elseif ($row["retu"] == "1") { ?>
-                                    <i class="icon-spinner"></i>panding
+                                    <i class="icon-spinner icon-spin icon-large"></i>panding
                                     <?php
                                             } else { ?>
                                     <img src="../images/tick.png" alt="" class="img-fluid"></a>

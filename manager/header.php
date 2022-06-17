@@ -69,21 +69,23 @@ $un_read = mysqli_num_rows($result);
                                     $page_active == 'update_employees.php' ||
                                     $page_active == 'employee_status.php' ||
                                     $page_active == 'employee_edite.php' ||
-                                    $page_active == 'view_employee.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
-                        class="icon icon-th-list"></i> <span>Manage
+                                    $page_active == 'view_employee.php' ? 'active' : '' ?>" id="btn">
+                <a href="#"><i class="icon icon-th-list"></i> <span>Manage
                         Employees</span></a>
                 <ul>
-                    <li class="<?= $page_active == 'employee_regi.php' ? 'active' : '' ?>"><a
-                            href="employee_regi.php"><i class="icon-laptop"></i>&nbsp;&nbsp;Employee
+                    <li class="<?= $page_active == 'employee_regi.php' ? 'active' : '' ?>">
+                        <a href="employee_regi.php"><i class="icon-laptop"></i>&nbsp;&nbsp;Employee
                             Registeration</a>
                     </li>
-                    <li class="<?= $page_active == 'update_employees.php' ? 'active' : '' ?>"><a
-                            href="update_employees.php"><i class="icon-pencil"></i> &nbsp;&nbsp;Employee Update </a>
+                    <li class="<?= $page_active == 'update_employees.php' ? 'active' : '' ?>">
+                        <a href="update_employees.php"><i class="icon-pencil"></i> &nbsp;&nbsp;Employee Update </a>
                     </li>
-                    <li class="<?= $page_active == 'employee_status.php' ? 'active' : '' ?>"><a
-                            href="employee_status.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee status</a></li>
-                    <li class="<?= $page_active == 'view_employee.php' ? 'active' : '' ?>"><a
-                            href="view_employee.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;View Employee</a></li>
+                    <li class="<?= $page_active == 'employee_status.php' ? 'active' : '' ?>">
+                        <a href="employee_status.php"><i class="icon-user"></i>&nbsp;&nbsp;Employee status</a>
+                    </li>
+                    <li class="<?= $page_active == 'view_employee.php' ? 'active' : '' ?>">
+                        <a href="view_employee.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;View Employee</a>
+                    </li>
                 </ul>
             </li>
             <li class="submenu <?= $page_active == 'user_regi.php' ||
@@ -93,25 +95,33 @@ $un_read = mysqli_num_rows($result);
                                     $page_active == 'view_user.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
                         class="icon icon-th-list"></i> <span>Manage Users</span></a>
                 <ul>
-                    <li class="<?= $page_active == 'user_regi.php' ? 'active' : '' ?>"><a href="user_regi.php"><i
-                                class="icon-laptop"></i>&nbsp;&nbsp;User Registeration </a></li>
-                    <li class="<?= $page_active == 'update_users.php' ? 'active' : '' ?>"><a href="update_users.php"><i
-                                class="icon-pencil"></i> &nbsp;&nbsp;User Update </a></li>
-                    <li class="<?= $page_active == 'user_status.php' ? 'active' : '' ?>"><a href="user_status.php"><i
-                                class="icon-user"></i>&nbsp;&nbsp;User Status</a></li>
-                    <li class="<?= $page_active == 'view_user.php' ? 'active' : '' ?>"><a href="view_user.php"><i
-                                class="icon-eye-open"></i>&nbsp;&nbsp;User View </a></li>
+                    <li class="<?= $page_active == 'user_regi.php' ? 'active' : '' ?>">
+                        <a href="user_regi.php"><i class="icon-laptop"></i>&nbsp;&nbsp;User Registeration </a>
+                    </li>
+                    <li class="<?= $page_active == 'update_users.php' ? 'active' : '' ?>">
+                        <a href="update_users.php"><i class="icon-pencil"></i> &nbsp;&nbsp;User Update </a>
+                    </li>
+                    <li class="<?= $page_active == 'user_status.php' ? 'active' : '' ?>">
+                        <a href="user_status.php"><i class="icon-user"></i>&nbsp;&nbsp;User Status</a>
+                    </li>
+                    <li class="<?= $page_active == 'view_user.php' ? 'active' : '' ?>">
+                        <a href="view_user.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;User View </a>
+                    </li>
                 </ul>
             </li>
-            <li class="<?= $page_active == 'view_item_order.php' ? 'active' : '' ?>">
+            <li class="<?= $page_active == 'view_item_order.php' ||
+                            $page_active == 'aprove_item_order.php' ||
+                            $page_active == 'reject_item_order.php'  ? 'active' : '' ?>">
                 <a href="view_item_order.php"><i class="icon-eye-open"></i>
                     <span>View Item Order</span>
                     <?php if ($un_read > 0) {
                         echo '<span class="label label-important" style="border-radius:30px">' . $un_read . '</span>';
                     } ?></a>
             </li>
-            <li class="submenu <?= $page_active == 'profile.php' || $page_active == 'change_password.php' || $page_active == 'edit_profile.php'  ? 'active' : '' ?>"
-                id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
+            <li class="submenu <?= $page_active == 'profile.php' ||
+                                    $page_active == 'change_password.php' ||
+                                    $page_active == 'edit_profile.php'  ? 'active' : '' ?>" id="btn"><a href="#"><i
+                        class="icon icon-cogs"></i> <span>Setting</span></a>
                 <ul>
                     <li class="<?= $page_active == 'profile.php' ? 'active' : '' ?>">
                         <a href="profile.php"><i class="icon-user"></i> My Profile</a>

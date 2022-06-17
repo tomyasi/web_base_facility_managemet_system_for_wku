@@ -6,7 +6,6 @@ include("../connection.php")
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
-            <a href="#"><i class="icon icon-th-list"></i> <span>View</span></a>
             <a href="view_item_order.php" title="Go to view item order" class="tip-bottom">
                 <i class="icon-eye-open"></i>view item order
             </a>
@@ -37,7 +36,7 @@ include("../connection.php")
                                     <th>Item Quality</th>
                                     <th>Item Quantity</th>
                                     <th>Ordered date</th>
-                                    <th>Aprove</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody id="output">
@@ -61,15 +60,25 @@ include("../connection.php")
                                     <td><?php echo $row["quality"]; ?></td>
                                     <td><?php echo $row["quantity"]; ?></td>
                                     <td><?php echo $row["orderd_date"]; ?></td>
-                                    <td> <?php if ($row["aprove"] == "1") { ?>
-                                        <img src="../images/tick.png" alt="" class="img-fluid"></a>
-                                        <?php
-                                                    } else { ?>
+                                    <td>
+                                        <?php if ($row["aprove"] == "0") { ?>
                                         <a href="aprove_item_order.php?id=<?php echo $row['order_id'] ?>" class="btn
-                                        btn-primary" style="border-radius:13px"><i class="icon-check"></i>
-                                            Aprove</a>
+                                        btn-primary" style="border-radius:13px" title="Approve"><i
+                                                class="icon-check"></i>
+                                        </a>
+                                        <a href="reject_item_order.php?id=<?php echo $row['order_id'] ?>" class="btn
+                                        btn-danger" style="border-radius:13px" title="Reject"><i
+                                                class="icon-remove-sign"></i>
+                                        </a>
                                         <?php
-                                                    }
+                                                } elseif ($row["aprove"] == "2") { ?>
+                                        <img src="../images/remove.png" alt="" class="img-fluid">Rejected
+                                        <?php
+                                                } else { ?>
+                                        <img src="../images/tick.png" alt="" class="img-fluid"></a>
+
+                                        <?php
+                                                }
                                                 ?>
                                     </td>
                                 </tr>

@@ -111,7 +111,7 @@ if (isset($_POST['send'])) {
     /**   ++++++++++++++++++++++++++++++++++++  **/
     $schedule = mysqli_real_escape_string($con, $_POST["schedule"]);
     $message = mysqli_real_escape_string($con, $_POST["message"]);
-    $sql = "INSERT INTO serv_responce values(NULL,'$emp_id','$requester[user_id]','$message','$insertdate','$insertdate','0')";
+    $sql = "INSERT INTO serv_responce values(NULL,'$emp_id','$requester[user_id]','$message','$insertdate','$schedule','0')";
     $re = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
     if (!$re) {
 ?>

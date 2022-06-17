@@ -40,12 +40,12 @@ include("../connection.php")
                                     <th>Message</th>
                                     <th>Requested Date</th>
                                     <th>Order</th>
-                                    <th>Aproved</th>
+                                    <!-- <th>Aproved</th> -->
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $result = mysqli_query($con, "select *from item_request;");
+                                $result = mysqli_query($con, "SELECT *from item_request;");
                                 $no = 1;
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_array($result)) {
@@ -75,15 +75,26 @@ include("../connection.php")
                                                     }
                                                 ?>
                                     </td>
-                                    <td> <?php if ($row["ordered"] == "1") { ?>
-                                        <img src="../images/tick.png" alt="" class="img-fluid">
-                                        <?php
-                                                    } else { ?>
+                                    <!-- <td>
+                                        <?php //if ($row["ordered"] == "0") { 
+                                        ?>
                                         <img src="../images/remove.png" alt="" class="img-fluid">
                                         <?php
-                                                    }
-                                                ?>
-                                    </td>
+                                        // } elseif ($row["ordered"] == "1") { 
+                                        ?>
+                                        <i class="icon-spinner"></i>panding
+                                        <?php
+                                        // } elseif ($row["ordered"] == "1") { 
+                                        ?>
+                                        <img src="../images/tick.png" alt="" class="img-fluid">
+                                        <?php
+                                        // } else { 
+                                        ?>
+                                        <img src="../images/tick.png" alt="" class="img-fluid">
+                                        <?php
+                                        // }
+                                        ?>
+                                    </td> -->
                                 </tr>
                                 <?php
                                         $no++;
@@ -91,7 +102,7 @@ include("../connection.php")
                                 } else { ?>
                                 <div class="alert alert-danger" id="error" style="display: block;">
                                     <center>
-                                        <strong>Empty Request.</strong>
+                                        <strong>Empty.</strong>
                                     </center>
                                 </div>
                                 <?php

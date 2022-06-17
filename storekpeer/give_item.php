@@ -27,10 +27,10 @@ $quantity = $row['quantity'];
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
-            <a href="#" title="Go to Employee Registration" class="tip-bottom">
-                <i class="icon icon-th-list"></i>Item Order
+            <a href="item_order.php" title="Go to Item Order" class="tip-bottom">
+                <i class="icon-reorder"></i> Item Order
             </a>
-            <a href="item_add.php"><i class="icon-plus"></i>Give Item</a>
+            <a href="item_order.php" title="Go to Give Item"><i class="icon-ok"></i>Give Item</a>
         </div>
     </div>
     <!--End-breadcrumbs-->
@@ -110,7 +110,7 @@ if (isset($_POST['send'])) {
 
     $sql2 = "INSERT INTO give_item values(NULL,'$order_info[emp_id]','$order_info[emp_id]',
     '$order_info[item_name]','$order_info[item_type]','$order_info[item_category]',
-    '$order_info[quality]','$order_info[quantity]','$insertdate','$message','$schedule','0')";
+    '$order_info[quality]','$order_info[quantity]','$insertdate','$message','$schedule','0','0','')";
 
     $res = mysqli_query($con, $sql2) or die("Error occurd" . mysqli_error($con));
     if (!$res) {
@@ -125,7 +125,8 @@ setTimeout(function() {
 <?php
     } else {
         //decrease the stock
-        mysqli_query($con, "UPDATE item_order set give='1' where order_id='$e_id'") or die("Error occured" . mysqli_error($con));
+        mysqli_query($con, "UPDATE item_order set aprove='3' where order_id='$e_id'") or
+            die("Error occured" . mysqli_error($con));
         mysqli_query($con, "UPDATE stock set item_quantity=item_quantity-$quantity where (item_name='$name' and item_quality='$quality')");
     ?>
 <script type="text/javascript">
