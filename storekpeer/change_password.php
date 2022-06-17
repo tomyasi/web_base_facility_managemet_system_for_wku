@@ -1,18 +1,19 @@
 <?php
 include("header.php");
 include("../connection.php");
-$user_id = $_SESSION['stor_id'];
+//$stor_id = $_SESSION['stor_id'];
 if (isset($_POST['re_password'])) {
     $old_pass = $_POST['old_pass'];
     $new_pass = $_POST['new_pass'];
     $re_pass = $_POST['re_pass'];
-    $password_query = mysqli_query($con, "SELECT * from eaccount where emp_id='$user_id'");
+
+    $password_query = mysqli_query($con, "SELECT * from eaccount where emp_id='$stor_id'");
     $password_row = mysqli_fetch_array($password_query);
     $database_password = $password_row['password'];
     if ($database_password == $old_pass) {
 
         if ($new_pass == $re_pass) {
-            $update_pwd = mysqli_query($con, "UPDATE eaccount set password='$new_pass' where emp_id='$user_id'");
+            $update_pwd = mysqli_query($con, "UPDATE eaccount set password='$new_pass' where emp_id='$stor_id'");
             echo "<script>alert('Update Sucessfully'); window.location='home.php'</script>";
         } else {
             echo "<script>alert('Your new and Retype Password is not match'); window.location='change_password.php'</script>";
@@ -29,7 +30,7 @@ if (isset($_POST['re_password'])) {
         <div id="breadcrumb"><a href="home.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
                 Home</a>
             <a href="change_password.php" title="Go to Change Pasword" class="tip-bottom">
-                <i class="icon icon-cogs"></i>Change Password
+                <i class="icon-cog"></i>Change Password
             </a>
         </div>
     </div>
@@ -39,7 +40,7 @@ if (isset($_POST['re_password'])) {
         <div class="row-fluid">
             <hr>
             <CENTER>
-                <h5>CHANGE PASSWORD PAGE</h5>
+                <h5>Change Password</h5>
             </CENTER>
             <hr>
             <div class="span11">
@@ -72,24 +73,23 @@ if (isset($_POST['re_password'])) {
                                     <input type="password" class="span8" placeholder="Confirm Password" name="re_pass"
                                         required style="border-radius: 13px;" />
                                 </div>
-                            </div>
-                            <div class="alert alert-danger" id="error" style="display: none;">
-                                <center>
-                                    <strong>Same thing error,please triy agian.</strong>
-                                </center>
-                            </div>
-                            <div class="form-actions">
-                                <center>
-                                    <button type="submit" name="re_password" class="btn btn-success"
-                                        style="border-radius: 13px;">Change
-                                        Password</button>
-                                </center>
-                            </div>
-                            <div class="alert alert-success" id="success" style="display:none;">
-                                <center>
-                                    <strong>The request send successfully.</strong>
-                                </center>
-                            </div>
+                                <div class="alert alert-danger" id="error" style="display: none;">
+                                    <center>
+                                        <strong>Same thing error,please triy agian.</strong>
+                                    </center>
+                                </div>
+                                <div class="form-actions">
+                                    <center>
+                                        <button type="submit" name="re_password" class="btn btn-success"
+                                            style="border-radius: 13px;">Change
+                                            Password</button>
+                                    </center>
+                                </div>
+                                <div class="alert alert-success" id="success" style="display:none;">
+                                    <center>
+                                        <strong>The request send successfully.</strong>
+                                    </center>
+                                </div>
                         </form>
                     </div>
                 </div>

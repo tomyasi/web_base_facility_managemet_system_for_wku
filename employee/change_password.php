@@ -6,16 +6,17 @@ if (!(isset($_SESSION['emp_id']))) {
 }
 $user_id = $_SESSION['emp_id'];
 if (isset($_POST['re_password'])) {
+
     $old_pass = $_POST['old_pass'];
     $new_pass = $_POST['new_pass'];
     $re_pass = $_POST['re_pass'];
-    $password_query = mysqli_query($con, "SELECT * from eaccount where id='$user_id'");
+    $password_query = mysqli_query($con, "SELECT * from eaccount where emp_id='$user_id'");
     $password_row = mysqli_fetch_array($password_query);
     $database_password = $password_row['password'];
     if ($database_password == $old_pass) {
 
         if ($new_pass == $re_pass) {
-            $update_pwd = mysqli_query($con, "UPDATE eaccount set password='$new_pass' where id='$user_id'");
+            $update_pwd = mysqli_query($con, "UPDATE eaccount set password='$new_pass' where emp_id='$user_id'");
             echo "<script>alert('Update Sucessfully'); window.location='home.php'</script>";
         } else {
             echo "<script>alert('Your new and Retype Password is not match'); window.location='change_password.php'</script>";
@@ -32,7 +33,7 @@ if (isset($_POST['re_password'])) {
         <div id="breadcrumb"><a href="home.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
                 Home</a>
             <a href="change_password.php" title="Go to Change Pasword" class="tip-bottom">
-                <i class="icon icon-cogs"></i>Change Password
+                <i class="icon-cog"></i>Change Password
             </a>
         </div>
     </div>

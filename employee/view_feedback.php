@@ -9,8 +9,8 @@ if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['username']))) {
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb"><a href="#"><i class="icon icon-th-list"></i> <span>View</span></a>
-            <a href="view_service_request.php" title="Go to view User" class="tip-bottom">
-                <i class="icon-eye-open"></i>View Services Request
+            <a href="view_feedback.php" title="Go to view User" class="tip-bottom">
+                <i class="icon-eye-open"></i>View Feedback
             </a>
         </div>
     </div>

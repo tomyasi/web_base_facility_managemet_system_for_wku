@@ -135,7 +135,7 @@ $insertdate = date("Y/m/d H:i:s");
                                 <div style="float:right;">
                                     <label>&nbsp</label>
                                     <button type="submit" id="f" name="send" class="btn btn-success"
-                                        style="border-radius: 13px;float: left;"><strong>Send Request</strong></button>
+                                        style="border-radius: 13px;float: left;"><strong>Send</strong></button>
                                 </div>
                             </div>
                         </div>

@@ -11,7 +11,7 @@ $user_id = $_SESSION['emp_id'];
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb">
-            <a href="item_return.php" title="Go to view User" class="tip-bottom">
+            <a href="item_return.php" title="Go to item return" class="tip-bottom">
                 <i class="icon-reply"></i>Return Item
             </a>
         </div>

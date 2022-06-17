@@ -33,9 +33,14 @@ $email_err = "";
                     <div class="widget-content nopadding">
                         <form name="formsend" action="#" method="POST" class="form-horizontal"
                             onsubmit='return formValidation()'>
-                            <div class="alert alert-danger" id="error" style="display: none;">
+                            <div class="alert alert-danger" id="e" style="display: none;">
                                 <center>
                                     <strong>Same thing error,please triy agian.</strong>
+                                </center>
+                            </div>
+                            <div class="alert alert-danger" id="error" style="display: none;">
+                                <center>
+                                    <strong>Item not found,please triy agian.</strong>
                                 </center>
                             </div>
                             <div class="span3">
@@ -162,23 +167,33 @@ if (isset($_POST['add'])) {
     $sql = "SELECT *FROM stock where item_name='$name' and item_quality='$quality'";
     $serch_item = mysqli_query($con, $sql) or die("Error occured" . mysqli_error($con));
     $row = mysqli_fetch_array($serch_item);
-    $new_quantity = $row['item_quantity'] + $quantity;
-    $sql2 = "UPDATE stock set item_quantity='$new_quantity' where item_name='$name' and item_quality='$quality'";
-    $res = mysqli_query($con, $sql2) or die("Error occurd" . mysqli_error($con));
-    if (!$res && !$serch_item) {
+    if (!$serch_item) {
+        $new_quantity = $row['item_quantity'] + $quantity;
+        $sql2 = "UPDATE stock set item_quantity='$new_quantity' where item_name='$name' and item_quality='$quality'";
+        $res = mysqli_query($con, $sql2) or die("Error occurd" . mysqli_error($con));
+        if (!$res) {
 ?>
 <script type="text/javascript">
-document.getElementById("error").style.display = "block";
+document.getElementById("success").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
     window.location.href = "item_add.php";
 }, 3000);
 </script>
 <?php
-    } else {
-    ?>
+        } else {    ?>
 <script type="text/javascript">
-document.getElementById("success").style.display = "block";
+document.getElementById("e").style.display = "block";
+// refresh the page after 3 second
+setTimeout(function() {
+    window.location.href = "item_add.php";
+}, 3000);
+</script>
+<?php }
+    } else {
+        ?>
+<script type="text/javascript">
+document.getElementById("error").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
     window.location.href = "item_add.php";

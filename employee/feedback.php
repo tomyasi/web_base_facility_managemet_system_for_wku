@@ -11,8 +11,9 @@ $row = mysqli_fetch_array($result);
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="view_responce.php" title="Go to view responce" class="tip-bottom"><i
-                    class="icon-home"></i>
+        <div id="breadcrumb">
+            <a href="#"><i class="icon icon-th-list"></i> <span>View</span></a>
+            <a href="view_responce.php" title="Go to view responce" class="tip-bottom"><i class="icon-eye-open"></i>
                 View Responce</a>
             </a>
             <a href="feedback.php" title="Go to Send feedback" class="tip-bottom">

@@ -16,7 +16,10 @@ $responce = mysqli_query($con, "SELECT * from give_item where view='0'and give_t
 $un_read_res = mysqli_num_rows($responce);
 $feedback = mysqli_query($con, "SELECT *FROM feedback where view='0' and send_to='$emp_id'");
 $un_read_fee = mysqli_num_rows($feedback);
-$total = $un_read + $un_read_res + $un_read_fee;
+
+$reject = mysqli_query($con, "SELECT *FROM item_order where aprove='2' and emp_id='$emp_id'");
+$reject_count = mysqli_num_rows($reject);
+$total = $un_read + $un_read_res + $un_read_fee + $reject_count;
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ?>
 <!DOCTYPE html>
@@ -76,6 +79,8 @@ $total = $un_read + $un_read_res + $un_read_fee;
 
             <li class="submenu <?= $page_active == 'view_service_request.php' ||
                                     $page_active == 'view_feedback.php' ||
+                                    $page_active == 'view_request_reject.php' ||
+                                    $page_active == 'feedback.php' ||
                                     $page_active == 'view_responce.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
                         class="icon icon-th-list"></i><span>View Notification</span>
                     <?php if ($total > 0) {
@@ -95,6 +100,11 @@ $total = $un_read + $un_read_res + $un_read_fee;
                     <li><a href="view_responce.php"><i class="icon-eye-open"></i>&nbsp;&nbsp; Responce
                             <?php if ($un_read_res > 0) {
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_res . '</span>';
+                            } ?></a>
+                    </li>
+                    <li><a href="view_request_reject.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Request Rejected
+                            <?php if ($reject_count > 0) {
+                                echo '<span class="label label-important" style="border-radius:15px">' . $reject_count . '</span>';
                             } ?></a>
                     </li>
                 </ul>
