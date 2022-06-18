@@ -169,13 +169,13 @@ while ($row = mysqli_fetch_array($query)) {
                                                                 if (lengthRestriction(phone, 9, 9,
                                                                         "for your Phone number")) {
 
-                                                                    if (isAlphanumeric(nationality,
+                                                                    if (isAlphabet(nationality,
                                                                             "please enter Your nationality in letters only"
                                                                         )) {
                                                                         if (lengthRestriction(nationality, 3, 25,
                                                                                 "for your nationality")) {
-                                                                            if (isAlphabet(subcity,
-                                                                                    "please enter Your subcity in letters only"
+                                                                            if (isAlphabetSpace(subcity,
+                                                                                    "please enter Your subcity only letters white space"
                                                                                 )) {
                                                                                 if (lengthRestriction(subcity, 3,
                                                                                         30,
@@ -259,8 +259,8 @@ while ($row = mysqli_fetch_array($query)) {
                                 }
                             }
 
-                            function isAlphabet(elem, helperMsg) {
-                                var alphaExp = /^[a-zA-Z]+$/;
+                            function isAlphabetSpace(elem, helperMsg) {
+                                var alphaExp = /^([a-zA-Z' ]+)$/;
                                 if (elem.value.match(alphaExp)) {
                                     return true;
                                 } else {

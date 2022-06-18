@@ -108,7 +108,7 @@ if (isset($_POST['send'])) {
     $schedule = mysqli_real_escape_string($con, $_POST["schedule"]);
     $message = mysqli_real_escape_string($con, $_POST["message"]);
 
-    $sql2 = "INSERT INTO give_item values(NULL,'$order_info[emp_id]','$order_info[emp_id]',
+    $sql2 = "INSERT INTO give_item values(NULL,'$order_info[emp_id]','$stor_id',
     '$order_info[item_name]','$order_info[item_type]','$order_info[item_category]',
     '$order_info[quality]','$order_info[quantity]','$insertdate','$message','$schedule','0','0','')";
 

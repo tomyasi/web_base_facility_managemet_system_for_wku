@@ -79,9 +79,10 @@ $row = mysqli_fetch_array($result);
 <!--end-main-container-part-->
 <?php
 if (isset($_POST['send'])) {
+    $emp_id = $_SESSION['emp_id'];
     mysqli_query($con, "UPDATE give_item SET view='1' where id='$e_id'");
     $message = mysqli_real_escape_string($con, $_POST["message"]);
-    $query = "INSERT INTO feedback VALUES (NULL,'$_SESSION[emp_id]','$row[give_by]','$message','$insertdate','0')";
+    $query = "INSERT INTO feedback VALUES (NULL,'$emp_id','$row[give_by]','$message','$insertdate','0')";
     $re = mysqli_query($con, $query) or die("Error occured" . mysqli_error($con));
     if (!$re) {
 ?>

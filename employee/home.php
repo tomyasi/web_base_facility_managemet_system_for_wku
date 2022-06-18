@@ -23,7 +23,8 @@ include("header.php");
                 <span lang="RU"><strong>
                         <center>
                             <h2>
-                                <font color="#003333">Welcome to facility management system!<br> Employee Page</font>
+                                <font color="#003333">Welcome to facility management system!<br>
+                                    <?php echo ucfirst($emp_position); ?> Page</font>
                             </h2>
                         </center>
                     </strong>
@@ -37,7 +38,7 @@ include("header.php");
                         <span lang="RU"><strong>
                                 <h2>
                                     <font color="#003333">Things to do in
-                                        Employee</font>
+                                        <?php echo ucfirst($emp_position); ?></font>
                                 </h2>
                             </strong></span>
 

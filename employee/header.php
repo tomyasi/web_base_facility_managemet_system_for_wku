@@ -21,12 +21,14 @@ $reject = mysqli_query($con, "SELECT *FROM item_order where aprove='2' and emp_i
 $reject_count = mysqli_num_rows($reject);
 $total = $un_read + $un_read_res + $un_read_fee + $reject_count;
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>WKUFMS EMPLOYEE PAGE</title>
+    <title>WKUFMS</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
@@ -47,7 +49,9 @@ $total = $un_read + $un_read_res + $un_read_fee + $reject_count;
             <a href="home.php" style="color:white; margin-left: 30px; margin-top: 40px">WKUFMS</a>
         </h2>
         <h2 style="color: white;">
-            <center>Employee Page</center>
+            <center>
+                <?php echo  ucfirst($emp_position), " Page "; ?>
+            </center>
         </h2>
     </div>
     <!--top-Header-menu-->

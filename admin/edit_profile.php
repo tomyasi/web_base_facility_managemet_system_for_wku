@@ -174,8 +174,8 @@ while ($row = mysqli_fetch_array($query)) {
                                                                         )) {
                                                                         if (lengthRestriction(nationality, 3, 25,
                                                                                 "for your nationality")) {
-                                                                            if (isAlphabet(subcity,
-                                                                                    "please enter Your subcity in letters only"
+                                                                            if (isAlphabetSpace(subcity,
+                                                                                    "please enter Your subcity in letters and white sapce  only"
                                                                                 )) {
                                                                                 if (lengthRestriction(subcity, 3,
                                                                                         30,
@@ -261,6 +261,17 @@ while ($row = mysqli_fetch_array($query)) {
 
                             function isAlphabet(elem, helperMsg) {
                                 var alphaExp = /^[a-zA-Z]+$/;
+                                if (elem.value.match(alphaExp)) {
+                                    return true;
+                                } else {
+                                    alert(helperMsg);
+                                    elem.focus();
+                                    return false;
+                                }
+                            }
+
+                            function isAlphabetSpace(elem, helperMsg) {
+                                var alphaExp = /^([a-zA-Z' ]+)$/;
                                 if (elem.value.match(alphaExp)) {
                                     return true;
                                 } else {

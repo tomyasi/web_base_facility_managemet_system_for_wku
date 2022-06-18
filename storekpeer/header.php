@@ -8,7 +8,7 @@ $full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $stor_id = $_SESSION['stor_id'];
 $result = mysqli_query($con, "SELECT *from item_request where status='0'");
 $un_read = mysqli_num_rows($result);
-$feedback = mysqli_query($con, "SELECT *from feedback where send_to=$stor_id");
+$feedback = mysqli_query($con, "SELECT *from feedback where send_to=$stor_id and view='0'");
 $count_fee = mysqli_num_rows($feedback);
 $total = $un_read + $count_fee;
 $return = mysqli_query($con, "SELECT *from give_item where retu='1' and item_category='Returnable'");
