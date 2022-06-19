@@ -1,11 +1,13 @@
 <?php
 session_start();
+include("../connection.php");
 if (!(isset($_SESSION['admin_id']))) {
     header("Location: ../login.php");
 }
-$full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $admin_id = $_SESSION['admin_id'];
-include("../connection.php");
+$query = mysqli_query($con, "SELECT *FROM employee where id=$admin_id");
+$admin_info = mysqli_fetch_array($query);
+$full_name = $admin_info['fname'] . ' ' . $admin_info['mname'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +49,7 @@ include("../connection.php");
                         class="icon icon-user"></i>
                     <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                    <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
                     <li><a href="change_password.php"><i class="icon-cog"></i> Change Password</a></li>
                     <li class="divider"></li>

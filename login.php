@@ -95,7 +95,7 @@ session_start();
             $role = $_POST["role"];
             $username = mysqli_real_escape_string($con, $_POST["username"]);
             $password = mysqli_real_escape_string($con, $_POST["password"]);
-
+            $password = md5($password);
             if ($role == "user") {
                 $sql1 = "SELECT * FROM uaccount WHERE username='$username' AND password='$password' AND status='1'";
                 $query1 = mysqli_query($con, $sql1);
@@ -123,51 +123,36 @@ session_start();
                 $row1 = mysqli_fetch_array($query2);
                 if (mysqli_num_rows($query2) > 0) {
                     $eid = $row1['emp_id'];
-                    $role = mysqli_query($con, "SELECT *FROM employee where id=$eid");
-                    $row2 = mysqli_fetch_array($role);
+                    // $role = mysqli_query($con, "SELECT *FROM employee where id=$eid");
+                    // $row2 = mysqli_fetch_array($role);
                     if ($row1['role'] == "security" || $row1['role'] == "technician" || $row1['role'] == "clealiness" || $row1['role'] == "other") {
                         //Employee SESSION
                         $_SESSION['emp_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
-                        $_SESSION['fname'] = $row2['fname'];
-                        $_SESSION['mname'] = $row2['mname'];
-                        $_SESSION['role'] = $row2['jop_position'];
                         mysqli_query($con, "UPDATE eaccount set lastlogin='$insertdate'where id='$row1[id]'");
                         header("Location:employee/home.php");
                     } else if ($row1['role'] == "manager") {
                         //manager session
                         $_SESSION['manager_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
-                        $_SESSION['fname'] = $row2['fname'];
-                        $_SESSION['mname'] = $row2['mname'];
-                        $_SESSION['role'] = $row2['jop_position'];
                         mysqli_query($con, "UPDATE eaccount set lastlogin='$insertdate'where id='$row1[id]'");
                         header("Location:manager/home.php");
                     } else if ($row1['role'] == "admin") {
                         //admin session
                         $_SESSION['admin_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
-                        $_SESSION['fname'] = $row2['fname'];
-                        $_SESSION['mname'] = $row2['mname'];
-                        $_SESSION['role'] = $row2['jop_position'];
                         mysqli_query($con, "UPDATE eaccount set lastlogin='$insertdate' where id='$row1[id]'");
                         header("Location:admin/home.php");
                     } else if ($row1['role'] == "storekpeer") {
                         //storekpeer session
                         $_SESSION['stor_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
-                        $_SESSION['fname'] = $row2['fname'];
-                        $_SESSION['mname'] = $row2['mname'];
-                        $_SESSION['role'] = $row2['jop_position'];
                         mysqli_query($con, "UPDATE eaccount set lastlogin='$insertdate'where id='$row1[id]'");
                         header("Location:storekpeer/home.php");
                     } else if ($row1['role'] == "leder") {
                         //storekpeer session
                         $_SESSION['leder_id'] = $row1['emp_id'];
                         $_SESSION['username'] = $row1['username'];
-                        $_SESSION['fname'] = $row2['fname'];
-                        $_SESSION['mname'] = $row2['mname'];
-                        $_SESSION['role'] = $row2['jop_position'];
                         mysqli_query($con, "UPDATE eaccount set lastlogin='$insertdate'where id='$row1[id]'");
                         header("Location:employee_leder/home.php");
                     } else {

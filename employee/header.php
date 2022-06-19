@@ -4,10 +4,10 @@ if (!(isset($_SESSION['emp_id']))) {
     header("Location: ../login.php");
 }
 include("../connection.php");
-$full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $emp_id = $_SESSION['emp_id'];
 $info = mysqli_query($con, "SELECT * FROM employee WHERE id='$emp_id'");
 $row = mysqli_fetch_array($info);
+$full_name = $row['fname'] . ' ' . $row['mname'];
 $emp_position = $row['jop_position'];
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 $result1 = mysqli_query($con, "SELECT *from serv_request where view='0'and req_service='$emp_position'");
@@ -62,7 +62,7 @@ $total = $un_read + $un_read_res + $un_read_fee + $reject_count;
                 <!-- <i class="icon-bell" style=" color:white; margin-left: 50px; margin-top: 20px; size: 23px;"></i> -->
                 <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
                         class="icon icon-user"></i>
-                    <span class="text"><?php echo "$full_name"; ?></span><b class="caret"></b></a>
+                    <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -101,7 +101,7 @@ $total = $un_read + $un_read_res + $un_read_fee + $reject_count;
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_fee . '</span>';
                             } ?></a>
                     </li>
-                    <li><a href="view_responce.php"><i class="icon-eye-open"></i>&nbsp;&nbsp; Responce
+                    <li><a href="view_responce.php"><i class="icon-eye-open"></i>&nbsp;&nbsp; Response
                             <?php if ($un_read_res > 0) {
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_res . '</span>';
                             } ?></a>
@@ -124,7 +124,7 @@ $total = $un_read + $un_read_res + $un_read_fee + $reject_count;
             </li>
             <li
                 class="<?= $page_active == 'service_responce2.php' || $page_active == 'service_request_reply.php' ? 'active' : '' ?>">
-                <a href="service_responce2.php"><i class="icon-exchange"></i><span>User Service Responce</span></a>
+                <a href="service_responce2.php"><i class="icon-exchange"></i><span>User Service Response</span></a>
             </li>
             <li class="submenu <?= $page_active == 'profile.php' ||
                                     $page_active == 'change_password.php' ||

@@ -45,8 +45,8 @@ $un_read = mysqli_num_rows($result);
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
                 <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
-                        class="icon icon-user"></i> <span class="text"><?php echo $full_name; ?></span><b
-                        class="caret"></b></a>
+                        class="icon icon-user"></i>
+                    <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -68,9 +68,10 @@ $un_read = mysqli_num_rows($result);
                 <a href="send_request.php"><i class="icon icon-envelope"></i>
                     <span>Send Request</span></a>
             </li>
-            <li
-                class="<?= $page_active == 'view_responce.php' || $page_active == 'employee_info.php' ? 'active' : '' ?>">
-                <a href="view_responce.php"><i class="icon-signin"></i>
+            <li class="<?= $page_active == 'view_responce.php' ||
+                            $page_active == 'employee_info.php' ||
+                            $page_active == 'feedback.php' ? 'active' : '' ?>">
+                <a href="view_responce.php"><i class="icon-eye-open"></i>
                     <span>View Respons</span>
                     <?php if ($un_read > 0) {
                         echo '<span class="label label-important" style="border-radius:15px">' . $un_read . '</span>';

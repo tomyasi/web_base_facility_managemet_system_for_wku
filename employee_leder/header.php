@@ -4,8 +4,11 @@ if (!(isset($_SESSION['leder_id'])) || !(isset($_SESSION['username']))) {
     header("Location: ../login.php");
 }
 include("../connection.php");
-$full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $leder_id = $_SESSION['leder_id'];
+$query = mysqli_query($con, "SELECT *FROM employee where id=$leder_id");
+$leder_info = mysqli_fetch_array($query);
+$full_name = $leder_info['fname'] . ' ' . $leder_info['mname'];
+
 $info = mysqli_query($con, "SELECT * FROM employee WHERE id='$leder_id'");
 $row = mysqli_fetch_array($info);
 //$emp_position = $row['jop_position'];
@@ -23,7 +26,7 @@ $total = $un_read_res + $un_read_fee;
 <html lang="en">
 
 <head>
-    <title>WKUFMS EMPLOYEE PAGE</title>
+    <title>WKUFMS </title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
@@ -44,7 +47,7 @@ $total = $un_read_res + $un_read_fee;
             <a href="home.php" style="color:white; margin-left: 30px; margin-top: 40px">WKUFMS</a>
         </h2>
         <h2 style="color: white;">
-            <center>Employee Page</center>
+            <center>Employee Group Leder Page</center>
         </h2>
     </div>
     <!--top-Header-menu-->
@@ -53,8 +56,7 @@ $total = $un_read_res + $un_read_fee;
 
             <li class="dropdown" id="profile-messages">
                 <!-- <i class="icon-bell" style=" color:white; margin-left: 50px; margin-top: 20px; size: 23px;"></i> -->
-                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
-                        class="icon icon-user"></i>
+                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>
                     <span class="text"><?php echo "$full_name"; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
@@ -76,24 +78,20 @@ $total = $un_read_res + $un_read_fee;
 
             <li class="submenu <?= $page_active == 'view_service_request.php' ||
                                     $page_active == 'view_feedback.php' ||
-                                    $page_active == 'view_responce.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
-                        class="icon icon-th-list"></i><span>View</span>
+                                    $page_active == 'view_responce.php' ? 'active' : '' ?>" id="btn"><a href="#"><i class="icon icon-th-list"></i><span>View Notification</span>
                     <?php if ($total > 0) {
                         echo '<span class="label label-important" style="border-radius:15px">' . $total . '</span>';
                     } ?></a>
                 <ul>
-                    <li class="<?= $page_active == 'view_service_request.php' ? 'active' : '' ?>"><a
-                            href="view_service_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Service Request
+                    <li class="<?= $page_active == 'view_service_request.php' ? 'active' : '' ?>"><a href="view_service_request.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Service Request
                         </a>
                     </li>
-                    <li class="<?= $page_active == 'view_feedback.php' ? 'active' : '' ?>"><a
-                            href="view_feedback.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Feedback
+                    <li class="<?= $page_active == 'view_feedback.php' ? 'active' : '' ?>"><a href="view_feedback.php"><i class="icon-eye-open"></i>&nbsp;&nbsp;Feedback
                             <?php if ($un_read_fee > 0) {
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_fee . '</span>';
                             } ?></a>
                     </li>
-                    <li class="<?= $page_active == 'view_responce.php' ? 'active' : '' ?>"><a
-                            href="view_responce.php"><i class="icon-eye-open"></i>&nbsp;&nbsp; Response
+                    <li class="<?= $page_active == 'view_responce.php' ? 'active' : '' ?>"><a href="view_responce.php"><i class="icon-eye-open"></i>&nbsp;&nbsp; Response
                             <?php if ($un_read_res > 0) {
                                 echo '<span class="label label-important" style="border-radius:15px">' . $un_read_res . '</span>';
                             } ?></a>
@@ -111,8 +109,7 @@ $total = $un_read_res + $un_read_fee;
             </li> -->
             <li class="submenu <?= $page_active == 'profile.php' ||
                                     $page_active == 'change_password.php' ||
-                                    $page_active == 'edit_profile.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
-                        class="icon icon-cogs"></i> <span>Setting</span></a>
+                                    $page_active == 'edit_profile.php' ? 'active' : '' ?>" id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
                 <ul>
                     <li class="<?= $page_active == 'profile.php' ? 'active' : '' ?>">
                         <a href="profile.php"><i class="icon-user"></i> My Profile</a>

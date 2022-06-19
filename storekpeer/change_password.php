@@ -3,7 +3,7 @@ include("header.php");
 include("../connection.php");
 //$stor_id = $_SESSION['stor_id'];
 if (isset($_POST['re_password'])) {
-    $old_pass = $_POST['old_pass'];
+    $old_pass = md5($_POST['old_pass']);
     $new_pass = $_POST['new_pass'];
     $re_pass = $_POST['re_pass'];
 
@@ -13,7 +13,7 @@ if (isset($_POST['re_password'])) {
     if ($database_password == $old_pass) {
 
         if ($new_pass == $re_pass) {
-            $update_pwd = mysqli_query($con, "UPDATE eaccount set password='$new_pass' where emp_id='$stor_id'");
+            $update_pwd = mysqli_query($con, "UPDATE eaccount set password='" . md5($new_pass) . "' where emp_id='$stor_id'");
             echo "<script>alert('Update Sucessfully'); window.location='home.php'</script>";
         } else {
             echo "<script>alert('Your new and Retype Password is not match'); window.location='change_password.php'</script>";

@@ -16,10 +16,10 @@ $row = mysqli_fetch_array($result);
     <!--breadcrumbs-->
     <div id="content-header">
         <div id="breadcrumb"><a href="view_responce.php" title="Go to view responce" class="tip-bottom"><i
-                    class="icon-home"></i>
+                    class="icon-eye-open"></i>
                 View Responce</a>
             </a>
-            <a href="feedback.php" title="Go to Send feedback" class="tip-bottom">
+            <a href="view_responce.php" title="Go to Send feedback" class="tip-bottom">
                 <i class="icon-reply"></i>Send Feedback
             </a>
         </div>

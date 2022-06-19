@@ -4,8 +4,11 @@ session_start();
 if (!(isset($_SESSION['stor_id']))) {
     header("Location: ../login.php");
 }
-$full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
 $stor_id = $_SESSION['stor_id'];
+$query = mysqli_query($con, "SELECT *FROM employee where id=$stor_id");
+$stor_info = mysqli_fetch_array($query);
+$full_name = $stor_info['fname'] . ' ' . $stor_info['mname'];
+
 $result = mysqli_query($con, "SELECT *from item_request where status='0'");
 $un_read = mysqli_num_rows($result);
 $feedback = mysqli_query($con, "SELECT *from feedback where send_to=$stor_id and view='0'");

@@ -19,7 +19,6 @@ include("header.php");
                 </h5>
             </center> -->
             <marquee direction="right" height="40%" behavior="alternate">
-
                 <span lang="RU"><strong>
                         <center>
                             <h2>
@@ -52,7 +51,7 @@ include("header.php");
                             <h3>&diams;&nbsp;&nbsp;&nbsp;Send Feedback</h3>
                         </strong>
                         <strong>
-                            <h3>&diams;&nbsp;&nbsp;&nbsp;Seting Profile.</h3>
+                            <h3>&diams;&nbsp;&nbsp;&nbsp;Setting Profile</h3>
                         </strong>
                     </center>
                 </p>

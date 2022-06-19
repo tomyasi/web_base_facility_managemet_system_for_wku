@@ -36,32 +36,35 @@ $total = $user_count + $emp_count;
                 <div class="card-body">
                     <h3 class="card-title text-center"> User Account</h3>
                     <h1 class="card-text text-center"><?php echo $user_count; ?></h1>
-                    <p class="card-text text-center">Some quick example text to build on the card title and make up the
-                        bulk of the
-                        card's content.</p>
-                    <a href="view_user_account.php" class="btn btn-primary text-center" style="margin-left:70px;border-radius:15px">Get
+                    <p class="card-text text-center">There are <?php echo $user_count; ?> Users register and use this
+                        system.</p>
+                    <a href="view_user_account.php" class="btn btn-primary text-center"
+                        style="margin-left:70px;border-radius:15px">Get
                         More</a>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:60px;">
-                <img class="card-img-top" src="../images/employees.jpg" alt="Card image cap" style="border-radius: 10px;">
+            <div class="card"
+                style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:60px;">
+                <img class="card-img-top" src="../images/employees.jpg" alt="Card image cap"
+                    style="border-radius: 10px;">
                 <div class="card-body">
                     <h3 class="card-title text-center">Employee Account</h3>
                     <h1 class="card-text text-center"><?php echo $emp_count; ?></h1>
-                    <p class="card-text text-center">Some quick example text to build on the card title and make up the
-                        bulk of the
-                        card's content.</p>
-                    <a href="view_employee_account.php" class="btn btn-primary text-center" style="margin-left:70px;border-radius:15px">Go
+                    <p class="card-text text-center">There are <?php echo $emp_count; ?> Employee's register and use
+                        this system.</p>
+                    <a href="view_employee_account.php" class="btn btn-primary text-center"
+                        style="margin-left:70px;border-radius:15px">Go
                         more</a>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:60px;">
-                <img class="card-img-top" src="../images/wkulogo2.jpg" alt="Card image cap" style="border-radius: 10px;">
+            <div class="card"
+                style="width: 18rem;border-style:solid;border-width:1px;border-radius:10px;float:left;margin-left:60px;">
+                <img class="card-img-top" src="../images/wkulogo2.jpg" alt="Card image cap"
+                    style="border-radius: 10px;">
                 <div class="card-body">
                     <h3 class="card-title text-center">Total No of Account</h3>
                     <h1 class="card-text text-center"><?php echo $total; ?></h1>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <p class="card-text">There are <?php echo $total; ?> total peoples register and use this system.</p>
                 </div>
             </div>
         </div>

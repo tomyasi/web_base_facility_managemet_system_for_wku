@@ -290,11 +290,11 @@ while ($row = mysqli_fetch_array($query)) {
 </div>
 <?php
 if (isset($_POST["send"])) {
-    $sql1 = "UPDATE user set 
+    $sql1 = "UPDATE employee set 
      fname='$_POST[fname]',mname='$_POST[mname]',lname='$_POST[lname]',
      gender='$_POST[gender]',age='$_POST[age]',gmail='$_POST[email]',
      phone='$_POST[phone]',nationality='$_POST[nationality]',
-     subcity='$_POST[address]' WHERE id=$id";
+     address='$_POST[address]' WHERE id=$id";
     $result = mysqli_query($con, $sql1) or die("Error occured" . mysqli_error($con));
     if ($result) {
 ?>

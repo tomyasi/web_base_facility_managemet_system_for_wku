@@ -63,7 +63,8 @@ $total = $user_count + $emp_count;
                 <div class="card-body">
                     <h3 class="card-title text-center">Total</h3>
                     <h1 class="card-text text-center"><?php echo $total; ?></h1>
-                    <p class="card-text text-center">There are <?php echo $total; ?>total Employee's and users registerd
+                    <p class="card-text text-center">There are <?php echo $total; ?> total Employee's and users
+                        registerd
                         in the system to give and gete services.</p>
                 </div>
             </div>

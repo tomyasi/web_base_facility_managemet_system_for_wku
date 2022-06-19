@@ -5,7 +5,10 @@ if (!(isset($_SESSION['manager_id']))) {
     header("Location: ../login.php");
 }
 $manager_id = $_SESSION['manager_id'];
-$full_name = $_SESSION['fname'] . ' ' . $_SESSION['mname'];
+$query = mysqli_query($con, "SELECT *FROM employee where id=$manager_id");
+$manager_info = mysqli_fetch_array($query);
+$full_name = $manager_info['fname'] . ' ' . $manager_info['mname'];
+
 $result = mysqli_query($con, "SELECT *from item_order where aprove='0';");
 $un_read = mysqli_num_rows($result);
 ?>
@@ -45,9 +48,7 @@ $un_read = mysqli_num_rows($result);
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
             <li class="dropdown" id="profile-messages">
-                <a title="Your profile" href="#" data-toggle="dropdown" data-target="#profile-messages"
-                    class="dropdown-toggle"><i class="icon icon-user"></i> <span
-                        class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
+                <a title="Your profile" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text"><?php echo $full_name; ?></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="profile.php"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -92,8 +93,7 @@ $un_read = mysqli_num_rows($result);
                                     $page_active == 'update_users.php' ||
                                     $page_active == 'user_status.php' ||
                                     $page_active == 'user_edite.php' ||
-                                    $page_active == 'view_user.php' ? 'active' : '' ?>" id="btn"><a href="#"><i
-                        class="icon icon-th-list"></i> <span>Manage Users</span></a>
+                                    $page_active == 'view_user.php' ? 'active' : '' ?>" id="btn"><a href="#"><i class="icon icon-th-list"></i> <span>Manage Users</span></a>
                 <ul>
                     <li class="<?= $page_active == 'user_regi.php' ? 'active' : '' ?>">
                         <a href="user_regi.php"><i class="icon-laptop"></i>&nbsp;&nbsp;User Registeration </a>
@@ -120,8 +120,7 @@ $un_read = mysqli_num_rows($result);
             </li>
             <li class="submenu <?= $page_active == 'profile.php' ||
                                     $page_active == 'change_password.php' ||
-                                    $page_active == 'edit_profile.php'  ? 'active' : '' ?>" id="btn"><a href="#"><i
-                        class="icon icon-cogs"></i> <span>Setting</span></a>
+                                    $page_active == 'edit_profile.php'  ? 'active' : '' ?>" id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
                 <ul>
                     <li class="<?= $page_active == 'profile.php' ? 'active' : '' ?>">
                         <a href="profile.php"><i class="icon-user"></i> My Profile</a>

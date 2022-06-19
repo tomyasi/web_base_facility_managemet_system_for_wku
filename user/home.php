@@ -150,7 +150,7 @@ img {
                                         <h3>&diams;&nbsp;&nbsp;&nbsp;send Feedback</h3>
                                     </strong>
                                     <strong>
-                                        <h3>&diams;&nbsp;&nbsp;&nbsp;change passwords.</h3>
+                                        <h3>&diams;&nbsp;&nbsp;&nbsp;Setting Profile</h3>
                                     </strong>
                                     <!-- </marquee> -->
                                 </center>

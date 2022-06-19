@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_array($query)) {
             <a href="#"><i class="icon icon-th-list"></i> <span>Manage User</span></a>
             <a href="update_users.php" title="Go to User update" class="tip-bottom"><i class="icon-pencil"></i> Update
                 Users</a>
-            <a href="user_edite.php" title="Go to User update form" class="tip-bottom">
+            <a href="update_users.php" title="Go to User update form" class="tip-bottom">
                 User Update form</a>
         </div>
     </div>

@@ -26,7 +26,7 @@ $total = $user_count + $emp_count;
         <hr>
         <marquee direction="right" height="40%" behavior="alternate" class="text-center">
             <h4>WELL COME TO FACILITY MANAGEMENT SYSTEM</h4>
-            <h4> EMPLOYEE LEDER PAGE</h4>
+            <h4> EMPLOYEE GROUP LEDER PAGE</h4>
         </marquee>
         <hr>
         <div class="row-fluid">
@@ -59,7 +59,8 @@ $total = $user_count + $emp_count;
                 <div class="card-body">
                     <h3 class="card-title text-center">Total</h3>
                     <h1 class="card-text text-center"><?php echo $total; ?></h1>
-                    <p class="card-text text-center">There are <?php echo $total; ?>total Employee's and users registerd
+                    <p class="card-text text-center">There are <?php echo $total; ?> total Employee's and users
+                        registerd
                         in the system to give and gete services.</p>
                 </div>
             </div>

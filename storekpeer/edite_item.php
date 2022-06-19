@@ -25,7 +25,7 @@ while ($row = mysqli_fetch_array($query)) {
             <a href="#"><i class="icon icon-th-list"></i> <span>Manage Item</span></a>
             <a href="item_update.php" title="Go to Item update" class="tip-bottom"><i class="icon-pencil"></i> Update
                 Item</a>
-            <a href="edite_item.php" title="Go to Item update form" class="tip-bottom">
+            <a href="item_update.php" title="Go to Item update form" class="tip-bottom">
                 Item Update form</a>
         </div>
     </div>
@@ -60,7 +60,8 @@ while ($row = mysqli_fetch_array($query)) {
                                         <option value='office material'
                                             <?php if ($type == "office material") echo "selected"; ?>>Office Material
                                         </option>
-                                        <option value='Car' <?php if ($type == "Car") echo "selected"; ?>>Car</option>
+                                        <option value='Car Material'
+                                            <?php if ($type == "Car Material") echo "selected"; ?>>Car Material</option>
                                         <option value='Oil' <?php if ($type == "Oil") echo "selected"; ?>>Oil</option>
                                         <option value='Clean material'
                                             <?php if ($type == "Clean material") echo "selected"; ?>>Clean material

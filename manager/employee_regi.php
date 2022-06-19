@@ -142,8 +142,9 @@ $email_err = "";
                                     <select class="span8" name="position" required style="border-radius: 13px;">
                                         <option value="">Select job position...</option>
                                         <option value="admin">Admin</option>
-                                        <option value="manger">Manager</option>
+                                        <option value="manager">Manager</option>
                                         <option value="storekpeer">Storekpeer</option>
+                                        <option value="leder">Employee Leder</option>
                                         <option value="technician">Technician</option>
                                         <option value="security"> Security</option>
                                         <option value="clealiness"> Clealiness</option>
