@@ -83,9 +83,9 @@ session_start();
                         style="border-radius: 13px;">
                 </center>
             </div>
-            <div>
+            <!-- <div>
                 <a href="forgot_password.php" class="btn btn-lg btn-primary btn-block" name="forgot">Forgot Password</a>
-            </div>
+            </div> -->
         </form>
         <?php
         if (isset($_POST["submit"])) {

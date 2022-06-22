@@ -45,6 +45,9 @@ include("header.php");
                             <h3>&diams;&nbsp;&nbsp;&nbsp;View Response</h3>
                         </strong>
                         <strong>
+                            <h3>&diams;&nbsp;&nbsp;&nbsp;Give Response</h3>
+                        </strong>
+                        <strong>
                             <h3>&diams;&nbsp;&nbsp;&nbsp;Send Request</h3>
                         </strong>
                         <strong>

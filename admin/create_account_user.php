@@ -112,7 +112,7 @@ if (!(isset($_SESSION['admin_id']))) {
                             </div>
                             <div class="alert alert-success" id="success" style="display:none;">
                                 <center>
-                                    <strong>The Account Creayed successfully.</strong>
+                                    <strong>The Account is Created successfully.</strong>
                                 </center>
                             </div>
                         </form>

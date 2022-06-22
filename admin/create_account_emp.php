@@ -51,7 +51,6 @@ if (!(isset($_SESSION['admin_id']))) {
                                         </center>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="control-group">
                                 <label class="control-label"><strong>Username<small style="color: red;">*</small>
@@ -99,6 +98,7 @@ if (!(isset($_SESSION['admin_id']))) {
                                         <option value="admin">Admin</option>
                                         <option value="manager">Manager</option>
                                         <option value="storekpeer">Storekpeer</option>
+                                        <option value="leder">Employee Leder</option>
                                         <option value="technician">Technician</option>
                                         <option value="security"> Security</option>
                                         <option value="clealiness"> Clealiness</option>
@@ -130,7 +130,7 @@ if (!(isset($_SESSION['admin_id']))) {
                             </div>
                             <div class="alert alert-success" id="success" style="display:none;">
                                 <center>
-                                    <strong>The Account Created successfully.</strong>
+                                    <strong>The Account is Created successfully.</strong>
                                 </center>
                             </div>
                             <div id="result"> </div>
@@ -206,6 +206,9 @@ setTimeout(function() {
     }
 
     if ($id_error == "" && $pass_error == "" && $cpass_error == "" && $regi_id_err == "") {
+        $result = mysqli_query($con, "SELECT *FROM employee where emp_id='id'");
+        $row = mysqli_fetch_array($result);
+
         $qur = "INSERT INTO eaccount values(NULL,'$id','$username','" . md5($pass) . "','$status',' $insertdate','$role')";
         $res = mysqli_query($con, $qur) or die("error occured" . mysqli_error($con));
         if ($res) { ?>

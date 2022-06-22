@@ -182,7 +182,7 @@ setTimeout(function() {
 <?php
         }
     } else {
-        echo "<script>alert('Not avalabile Resource,Please enter less than $row[item_quantity]'); 
+        echo "<script>alert('Not avalabile Resource.'); 
         window.location='item_request_detail.php'</script>";
     }
 }

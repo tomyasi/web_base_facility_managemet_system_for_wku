@@ -4,13 +4,14 @@ include("../connection.php");
 if (!(isset($_SESSION['admin_id']))) {
     header("Location: ../login.php");
 }
-$user_id = $_SESSION['admin_id'];
+$admin_id = $_SESSION['admin_id'];
+
 if (isset($_POST['re_password'])) {
     $old_pass = md5($_POST['old_pass']);
     $new_pass = $_POST['new_pass'];
     $re_pass = $_POST['re_pass'];
 
-    $password_query = mysqli_query($con, "SELECT * from eaccount where emp_id='$user_id'");
+    $password_query = mysqli_query($con, "SELECT * from eaccount where emp_id='$admin_id'");
     $password_row = mysqli_fetch_array($password_query);
     $database_password = $password_row['password'];
     if ($database_password == $old_pass) {

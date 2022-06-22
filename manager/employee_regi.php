@@ -213,7 +213,7 @@ $email_err = "";
                                                                         )) {
                                                                         if (lengthRestriction(nationality, 3, 25,
                                                                                 "for your nationality")) {
-                                                                            if (isAlphabet(subcity,
+                                                                            if (isAlphabetSpace(subcity,
                                                                                     "please enter Your subcity in letters only"
                                                                                 )) {
                                                                                 if (lengthRestriction(subcity, 3,
@@ -298,6 +298,17 @@ $email_err = "";
 
                             function isFloat(elem, helperMsg) {
                                 var alphaExp = /^(\d)*\.(\d)+$/;
+                                if (elem.value.match(alphaExp)) {
+                                    return true;
+                                } else {
+                                    alert(helperMsg);
+                                    elem.focus();
+                                    return false;
+                                }
+                            }
+
+                            function isAlphabetSpace(elem, helperMsg) {
+                                var alphaExp = /^([a-zA-Z' ]+)$/;
                                 if (elem.value.match(alphaExp)) {
                                     return true;
                                 } else {

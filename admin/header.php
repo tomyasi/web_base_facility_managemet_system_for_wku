@@ -109,10 +109,10 @@ $full_name = $admin_info['fname'] . ' ' . $admin_info['mname'];
                 <a href="generate_account.php"><i class="icon-laptop"></i>
                     <span>Generate Account</span></a>
             </li>
-            <li class="<?= $page_active == 'backup.php' ? 'active' : '' ?>">
+            <!-- <li class="<?= $page_active == 'backup.php' ? 'active' : '' ?>">
                 <a href="backup.php"><i class="icon-laptop"></i>
                     <span>Backup and Recovery</span></a>
-            </li>
+            </li> -->
             <li class="submenu <?= $page_active == 'profile.php' || $page_active == 'change_password.php' || $page_active == 'edit_profile.php'  ? 'active' : '' ?>"
                 id="btn"><a href="#"><i class="icon icon-cogs"></i> <span>Setting</span></a>
                 <ul>

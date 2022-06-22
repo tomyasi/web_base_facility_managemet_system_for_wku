@@ -1,6 +1,10 @@
 <?php
 session_start();
 include("connection.php");
+if (!isset($_SESSION['username']) and !isset($_SESSION['role'])) {
+    echo "<script type='text/javascript'>alert('Access Denied!!!')</script>";
+    header("Refresh:1; url=login.php", true, 303);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,41 +38,38 @@ include("connection.php");
     <div id="loginbox" style="border-radius: 15px;">
         <form name="formlogin" class="form-vertical" action="" method="POST" onsubmit='return formValidation()'>
             <div class="control-group normal_text">
-                <h3>WKUFMS<br>Forgot Password</h3>
+                <h3>WKUFMS<br>Enter new Password</h3>
             </div>
-            <div class="alert alert-danger" id="emp_error" style="display: none;">
+            <div class="alert alert-success" id="emp_error" style="display: none;">
                 <center>
-                    <strong>No Employee is registered with this username!</strong>
-
+                    <strong>Password change successfully!<br>
+                        <a href='login.php' style='color:#fff;'>Login here... </a></strong>
                 </center>
             </div>
             <div class="alert alert-danger" id="user_error" style="display: none;">
                 <center>
-                    <strong>No user is registered with this username!</strong>
+                    <strong>Password and confirm password do not match!</strong>
                 </center>
             </div>
             <div class="control-group">
                 <div class="controls">
                     <div class="main_input_box">
-                        <span class="add-on bg_lg"><i class="icon-envelope"></i></span><input type="text"
-                            placeholder="Enter username" name="username" id="email" required />
+                        <span class="add-on bg_lg"><i class="icon-lock"></i></span><input type="password"
+                            placeholder="Enter new password" name="pass" id="email" required />
                     </div>
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
                     <div class="main_input_box">
-                        <select name="role" required style="border-radius: 13px;">
-                            <option value="">...Select Role...</option>
-                            <option value="employee">Employee's</option>
-                            <option value="user">User</option>
-                        </select>
+                        <span class="add-on bg_lg"><i class="icon-lock"></i></span><input type="password"
+                            placeholder="Enter confirm password" name="cpass" id="email" required />
                     </div>
                 </div>
             </div>
             <div class="form-actions">
                 <center>
-                    <input type="submit" name="submit" value="Reset Password" class="btn btn-success"
+                    <input type="submit" name="submit" value="Reset" class="btn btn-success"
                         style="border-radius: 13px;">
                 </center>
             </div>
@@ -78,35 +79,42 @@ include("connection.php");
 
 </html>
 <?php
-if (isset($_POST["submit"])) {
-    $username = $_POST["username"];
-    $role = $_POST["role"];
-    if ($role == 'employee') {
-        $sel_query = "SELECT * FROM eaccount WHERE username='" . $username . "'";
-        $results = mysqli_query($con, $sel_query);
-        $row = mysqli_num_rows($results);
-        if ($row <= 0) {
-
+if (isset($_POST['submit'])) {
+    $password =  md5($_POST['pass']);
+    $passwordConfirm =  md5($_POST['cpass']);
+    $username =  $_SESSION['username'];
+    $role = $_SESSION['role'];
+    if ($password == $passwordConfirm) {
+        if ($role = 'user') {
+            $result = mysqli_query($con, "UPDATE uaccount SET password='$password' WHERE username='$username'");
+            if ($result) {
+                header("location:login.php");
 ?>
 <script type="text/javascript">
-document.getElementById("emp_error").style.display = "block";
+document.getElementById("employee_error").style.display = "block";
 // refresh the page after 3 second
 setTimeout(function() {
     window.location.href = window.location.href;
 }, 3000);
 </script>
 <?php
+            }
         } else {
-            $_SESSION['username'] = $username;
-            $_SESSION['role'] = 'employee';
-            header("location:reset_password.php");
+            $result = mysqli_query($con, "UPDATE eaccount SET password='$password' WHERE username='$username'");
+            if ($result) {
+                header("location:login.php");
+            ?>
+<script type="text/javascript">
+document.getElementById("employee_error").style.display = "block";
+// refresh the page after 3 second
+setTimeout(function() {
+    window.location.href = window.location.href;
+}, 3000);
+</script>
+<?php
+            }
         }
-    } elseif ($role == 'user') {
-        $sel_query = "SELECT * FROM uaccount WHERE username='" . $username . "'";
-        $results = mysqli_query($con, $sel_query);
-        $row = mysqli_num_rows($results);
-        if ($row <= 0) {
-
+    } else {
         ?>
 <script type="text/javascript">
 document.getElementById("user_error").style.display = "block";
@@ -116,12 +124,6 @@ setTimeout(function() {
 }, 3000);
 </script>
 <?php
-        } else {
-            $_SESSION['username'] = $username;
-            $_SESSION['role'] = 'user';
-            header("location:reset_password.php");
-        }
-    } else {
     }
 }
 ?>
